@@ -29,10 +29,11 @@
 - [ ] Implement world boundaries. 500x500?
 - [ ] Implement help for all modes.
 - [ ] Implement child rules - inherit targets from parent rule.
+- [ ] Networked multiplayer using pxt-socket.
 
 ## TODO (Language - not prioritized)
 
-- [ ] "player 1", "player 2" filters (input and sensory)
+- [ ] "player 1-4" filters (input and sensory).
 - [ ] "express" actuator, filters, modidfiers. "none", "happy", "sad", "angry", "crazy", "hearts", "flowers", "stars", "swears"
 - [x] "near by", "far away" filters
 - [ ] "bump" sensor
