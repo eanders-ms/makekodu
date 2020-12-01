@@ -102,6 +102,7 @@ namespace kodu {
             const savedGame = mkSavedGame();
             this.components.forEach(comp => comp.notify("save", savedGame));
             const s = JSON.stringify(savedGame, (key: string, value: any) => { return value != null ? value : undefined });
+            console.logValue("save", s);
             settings.writeString(SAVEGAME, s);
         }
 
@@ -113,6 +114,7 @@ namespace kodu {
             try {
                 if (settings.exists(SAVEGAME)) {
                     const s = settings.readString(SAVEGAME);
+                    console.logValue("load", s);
                     if (s) {
                         const savedGame: SavedGame = JSON.parse(s);
                         if (savedGame) {

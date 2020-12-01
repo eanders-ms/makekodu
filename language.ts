@@ -608,7 +608,7 @@ namespace kodu {
             "modifier.circle" : {
                 type: "modifier",
                 id: "modifier.circle",
-                name: "circle",
+                name: "around",
                 categories: [
                     "direction"
                 ],

@@ -5,7 +5,7 @@
 
 ## Top TODOs
 
-- [ ] Tile art.
+- [ ] Tile art (ongoing... keep up on it).
 - [ ] Tile compatibility filtering.
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
@@ -16,18 +16,19 @@
 - [ ] Add community features to hosting site: share world, browse shared, etc.
 - [ ] Support tilemaps for terrain and wall painting.
 - [ ] Support tilemap walls in physics engine.
-- [x] Add "Duplicate" to char menu.
+- [x] Add "Duplicate" to character menu.
 - [ ] Add rule menu: move up/down, delete.
-- [ ] Improve tile selection menu layout.
+- [x] Improve tile selection menu layout.
 - [ ] Implement tile compatibility filtering.
 - [ ] Create character from gallery sprite.
 - [ ] Actuator arbitration? Maybe.
-- [x] Movement blending.
+- [x] Movement blending (done, not sure we want it though).
 - [ ] Exclusive movement types? Maybe.
 - [ ] Clicking "play": Delay entering play mode until A button is released. Otherwise brains can sense the button down from the click.
 - [ ] When a brain has dpad input, change "stop" button to show you have to push the "menu" button to get back to edit mode.
 - [ ] Implement world boundaries. 500x500?
 - [ ] Implement help for all modes.
+- [ ] Implement child rules - inherit targets from parent rule.
 
 ## TODO (Language - not prioritized)
 
@@ -50,6 +51,10 @@
 - [ ] "call page" actuator
 - [ ] "say" actuator? Maybe.
 - [ ] Terrain sensor, filters. Terrain paint actuator, modifiers.
+- [ ] "on terrain" move modifier. Loosely paths on matching terrain.
+- [ ] "pressed", "released" button filters.
+- [ ] "done" final modifier to indicate brain should stop executing this frame.
+- [ ] "not" final filter to negate the when clause.
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 
