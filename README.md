@@ -1,4 +1,4 @@
- 
+
 
 
 > Open this page at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
@@ -29,7 +29,8 @@
 - [ ] Implement world boundaries. 500x500?
 - [ ] Implement help for all modes.
 - [ ] Implement child rules - inherit targets from parent rule.
-- [ ] Networked multiplayer using pxt-socket.
+- [ ] Networked multiplayer using pxt-socket. Matchmaking through host site.
+- [ ] World settings: Background color. Behavior on glass wall collide (destroy? bounce?)
 
 ## TODO (Language - not prioritized)
 

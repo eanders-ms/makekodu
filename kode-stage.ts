@@ -238,14 +238,15 @@ namespace kodu {
         handleSensorClick(button: Button) {
             const suggestions = Language.getSensorSuggestions(this.defn);
             const items = suggestions.map(elem => {
-                return {
+                return <MenuItemDefn>{
                     icon: elem.id,
                     label: elem.name
                 };
             });
             items.push({
                 icon: "delete",
-                label: "Delete"
+                label: "Delete",
+                style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
                 if (selection.id !== this.sensor.id) {
@@ -264,14 +265,15 @@ namespace kodu {
         handleActuatorClick(button: Button) {
             const suggestions = Language.getActuatorSuggestions(this.defn);
             const items = suggestions.map(elem => {
-                return {
+                return <MenuItemDefn>{
                     icon: elem.id,
                     label: elem.name
                 };
             });
             items.push({
                 icon: "delete",
-                label: "Delete"
+                label: "Delete",
+                style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
                 if (selection.id !== this.actuator.id) {
@@ -291,14 +293,15 @@ namespace kodu {
             const index: number = button.data["index"];
             const suggestions = Language.getFilterSuggestions(this.defn, index);
             const items = suggestions.map(elem => {
-                return {
+                return <MenuItemDefn>{
                     icon: elem.id,
                     label: elem.name
                 };
             });
             items.push({
                 icon: "delete",
-                label: "Delete"
+                label: "Delete",
+                style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
                 if (this.defn.filters[index].id !== selection.id) {
@@ -318,14 +321,15 @@ namespace kodu {
             const index: number = button.data["index"];
             const suggestions = Language.getModifierSuggestions(this.defn, index);
             const items = suggestions.map(elem => {
-                return {
+                return <MenuItemDefn>{
                     icon: elem.id,
                     label: elem.name
                 };
             });
             items.push({
                 icon: "delete",
-                label: "Delete"
+                label: "Delete",
+                style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
                 if (this.defn.modifiers[index].id !== selection.id) {

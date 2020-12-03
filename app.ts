@@ -3,7 +3,6 @@ namespace kodu {
         stageManager: StageManager;
 
         public cursorSpeed = 3;
-        public cameraStep = 3;
 
         constructor() {
             // One interval delay to ensure all static constructors have executed.

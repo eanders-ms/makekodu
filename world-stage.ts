@@ -37,7 +37,7 @@ namespace kodu {
             this.physics = new Physics(this);
             this.playBtn = new Button(this, "white", "play", "Play", 8, 112, true, () => this.handlePlayClicked());
             this.stopBtn = new Button(this, "white", "stop", "Stop", 8, 112, true, () => this.handleStopClicked());
-            this.newBtn = new Button(this, "white", "new_file", "New", 8, 8, true, () => this.handleNewFileClicked());
+            this.newBtn = new Button(this, "danger", "new_file", "New", 8, 8, true, () => this.handleNewFileClicked());
             const createMenuItems = Characters.getCharacters().map(char => {
                 return {
                     icon: char.id,
@@ -49,7 +49,7 @@ namespace kodu {
                 { icon: "edit", label: "Edit" },
                 { icon: "move", label: "Move" },
                 { icon: "duplicate", label: "Duplicate" },
-                { icon: "delete", label: "Delete" }
+                { icon: "delete", label: "Delete", style: "danger" }
             ];
             this.charMenu = new Menu(this, charMenuItems, false);
             this.setGameMode("edit");
@@ -102,7 +102,7 @@ namespace kodu {
             const savedGame = mkSavedGame();
             this.components.forEach(comp => comp.notify("save", savedGame));
             const s = JSON.stringify(savedGame, (key: string, value: any) => { return value != null ? value : undefined });
-            console.logValue("save", s);
+            //console.logValue("save", s);
             settings.writeString(SAVEGAME, s);
         }
 
@@ -114,7 +114,7 @@ namespace kodu {
             try {
                 if (settings.exists(SAVEGAME)) {
                     const s = settings.readString(SAVEGAME);
-                    console.logValue("load", s);
+                    //console.logValue("load", s);
                     if (s) {
                         const savedGame: SavedGame = JSON.parse(s);
                         if (savedGame) {

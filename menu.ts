@@ -8,6 +8,7 @@ namespace kodu {
     export type MenuItemDefn = {
         icon: string;
         label: string;
+        style?: ButtonStyle;
     };
 
     export class Menu extends Component {
@@ -24,7 +25,8 @@ namespace kodu {
             if (this.isVisible()) { this.hide(); }
             this.items.forEach((item, index) => {
                 const icon = icons.get(item.icon);
-                const button = new Button(this.stage, "white", item.icon, item.label, x, y, this.hud, (button) => onSelect(button));
+                item.style = item.style || "white";
+                const button = new Button(this.stage, item.style, item.icon, item.label, x, y, this.hud, (button) => onSelect(button));
                 this.buttons.push(button);
                 if (direction === "right") { x += icon.width; }
                 else if (direction === "up") { y -= icon.height; }
