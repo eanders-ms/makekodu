@@ -35,11 +35,6 @@ namespace kodu {
         category: string;
     };
 
-    export type SensorMap = { [id: string]: SensorDefn; };
-    export type FilterMap = { [id: string]: FilterDefn; };
-    export type ActuatorMap = { [id: string]: ActuatorDefn; };
-    export type ModifierMap = { [id: string]: ModifierDefn; };
-
     export class RuleDefn {
         sensor: SensorDefn;
         filters: FilterDefn[];
@@ -301,6 +296,11 @@ namespace kodu {
             }
         }
     }
+
+    type SensorMap = { [id: string]: SensorDefn; };
+    type FilterMap = { [id: string]: FilterDefn; };
+    type ActuatorMap = { [id: string]: ActuatorDefn; };
+    type ModifierMap = { [id: string]: ModifierDefn; };
 
     export type TileDatabase = {
         sensors: SensorMap;

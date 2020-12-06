@@ -46,6 +46,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Networked multiplayer using pxt-socket. Matchmaking through host site.
 - [ ] World settings: Background color. Behavior on glass wall collide (destroy? bounce?)
 - [ ] Brain editor: Don't show when or do insertion point if there are no valid tiles to add.
+- [ ] Tile compat: Only make "it" modifier available if WHEN side produces character-sensory output.
 
 ### TODO (Language - not prioritized)
 
