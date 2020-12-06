@@ -585,6 +585,7 @@ namespace kodu {
                 category: "direction",
                 constraints: {
                     disallow: {
+                        ids: ["modifier.me"],
                         categories: ["direction"]
                     }
                 }
@@ -596,6 +597,7 @@ namespace kodu {
                 category: "direction",
                 constraints: {
                     disallow: {
+                        ids: ["modifier.me"],
                         categories: ["direction"]
                     }
                 }
@@ -607,6 +609,7 @@ namespace kodu {
                 category: "direction",
                 constraints: {
                     disallow: {
+                        ids: ["modifier.me"],
                         categories: ["direction"]
                     }
                 }
