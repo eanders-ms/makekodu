@@ -7,10 +7,7 @@ The Kodu programming model is novel and rigorously streamlined. It dispenses wit
 symbolic variables, branching, loops, string manipulation, polymorphism, and so on. The user programs characters in the world, and 
 programs are expressed in a high-level, sensory paradigm. The typical "hello world" of Kodu is:
 
-```
-WHEN [see] [tree] - DO [move] [toward]
-WHEN [bump] [tree] - DO [explode]
-```
+![Kodu-Hello-World](content/kodu-hello-world.png)
 
 ## What is MakeKodu?
 
