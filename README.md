@@ -1,16 +1,33 @@
 
 
+## What is Kodu?
 
-> Open this page at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
+[Kodu Game Lab](https://www.kodugamelab.com) is a 3D game development environment designed to make game programming simple and accessible to anyone.
+The Kodu programming model is novel and rigorously streamlined. It dispenses with the majority of traditional programming concepts, including
+symbolic variables, branching, loops, string manipulation, polymorphism, and so on. The user programs characters in the world, and 
+programs are expressed in a high-level, sensory paradigm. The typical "hello world" of Kodu is:
 
-## Top TODOs
+```
+WHEN [see] [tree] - DO [move] [toward]
+WHEN [bump] [tree] - DO [explode]
+```
+
+## What is MakeKodu?
+
+This project is an experiment - inspired by Kodu and [Microsoft TileCode](https://microsoft.github.io/tilecode/) - to see what a Kodu-like
+environment would feel like in MakeCode Arcade and on supported handhelds like [Meowbit](https://www.kittenbot.cc/products/meowbit-codable-console-for-microsoft-makecode-arcade).
+
+Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
+
+
+### Top TODOs
 
 - [ ] Tile art (ongoing... keep up on it).
 - [ ] Tile compatibility filtering.
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 
-## TODO (General - not prioritized)
+### TODO (General - not prioritized)
 
 - [ ] Create MakeKodu hosting website.
 - [ ] Add community features to hosting site: share world, browse shared, etc.
@@ -31,8 +48,9 @@
 - [ ] Implement child rules - inherit targets from parent rule.
 - [ ] Networked multiplayer using pxt-socket. Matchmaking through host site.
 - [ ] World settings: Background color. Behavior on glass wall collide (destroy? bounce?)
+- [ ] Brain editor: Don't show when or do insertion point if there are no valid tiles to add.
 
-## TODO (Language - not prioritized)
+### TODO (Language - not prioritized)
 
 - [ ] "player 1-4" filters (input and sensory).
 - [ ] "express" actuator, filters, modidfiers. "none", "happy", "sad", "angry", "crazy", "hearts", "flowers", "stars", "swears"
@@ -40,6 +58,7 @@
 - [ ] "bump" sensor
 - [x] "wander" (as default move behavior)
 - [ ] "up", "down", "left", "right" (move modifiers)
+- [ ] "above", "below", "left", "right" (position relative filters)
 - [ ] teams: "red", "blue", "opposite", "none"
 - [x] "me", "it" filters, modifiers
 - [ ] "boom" actuator

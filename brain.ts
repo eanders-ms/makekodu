@@ -64,11 +64,11 @@ namespace kodu {
         constructor(public page: Page, public defn: RuleDefn) {
             this.prevState = {};
             this.state = {};
-            this.sensorFn = Library.getFunction((this.defn.sensor || tiledb.sensors["sensor.always"]).id);
+            this.sensorFn = Library.getFunction((this.defn.sensor || tiles.sensors["sensor.always"]).id);
             this.filterFns = (this.defn.filters || []).map(elem => Library.getFunction(elem.id));
             this.actuatorFn = Library.getFunction((this.defn.actuator || <any>{}).id);
             this.modifierFns = (this.defn.modifiers || []).map(elem => Library.getFunction(elem.id));
-            this.hasInput = Language.hasCategory(this.defn.sensor, "input");
+            this.hasInput = this.defn.sensor.category === "input";
         }
 
         public execute() {

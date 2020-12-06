@@ -253,7 +253,7 @@ namespace kodu {
                     if (selection.id === "delete") {
                         this.defn.sensor = null;
                     } else {
-                        this.defn.sensor = tiledb.sensors[selection.id];
+                        this.defn.sensor = tiles.sensors[selection.id];
                     }
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
@@ -280,7 +280,7 @@ namespace kodu {
                     if (selection.id === "delete") {
                         this.defn.actuator = null;
                     } else {
-                        this.defn.actuator = tiledb.actuators[selection.id];
+                        this.defn.actuator = tiles.actuators[selection.id];
                     }
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
@@ -308,7 +308,7 @@ namespace kodu {
                     if (selection.id === "delete") {
                         this.defn.filters.splice(index, 1);
                     } else {
-                        this.defn.filters[index] = tiledb.filters[selection.id];
+                        this.defn.filters[index] = tiles.filters[selection.id];
                     }
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
@@ -336,7 +336,7 @@ namespace kodu {
                     if (selection.id === "delete") {
                         this.defn.modifiers.splice(index, 1);
                     } else {
-                        this.defn.modifiers[index] = tiledb.modifiers[selection.id];
+                        this.defn.modifiers[index] = tiles.modifiers[selection.id];
                     }
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
@@ -356,7 +356,7 @@ namespace kodu {
                     };
                 });
                 this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                    this.defn.filters.push(tiledb.filters[selection.id]);
+                    this.defn.filters.push(tiles.filters[selection.id]);
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
                     this.pageui.ensureFinalEmptyRule();
@@ -370,7 +370,7 @@ namespace kodu {
                     };
                 });
                 this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                    this.defn.sensor = tiledb.sensors[selection.id];
+                    this.defn.sensor = tiles.sensors[selection.id];
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
                     this.pageui.ensureFinalEmptyRule();
@@ -389,7 +389,7 @@ namespace kodu {
                     };
                 });
                 this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                    this.defn.modifiers.push(tiledb.modifiers[selection.id]);
+                    this.defn.modifiers.push(tiles.modifiers[selection.id]);
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
                     this.pageui.ensureFinalEmptyRule();
@@ -403,7 +403,7 @@ namespace kodu {
                     };
                 });
                 this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                    this.defn.actuator = tiledb.actuators[selection.id];
+                    this.defn.actuator = tiles.actuators[selection.id];
                     Language.ensureValid(this.defn);
                     this.instantiateTiles(this.defn);
                     this.pageui.ensureFinalEmptyRule();
@@ -416,7 +416,7 @@ namespace kodu {
         }
 
         createSensorBtn(id: string): Button {
-            const defn = tiledb.sensors[id];
+            const defn = tiles.sensors[id];
             if (defn) {
                 const button = new Button(
                     this.stage,
@@ -433,7 +433,7 @@ namespace kodu {
         }
 
         createActuatorBtn(id: string): Button {
-            const defn = tiledb.actuators[id];
+            const defn = tiles.actuators[id];
             if (defn) {
                 const button = new Button(
                     this.stage,
@@ -450,7 +450,7 @@ namespace kodu {
         }
 
         createFilterBtn(id: string, index: number): Button {
-            const defn = tiledb.filters[id];
+            const defn = tiles.filters[id];
             if (defn) {
                 const button = new Button(
                     this.stage,
@@ -468,7 +468,7 @@ namespace kodu {
         }
 
         createModifierBtn(id: string, index: number): Button {
-            const defn = tiledb.modifiers[id];
+            const defn = tiles.modifiers[id];
             if (defn) {
                 const button = new Button(
                     this.stage,
