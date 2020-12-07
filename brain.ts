@@ -68,7 +68,7 @@ namespace kodu {
             this.filterFns = (this.defn.filters || []).map(elem => Library.getFunction(elem.id));
             this.actuatorFn = Library.getFunction((this.defn.actuator || <any>{}).id);
             this.modifierFns = (this.defn.modifiers || []).map(elem => Library.getFunction(elem.id));
-            this.hasInput = this.defn.sensor.category === "input";
+            this.hasInput = this.defn.sensor && this.defn.sensor.category === "input";
         }
 
         public execute() {

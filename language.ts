@@ -3,6 +3,12 @@ namespace kodu {
     export type TileType = "sensor" | "filter" | "actuator" | "modifier";
 
     export interface Constraints {
+        provides?: {
+            categories?: string[];
+        },
+        requires?: {
+            categories?: string[];
+        }
         allow?: {
             ids?: string[];
             categories?: string[];
@@ -266,6 +272,12 @@ namespace kodu {
 
     function mkConstraints(): Constraints {
         const c: Constraints = {
+            provides: {
+                categories: []
+            },
+            requires: {
+                categories: []
+            },
             allow: {
                 ids: [],
                 categories: []
