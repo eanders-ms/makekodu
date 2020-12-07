@@ -1,5 +1,5 @@
-// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.3","target":"arcade","targetVersion":"1.2.10","repo":"humanapp/makekodu"}
-// total=2186259 new=42.67% cached=51.76% other=5.56%
+// meta={"simUrl":"https://trg-arcade.userpxt.io/v1.2.10/---simulator","cdnUrl":"https://pxt.azureedge.net","version":"0.0.4","target":"arcade","targetVersion":"1.2.10","repo":"humanapp/makekodu"}
+// total=2188668 new=42.74% cached=51.71% other=5.56%
 (function (ectx) {
 'use strict';
 const runtime = ectx.runtime;
@@ -603,7 +603,7 @@ const pxsim_pxtrt = pxsim.pxtrt;
 const pxsim_numops = pxsim.numops;
 
 
-function _main___P24554(s) {
+function _main___P139040(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -1434,68 +1434,66 @@ switch (step) {
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_104, "category", "direction");
     r0 = pxsim_Array__mk();
     s.tmp_105 = r0;
-    r0 = pxsim_Array__push(s.tmp_105, "direction");
+    r0 = pxsim_Array__push(s.tmp_105, "modifier.me");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_106 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_106, "categories", s.tmp_105);
-    r0 = pxsim_pxtrt.mkMap();
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_106, "ids", s.tmp_105);
+    r0 = pxsim_Array__mk();
     s.tmp_107 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_107, "disallow", s.tmp_106);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_104, "constraints", s.tmp_107);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.toward", s.tmp_104);
+    r0 = pxsim_Array__push(s.tmp_107, "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_106, "categories", s.tmp_107);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_108 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "id", "modifier.away");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "name", "away");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "category", "direction");
-    r0 = pxsim_Array__mk();
-    s.tmp_109 = r0;
-    r0 = pxsim_Array__push(s.tmp_109, "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "disallow", s.tmp_106);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_104, "constraints", s.tmp_108);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.toward", s.tmp_104);
     r0 = pxsim_pxtrt.mkMap();
+    s.tmp_109 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_109, "type", "modifier");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_109, "id", "modifier.away");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_109, "name", "away");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_109, "category", "direction");
+    r0 = pxsim_Array__mk();
     s.tmp_110 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_110, "categories", s.tmp_109);
+    r0 = pxsim_Array__push(s.tmp_110, "modifier.me");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_111 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_111, "disallow", s.tmp_110);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_108, "constraints", s.tmp_111);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.away", s.tmp_108);
-    r0 = pxsim_pxtrt.mkMap();
-    s.tmp_112 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_112, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_112, "id", "modifier.circle");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_112, "name", "around");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_112, "category", "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_111, "ids", s.tmp_110);
     r0 = pxsim_Array__mk();
+    s.tmp_112 = r0;
+    r0 = pxsim_Array__push(s.tmp_112, "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_111, "categories", s.tmp_112);
+    r0 = pxsim_pxtrt.mkMap();
     s.tmp_113 = r0;
-    r0 = pxsim_Array__push(s.tmp_113, "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_113, "disallow", s.tmp_111);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_109, "constraints", s.tmp_113);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.away", s.tmp_109);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_114 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "categories", s.tmp_113);
-    r0 = pxsim_pxtrt.mkMap();
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "type", "modifier");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "id", "modifier.circle");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "name", "around");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "category", "direction");
+    r0 = pxsim_Array__mk();
     s.tmp_115 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_115, "disallow", s.tmp_114);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_112, "constraints", s.tmp_115);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.circle", s.tmp_112);
+    r0 = pxsim_Array__push(s.tmp_115, "modifier.me");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_116 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "id", "modifier.page-1");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "name", "page 1");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "category", "page");
-    r0 = pxsim_pxtrt.mkMap();
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "ids", s.tmp_115);
+    r0 = pxsim_Array__mk();
     s.tmp_117 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_117, "terminal", true);
+    r0 = pxsim_Array__push(s.tmp_117, "direction");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "categories", s.tmp_117);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_118 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_118, "handling", s.tmp_117);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_116, "constraints", s.tmp_118);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-1", s.tmp_116);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_118, "disallow", s.tmp_116);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_114, "constraints", s.tmp_118);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.circle", s.tmp_114);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_119 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "id", "modifier.page-2");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "name", "page 2");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "id", "modifier.page-1");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "name", "page 1");
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "category", "page");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_120 = r0;
@@ -1504,12 +1502,12 @@ switch (step) {
     s.tmp_121 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_121, "handling", s.tmp_120);
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_119, "constraints", s.tmp_121);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-2", s.tmp_119);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-1", s.tmp_119);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_122 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "id", "modifier.page-3");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "name", "page 3");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "id", "modifier.page-2");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "name", "page 2");
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "category", "page");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_123 = r0;
@@ -1518,12 +1516,12 @@ switch (step) {
     s.tmp_124 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_124, "handling", s.tmp_123);
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_122, "constraints", s.tmp_124);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-3", s.tmp_122);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-2", s.tmp_122);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_125 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "id", "modifier.page-4");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "name", "page 4");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "id", "modifier.page-3");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "name", "page 3");
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "category", "page");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_126 = r0;
@@ -1532,12 +1530,12 @@ switch (step) {
     s.tmp_127 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_127, "handling", s.tmp_126);
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_125, "constraints", s.tmp_127);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-4", s.tmp_125);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-3", s.tmp_125);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_128 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "type", "modifier");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "id", "modifier.page-5");
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "name", "page 5");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "id", "modifier.page-4");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "name", "page 4");
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "category", "page");
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_129 = r0;
@@ -1546,9 +1544,23 @@ switch (step) {
     s.tmp_130 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_130, "handling", s.tmp_129);
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_128, "constraints", s.tmp_130);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-5", s.tmp_128);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-4", s.tmp_128);
+    r0 = pxsim_pxtrt.mkMap();
+    s.tmp_131 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_131, "type", "modifier");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_131, "id", "modifier.page-5");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_131, "name", "page 5");
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_131, "category", "page");
+    r0 = pxsim_pxtrt.mkMap();
+    s.tmp_132 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_132, "terminal", true);
+    r0 = pxsim_pxtrt.mkMap();
+    s.tmp_133 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_133, "handling", s.tmp_132);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_131, "constraints", s.tmp_133);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_77, "modifier.page-5", s.tmp_131);
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_26, "modifiers", s.tmp_77);
-    globals.tiles___3715 = (s.tmp_26);
+    globals.tiles___115682 = (s.tmp_26);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "id", "kodu");
@@ -1642,13 +1654,13 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-_main___P24554.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-text/main.ts","functionName":"<main>","argumentNames":[]}
-_main___P24554.continuations = [  ]
+_main___P139040.info = {"start":0,"length":0,"line":0,"column":0,"endLine":0,"endColumn":0,"fileName":"pxt_modules/arcade-text/main.ts","functionName":"<main>","argumentNames":[]}
+_main___P139040.continuations = [  ]
 
-function _main___P24554_mk(s) {
+function _main___P139040_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: _main___P24554, depth: s.depth + 1,
+        parent: s, fn: _main___P139040, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -1781,6 +1793,9 @@ function _main___P24554_mk(s) {
   tmp_128: undefined,
   tmp_129: undefined,
   tmp_130: undefined,
+  tmp_131: undefined,
+  tmp_132: undefined,
+  tmp_133: undefined,
 } }
 
 const _hex14603 = pxsim.BufferMethods.createBufferFromHex("2000000000000000210000005e0000002200000e000e0000230028fe28fe280024004c92ff926400250002651248a64026006c92926ca000270000000e000000280000007c82000029000000827c00002a005438103854002b0010107c1010002c000000907000002d001010101010002e000000606000002f000060100806003000003c42423c00310000447e4000003200004462524c00330000424a4e320034003028247e20003500004e4a4a32003600003c4a4a30003700000262120e00380000344a4a34003900000c52523c003a0000006c6c00003b000000967600003c001028284444003d002828282828003e004444282810003f0000025909060040003c425a560800410078141214780042007e4a4a4a34004300003c424224004400007e42423c004500007e4a4a42004600007e0a0a02004700003c425234004800007e08087e00490000427e4200004a002040423e02004b00007e081462004c00007e404040004d007e0418047e004e00007e04087e004f003c4242423c005000007e12120c005100003c5262bc005200007e12126c00530000244a522400540002027e0202005500003e40403e005600001e70701e0057007e2018207e00580042241824420059000608700806005a000062524a46005b00007e424200005c000006081060005d000042427e00005e000804020408005f00808080808000600000000204000061000030484878006200007e4848300063000030484848006400003048487e006500003068585000660000107c12040067000018a4a478006800007e08087000690000487a4000006a000040847d00006b00007e102840006c0000427e4000006d007808300870006e000078080870006f00003048483000700000fc24241800710000182424fc0072000078100810007300005058682800740000083e48200075000038404078007600001860601800770038403040380078000048303048007900005ca0a07c007a000048685848007b000008364100007c000000fe0000007d000041360800007e00000804080400a000000000000000a10000007a000000a200003048fc4800a30090fc92928400a400542844285400a5002a2c782c2a00a6000000ee000000a7000094aaaa5200a800000200020000a9003e414955413eaa0000242a2e0000ab00102854284400ac00001010107000ad00001010101000ae003e415d45413eaf00000202020200b000000814140800b1008888be888800b2000024322c0000b30000222a140000b400000004020000b50000f840207800b6000c1e7e027e00b700000010000000b800000080400000b90000243e200000ba0000242a240000bb00442854281000bc00025f70f84000bd00021f90c8b000be0011557af84000bf000030484d2000c000601916186000c100601816196000c200601a151a6000c300601a151a6100c400601914196000c500601a151a6000c6007c0a7e4a4200c700001ea1611200c800007c55564400c900007c56554400ca00007c56554600cb00007c55544500cc0000457e440000cd0000447e450000ce0000467d460000cf0000457c450000d000087e4a423c00d100007e09127d00d200003845463800d300003846453800d400003846453a00d500003a45463900d600003845443900d700442810284400d80000fc724e3f00d900003c41423c00da00003c42413c00db00003c42413e00dc00003c41403d00dd00040872090400de00007e24241800df00007c025a2400e0000030494a7800e10000304a497800e20000304a497a00e3000032494a7900e40000304a487a00e50000304a4d7a00e600304878685000e7000018a4642400e8000030695a5000e90000306a595000ea0000306a595200eb0000306a585200ec0000497a400000ed0000487a410000ee00004a79420000ef00004a78420000f00000304a4b3d00f100007a090a7100f2000030494a3000f30000304a493000f40000304a493200f5000032494a3100f60000304a483200f700101054101000f800007068583800f900003841427800fa00003842417800fb00003842417a00fc00003842407a00fd0000b84241f800fe0000ff24241800ff00005ca1a07d000001601915196000010100304a4a7a000201611a16196000030100314a4a790004013c0a094abc00050100182464bc000601003846452800070100304a4948000801003846452a00090100304a494a000a010038444528000b010030484a48000c010038454629000d010030494a49000e01007c454639000f0100314a497e001001087e4a423c00110130484c7e04001201007d55554500130100326a5a52001401007d56564500150100316a5a51001601007c55544400170100306a5850001801003f65a521001901001874ac28001a01007c555645001b010030695a51001c010038465536001d0100304a49f2001e010039465635001f0100314a4af100200100384455340021010018a4a578002201001ea1691a0023010018a6a578002401007812117a0025017e080a7102002601047e147e04002701047e0c08700028010002457e450029010002497a41002a0100457d4500002b01004a7a4200002c0100014a7a49002d0100014a7a41002e0100217fa100002f0100247da00000300100447d440000310100487840000032017e0022423e0033013d0040847d0034012040463d0600350100800af90200360100bf440a3100370100bf4814200038010078102848003901007c404241003a0100467d4000003b01003fa06020003c0100a17f2000003d01007c414241003e0100457e4100003f01007e40484000400100427e4008004101107e48404000420100527e4800004301007c0a117c00440100780a097000450100bf42043f00460100bc440438004701007c09127d00480100790a09700049010a06780870004a01003f02847f004b01003c048478004c013945454539004d0100324a4a32004e013946464639004f0100314a4a310050013a4544463900510132494832010052013c427e4a420053013048306850005401007c163548005501007812091000560100bf49093600570100bc480408005801007d1635480059010079120910005a010048565524005b0100505a6928005c010048565526005d0100505a692a005e010012a56912005f010028ac741400600100485556250061010050596a290062010101bf410100630100049f641000640104057e050400650100083d4a2100660102127e120200670100183e5820006801003a414239006901003a414279006a01003d41413d006b01003a42427a006c010039424239006d010039424279006e01003a45453a006f01003a45457a0070013a41403a010071013a41407a01007201001f60a01f007301001c60a03c00740178221122780075013842314238007601081261120800770100b84241fa00780104097009040079010064564d44007a0100486a5948007b010064544d44007c010048685a48007d010064554e45007e010048695a49007f0100087c0204008f01003452523c00920100887e090200a0013c42423c0806a101003048483008af01003e403e0806b001003840781008b501006a5a4a4e00b601005878585800d101003845463900d2010030494a3100e601003845563500e7010030494af100fa0100742a750000fb0100304c4a7d00fc0178147e554400fd0130487a695000fe010078744e3d00ff0100706a59380018020012a569120019020028ac7414001a020101bf4101001b0200049f641000bb0200000c0a0000bc0200000a060000bd020000060a0000c602000201020000c702000102010000c902000202020000d802000102020100d902000002000000da02000205020000db02000040800000dc02000201020100dd02020100020100740300000201000075030000804000007a030000c08000007e03000096760000840300000300000085030200030002008603037c12127c008703000010000000880303007e4a4200890303007e087e008a030300427e42008c03033c42423c008e0303000e700e008f03035c62625c00900302003b400200910378141214780092037e4a4a4a34009303007e0202020094036058465860009503007e4a4a420096030062524a46009703007e08087e0098033c4a4a4a3c00990300427e4200009a03007e081462009b036018061860009c037e0418047e009d03007e04087e009e0300424a4a42009f033c4242423c00a003007e02027e00a103007e12120c00a30300665a424200a40302027e020200a503060870080600a60318247e241800a703422418244200a8030e107e100e00a9035c6202625c00aa0300457c450000ab03040970090400ac030030484a7900ad030030685a5100ae0378100a09f000af03003a41200000b0033a4043403a00b103003048487800b20300fe25251a00b3030c30c0300c00b403344a4a4a3000b503003068585000b603021aa6a24200b7033c080404f800b803003c4a4a3c00b903003840200000ba03007820504800bb03641212227c00bc03fc2020103c00bd03182040201800be03112d2ba94100bf03003048483000c003087808780800c103f82424241800c2031824a4a44800c303304848582800c403000838482800c503384040403800c6031c20f8241800c703c4281028c400c8031c20fc201c00c903304820483000ca03000238422000cb03384240423800cc0330484a493000cd03384042413800ce03304822493000d0033c52525c2000d10310344a3c0800d203067804020400d303120a7c020400d4030d7009040800d5031824ff241800d603384828483800d70348302221d800da031c2221a14200db031824a4a44200dc037e1212020200dd0300fc24240400de033e2010087c00df030c0ac9281800e003700c621c7000e10301092516f800e2039ea0bea07e00e30398a0b8a07800e4030c1214107e00e503001028207800e603be9088887000e70348544e443800e803245252524c00e903285454544800ea0364524c526400eb03086458640800ec03385454542200ed03306848682400ee03184a7e4a1800ef031848ff0a0800f003483020205800f10378a4a4a49800f203304848485000f303006080847d00f4033c4a4a4a3c00f5030030585848000004007c555644000104007c55544500020401013f8579000304007c0605040004043c4a4a422400050400244a522400060400427e420000070400457c45000008042040423e020009047c027e4830000a047e087e4830000b0402027e0a72000c04007c102a45000d047c2112087c000e040c5152523d000f043f20e0203f00100478141214780011047e4a4a4a300012047e4a4a4a34001304007e020202001404c07c427ec0001504007e4a4a4200160476087e087600170424424a4a34001804007e08047e001904007d120a7d001a04007e081462001b04403c02027e001c047e0418047e001d04007e08087e001e043c4242423c001f047e0202027e002004007e12120c002104003c42422400220402027e02020023040e5050503e00240418247e241800250442241824420026043f2020bf600027040e1010107e0028047e407e407e0029043f203fa07f002a04027e484830002b047e4848307e002c04007e484830002d0424424a4a3c002e047e183c423c002f04006c12127e0030043048487840003104003c4a4a3100320400786850200033040078080808003404c0704878c000350430686850000036044830783048003704004058683000380478402010780039047942221279003a040078203048003b044030080878003c047810201078003d047810101078003e043048484830003f047808080878004004fc24242418004104304848485000420408087808080043041ca0a0a07c0044041824ff241800450400483030480046043c2020bc60004704182020207800480478407840780049043c203ca07c004a040878505020004b047850502078004c040078505020004d044858683000004e047830304830004f0450282878000050040030696a500051040032686a50005204023f0a887000530400780a09080054040030685848005504005058682800560400487a4000005704004a784200005804004080847d0059047008785020005a047810785020005b04047e141060005c040078223148005d047841221078005e0418a1a2a279005f043c20e0203c006204027f4a4830006304087e5850200070040e107e100e00710418207820180072043c4a4a4a3c0073043068586830007404001e70180c0075040018603010009004007e020203009104007808080c009204087e0a0a0200930420782808080096043b043f043be0970424183c1824c09a04003f040a31c09b04003c101824c0ae04060870080600af040c10e0100c00b004161870181600b1042c30e0302c00b20421120c1221c0b3040024181824c0ba047e0808087000bb04007e08087000d804003452523c00d904002868583000e20400457d450000e304004a7a420000e8043c4a4a4a3c00e904003058583000ee04003d41413d00ef04003a42427a00d005681020285000d105484848784000d205004830600000d305080808780800d405680808087800d505000008780000d605080818680800d705087808087800d805784050487800d905000008180000da0504040404fc00db05484848483800dc050e4848281800dd05087848487800de05582010487000df05000004fc0000e005004040487800e105000878483800e205487840281800e305041c0404fc00e405485848483800e50504f820140800e605485060685000e705f40424241c00e805080808087000e905785058403800ea05487808087800f005087800087800f105081800087800f205081800081800f305000010080000f405100800100800021e7c5455542800031e007e484930000a1e007c454438000b1e003049487e001e1e007c151404001f1e001079140800401e7e0419047e00411e780832087000561e007c15140800571e00fc25241800601e004854552400611e0050586a28006a1e04047d0404006b1e00083d482000801e7c2112207c00811e384132403800821e7c2012217c00831e384032413800841e7c2110217c00851e384230423800f21e040972080400f31e00b84142f800a3207e0a7a120a00a420a8fcaa828400a720087e2a1c0800ab200098a4a6bf02ac20183c5a5a4200af20627f224438009021103854101000912108047e0408009221101054381000932110207e201000942110381010381095212844fe442800")
@@ -3801,7 +3816,7 @@ switch (step) {
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    s.tmp_2 = kodu_Wander_direction__P11362_mk(s);
+    s.tmp_2 = kodu_Wander_direction__P137388_mk(s);
     r0 = s.arg0.fields["page"];
     r0 = r0.fields["brain"];
     r0 = r0.fields["wander"];
@@ -3924,7 +3939,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_1 = kodu_Brain_switchPage__P3755_mk(s);
+    s.tmp_1 = kodu_Brain_switchPage__P137180_mk(s);
     r0 = s.arg0.fields["page"];
     r0 = r0.fields["brain"];
     s.tmp_1.arg0 = r0;
@@ -4093,7 +4108,7 @@ switch (step) {
   case 4:
     r0 = pxsim_numops_toBoolDecr(s.target___11425);
     if (!r0) { step = 5; continue; }
-    s.tmp_0 = kodu_Brain_cameraFollow__P3756_mk(s);
+    s.tmp_0 = kodu_Brain_cameraFollow__P137181_mk(s);
     r0 = s.arg0.fields["page"];
     r0 = r0.fields["brain"];
     s.tmp_0.arg0 = r0;
@@ -6528,9 +6543,9 @@ switch (step) {
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_BrainUI__C8436_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C3702_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C115603_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_BrainDefn_constructor__P3704_mk(s);
+    s.tmp_1 = kodu_BrainDefn_constructor__P115605_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 497; s.pc = 1; return s.tmp_1;
   case 1:
@@ -6622,9 +6637,9 @@ switch (step) {
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_PageUI__C8459_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C3695_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C115633_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_PageDefn_constructor__P3697_mk(s);
+    s.tmp_1 = kodu_PageDefn_constructor__P115655_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 518; s.pc = 1; return s.tmp_1;
   case 1:
@@ -6715,7 +6730,7 @@ switch (step) {
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
-    s.tmp_0 = kodu_RuleDefn_clone__P3691_mk(s);
+    s.tmp_0 = kodu_RuleDefn_clone__P115649_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 572; s.pc = 1; return s.tmp_0;
@@ -6739,7 +6754,7 @@ function kodu_RuleUI_toDefn__P8540_mk(s) {
 
 
 
-function kodu_RuleDefn_clone__P3691(s) {
+function kodu_RuleDefn_clone__P115649(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6749,28 +6764,28 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.rule___9933 = undefined;
+    s.rule___115729 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_RuleDefn__C3685_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C3685_VT);
+    if (!checkSubtype(r0, kodu_RuleDefn__C115648_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C115648_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_RuleDefn_constructor__P3690_mk(s);
+    s.tmp_1 = kodu_RuleDefn_constructor__P115653_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 756; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
-    s.rule___9933 = (s.tmp_0);
+    s.rule___115729 = (s.tmp_0);
     r0 = s.arg0.fields["sensor"];
     s.tmp_0 = r0;
-    r0 = (s.rule___9933).fields["sensor"] = (s.tmp_0);
+    r0 = (s.rule___115729).fields["sensor"] = (s.tmp_0);
     r0 = s.arg0.fields["actuator"];
     s.tmp_0 = r0;
-    r0 = (s.rule___9933).fields["actuator"] = (s.tmp_0);
-    s.tmp_0 = r0 = s.rule___9933;
+    r0 = (s.rule___115729).fields["actuator"] = (s.tmp_0);
+    s.tmp_0 = r0 = s.rule___115729;
     s.tmp_2 = helpers_arraySlice__P112_mk(s);
     r0 = s.arg0.fields["filters"];
     s.tmp_2.arg0 = r0;
@@ -6781,7 +6796,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["filters"] = (s.tmp_1);
-    s.tmp_0 = r0 = s.rule___9933;
+    s.tmp_0 = r0 = s.rule___115729;
     s.tmp_2 = helpers_arraySlice__P112_mk(s);
     r0 = s.arg0.fields["modifiers"];
     s.tmp_2.arg0 = r0;
@@ -6792,21 +6807,21 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["modifiers"] = (s.tmp_1);
-    r0 = s.rule___9933;
+    r0 = s.rule___115729;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_RuleDefn_clone__P3691.info = {"start":1483,"length":288,"line":53,"column":8,"endLine":60,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
+kodu_RuleDefn_clone__P115649.info = {"start":1371,"length":288,"line":54,"column":8,"endLine":61,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
 
-function kodu_RuleDefn_clone__P3691_mk(s) {
+function kodu_RuleDefn_clone__P115649_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_RuleDefn_clone__P3691, depth: s.depth + 1,
+        parent: s, fn: kodu_RuleDefn_clone__P115649, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  rule___9933: undefined,
+  rule___115729: undefined,
   arg0: undefined,
 } }
 
@@ -6814,7 +6829,7 @@ function kodu_RuleDefn_clone__P3691_mk(s) {
 
 
 
-function kodu_RuleDefn_constructor__P3690(s) {
+function kodu_RuleDefn_constructor__P115653(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6829,7 +6844,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_RuleDefn__C3685_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_RuleDefn__C115648_VT)) failedCast(r0);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_Array__mk();
     s.tmp_1 = r0;
@@ -6842,12 +6857,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_RuleDefn_constructor__P3690.info = {"start":1384,"length":89,"line":48,"column":8,"endLine":51,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
+kodu_RuleDefn_constructor__P115653.info = {"start":1272,"length":89,"line":49,"column":8,"endLine":52,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
 
-function kodu_RuleDefn_constructor__P3690_mk(s) {
+function kodu_RuleDefn_constructor__P115653_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_RuleDefn_constructor__P3690, depth: s.depth + 1,
+        parent: s, fn: kodu_RuleDefn_constructor__P115653, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -6858,7 +6873,7 @@ function kodu_RuleDefn_constructor__P3690_mk(s) {
 
 
 
-function kodu_PageDefn_constructor__P3697(s) {
+function kodu_PageDefn_constructor__P115655(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6873,7 +6888,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_PageDefn__C3695_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_PageDefn__C115633_VT)) failedCast(r0);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_Array__mk();
     s.tmp_1 = r0;
@@ -6882,12 +6897,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_PageDefn_constructor__P3697.info = {"start":3563,"length":54,"line":114,"column":8,"endLine":116,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
+kodu_PageDefn_constructor__P115655.info = {"start":3451,"length":54,"line":115,"column":8,"endLine":117,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
 
-function kodu_PageDefn_constructor__P3697_mk(s) {
+function kodu_PageDefn_constructor__P115655_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_PageDefn_constructor__P3697, depth: s.depth + 1,
+        parent: s, fn: kodu_PageDefn_constructor__P115655, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -6898,7 +6913,7 @@ function kodu_PageDefn_constructor__P3697_mk(s) {
 
 
 
-function kodu_BrainDefn_constructor__P3704(s) {
+function kodu_BrainDefn_constructor__P115605(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6913,7 +6928,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_BrainDefn__C3702_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_BrainDefn__C115603_VT)) failedCast(r0);
     r0 = pxsim_Array__mk();
     s.tmp_0 = r0;
     r0 = pxsim_Array__push(s.tmp_0, 0);
@@ -6924,7 +6939,7 @@ switch (step) {
     s.tmp_1 = r0 = s.arg0;
     s.tmp_3 = helpers_arrayMap__P104_mk(s);
     s.tmp_3.arg0 = s.tmp_0;
-    s.tmp_3.arg1 = inline__P10161;
+    s.tmp_3.arg1 = inline__P115957;
     s.callLocIdx = 788; s.pc = 1; return s.tmp_3;
   case 1:
     r0 = s.retval;
@@ -6934,12 +6949,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_BrainDefn_constructor__P3704.info = {"start":4703,"length":92,"line":156,"column":8,"endLine":158,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
+kodu_BrainDefn_constructor__P115605.info = {"start":4591,"length":92,"line":157,"column":8,"endLine":159,"endColumn":9,"fileName":"language.ts","functionName":"inline","argumentNames":["this"]}
 
-function kodu_BrainDefn_constructor__P3704_mk(s) {
+function kodu_BrainDefn_constructor__P115605_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_BrainDefn_constructor__P3704, depth: s.depth + 1,
+        parent: s, fn: kodu_BrainDefn_constructor__P115605, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -6952,7 +6967,7 @@ function kodu_BrainDefn_constructor__P3704_mk(s) {
 
 
 
-function inline__P10161(s) {
+function inline__P115957(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -6966,9 +6981,9 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C3695_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C115633_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_PageDefn_constructor__P3697_mk(s);
+    s.tmp_1 = kodu_PageDefn_constructor__P115655_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 787; s.pc = 1; return s.tmp_1;
   case 1:
@@ -6977,12 +6992,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10161.info = {"start":4764,"length":19,"line":157,"column":45,"endLine":157,"endColumn":64,"fileName":"language.ts","functionName":"inline","argumentNames":["n"]}
+inline__P115957.info = {"start":4652,"length":19,"line":158,"column":45,"endLine":158,"endColumn":64,"fileName":"language.ts","functionName":"inline","argumentNames":["n"]}
 
-function inline__P10161_mk(s) {
+function inline__P115957_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10161, depth: s.depth + 1,
+        parent: s, fn: inline__P115957, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -11530,8 +11545,8 @@ switch (step) {
   case 0:
 
     s.button___7617 = undefined;
-    s.unnamed152___U1 = undefined;
-    s.unnamed153___U2 = undefined;
+    s.unnamed5360___U1 = undefined;
+    s.unnamed5361___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -11540,26 +11555,26 @@ switch (step) {
     if (!checkSubtype(r0, kodu_Menu__C3581_VT)) failedCast(r0);
     s.button___7617 = (undefined);
     r0 = s.arg0.fields["buttons"];
-    s.unnamed152___U1 = (r0);
-    s.unnamed153___U2 = (0);
+    s.unnamed5360___U1 = (r0);
+    s.unnamed5361___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed153___U2;
-    r0 = pxsim_Array__length(s.unnamed152___U1);
+    s.tmp_0 = r0 = s.unnamed5361___U2;
+    r0 = pxsim_Array__length(s.unnamed5360___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed152___U1, s.unnamed153___U2);
+    r0 = pxsim_Array__getAt(s.unnamed5360___U1, s.unnamed5361___U2);
     s.button___7617 = (r0);
     s.tmp_2 = kodu_Button_destroy__P3491_mk(s);
     s.tmp_2.arg0 = s.button___7617;
     s.callLocIdx = 324; s.pc = 3; return s.tmp_2;
   case 3:
     r0 = s.retval;
-    r0 = (s.unnamed153___U2 + 1);
-    s.unnamed153___U2 = (r0);
+    r0 = (s.unnamed5361___U2 + 1);
+    s.unnamed5361___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed152___U1 = (undefined);
+    s.unnamed5360___U1 = (undefined);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_Array__mk();
     s.tmp_1 = r0;
@@ -11579,8 +11594,8 @@ function kodu_Menu_hide__P3585_mk(s) {
   tmp_1: undefined,
   tmp_2: undefined,
   button___7617: undefined,
-  unnamed152___U1: undefined,
-  unnamed153___U2: undefined,
+  unnamed5360___U1: undefined,
+  unnamed5361___U2: undefined,
   arg0: undefined,
 } }
 
@@ -15780,7 +15795,7 @@ switch (step) {
     s.tmp_5 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_3, s.tmp_5);
     s.tmp_0.arg3 = r0;
-    s.tmp_7 = kodu_BrainDefn_FromObj__P3708_mk(s);
+    s.tmp_7 = kodu_BrainDefn_FromObj__P115597_mk(s);
     s.tmp_8 = if_bdefn_1_mk(s);
     s.tmp_8.arg0 = s.arg0;
     if (!s.tmp_8.arg0.vtable.iface) {
@@ -16011,7 +16026,7 @@ function kodu_Cursor_x__P3540_mk(s) {
 
 
 
-function kodu_BrainDefn_FromObj__P3708(s) {
+function kodu_BrainDefn_FromObj__P115597(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16021,8 +16036,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.bdefn___10202 = undefined;
-    s.pages___10212 = undefined;
+    s.bdefn___115998 = undefined;
+    s.pages___116008 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -16041,14 +16056,14 @@ switch (step) {
     s.arg0 = (r0);
   case 1:
   case 2:
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C3702_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C115603_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_BrainDefn_constructor__P3704_mk(s);
+    s.tmp_1 = kodu_BrainDefn_constructor__P115605_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 795; s.pc = 10; return s.tmp_1;
   case 10:
     r0 = s.retval;
-    s.bdefn___10202 = (s.tmp_0);
+    s.bdefn___115998 = (s.tmp_0);
     s.tmp_0 = r0 = s.arg0;
     r0 = pxsim_numops_toBool(s.tmp_0);
     if (r0) { step = 3; continue; }
@@ -16073,11 +16088,11 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_3);
     if (!r0) { step = 7; continue; }
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "pages");
-    s.pages___10212 = (r0);
-    s.tmp_0 = r0 = s.bdefn___10202;
+    s.pages___116008 = (r0);
+    s.tmp_0 = r0 = s.bdefn___115998;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
-    s.tmp_2.arg0 = s.pages___10212;
-    s.tmp_2.arg1 = inline__P10219;
+    s.tmp_2.arg0 = s.pages___116008;
+    s.tmp_2.arg1 = inline__P116015;
     s.callLocIdx = 797; s.pc = 11; return s.tmp_2;
   case 11:
     r0 = s.retval;
@@ -16085,23 +16100,23 @@ switch (step) {
     r0 = (s.tmp_0).fields["pages"] = (s.tmp_1);
   case 7:
   case 8:
-    r0 = s.bdefn___10202;
+    r0 = s.bdefn___115998;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_BrainDefn_FromObj__P3708.info = {"start":5206,"length":434,"line":176,"column":8,"endLine":186,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
+kodu_BrainDefn_FromObj__P115597.info = {"start":5094,"length":434,"line":177,"column":8,"endLine":187,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
 
-function kodu_BrainDefn_FromObj__P3708_mk(s) {
+function kodu_BrainDefn_FromObj__P115597_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_BrainDefn_FromObj__P3708, depth: s.depth + 1,
+        parent: s, fn: kodu_BrainDefn_FromObj__P115597, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
-  bdefn___10202: undefined,
-  pages___10212: undefined,
+  bdefn___115998: undefined,
+  pages___116008: undefined,
   arg0: undefined,
 } }
 
@@ -16109,7 +16124,7 @@ function kodu_BrainDefn_FromObj__P3708_mk(s) {
 
 
 
-function inline__P10219(s) {
+function inline__P116015(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16123,7 +16138,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_PageDefn_FromObj__P3701_mk(s);
+    s.tmp_0 = kodu_PageDefn_FromObj__P115637_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 796; s.pc = 1; return s.tmp_0;
   case 1:
@@ -16131,12 +16146,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10219.info = {"start":5551,"length":37,"line":183,"column":40,"endLine":183,"endColumn":77,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P116015.info = {"start":5439,"length":37,"line":184,"column":40,"endLine":184,"endColumn":77,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10219_mk(s) {
+function inline__P116015_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10219, depth: s.depth + 1,
+        parent: s, fn: inline__P116015, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -16146,7 +16161,7 @@ function inline__P10219_mk(s) {
 
 
 
-function kodu_PageDefn_FromObj__P3701(s) {
+function kodu_PageDefn_FromObj__P115637(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16156,8 +16171,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.pdefn___10138 = undefined;
-    s.rules___10144 = undefined;
+    s.pdefn___115934 = undefined;
+    s.rules___115940 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -16176,14 +16191,14 @@ switch (step) {
     s.arg0 = (r0);
   case 1:
   case 2:
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C3695_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C115633_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_PageDefn_constructor__P3697_mk(s);
+    s.tmp_1 = kodu_PageDefn_constructor__P115655_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 784; s.pc = 6; return s.tmp_1;
   case 6:
     r0 = s.retval;
-    s.pdefn___10138 = (s.tmp_0);
+    s.pdefn___115934 = (s.tmp_0);
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "rules");
     s.tmp_1 = r0;
     r0 = pxsim_Array_.isArray(s.tmp_1);
@@ -16191,11 +16206,11 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "rules");
-    s.rules___10144 = (r0);
-    s.tmp_0 = r0 = s.pdefn___10138;
+    s.rules___115940 = (r0);
+    s.tmp_0 = r0 = s.pdefn___115934;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
-    s.tmp_2.arg0 = s.rules___10144;
-    s.tmp_2.arg1 = inline__P10151;
+    s.tmp_2.arg0 = s.rules___115940;
+    s.tmp_2.arg1 = inline__P115947;
     s.callLocIdx = 786; s.pc = 7; return s.tmp_2;
   case 7:
     r0 = s.retval;
@@ -16203,22 +16218,22 @@ switch (step) {
     r0 = (s.tmp_0).fields["rules"] = (s.tmp_1);
   case 3:
   case 4:
-    r0 = s.pdefn___10138;
+    r0 = s.pdefn___115934;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_PageDefn_FromObj__P3701.info = {"start":4223,"length":407,"line":140,"column":8,"endLine":150,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
+kodu_PageDefn_FromObj__P115637.info = {"start":4111,"length":407,"line":141,"column":8,"endLine":151,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
 
-function kodu_PageDefn_FromObj__P3701_mk(s) {
+function kodu_PageDefn_FromObj__P115637_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_PageDefn_FromObj__P3701, depth: s.depth + 1,
+        parent: s, fn: kodu_PageDefn_FromObj__P115637, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  pdefn___10138: undefined,
-  rules___10144: undefined,
+  pdefn___115934: undefined,
+  rules___115940: undefined,
   arg0: undefined,
 } }
 
@@ -16226,7 +16241,7 @@ function kodu_PageDefn_FromObj__P3701_mk(s) {
 
 
 
-function inline__P10151(s) {
+function inline__P115947(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16240,7 +16255,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_RuleDefn_FromObj__P3694_mk(s);
+    s.tmp_0 = kodu_RuleDefn_FromObj__P115652_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 785; s.pc = 1; return s.tmp_0;
   case 1:
@@ -16248,12 +16263,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10151.info = {"start":4541,"length":37,"line":147,"column":40,"endLine":147,"endColumn":77,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115947.info = {"start":4429,"length":37,"line":148,"column":40,"endLine":148,"endColumn":77,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10151_mk(s) {
+function inline__P115947_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10151, depth: s.depth + 1,
+        parent: s, fn: inline__P115947, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -16263,7 +16278,7 @@ function inline__P10151_mk(s) {
 
 
 
-function kodu_RuleDefn_FromObj__P3694(s) {
+function kodu_RuleDefn_FromObj__P115652(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16273,9 +16288,9 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.rdefn___10028 = undefined;
-    s.filters___10050 = undefined;
-    s.modifiers___10065 = undefined;
+    s.rdefn___115824 = undefined;
+    s.filters___115846 = undefined;
+    s.modifiers___115861 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -16294,14 +16309,14 @@ switch (step) {
     s.arg0 = (r0);
   case 1:
   case 2:
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C3685_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C115648_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_RuleDefn_constructor__P3690_mk(s);
+    s.tmp_1 = kodu_RuleDefn_constructor__P115653_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 770; s.pc = 12; return s.tmp_1;
   case 12:
     r0 = s.retval;
-    s.rdefn___10028 = (s.tmp_0);
+    s.rdefn___115824 = (s.tmp_0);
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "sensor");
     s.tmp_2 = r0;
     r0 = pxsim_pxtcore.typeOf(s.tmp_2);
@@ -16310,9 +16325,9 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    s.tmp_3 = r0 = s.rdefn___10028;
+    s.tmp_3 = r0 = s.rdefn___115824;
     s.tmp_6 = if_sensors_1_mk(s);
-    s.tmp_6.arg0 = globals.tiles___3715;
+    s.tmp_6.arg0 = globals.tiles___115682;
     if (!s.tmp_6.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_6.arg0, "sensors");
     } else {
@@ -16339,9 +16354,9 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
-    s.tmp_3 = r0 = s.rdefn___10028;
+    s.tmp_3 = r0 = s.rdefn___115824;
     s.tmp_6 = if_actuators_1_mk(s);
-    s.tmp_6.arg0 = globals.tiles___3715;
+    s.tmp_6.arg0 = globals.tiles___115682;
     if (!s.tmp_6.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_6.arg0, "actuators");
     } else {
@@ -16367,11 +16382,11 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "filters");
-    s.filters___10050 = (r0);
-    s.tmp_0 = r0 = s.rdefn___10028;
+    s.filters___115846 = (r0);
+    s.tmp_0 = r0 = s.rdefn___115824;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
-    s.tmp_2.arg0 = s.filters___10050;
-    s.tmp_2.arg1 = inline__P10057;
+    s.tmp_2.arg0 = s.filters___115846;
+    s.tmp_2.arg1 = inline__P115853;
     s.callLocIdx = 774; s.pc = 15; return s.tmp_2;
   case 15:
     r0 = s.retval;
@@ -16386,11 +16401,11 @@ switch (step) {
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
     r0 = pxsim_pxtrt.mapGetGeneric(s.arg0, "modifiers");
-    s.modifiers___10065 = (r0);
-    s.tmp_0 = r0 = s.rdefn___10028;
+    s.modifiers___115861 = (r0);
+    s.tmp_0 = r0 = s.rdefn___115824;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
-    s.tmp_2.arg0 = s.modifiers___10065;
-    s.tmp_2.arg1 = inline__P10072;
+    s.tmp_2.arg0 = s.modifiers___115861;
+    s.tmp_2.arg1 = inline__P115868;
     s.callLocIdx = 776; s.pc = 16; return s.tmp_2;
   case 16:
     r0 = s.retval;
@@ -16398,16 +16413,16 @@ switch (step) {
     r0 = (s.tmp_0).fields["modifiers"] = (s.tmp_1);
   case 9:
   case 10:
-    r0 = s.rdefn___10028;
+    r0 = s.rdefn___115824;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_RuleDefn_FromObj__P3694.info = {"start":2592,"length":895,"line":88,"column":8,"endLine":108,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
+kodu_RuleDefn_FromObj__P115652.info = {"start":2480,"length":895,"line":89,"column":8,"endLine":109,"endColumn":9,"fileName":"language.ts","functionName":"FromObj","argumentNames":["obj"]}
 
-function kodu_RuleDefn_FromObj__P3694_mk(s) {
+function kodu_RuleDefn_FromObj__P115652_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_RuleDefn_FromObj__P3694, depth: s.depth + 1,
+        parent: s, fn: kodu_RuleDefn_FromObj__P115652, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -16417,9 +16432,9 @@ function kodu_RuleDefn_FromObj__P3694_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   tmp_7: undefined,
-  rdefn___10028: undefined,
-  filters___10050: undefined,
-  modifiers___10065: undefined,
+  rdefn___115824: undefined,
+  filters___115846: undefined,
+  modifiers___115861: undefined,
   arg0: undefined,
 } }
 
@@ -16427,7 +16442,7 @@ function kodu_RuleDefn_FromObj__P3694_mk(s) {
 
 
 
-function inline__P10057(s) {
+function inline__P115853(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16442,7 +16457,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_filters_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "filters");
     } else {
@@ -16458,12 +16473,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10057.info = {"start":3184,"length":37,"line":101,"column":44,"endLine":101,"endColumn":81,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115853.info = {"start":3072,"length":37,"line":102,"column":44,"endLine":102,"endColumn":81,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10057_mk(s) {
+function inline__P115853_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10057, depth: s.depth + 1,
+        parent: s, fn: inline__P115853, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -16474,7 +16489,7 @@ function inline__P10057_mk(s) {
 
 
 
-function inline__P10072(s) {
+function inline__P115868(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -16489,7 +16504,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_modifiers_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "modifiers");
     } else {
@@ -16505,12 +16520,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10072.info = {"start":3396,"length":39,"line":105,"column":48,"endLine":105,"endColumn":87,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115868.info = {"start":3284,"length":39,"line":106,"column":48,"endLine":106,"endColumn":87,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10072_mk(s) {
+function inline__P115868_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10072, depth: s.depth + 1,
+        parent: s, fn: inline__P115868, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -16548,9 +16563,9 @@ switch (step) {
     r0 = s.tmp_0;
     { step = 2; continue; }
   case 1:
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C3702_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C115603_VT);
     s.tmp_1 = r0;
-    s.tmp_2 = kodu_BrainDefn_constructor__P3704_mk(s);
+    s.tmp_2 = kodu_BrainDefn_constructor__P115605_mk(s);
     s.tmp_2.arg0 = s.tmp_1;
     s.callLocIdx = 419; s.pc = 3; return s.tmp_2;
   case 3:
@@ -16714,7 +16729,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_0, "component", s.arg0);
     s.tmp_0 = r0 = s.arg0;
-    s.tmp_2 = kodu_BrainDefn_clone__P3705_mk(s);
+    s.tmp_2 = kodu_BrainDefn_clone__P115529_mk(s);
     s.tmp_2.arg0 = s.arg5;
     s.callLocIdx = 277; s.pc = 12; return s.tmp_2;
   case 12:
@@ -17232,7 +17247,7 @@ function kodu_Stage_get__P3597_mk(s) {
 
 
 
-function kodu_BrainDefn_clone__P3705(s) {
+function kodu_BrainDefn_clone__P115529(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17242,46 +17257,46 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.brain___10166 = undefined;
+    s.brain___115962 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_BrainDefn__C3702_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C3702_VT);
+    if (!checkSubtype(r0, kodu_BrainDefn__C115603_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_BrainDefn__C115603_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_BrainDefn_constructor__P3704_mk(s);
+    s.tmp_1 = kodu_BrainDefn_constructor__P115605_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 789; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
-    s.brain___10166 = (s.tmp_0);
-    s.tmp_0 = r0 = s.brain___10166;
+    s.brain___115962 = (s.tmp_0);
+    s.tmp_0 = r0 = s.brain___115962;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["pages"];
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10174;
+    s.tmp_2.arg1 = inline__P115970;
     s.callLocIdx = 791; s.pc = 2; return s.tmp_2;
   case 2:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["pages"] = (s.tmp_1);
-    r0 = s.brain___10166;
+    r0 = s.brain___115962;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_BrainDefn_clone__P3705.info = {"start":4805,"length":170,"line":160,"column":8,"endLine":164,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
+kodu_BrainDefn_clone__P115529.info = {"start":4693,"length":170,"line":161,"column":8,"endLine":165,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
 
-function kodu_BrainDefn_clone__P3705_mk(s) {
+function kodu_BrainDefn_clone__P115529_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_BrainDefn_clone__P3705, depth: s.depth + 1,
+        parent: s, fn: kodu_BrainDefn_clone__P115529, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  brain___10166: undefined,
+  brain___115962: undefined,
   arg0: undefined,
 } }
 
@@ -17289,7 +17304,7 @@ function kodu_BrainDefn_clone__P3705_mk(s) {
 
 
 
-function inline__P10174(s) {
+function inline__P115970(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17303,7 +17318,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_PageDefn_clone__P3698_mk(s);
+    s.tmp_0 = kodu_PageDefn_clone__P115634_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 790; s.pc = 1; return s.tmp_0;
   case 1:
@@ -17311,12 +17326,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10174.info = {"start":4917,"length":20,"line":162,"column":41,"endLine":162,"endColumn":61,"fileName":"language.ts","functionName":"inline","argumentNames":["page"]}
+inline__P115970.info = {"start":4805,"length":20,"line":163,"column":41,"endLine":163,"endColumn":61,"fileName":"language.ts","functionName":"inline","argumentNames":["page"]}
 
-function inline__P10174_mk(s) {
+function inline__P115970_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10174, depth: s.depth + 1,
+        parent: s, fn: inline__P115970, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -17326,7 +17341,7 @@ function inline__P10174_mk(s) {
 
 
 
-function kodu_PageDefn_clone__P3698(s) {
+function kodu_PageDefn_clone__P115634(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17336,46 +17351,46 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.page___10083 = undefined;
+    s.page___115879 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_PageDefn__C3695_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C3695_VT);
+    if (!checkSubtype(r0, kodu_PageDefn__C115633_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_PageDefn__C115633_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_PageDefn_constructor__P3697_mk(s);
+    s.tmp_1 = kodu_PageDefn_constructor__P115655_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.callLocIdx = 777; s.pc = 1; return s.tmp_1;
   case 1:
     r0 = s.retval;
-    s.page___10083 = (s.tmp_0);
-    s.tmp_0 = r0 = s.page___10083;
+    s.page___115879 = (s.tmp_0);
+    s.tmp_0 = r0 = s.page___115879;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["rules"];
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10091;
+    s.tmp_2.arg1 = inline__P115887;
     s.callLocIdx = 779; s.pc = 2; return s.tmp_2;
   case 2:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["rules"] = (s.tmp_1);
-    r0 = s.page___10083;
+    r0 = s.page___115879;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_PageDefn_clone__P3698.info = {"start":3627,"length":165,"line":118,"column":8,"endLine":122,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
+kodu_PageDefn_clone__P115634.info = {"start":3515,"length":165,"line":119,"column":8,"endLine":123,"endColumn":9,"fileName":"language.ts","functionName":"clone","argumentNames":["this"]}
 
-function kodu_PageDefn_clone__P3698_mk(s) {
+function kodu_PageDefn_clone__P115634_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_PageDefn_clone__P3698, depth: s.depth + 1,
+        parent: s, fn: kodu_PageDefn_clone__P115634, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  page___10083: undefined,
+  page___115879: undefined,
   arg0: undefined,
 } }
 
@@ -17383,7 +17398,7 @@ function kodu_PageDefn_clone__P3698_mk(s) {
 
 
 
-function inline__P10091(s) {
+function inline__P115887(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -17397,7 +17412,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_RuleDefn_clone__P3691_mk(s);
+    s.tmp_0 = kodu_RuleDefn_clone__P115649_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 778; s.pc = 1; return s.tmp_0;
   case 1:
@@ -17405,12 +17420,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10091.info = {"start":3735,"length":20,"line":120,"column":40,"endLine":120,"endColumn":60,"fileName":"language.ts","functionName":"inline","argumentNames":["rule"]}
+inline__P115887.info = {"start":3623,"length":20,"line":121,"column":40,"endLine":121,"endColumn":60,"fileName":"language.ts","functionName":"inline","argumentNames":["rule"]}
 
-function inline__P10091_mk(s) {
+function inline__P115887_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10091, depth: s.depth + 1,
+        parent: s, fn: inline__P115887, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -23693,7 +23708,7 @@ function kodu_Character_x__P3564_mk(s) {
 
 
 
-function kodu_Brain_cameraFollow__P3756(s) {
+function kodu_Brain_cameraFollow__P137181(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -23709,7 +23724,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Brain__C3748_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Brain__C137178_VT)) failedCast(r0);
     s.tmp_0 = kodu_Stage__C3592_v10_3_mk(s);
     r0 = s.arg0.fields["char"];
     r0 = r0.fields["stage"];
@@ -23725,12 +23740,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Brain_cameraFollow__P3756.info = {"start":853,"length":107,"line":32,"column":8,"endLine":34,"endColumn":9,"fileName":"brain.ts","functionName":"cameraFollow","argumentNames":["this","char"]}
+kodu_Brain_cameraFollow__P137181.info = {"start":853,"length":107,"line":32,"column":8,"endLine":34,"endColumn":9,"fileName":"brain.ts","functionName":"cameraFollow","argumentNames":["this","char"]}
 
-function kodu_Brain_cameraFollow__P3756_mk(s) {
+function kodu_Brain_cameraFollow__P137181_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Brain_cameraFollow__P3756, depth: s.depth + 1,
+        parent: s, fn: kodu_Brain_cameraFollow__P137181, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -23918,7 +23933,7 @@ function kodu_Character_getPhysics__P3573_mk(s) {
 
 
 
-function kodu_Brain_switchPage__P3755(s) {
+function kodu_Brain_switchPage__P137180(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -23934,19 +23949,19 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Brain__C3748_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Brain__C137178_VT)) failedCast(r0);
     r0 = (s.arg0).fields["currPage"] = (s.arg1);
     r0 = (s.arg0).fields["done"] = (true);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Brain_switchPage__P3755.info = {"start":742,"length":101,"line":27,"column":8,"endLine":30,"endColumn":9,"fileName":"brain.ts","functionName":"switchPage","argumentNames":["this","n"]}
+kodu_Brain_switchPage__P137180.info = {"start":742,"length":101,"line":27,"column":8,"endLine":30,"endColumn":9,"fileName":"brain.ts","functionName":"switchPage","argumentNames":["this","n"]}
 
-function kodu_Brain_switchPage__P3755_mk(s) {
+function kodu_Brain_switchPage__P137180_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Brain_switchPage__P3755, depth: s.depth + 1,
+        parent: s, fn: kodu_Brain_switchPage__P137180, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
   arg1: undefined,
@@ -24003,7 +24018,7 @@ function kodu_Character_queueImpulse__P3571_mk(s) {
 
 
 
-function kodu_Wander_direction__P11362(s) {
+function kodu_Wander_direction__P137388(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -24013,16 +24028,16 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.dx___11978 = undefined;
-    s.dy___11988 = undefined;
-    s.distSq___11998 = undefined;
-    s.dist___12011 = undefined;
+    s.dx___137637 = undefined;
+    s.dy___137647 = undefined;
+    s.distSq___137657 = undefined;
+    s.dist___137670 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
     r0 = (s.arg0).fields["poked"] = (true);
     r0 = s.arg0.fields["dest"];
     s.tmp_2 = r0;
@@ -24032,7 +24047,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_3 = kodu_Wander_pickDest__P11762_mk(s);
+    s.tmp_3 = kodu_Wander_pickDest__P137409_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.callLocIdx = 1032; s.pc = 6; return s.tmp_3;
   case 6:
@@ -24051,7 +24066,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0 - s.tmp_1);
-    s.dx___11978 = (r0);
+    s.dx___137637 = (r0);
     r0 = s.arg0.fields["dest"];
     r0 = r0.fields["y"];
     s.tmp_0 = r0;
@@ -24064,14 +24079,14 @@ switch (step) {
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = (s.tmp_0 - s.tmp_1);
-    s.dy___11988 = (r0);
-    r0 = (s.dx___11978 * s.dx___11978);
+    s.dy___137647 = (r0);
+    r0 = (s.dx___137637 * s.dx___137637);
     s.tmp_0 = r0;
-    r0 = (s.dy___11988 * s.dy___11988);
+    r0 = (s.dy___137647 * s.dy___137647);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 + s.tmp_1);
-    s.distSq___11998 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.distSq___11998);
+    s.distSq___137657 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.distSq___137657);
     s.tmp_1 = r0;
     r0 = pxsim_Boolean__bang(s.tmp_1);
     s.tmp_0 = r0;
@@ -24081,12 +24096,12 @@ switch (step) {
     { step = 5; continue; }
   case 3:
   case 4:
-    r0 = pxsim.Math_.sqrt(s.distSq___11998);
-    s.dist___12011 = (r0);
+    r0 = pxsim.Math_.sqrt(s.distSq___137657);
+    s.dist___137670 = (r0);
     s.tmp_0 = kodu_mkVec2__P3784_mk(s);
-    r0 = (s.dx___11978 / s.dist___12011);
+    r0 = (s.dx___137637 / s.dist___137670);
     s.tmp_0.arg0 = r0;
-    r0 = (s.dy___11988 / s.dist___12011);
+    r0 = (s.dy___137647 / s.dist___137670);
     s.tmp_0.arg1 = r0;
     s.callLocIdx = 1035; s.pc = 9; return s.tmp_0;
   case 9:
@@ -24095,21 +24110,21 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_direction__P11362.info = {"start":3357,"length":480,"line":113,"column":8,"endLine":128,"endColumn":9,"fileName":"brain.ts","functionName":"direction","argumentNames":["this"]}
+kodu_Wander_direction__P137388.info = {"start":3377,"length":480,"line":113,"column":8,"endLine":128,"endColumn":9,"fileName":"brain.ts","functionName":"direction","argumentNames":["this"]}
 
-function kodu_Wander_direction__P11362_mk(s) {
+function kodu_Wander_direction__P137388_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_direction__P11362, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_direction__P137388, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
-  dx___11978: undefined,
-  dy___11988: undefined,
-  distSq___11998: undefined,
-  dist___12011: undefined,
+  dx___137637: undefined,
+  dy___137647: undefined,
+  distSq___137657: undefined,
+  dist___137670: undefined,
   arg0: undefined,
 } }
 
@@ -24117,7 +24132,7 @@ function kodu_Wander_direction__P11362_mk(s) {
 
 
 
-function kodu_Wander_pickDest__P11762(s) {
+function kodu_Wander_pickDest__P137409(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -24127,16 +24142,16 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.camx___12048 = undefined;
-    s.camy___12055 = undefined;
-    s.x___12062 = undefined;
-    s.y___12080 = undefined;
+    s.camx___137707 = undefined;
+    s.camy___137714 = undefined;
+    s.x___137721 = undefined;
+    s.y___137739 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
     r0 = s.arg0.fields["brain"];
     r0 = r0.fields["char"];
     r0 = r0.fields["sprite"];
@@ -24155,20 +24170,20 @@ switch (step) {
     r0 = r0.fields["stage"];
     r0 = r0.fields["camera"];
     r0 = r0.fields["x"];
-    s.camx___12048 = (r0);
+    s.camx___137707 = (r0);
     r0 = s.arg0.fields["brain"];
     r0 = r0.fields["char"];
     r0 = r0.fields["stage"];
     r0 = r0.fields["camera"];
     r0 = r0.fields["y"];
-    s.camy___12055 = (r0);
+    s.camy___137714 = (r0);
     r0 = s.arg0.fields["margin"];
     s.tmp_3 = r0;
     r0 = (80 + s.tmp_3);
     s.tmp_2 = r0;
     r0 = (0 - s.tmp_2);
     s.tmp_1 = r0;
-    r0 = (s.tmp_1 + s.camx___12048);
+    r0 = (s.tmp_1 + s.camx___137707);
     s.tmp_0 = r0;
     r0 = pxsim.Math_.random();
     s.tmp_5 = r0;
@@ -24181,14 +24196,14 @@ switch (step) {
     r0 = (s.tmp_5 * s.tmp_6);
     s.tmp_4 = r0;
     r0 = (s.tmp_0 + s.tmp_4);
-    s.x___12062 = (r0);
+    s.x___137721 = (r0);
     r0 = s.arg0.fields["margin"];
     s.tmp_3 = r0;
     r0 = (60 + s.tmp_3);
     s.tmp_2 = r0;
     r0 = (0 - s.tmp_2);
     s.tmp_1 = r0;
-    r0 = (s.tmp_1 + s.camy___12055);
+    r0 = (s.tmp_1 + s.camy___137714);
     s.tmp_0 = r0;
     r0 = pxsim.Math_.random();
     s.tmp_5 = r0;
@@ -24201,11 +24216,11 @@ switch (step) {
     r0 = (s.tmp_5 * s.tmp_6);
     s.tmp_4 = r0;
     r0 = (s.tmp_0 + s.tmp_4);
-    s.y___12080 = (r0);
+    s.y___137739 = (r0);
     s.tmp_0 = r0 = s.arg0;
     s.tmp_2 = kodu_mkVec2__P3784_mk(s);
-    s.tmp_2.arg0 = s.x___12062;
-    s.tmp_2.arg1 = s.y___12080;
+    s.tmp_2.arg0 = s.x___137721;
+    s.tmp_2.arg1 = s.y___137739;
     s.callLocIdx = 1039; s.pc = 4; return s.tmp_2;
   case 4:
     r0 = s.retval;
@@ -24216,12 +24231,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_pickDest__P11762.info = {"start":4121,"length":419,"line":141,"column":8,"endLine":148,"endColumn":9,"fileName":"brain.ts","functionName":"pickDest","argumentNames":["this"]}
+kodu_Wander_pickDest__P137409.info = {"start":4141,"length":419,"line":141,"column":8,"endLine":148,"endColumn":9,"fileName":"brain.ts","functionName":"pickDest","argumentNames":["this"]}
 
-function kodu_Wander_pickDest__P11762_mk(s) {
+function kodu_Wander_pickDest__P137409_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_pickDest__P11762, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_pickDest__P137409, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -24232,10 +24247,10 @@ function kodu_Wander_pickDest__P11762_mk(s) {
   tmp_6: undefined,
   tmp_7: undefined,
   tmp_8: undefined,
-  camx___12048: undefined,
-  camy___12055: undefined,
-  x___12062: undefined,
-  y___12080: undefined,
+  camx___137707: undefined,
+  camy___137714: undefined,
+  x___137721: undefined,
+  y___137739: undefined,
   arg0: undefined,
 } }
 
@@ -24997,7 +25012,7 @@ function helpers_swap__P3792_mk(s) {
 
 
 
-function kodu_Rule_brain__P3765(s) {
+function kodu_Rule_brain__P137379(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -25012,19 +25027,19 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Rule__C3757_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Rule__C137378_VT)) failedCast(r0);
     r0 = s.arg0.fields["page"];
     r0 = r0.fields["brain"];
     return leaveAccessor(s, r0)
   default: oops()
 } } }
-kodu_Rule_brain__P3765.info = {"start":1597,"length":46,"line":61,"column":8,"endLine":61,"endColumn":54,"fileName":"brain.ts","functionName":"brain","argumentNames":["this"]}
-kodu_Rule_brain__P3765.isGetter = true;
+kodu_Rule_brain__P137379.info = {"start":1597,"length":46,"line":61,"column":8,"endLine":61,"endColumn":54,"fileName":"brain.ts","functionName":"brain","argumentNames":["this"]}
+kodu_Rule_brain__P137379.isGetter = true;
 
-function kodu_Rule_brain__P3765_mk(s) {
+function kodu_Rule_brain__P137379_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Rule_brain__P3765, depth: s.depth + 1,
+        parent: s, fn: kodu_Rule_brain__P137379, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
 } }
@@ -54545,7 +54560,7 @@ switch (step) {
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
     s.tmp_1 = if_modifiers_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "modifiers");
     } else {
@@ -54712,7 +54727,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_0, "index");
     s.index___9273 = (r0);
-    s.tmp_0 = kodu_Language_getModifierSuggestions__P3713_mk(s);
+    s.tmp_0 = kodu_Language_getModifierSuggestions__P115692_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = s.index___9273;
@@ -54903,7 +54918,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = r0 = s.caps[1];
     s.tmp_4 = if_modifiers_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "modifiers");
     } else {
@@ -54921,7 +54936,7 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, s.tmp_1, s.tmp_2);
   case 2:
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 634; s.pc = 8; return s.tmp_0;
@@ -55027,9 +55042,9 @@ switch (step) {
     if (!r0) { step = 3; continue; }
     r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleUI__C8533_VT);
     s.tmp_12 = r0;
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C3685_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_RuleDefn__C115648_VT);
     s.tmp_13 = r0;
-    s.tmp_14 = kodu_RuleDefn_constructor__P3690_mk(s);
+    s.tmp_14 = kodu_RuleDefn_constructor__P115653_mk(s);
     s.tmp_14.arg0 = s.tmp_13;
     s.callLocIdx = 516; s.pc = 7; return s.tmp_14;
   case 7:
@@ -55334,7 +55349,7 @@ function kodu_RuleUI_destroy__P8537_mk(s) {
 
 
 
-function kodu_Language_ensureValid__P3714(s) {
+function kodu_Language_ensureValid__P115684(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -55380,12 +55395,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_ensureValid__P3714.info = {"start":8736,"length":219,"line":261,"column":8,"endLine":268,"endColumn":9,"fileName":"language.ts","functionName":"ensureValid","argumentNames":["rule"]}
+kodu_Language_ensureValid__P115684.info = {"start":8624,"length":219,"line":262,"column":8,"endLine":269,"endColumn":9,"fileName":"language.ts","functionName":"ensureValid","argumentNames":["rule"]}
 
-function kodu_Language_ensureValid__P3714_mk(s) {
+function kodu_Language_ensureValid__P115684_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_ensureValid__P3714, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_ensureValid__P115684, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -55591,8 +55606,8 @@ switch (step) {
 
     s.top___8472 = undefined;
     s.page___8476 = undefined;
-    s.unnamed154___U2 = undefined;
-    s.unnamed155___U3 = undefined;
+    s.unnamed5362___U2 = undefined;
+    s.unnamed5363___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -55603,15 +55618,15 @@ switch (step) {
     s.top___8472 = (r0);
     s.page___8476 = (undefined);
     r0 = s.arg0.fields["pages"];
-    s.unnamed154___U2 = (r0);
-    s.unnamed155___U3 = (0);
+    s.unnamed5362___U2 = (r0);
+    s.unnamed5363___U3 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed155___U3;
-    r0 = pxsim_Array__length(s.unnamed154___U2);
+    s.tmp_0 = r0 = s.unnamed5363___U3;
+    r0 = pxsim_Array__length(s.unnamed5362___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed154___U2, s.unnamed155___U3);
+    r0 = pxsim_Array__getAt(s.unnamed5362___U2, s.unnamed5363___U3);
     s.page___8476 = (r0);
     s.tmp_2 = kodu_PageUI_layout__P8462_mk(s);
     s.tmp_2.arg0 = s.page___8476;
@@ -55625,11 +55640,11 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = (s.top___8472 + s.tmp_0);
     s.top___8472 = (r0);
-    r0 = (s.unnamed155___U3 + 1);
-    s.unnamed155___U3 = (r0);
+    r0 = (s.unnamed5363___U3 + 1);
+    s.unnamed5363___U3 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed154___U2 = (undefined);
+    s.unnamed5362___U2 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
@@ -55646,8 +55661,8 @@ function kodu_BrainUI_layout__P8438_mk(s) {
   tmp_2: undefined,
   top___8472: undefined,
   page___8476: undefined,
-  unnamed154___U2: undefined,
-  unnamed155___U3: undefined,
+  unnamed5362___U2: undefined,
+  unnamed5363___U3: undefined,
   arg0: undefined,
 } }
 
@@ -55666,8 +55681,8 @@ switch (step) {
   case 0:
 
     s.rule___8597 = undefined;
-    s.unnamed156___U1 = undefined;
-    s.unnamed157___U2 = undefined;
+    s.unnamed5364___U1 = undefined;
+    s.unnamed5365___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -55700,15 +55715,15 @@ switch (step) {
     s.arg2 = (r0);
     s.rule___8597 = (undefined);
     r0 = s.arg0.fields["rules"];
-    s.unnamed156___U1 = (r0);
-    s.unnamed157___U2 = (0);
+    s.unnamed5364___U1 = (r0);
+    s.unnamed5365___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed157___U2;
-    r0 = pxsim_Array__length(s.unnamed156___U1);
+    s.tmp_0 = r0 = s.unnamed5365___U2;
+    r0 = pxsim_Array__length(s.unnamed5364___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 2; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed156___U1, s.unnamed157___U2);
+    r0 = pxsim_Array__getAt(s.unnamed5364___U1, s.unnamed5365___U2);
     s.rule___8597 = (r0);
     s.tmp_2 = kodu_RuleUI_layout__P8536_mk(s);
     s.tmp_2.arg0 = s.rule___8597;
@@ -55721,11 +55736,11 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = (s.arg2 + s.tmp_0);
     s.arg2 = (r0);
-    r0 = (s.unnamed157___U2 + 1);
-    s.unnamed157___U2 = (r0);
+    r0 = (s.unnamed5365___U2 + 1);
+    s.unnamed5365___U2 = (r0);
     { step = 1; continue; }
   case 2:
-    s.unnamed156___U1 = (undefined);
+    s.unnamed5364___U1 = (undefined);
     s.tmp_0 = r0 = s.arg0;
     r0 = s.arg0.fields["top"];
     s.tmp_3 = r0;
@@ -55750,8 +55765,8 @@ function kodu_PageUI_layout__P8462_mk(s) {
   tmp_2: undefined,
   tmp_3: undefined,
   rule___8597: undefined,
-  unnamed156___U1: undefined,
-  unnamed157___U2: undefined,
+  unnamed5364___U1: undefined,
+  unnamed5365___U2: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -56773,7 +56788,7 @@ function kodu_Menu_destroy__P3586_mk(s) {
 
 
 
-function kodu_Language_getModifierSuggestions__P3713(s) {
+function kodu_Language_getModifierSuggestions__P115692(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -56783,10 +56798,10 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.all___10330 = undefined;
-    s.existing___10363 = undefined;
-    s.i___10365 = undefined;
-    s.compatible___10379 = undefined;
+    s.all___116129 = undefined;
+    s.existing___116162 = undefined;
+    s.i___116164 = undefined;
+    s.compatible___116178 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -56796,7 +56811,7 @@ switch (step) {
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     s.tmp_4 = if_modifiers_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "modifiers");
     } else {
@@ -56810,37 +56825,37 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_pxtrt.keysOf(s.tmp_3);
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10340;
+    s.tmp_2.arg1 = inline__P116139;
     s.callLocIdx = 824; s.pc = 9; return s.tmp_2;
   case 9:
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = inline__P10345;
+    s.tmp_1.arg1 = inline__P116144;
     s.callLocIdx = 826; s.pc = 8; return s.tmp_1;
   case 8:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = inline__P10332;
+    s.tmp_0.arg1 = inline__P116131;
     s.callLocIdx = 829; s.pc = 7; return s.tmp_0;
   case 7:
     r0 = s.retval;
-    s.all___10330 = (r0);
+    s.all___116129 = (r0);
     r0 = pxsim_Array__mk();
-    s.existing___10363 = (r0);
-    s.i___10365 = (0);
+    s.existing___116162 = (r0);
+    s.i___116164 = (0);
   case 1:
-    r0 = (s.i___10365 < s.arg1);
+    r0 = (s.i___116164 < s.arg1);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 2; continue; }
-    s.tmp_1 = r0 = s.existing___10363;
+    s.tmp_1 = r0 = s.existing___116162;
     r0 = s.arg0.fields["modifiers"];
     s.tmp_3 = r0;
-    r0 = pxsim_Array__getAt(s.tmp_3, s.i___10365);
+    r0 = pxsim_Array__getAt(s.tmp_3, s.i___116164);
     s.tmp_2 = r0;
     r0 = pxsim_Array__push(s.tmp_1, s.tmp_2);
-    r0 = (s.i___10365 + 1);
-    s.i___10365 = (r0);
+    r0 = (s.i___116164 + 1);
+    s.i___116164 = (r0);
     { step = 1; continue; }
   case 2:
     s.tmp_0 = r0 = s.arg0;
@@ -56874,34 +56889,34 @@ switch (step) {
   case 6:
     // jmp value (already in r0)
     s.tmp_3 = r0;
-    s.tmp_4 = kodu_Language_getCompatibleSet__P10224_mk(s);
-    s.tmp_4.arg0 = s.all___10330;
-    s.tmp_4.arg1 = s.existing___10363;
+    s.tmp_4 = kodu_Language_getCompatibleSet__P116021_mk(s);
+    s.tmp_4.arg0 = s.all___116129;
+    s.tmp_4.arg1 = s.existing___116162;
     s.tmp_4.arg2 = s.tmp_3;
     s.callLocIdx = 831; s.pc = 12; return s.tmp_4;
   case 12:
     r0 = s.retval;
-    s.compatible___10379 = (r0);
-    r0 = s.compatible___10379;
+    s.compatible___116178 = (r0);
+    r0 = s.compatible___116178;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_getModifierSuggestions__P3713.info = {"start":7046,"length":739,"line":226,"column":8,"endLine":241,"endColumn":9,"fileName":"language.ts","functionName":"getModifierSuggestions","argumentNames":["rule","index"]}
+kodu_Language_getModifierSuggestions__P115692.info = {"start":6934,"length":739,"line":227,"column":8,"endLine":242,"endColumn":9,"fileName":"language.ts","functionName":"getModifierSuggestions","argumentNames":["rule","index"]}
 
-function kodu_Language_getModifierSuggestions__P3713_mk(s) {
+function kodu_Language_getModifierSuggestions__P115692_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_getModifierSuggestions__P3713, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_getModifierSuggestions__P115692, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  all___10330: undefined,
-  existing___10363: undefined,
-  i___10365: undefined,
-  compatible___10379: undefined,
+  all___116129: undefined,
+  existing___116162: undefined,
+  i___116164: undefined,
+  compatible___116178: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -56910,7 +56925,7 @@ function kodu_Language_getModifierSuggestions__P3713_mk(s) {
 
 
 
-function inline__P10340(s) {
+function inline__P116139(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -56925,7 +56940,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_modifiers_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "modifiers");
     } else {
@@ -56941,12 +56956,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10340.info = {"start":7206,"length":25,"line":228,"column":21,"endLine":228,"endColumn":46,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116139.info = {"start":7094,"length":25,"line":229,"column":21,"endLine":229,"endColumn":46,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10340_mk(s) {
+function inline__P116139_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10340, depth: s.depth + 1,
+        parent: s, fn: inline__P116139, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -56957,7 +56972,7 @@ function inline__P10340_mk(s) {
 
 
 
-function inline__P10345(s) {
+function inline__P116144(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -56990,12 +57005,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10345.info = {"start":7257,"length":20,"line":229,"column":24,"endLine":229,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116144.info = {"start":7145,"length":20,"line":230,"column":24,"endLine":230,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10345_mk(s) {
+function inline__P116144_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10345, depth: s.depth + 1,
+        parent: s, fn: inline__P116144, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57007,7 +57022,7 @@ function inline__P10345_mk(s) {
 
 
 
-function inline__P10332(s) {
+function inline__P116131(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57017,8 +57032,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.wa___10352 = undefined;
-    s.wb___10356 = undefined;
+    s.wa___116151 = undefined;
+    s.wb___116155 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -57046,7 +57061,7 @@ switch (step) {
   case 2:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wa___10352 = (s.tmp_2);
+    s.wa___116151 = (s.tmp_2);
     s.tmp_1 = if_weight_1_mk(s);
     s.tmp_1.arg0 = s.arg1;
     if (!s.tmp_1.arg0.vtable.iface) {
@@ -57069,23 +57084,23 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wb___10356 = (s.tmp_2);
-    r0 = (s.wa___10352 - s.wb___10356);
+    s.wb___116155 = (s.tmp_2);
+    r0 = (s.wa___116151 - s.wb___116155);
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10332.info = {"start":7301,"length":161,"line":230,"column":22,"endLine":234,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
+inline__P116131.info = {"start":7189,"length":161,"line":231,"column":22,"endLine":235,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
 
-function inline__P10332_mk(s) {
+function inline__P116131_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10332, depth: s.depth + 1,
+        parent: s, fn: inline__P116131, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  wa___10352: undefined,
-  wb___10356: undefined,
+  wa___116151: undefined,
+  wb___116155: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -57094,7 +57109,7 @@ function inline__P10332_mk(s) {
 
 
 
-function kodu_Language_getCompatibleSet__P10224(s) {
+function kodu_Language_getCompatibleSet__P116021(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57104,10 +57119,10 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.last___10398 = undefined;
-    s.c___10412 = undefined;
-    s.i___10420 = undefined;
-    s.compat___10434 = undefined;
+    s.last___116198 = undefined;
+    s.c___116213 = undefined;
+    s.i___116221 = undefined;
+    s.compat___116235 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -57124,10 +57139,10 @@ switch (step) {
     r0 = (s.tmp_3 - 1);
     s.tmp_2 = r0;
     r0 = pxsim_Array__getAt(s.tmp_1, s.tmp_2);
-    s.last___10398 = (r0);
+    s.last___116198 = (r0);
     s.tmp_1 = if_handling_1_mk(s);
     s.tmp_2 = if_constraints_1_mk(s);
-    s.tmp_2.arg0 = s.last___10398;
+    s.tmp_2.arg0 = s.last___116198;
     if (!s.tmp_2.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "constraints");
     } else {
@@ -57157,7 +57172,7 @@ switch (step) {
   case 1:
     s.tmp_4 = if_handling_1_mk(s);
     s.tmp_5 = if_constraints_1_mk(s);
-    s.tmp_5.arg0 = s.last___10398;
+    s.tmp_5.arg0 = s.last___116198;
     if (!s.tmp_5.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_5.arg0, "constraints");
     } else {
@@ -57192,30 +57207,30 @@ switch (step) {
   case 4:
   case 5:
   case 6:
-    s.tmp_7 = kodu_mkConstraints__P10415_mk(s);
+    s.tmp_7 = kodu_mkConstraints__P116216_mk(s);
     s.callLocIdx = 836; s.pc = 14; return s.tmp_7;
   case 14:
     r0 = s.retval;
-    s.c___10412 = (r0);
-    s.tmp_0 = kodu_mergeConstraints__P10417_mk(s);
-    s.tmp_0.arg0 = s.c___10412;
+    s.c___116213 = (r0);
+    s.tmp_0 = kodu_mergeConstraints__P116218_mk(s);
+    s.tmp_0.arg0 = s.c___116213;
     s.tmp_0.arg1 = s.arg2;
     s.callLocIdx = 837; s.pc = 15; return s.tmp_0;
   case 15:
     r0 = s.retval;
-    s.i___10420 = (0);
+    s.i___116221 = (0);
   case 7:
-    s.tmp_1 = r0 = s.i___10420;
+    s.tmp_1 = r0 = s.i___116221;
     r0 = pxsim_Array__length(s.arg1);
     s.tmp_2 = r0;
     r0 = (s.tmp_1 < s.tmp_2);
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 8; continue; }
-    s.tmp_3 = kodu_mergeConstraints__P10417_mk(s);
-    s.tmp_3.arg0 = s.c___10412;
+    s.tmp_3 = kodu_mergeConstraints__P116218_mk(s);
+    s.tmp_3.arg0 = s.c___116213;
     s.tmp_4 = if_constraints_1_mk(s);
-    r0 = pxsim_Array__getAt(s.arg1, s.i___10420);
+    r0 = pxsim_Array__getAt(s.arg1, s.i___116221);
     s.tmp_4.arg0 = r0;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "constraints");
@@ -57231,41 +57246,41 @@ switch (step) {
     s.callLocIdx = 839; s.pc = 16; return s.tmp_3;
   case 16:
     r0 = s.retval;
-    r0 = (s.i___10420 + 1);
-    s.i___10420 = (r0);
+    r0 = (s.i___116221 + 1);
+    s.i___116221 = (r0);
     { step = 7; continue; }
   case 8:
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10437);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116238);
     s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.c___10412);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.c___116213);
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
     s.tmp_1.arg0 = s.arg0;
     s.tmp_1.arg1 = s.tmp_0;
     s.callLocIdx = 848; s.pc = 18; return s.tmp_1;
   case 18:
     r0 = s.retval;
-    s.compat___10434 = (r0);
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10466);
+    s.compat___116235 = (r0);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116269);
     s.tmp_0 = r0;
-    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.c___10412);
+    r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.c___116213);
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
-    s.tmp_1.arg0 = s.compat___10434;
+    s.tmp_1.arg0 = s.compat___116235;
     s.tmp_1.arg1 = s.tmp_0;
     s.callLocIdx = 857; s.pc = 19; return s.tmp_1;
   case 19:
     r0 = s.retval;
-    s.compat___10434 = (r0);
-    r0 = s.compat___10434;
+    s.compat___116235 = (r0);
+    r0 = s.compat___116235;
   case 9:
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_getCompatibleSet__P10224.info = {"start":7795,"length":931,"line":243,"column":8,"endLine":259,"endColumn":9,"fileName":"language.ts","functionName":"getCompatibleSet","argumentNames":["all","existing","initial"]}
+kodu_Language_getCompatibleSet__P116021.info = {"start":7683,"length":931,"line":244,"column":8,"endLine":260,"endColumn":9,"fileName":"language.ts","functionName":"getCompatibleSet","argumentNames":["all","existing","initial"]}
 
-function kodu_Language_getCompatibleSet__P10224_mk(s) {
+function kodu_Language_getCompatibleSet__P116021_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_getCompatibleSet__P10224, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_getCompatibleSet__P116021, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57275,10 +57290,10 @@ function kodu_Language_getCompatibleSet__P10224_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   tmp_7: undefined,
-  last___10398: undefined,
-  c___10412: undefined,
-  i___10420: undefined,
-  compat___10434: undefined,
+  last___116198: undefined,
+  c___116213: undefined,
+  i___116221: undefined,
+  compat___116235: undefined,
   arg0: undefined,
   arg1: undefined,
   arg2: undefined,
@@ -57288,7 +57303,7 @@ function kodu_Language_getCompatibleSet__P10224_mk(s) {
 
 
 
-function inline__P10437(s) {
+function inline__P116238(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57302,7 +57317,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10441);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116242);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_2 = helpers_arraySome__P105_mk(s);
@@ -57341,7 +57356,7 @@ switch (step) {
     r0 = s.tmp_1;
     { step = 2; continue; }
   case 1:
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10457);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116260);
     s.tmp_5 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_5, 0, s.arg0);
     s.tmp_6 = helpers_arraySome__P105_mk(s);
@@ -57381,12 +57396,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10437.info = {"start":8386,"length":103,"line":254,"column":24,"endLine":254,"endColumn":127,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116238.info = {"start":8274,"length":103,"line":255,"column":24,"endLine":255,"endColumn":127,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10437_mk(s) {
+function inline__P116238_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10437, depth: s.depth + 1,
+        parent: s, fn: inline__P116238, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57405,7 +57420,7 @@ function inline__P10437_mk(s) {
 
 
 
-function inline__P10441(s) {
+function inline__P116242(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57437,12 +57452,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10441.info = {"start":8418,"length":28,"line":254,"column":56,"endLine":254,"endColumn":84,"fileName":"language.ts","functionName":"inline","argumentNames":["cat"]}
+inline__P116242.info = {"start":8306,"length":28,"line":255,"column":56,"endLine":255,"endColumn":84,"fileName":"language.ts","functionName":"inline","argumentNames":["cat"]}
 
-function inline__P10441_mk(s) {
+function inline__P116242_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10441, depth: s.depth + 1,
+        parent: s, fn: inline__P116242, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57454,7 +57469,7 @@ function inline__P10441_mk(s) {
 
 
 
-function inline__P10457(s) {
+function inline__P116260(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57486,12 +57501,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10457.info = {"start":8468,"length":20,"line":254,"column":106,"endLine":254,"endColumn":126,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116260.info = {"start":8356,"length":20,"line":255,"column":106,"endLine":255,"endColumn":126,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10457_mk(s) {
+function inline__P116260_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10457, depth: s.depth + 1,
+        parent: s, fn: inline__P116260, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57503,7 +57518,7 @@ function inline__P10457_mk(s) {
 
 
 
-function inline__P10466(s) {
+function inline__P116269(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57517,7 +57532,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10471);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116274);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_4 = helpers_arraySome__P105_mk(s);
@@ -57560,7 +57575,7 @@ switch (step) {
     r0 = s.tmp_1;
     { step = 2; continue; }
   case 1:
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10484);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116288);
     s.tmp_7 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_7, 0, s.arg0);
     s.tmp_10 = helpers_arraySome__P105_mk(s);
@@ -57604,12 +57619,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10466.info = {"start":8544,"length":111,"line":256,"column":24,"endLine":256,"endColumn":135,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116269.info = {"start":8432,"length":111,"line":257,"column":24,"endLine":257,"endColumn":135,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10466_mk(s) {
+function inline__P116269_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10466, depth: s.depth + 1,
+        parent: s, fn: inline__P116269, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57632,7 +57647,7 @@ function inline__P10466_mk(s) {
 
 
 
-function inline__P10471(s) {
+function inline__P116274(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57664,12 +57679,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10471.info = {"start":8580,"length":28,"line":256,"column":60,"endLine":256,"endColumn":88,"fileName":"language.ts","functionName":"inline","argumentNames":["cat"]}
+inline__P116274.info = {"start":8468,"length":28,"line":257,"column":60,"endLine":257,"endColumn":88,"fileName":"language.ts","functionName":"inline","argumentNames":["cat"]}
 
-function inline__P10471_mk(s) {
+function inline__P116274_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10471, depth: s.depth + 1,
+        parent: s, fn: inline__P116274, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57681,7 +57696,7 @@ function inline__P10471_mk(s) {
 
 
 
-function inline__P10484(s) {
+function inline__P116288(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57713,12 +57728,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10484.info = {"start":8634,"length":20,"line":256,"column":114,"endLine":256,"endColumn":134,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116288.info = {"start":8522,"length":20,"line":257,"column":114,"endLine":257,"endColumn":134,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10484_mk(s) {
+function inline__P116288_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10484, depth: s.depth + 1,
+        parent: s, fn: inline__P116288, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -57730,7 +57745,7 @@ function inline__P10484_mk(s) {
 
 
 
-function kodu_mergeConstraints__P10417(s) {
+function kodu_mergeConstraints__P116218(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -57740,10 +57755,10 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.keys___10582 = undefined;
-    s.key___10588 = undefined;
-    s.unnamed158___U2 = undefined;
-    s.unnamed159___U3 = undefined;
+    s.keys___116388 = undefined;
+    s.key___116394 = undefined;
+    s.unnamed5366___U2 = undefined;
+    s.unnamed5367___U3 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -57807,7 +57822,7 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_7 = r0;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10528);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116334);
     s.tmp_8 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_8, 0, s.arg0);
     s.tmp_9 = helpers_arrayForEach__P107_mk(s);
@@ -57850,7 +57865,7 @@ switch (step) {
   case 6:
     // jmp value (already in r0)
     s.tmp_3 = r0;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10542);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116348);
     s.tmp_4 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_4, 0, s.arg0);
     s.tmp_5 = helpers_arrayForEach__P107_mk(s);
@@ -57910,7 +57925,7 @@ switch (step) {
   case 10:
     // jmp value (already in r0)
     s.tmp_5 = r0;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10558);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116364);
     s.tmp_6 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_6, 0, s.arg0);
     s.tmp_7 = helpers_arrayForEach__P107_mk(s);
@@ -57953,7 +57968,7 @@ switch (step) {
   case 12:
     // jmp value (already in r0)
     s.tmp_3 = r0;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P10572);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P116378);
     s.tmp_4 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_4, 0, s.arg0);
     s.tmp_5 = helpers_arrayForEach__P107_mk(s);
@@ -57993,18 +58008,18 @@ switch (step) {
     r0 = s.retval;
     s.tmp_2 = r0;
     r0 = pxsim_pxtrt.keysOf(s.tmp_2);
-    s.keys___10582 = (r0);
-    s.key___10588 = (undefined);
-    s.unnamed158___U2 = (s.keys___10582);
-    s.unnamed159___U3 = (0);
+    s.keys___116388 = (r0);
+    s.key___116394 = (undefined);
+    s.unnamed5366___U2 = (s.keys___116388);
+    s.unnamed5367___U3 = (0);
   case 15:
-    s.tmp_0 = r0 = s.unnamed159___U3;
-    r0 = pxsim_Array__length(s.unnamed158___U2);
+    s.tmp_0 = r0 = s.unnamed5367___U3;
+    r0 = pxsim_Array__length(s.unnamed5366___U2);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 16; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed158___U2, s.unnamed159___U3);
-    s.key___10588 = (r0);
+    r0 = pxsim_Array__getAt(s.unnamed5366___U2, s.unnamed5367___U3);
+    s.key___116394 = (r0);
     s.tmp_3 = if_handling_1_mk(s);
     s.tmp_3.arg0 = s.arg0;
     if (!s.tmp_3.arg0.vtable.iface) {
@@ -58018,7 +58033,7 @@ switch (step) {
   case 36:
     r0 = s.retval;
     s.tmp_2 = r0;
-    s.tmp_4 = r0 = s.key___10588;
+    s.tmp_4 = r0 = s.key___116394;
     s.tmp_7 = if_handling_1_mk(s);
     s.tmp_7.arg0 = s.arg1;
     if (!s.tmp_7.arg0.vtable.iface) {
@@ -58032,14 +58047,14 @@ switch (step) {
   case 37:
     r0 = s.retval;
     s.tmp_6 = r0;
-    r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_6, s.key___10588);
+    r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_6, s.key___116394);
     s.tmp_5 = r0;
     r0 = pxsim_pxtrt.mapSetGeneric(s.tmp_2, s.tmp_4, s.tmp_5);
-    r0 = (s.unnamed159___U3 + 1);
-    s.unnamed159___U3 = (r0);
+    r0 = (s.unnamed5367___U3 + 1);
+    s.unnamed5367___U3 = (r0);
     { step = 15; continue; }
   case 16:
-    s.unnamed158___U2 = (undefined);
+    s.unnamed5366___U2 = (undefined);
   case 17:
   case 18:
   case 19:
@@ -58047,12 +58062,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_mergeConstraints__P10417.info = {"start":9293,"length":718,"line":286,"column":4,"endLine":302,"endColumn":5,"fileName":"language.ts","functionName":"mergeConstraints","argumentNames":["dst","src"]}
+kodu_mergeConstraints__P116218.info = {"start":9321,"length":718,"line":293,"column":4,"endLine":309,"endColumn":5,"fileName":"language.ts","functionName":"mergeConstraints","argumentNames":["dst","src"]}
 
-function kodu_mergeConstraints__P10417_mk(s) {
+function kodu_mergeConstraints__P116218_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_mergeConstraints__P10417, depth: s.depth + 1,
+        parent: s, fn: kodu_mergeConstraints__P116218, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58064,10 +58079,10 @@ function kodu_mergeConstraints__P10417_mk(s) {
   tmp_7: undefined,
   tmp_8: undefined,
   tmp_9: undefined,
-  keys___10582: undefined,
-  key___10588: undefined,
-  unnamed158___U2: undefined,
-  unnamed159___U3: undefined,
+  keys___116388: undefined,
+  key___116394: undefined,
+  unnamed5366___U2: undefined,
+  unnamed5367___U3: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -58076,7 +58091,7 @@ function kodu_mergeConstraints__P10417_mk(s) {
 
 
 
-function inline__P10528(s) {
+function inline__P116334(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58120,12 +58135,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10528.info = {"start":9455,"length":32,"line":289,"column":42,"endLine":289,"endColumn":74,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
+inline__P116334.info = {"start":9483,"length":32,"line":296,"column":42,"endLine":296,"endColumn":74,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
 
-function inline__P10528_mk(s) {
+function inline__P116334_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10528, depth: s.depth + 1,
+        parent: s, fn: inline__P116334, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58137,7 +58152,7 @@ function inline__P10528_mk(s) {
 
 
 
-function inline__P10542(s) {
+function inline__P116348(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58181,12 +58196,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10542.info = {"start":9539,"length":39,"line":290,"column":49,"endLine":290,"endColumn":88,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
+inline__P116348.info = {"start":9567,"length":39,"line":297,"column":49,"endLine":297,"endColumn":88,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
 
-function inline__P10542_mk(s) {
+function inline__P116348_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10542, depth: s.depth + 1,
+        parent: s, fn: inline__P116348, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58198,7 +58213,7 @@ function inline__P10542_mk(s) {
 
 
 
-function inline__P10558(s) {
+function inline__P116364(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58242,12 +58257,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10558.info = {"start":9664,"length":35,"line":293,"column":45,"endLine":293,"endColumn":80,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
+inline__P116364.info = {"start":9692,"length":35,"line":300,"column":45,"endLine":300,"endColumn":80,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
 
-function inline__P10558_mk(s) {
+function inline__P116364_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10558, depth: s.depth + 1,
+        parent: s, fn: inline__P116364, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58259,7 +58274,7 @@ function inline__P10558_mk(s) {
 
 
 
-function inline__P10572(s) {
+function inline__P116378(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58303,12 +58318,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10572.info = {"start":9754,"length":42,"line":294,"column":52,"endLine":294,"endColumn":94,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
+inline__P116378.info = {"start":9782,"length":42,"line":301,"column":52,"endLine":301,"endColumn":94,"fileName":"language.ts","functionName":"inline","argumentNames":["item"]}
 
-function inline__P10572_mk(s) {
+function inline__P116378_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10572, depth: s.depth + 1,
+        parent: s, fn: inline__P116378, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58320,7 +58335,7 @@ function inline__P10572_mk(s) {
 
 
 
-function kodu_mkConstraints__P10415(s) {
+function kodu_mkConstraints__P116216(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58330,41 +58345,53 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.c___10509 = undefined;
+    s.c___116313 = undefined;
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_0 = r0;
     r0 = pxsim_Array__mk();
     s.tmp_1 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "ids", s.tmp_1);
-    r0 = pxsim_Array__mk();
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "categories", s.tmp_1);
+    r0 = pxsim_pxtrt.mkMap();
     s.tmp_2 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "categories", s.tmp_2);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_2, "provides", s.tmp_0);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_3 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_3, "allow", s.tmp_0);
-    r0 = pxsim_pxtrt.mkMap();
-    s.tmp_4 = r0;
     r0 = pxsim_Array__mk();
+    s.tmp_4 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_3, "categories", s.tmp_4);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_2, "requires", s.tmp_3);
+    r0 = pxsim_pxtrt.mkMap();
     s.tmp_5 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_4, "ids", s.tmp_5);
     r0 = pxsim_Array__mk();
     s.tmp_6 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_4, "categories", s.tmp_6);
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_3, "disallow", s.tmp_4);
-    r0 = pxsim_pxtrt.mkMap();
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_5, "ids", s.tmp_6);
+    r0 = pxsim_Array__mk();
     s.tmp_7 = r0;
-    r0 = pxsim_pxtrt.mapSetByString(s.tmp_3, "handling", s.tmp_7);
-    s.c___10509 = (s.tmp_3);
-    r0 = s.c___10509;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_5, "categories", s.tmp_7);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_2, "allow", s.tmp_5);
+    r0 = pxsim_pxtrt.mkMap();
+    s.tmp_8 = r0;
+    r0 = pxsim_Array__mk();
+    s.tmp_9 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_8, "ids", s.tmp_9);
+    r0 = pxsim_Array__mk();
+    s.tmp_10 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_8, "categories", s.tmp_10);
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_2, "disallow", s.tmp_8);
+    r0 = pxsim_pxtrt.mkMap();
+    s.tmp_11 = r0;
+    r0 = pxsim_pxtrt.mapSetByString(s.tmp_2, "handling", s.tmp_11);
+    s.c___116313 = (s.tmp_2);
+    r0 = s.c___116313;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_mkConstraints__P10415.info = {"start":8967,"length":320,"line":271,"column":4,"endLine":284,"endColumn":5,"fileName":"language.ts","functionName":"mkConstraints","argumentNames":[]}
+kodu_mkConstraints__P116216.info = {"start":8855,"length":460,"line":272,"column":4,"endLine":291,"endColumn":5,"fileName":"language.ts","functionName":"mkConstraints","argumentNames":[]}
 
-function kodu_mkConstraints__P10415_mk(s) {
+function kodu_mkConstraints__P116216_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_mkConstraints__P10415, depth: s.depth + 1,
+        parent: s, fn: kodu_mkConstraints__P116216, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58374,7 +58401,11 @@ function kodu_mkConstraints__P10415_mk(s) {
   tmp_5: undefined,
   tmp_6: undefined,
   tmp_7: undefined,
-  c___10509: undefined,
+  tmp_8: undefined,
+  tmp_9: undefined,
+  tmp_10: undefined,
+  tmp_11: undefined,
+  c___116313: undefined,
 } }
 
 
@@ -58401,7 +58432,7 @@ switch (step) {
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
     s.tmp_1 = if_actuators_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "actuators");
     } else {
@@ -58559,7 +58590,7 @@ switch (step) {
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
-    s.tmp_0 = kodu_Language_getActuatorSuggestions__P3712_mk(s);
+    s.tmp_0 = kodu_Language_getActuatorSuggestions__P115686_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 597; s.pc = 1; return s.tmp_0;
@@ -58726,7 +58757,7 @@ switch (step) {
     r0 = s.caps[0].fields["defn"];
     s.tmp_0 = r0;
     s.tmp_3 = if_actuators_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "actuators");
     } else {
@@ -58744,7 +58775,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["actuator"] = (s.tmp_1);
   case 2:
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 606; s.pc = 6; return s.tmp_0;
@@ -58790,7 +58821,7 @@ function inline__P9167_mk(s) {
 
 
 
-function kodu_Language_getActuatorSuggestions__P3712(s) {
+function kodu_Language_getActuatorSuggestions__P115686(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58800,7 +58831,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.actuators___10295 = undefined;
+    s.actuators___116094 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -58809,7 +58840,7 @@ switch (step) {
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     s.tmp_4 = if_actuators_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "actuators");
     } else {
@@ -58823,38 +58854,38 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_pxtrt.keysOf(s.tmp_3);
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10303;
+    s.tmp_2.arg1 = inline__P116102;
     s.callLocIdx = 816; s.pc = 3; return s.tmp_2;
   case 3:
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = inline__P10308;
+    s.tmp_1.arg1 = inline__P116107;
     s.callLocIdx = 818; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = inline__P10313;
+    s.tmp_0.arg1 = inline__P116112;
     s.callLocIdx = 821; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    s.actuators___10295 = (r0);
-    r0 = s.actuators___10295;
+    s.actuators___116094 = (r0);
+    r0 = s.actuators___116094;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_getActuatorSuggestions__P3712.info = {"start":6589,"length":447,"line":214,"column":8,"endLine":224,"endColumn":9,"fileName":"language.ts","functionName":"getActuatorSuggestions","argumentNames":["rule"]}
+kodu_Language_getActuatorSuggestions__P115686.info = {"start":6477,"length":447,"line":215,"column":8,"endLine":225,"endColumn":9,"fileName":"language.ts","functionName":"getActuatorSuggestions","argumentNames":["rule"]}
 
-function kodu_Language_getActuatorSuggestions__P3712_mk(s) {
+function kodu_Language_getActuatorSuggestions__P115686_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_getActuatorSuggestions__P3712, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_getActuatorSuggestions__P115686, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  actuators___10295: undefined,
+  actuators___116094: undefined,
   arg0: undefined,
 } }
 
@@ -58862,7 +58893,7 @@ function kodu_Language_getActuatorSuggestions__P3712_mk(s) {
 
 
 
-function inline__P10303(s) {
+function inline__P116102(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58877,7 +58908,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_actuators_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "actuators");
     } else {
@@ -58893,12 +58924,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10303.info = {"start":6738,"length":25,"line":216,"column":21,"endLine":216,"endColumn":46,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116102.info = {"start":6626,"length":25,"line":217,"column":21,"endLine":217,"endColumn":46,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10303_mk(s) {
+function inline__P116102_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10303, depth: s.depth + 1,
+        parent: s, fn: inline__P116102, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58909,7 +58940,7 @@ function inline__P10303_mk(s) {
 
 
 
-function inline__P10308(s) {
+function inline__P116107(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58942,12 +58973,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10308.info = {"start":6789,"length":20,"line":217,"column":24,"endLine":217,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116107.info = {"start":6677,"length":20,"line":218,"column":24,"endLine":218,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10308_mk(s) {
+function inline__P116107_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10308, depth: s.depth + 1,
+        parent: s, fn: inline__P116107, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -58959,7 +58990,7 @@ function inline__P10308_mk(s) {
 
 
 
-function inline__P10313(s) {
+function inline__P116112(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -58969,8 +59000,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.wa___10316 = undefined;
-    s.wb___10320 = undefined;
+    s.wa___116115 = undefined;
+    s.wb___116119 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -58998,7 +59029,7 @@ switch (step) {
   case 2:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wa___10316 = (s.tmp_2);
+    s.wa___116115 = (s.tmp_2);
     s.tmp_1 = if_weight_1_mk(s);
     s.tmp_1.arg0 = s.arg1;
     if (!s.tmp_1.arg0.vtable.iface) {
@@ -59021,23 +59052,23 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wb___10320 = (s.tmp_2);
-    r0 = (s.wa___10316 - s.wb___10320);
+    s.wb___116119 = (s.tmp_2);
+    r0 = (s.wa___116115 - s.wb___116119);
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10313.info = {"start":6833,"length":161,"line":218,"column":22,"endLine":222,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
+inline__P116112.info = {"start":6721,"length":161,"line":219,"column":22,"endLine":223,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
 
-function inline__P10313_mk(s) {
+function inline__P116112_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10313, depth: s.depth + 1,
+        parent: s, fn: inline__P116112, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  wa___10316: undefined,
-  wb___10320: undefined,
+  wa___116115: undefined,
+  wb___116119: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -59067,7 +59098,7 @@ switch (step) {
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
     s.tmp_1 = if_filters_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "filters");
     } else {
@@ -59234,7 +59265,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_0, "index");
     s.index___9201 = (r0);
-    s.tmp_0 = kodu_Language_getFilterSuggestions__P3711_mk(s);
+    s.tmp_0 = kodu_Language_getFilterSuggestions__P115689_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = s.index___9201;
@@ -59425,7 +59456,7 @@ switch (step) {
     s.tmp_0 = r0;
     s.tmp_1 = r0 = s.caps[1];
     s.tmp_4 = if_filters_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "filters");
     } else {
@@ -59443,7 +59474,7 @@ switch (step) {
     s.tmp_2 = r0;
     r0 = pxsim_Array_.setAt(s.tmp_0, s.tmp_1, s.tmp_2);
   case 2:
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 620; s.pc = 8; return s.tmp_0;
@@ -59490,7 +59521,7 @@ function inline__P9234_mk(s) {
 
 
 
-function kodu_Language_getFilterSuggestions__P3711(s) {
+function kodu_Language_getFilterSuggestions__P115689(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -59500,7 +59531,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.filters___10261 = undefined;
+    s.filters___116060 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -59510,7 +59541,7 @@ switch (step) {
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     s.tmp_4 = if_filters_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "filters");
     } else {
@@ -59524,38 +59555,38 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_pxtrt.keysOf(s.tmp_3);
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10269;
+    s.tmp_2.arg1 = inline__P116068;
     s.callLocIdx = 808; s.pc = 3; return s.tmp_2;
   case 3:
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = inline__P10274;
+    s.tmp_1.arg1 = inline__P116073;
     s.callLocIdx = 810; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = inline__P10279;
+    s.tmp_0.arg1 = inline__P116078;
     s.callLocIdx = 813; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    s.filters___10261 = (r0);
-    r0 = s.filters___10261;
+    s.filters___116060 = (r0);
+    r0 = s.filters___116060;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_getFilterSuggestions__P3711.info = {"start":6129,"length":450,"line":202,"column":8,"endLine":212,"endColumn":9,"fileName":"language.ts","functionName":"getFilterSuggestions","argumentNames":["rule","index"]}
+kodu_Language_getFilterSuggestions__P115689.info = {"start":6017,"length":450,"line":203,"column":8,"endLine":213,"endColumn":9,"fileName":"language.ts","functionName":"getFilterSuggestions","argumentNames":["rule","index"]}
 
-function kodu_Language_getFilterSuggestions__P3711_mk(s) {
+function kodu_Language_getFilterSuggestions__P115689_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_getFilterSuggestions__P3711, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_getFilterSuggestions__P115689, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  filters___10261: undefined,
+  filters___116060: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -59564,7 +59595,7 @@ function kodu_Language_getFilterSuggestions__P3711_mk(s) {
 
 
 
-function inline__P10269(s) {
+function inline__P116068(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -59579,7 +59610,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_filters_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "filters");
     } else {
@@ -59595,12 +59626,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10269.info = {"start":6285,"length":23,"line":204,"column":21,"endLine":204,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116068.info = {"start":6173,"length":23,"line":205,"column":21,"endLine":205,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10269_mk(s) {
+function inline__P116068_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10269, depth: s.depth + 1,
+        parent: s, fn: inline__P116068, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -59611,7 +59642,7 @@ function inline__P10269_mk(s) {
 
 
 
-function inline__P10274(s) {
+function inline__P116073(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -59644,12 +59675,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10274.info = {"start":6334,"length":20,"line":205,"column":24,"endLine":205,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116073.info = {"start":6222,"length":20,"line":206,"column":24,"endLine":206,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10274_mk(s) {
+function inline__P116073_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10274, depth: s.depth + 1,
+        parent: s, fn: inline__P116073, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -59661,7 +59692,7 @@ function inline__P10274_mk(s) {
 
 
 
-function inline__P10279(s) {
+function inline__P116078(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -59671,8 +59702,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.wa___10282 = undefined;
-    s.wb___10286 = undefined;
+    s.wa___116081 = undefined;
+    s.wb___116085 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -59700,7 +59731,7 @@ switch (step) {
   case 2:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wa___10282 = (s.tmp_2);
+    s.wa___116081 = (s.tmp_2);
     s.tmp_1 = if_weight_1_mk(s);
     s.tmp_1.arg0 = s.arg1;
     if (!s.tmp_1.arg0.vtable.iface) {
@@ -59723,23 +59754,23 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wb___10286 = (s.tmp_2);
-    r0 = (s.wa___10282 - s.wb___10286);
+    s.wb___116085 = (s.tmp_2);
+    r0 = (s.wa___116081 - s.wb___116085);
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10279.info = {"start":6378,"length":161,"line":206,"column":22,"endLine":210,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
+inline__P116078.info = {"start":6266,"length":161,"line":207,"column":22,"endLine":211,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
 
-function inline__P10279_mk(s) {
+function inline__P116078_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10279, depth: s.depth + 1,
+        parent: s, fn: inline__P116078, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  wa___10282: undefined,
-  wb___10286: undefined,
+  wa___116081: undefined,
+  wb___116085: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -59768,7 +59799,7 @@ switch (step) {
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
     s.tmp_1 = if_sensors_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "sensors");
     } else {
@@ -59926,7 +59957,7 @@ switch (step) {
     }
     r0 = s.arg0;
     if (!checkSubtype(r0, kodu_RuleUI__C8533_VT)) failedCast(r0);
-    s.tmp_0 = kodu_Language_getSensorSuggestions__P3710_mk(s);
+    s.tmp_0 = kodu_Language_getSensorSuggestions__P115679_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 584; s.pc = 1; return s.tmp_0;
@@ -60093,7 +60124,7 @@ switch (step) {
     r0 = s.caps[0].fields["defn"];
     s.tmp_0 = r0;
     s.tmp_3 = if_sensors_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "sensors");
     } else {
@@ -60111,7 +60142,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["sensor"] = (s.tmp_1);
   case 2:
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 593; s.pc = 6; return s.tmp_0;
@@ -60157,7 +60188,7 @@ function inline__P9104_mk(s) {
 
 
 
-function kodu_Language_getSensorSuggestions__P3710(s) {
+function kodu_Language_getSensorSuggestions__P115679(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -60167,7 +60198,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.sensors___10226 = undefined;
+    s.sensors___116023 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -60176,7 +60207,7 @@ switch (step) {
     s.tmp_1 = helpers_arrayFilter__P108_mk(s);
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     s.tmp_4 = if_sensors_1_mk(s);
-    s.tmp_4.arg0 = globals.tiles___3715;
+    s.tmp_4.arg0 = globals.tiles___115682;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "sensors");
     } else {
@@ -60190,38 +60221,38 @@ switch (step) {
     s.tmp_3 = r0;
     r0 = pxsim_pxtrt.keysOf(s.tmp_3);
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10234;
+    s.tmp_2.arg1 = inline__P116031;
     s.callLocIdx = 800; s.pc = 3; return s.tmp_2;
   case 3:
     r0 = s.retval;
     s.tmp_1.arg0 = r0;
-    s.tmp_1.arg1 = inline__P10239;
+    s.tmp_1.arg1 = inline__P116036;
     s.callLocIdx = 802; s.pc = 2; return s.tmp_1;
   case 2:
     r0 = s.retval;
     s.tmp_0.arg0 = r0;
-    s.tmp_0.arg1 = inline__P10244;
+    s.tmp_0.arg1 = inline__P116042;
     s.callLocIdx = 805; s.pc = 1; return s.tmp_0;
   case 1:
     r0 = s.retval;
-    s.sensors___10226 = (r0);
-    r0 = s.sensors___10226;
+    s.sensors___116023 = (r0);
+    r0 = s.sensors___116023;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Language_getSensorSuggestions__P3710.info = {"start":5684,"length":435,"line":190,"column":8,"endLine":200,"endColumn":9,"fileName":"language.ts","functionName":"getSensorSuggestions","argumentNames":["rule"]}
+kodu_Language_getSensorSuggestions__P115679.info = {"start":5572,"length":435,"line":191,"column":8,"endLine":201,"endColumn":9,"fileName":"language.ts","functionName":"getSensorSuggestions","argumentNames":["rule"]}
 
-function kodu_Language_getSensorSuggestions__P3710_mk(s) {
+function kodu_Language_getSensorSuggestions__P115679_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Language_getSensorSuggestions__P3710, depth: s.depth + 1,
+        parent: s, fn: kodu_Language_getSensorSuggestions__P115679, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  sensors___10226: undefined,
+  sensors___116023: undefined,
   arg0: undefined,
 } }
 
@@ -60229,7 +60260,7 @@ function kodu_Language_getSensorSuggestions__P3710_mk(s) {
 
 
 
-function inline__P10234(s) {
+function inline__P116031(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -60244,7 +60275,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     s.tmp_1 = if_sensors_1_mk(s);
-    s.tmp_1.arg0 = globals.tiles___3715;
+    s.tmp_1.arg0 = globals.tiles___115682;
     if (!s.tmp_1.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_1.arg0, "sensors");
     } else {
@@ -60260,12 +60291,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10234.info = {"start":5825,"length":23,"line":192,"column":21,"endLine":192,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
+inline__P116031.info = {"start":5713,"length":23,"line":193,"column":21,"endLine":193,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["id"]}
 
-function inline__P10234_mk(s) {
+function inline__P116031_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10234, depth: s.depth + 1,
+        parent: s, fn: inline__P116031, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -60276,7 +60307,7 @@ function inline__P10234_mk(s) {
 
 
 
-function inline__P10239(s) {
+function inline__P116036(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -60309,12 +60340,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10239.info = {"start":5874,"length":20,"line":193,"column":24,"endLine":193,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
+inline__P116036.info = {"start":5762,"length":20,"line":194,"column":24,"endLine":194,"endColumn":44,"fileName":"language.ts","functionName":"inline","argumentNames":["tile"]}
 
-function inline__P10239_mk(s) {
+function inline__P116036_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10239, depth: s.depth + 1,
+        parent: s, fn: inline__P116036, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -60326,7 +60357,7 @@ function inline__P10239_mk(s) {
 
 
 
-function inline__P10244(s) {
+function inline__P116042(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -60336,8 +60367,8 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.wa___10247 = undefined;
-    s.wb___10251 = undefined;
+    s.wa___116045 = undefined;
+    s.wb___116050 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.arg1 = (s.lambdaArgs[1]);
@@ -60365,7 +60396,7 @@ switch (step) {
   case 2:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wa___10247 = (s.tmp_2);
+    s.wa___116045 = (s.tmp_2);
     s.tmp_1 = if_weight_1_mk(s);
     s.tmp_1.arg0 = s.arg1;
     if (!s.tmp_1.arg0.vtable.iface) {
@@ -60388,23 +60419,23 @@ switch (step) {
   case 4:
     // jmp value (already in r0)
     s.tmp_2 = r0;
-    s.wb___10251 = (s.tmp_2);
-    r0 = (s.wa___10247 - s.wb___10251);
+    s.wb___116050 = (s.tmp_2);
+    r0 = (s.wa___116045 - s.wb___116050);
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10244.info = {"start":5918,"length":161,"line":194,"column":22,"endLine":198,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
+inline__P116042.info = {"start":5806,"length":161,"line":195,"column":22,"endLine":199,"endColumn":17,"fileName":"language.ts","functionName":"inline","argumentNames":["a","b"]}
 
-function inline__P10244_mk(s) {
+function inline__P116042_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10244, depth: s.depth + 1,
+        parent: s, fn: inline__P116042, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  wa___10247: undefined,
-  wb___10251: undefined,
+  wa___116045: undefined,
+  wb___116050: undefined,
   arg0: undefined,
   arg1: undefined,
 } }
@@ -60598,7 +60629,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_Array__length(s.tmp_1);
     s.index___9445 = (r0);
-    s.tmp_0 = kodu_Language_getModifierSuggestions__P3713_mk(s);
+    s.tmp_0 = kodu_Language_getModifierSuggestions__P115692_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = s.index___9445;
@@ -60633,7 +60664,7 @@ switch (step) {
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = kodu_Language_getActuatorSuggestions__P3712_mk(s);
+    s.tmp_0 = kodu_Language_getActuatorSuggestions__P115686_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 668; s.pc = 6; return s.tmp_0;
@@ -60778,7 +60809,7 @@ switch (step) {
     r0 = r0.fields["modifiers"];
     s.tmp_0 = r0;
     s.tmp_3 = if_modifiers_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "modifiers");
     } else {
@@ -60795,7 +60826,7 @@ switch (step) {
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_2, s.tmp_4);
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 664; s.pc = 2; return s.tmp_0;
@@ -60921,7 +60952,7 @@ switch (step) {
     r0 = s.caps[0].fields["defn"];
     s.tmp_0 = r0;
     s.tmp_3 = if_actuators_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "actuators");
     } else {
@@ -60938,7 +60969,7 @@ switch (step) {
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_2, s.tmp_4);
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["actuator"] = (s.tmp_1);
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 674; s.pc = 2; return s.tmp_0;
@@ -61011,7 +61042,7 @@ switch (step) {
     s.tmp_1 = r0;
     r0 = pxsim_Array__length(s.tmp_1);
     s.index___9347 = (r0);
-    s.tmp_0 = kodu_Language_getFilterSuggestions__P3711_mk(s);
+    s.tmp_0 = kodu_Language_getFilterSuggestions__P115689_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.tmp_0.arg1 = s.index___9347;
@@ -61046,7 +61077,7 @@ switch (step) {
     r0 = s.retval;
     { step = 2; continue; }
   case 1:
-    s.tmp_0 = kodu_Language_getSensorSuggestions__P3710_mk(s);
+    s.tmp_0 = kodu_Language_getSensorSuggestions__P115679_mk(s);
     r0 = s.arg0.fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 648; s.pc = 6; return s.tmp_0;
@@ -61191,7 +61222,7 @@ switch (step) {
     r0 = r0.fields["filters"];
     s.tmp_0 = r0;
     s.tmp_3 = if_filters_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "filters");
     } else {
@@ -61208,7 +61239,7 @@ switch (step) {
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_2, s.tmp_4);
     s.tmp_1 = r0;
     r0 = pxsim_Array__push(s.tmp_0, s.tmp_1);
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 644; s.pc = 2; return s.tmp_0;
@@ -61334,7 +61365,7 @@ switch (step) {
     r0 = s.caps[0].fields["defn"];
     s.tmp_0 = r0;
     s.tmp_3 = if_sensors_1_mk(s);
-    s.tmp_3.arg0 = globals.tiles___3715;
+    s.tmp_3.arg0 = globals.tiles___115682;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "sensors");
     } else {
@@ -61351,7 +61382,7 @@ switch (step) {
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_2, s.tmp_4);
     s.tmp_1 = r0;
     r0 = (s.tmp_0).fields["sensor"] = (s.tmp_1);
-    s.tmp_0 = kodu_Language_ensureValid__P3714_mk(s);
+    s.tmp_0 = kodu_Language_ensureValid__P115684_mk(s);
     r0 = s.caps[0].fields["defn"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 654; s.pc = 2; return s.tmp_0;
@@ -63285,7 +63316,7 @@ switch (step) {
     s.tmp_1 = kodu_BrainUI_constructor__P8441_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.arg0;
-    s.tmp_2 = kodu_BrainDefn_clone__P3705_mk(s);
+    s.tmp_2 = kodu_BrainDefn_clone__P115529_mk(s);
     r0 = s.arg0.fields["char"];
     r0 = r0.fields["bdefn"];
     s.tmp_2.arg0 = r0;
@@ -64666,7 +64697,7 @@ switch (step) {
     r0 = pxsim_Array__mk();
     s.tmp_5 = r0;
     r0 = (s.tmp_4).fields["impulseQueue"] = (s.tmp_5);
-    s.tmp_0 = kodu_Brain_execute__P3754_mk(s);
+    s.tmp_0 = kodu_Brain_execute__P137179_mk(s);
     r0 = s.arg0.fields["brain"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 292; s.pc = 5; return s.tmp_0;
@@ -64717,8 +64748,8 @@ switch (step) {
     s.finalMag___7366 = undefined;
     s.impulseCount___7367 = undefined;
     s.impulse___7374 = undefined;
-    s.unnamed150___U4 = undefined;
-    s.unnamed151___U5 = undefined;
+    s.unnamed5358___U4 = undefined;
+    s.unnamed5359___U5 = undefined;
     s.direction___7377 = undefined;
     s.magnitude___7381 = undefined;
     if (s.lambdaArgs) {
@@ -64750,15 +64781,15 @@ switch (step) {
   case 2:
     s.impulse___7374 = (undefined);
     r0 = s.arg0.fields["impulseQueue"];
-    s.unnamed150___U4 = (r0);
-    s.unnamed151___U5 = (0);
+    s.unnamed5358___U4 = (r0);
+    s.unnamed5359___U5 = (0);
   case 3:
-    s.tmp_0 = r0 = s.unnamed151___U5;
-    r0 = pxsim_Array__length(s.unnamed150___U4);
+    s.tmp_0 = r0 = s.unnamed5359___U5;
+    r0 = pxsim_Array__length(s.unnamed5358___U4);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed150___U4, s.unnamed151___U5);
+    r0 = pxsim_Array__getAt(s.unnamed5358___U4, s.unnamed5359___U5);
     s.impulse___7374 = (r0);
     s.tmp_2 = if_direction_1_mk(s);
     s.tmp_2.arg0 = s.impulse___7374;
@@ -64795,11 +64826,11 @@ switch (step) {
     s.finalDir___7364 = (r0);
     r0 = (s.finalMag___7366 + s.magnitude___7381);
     s.finalMag___7366 = (r0);
-    r0 = (s.unnamed151___U5 + 1);
-    s.unnamed151___U5 = (r0);
+    r0 = (s.unnamed5359___U5 + 1);
+    s.unnamed5359___U5 = (r0);
     { step = 3; continue; }
   case 4:
-    s.unnamed150___U4 = (undefined);
+    s.unnamed5358___U4 = (undefined);
     r0 = (s.finalMag___7366 / s.impulseCount___7367);
     s.finalMag___7366 = (r0);
     s.tmp_0 = kodu_Vec2_Scale__P3781_mk(s);
@@ -64848,8 +64879,8 @@ function kodu_Character_applyImpluses__P3576_mk(s) {
   finalMag___7366: undefined,
   impulseCount___7367: undefined,
   impulse___7374: undefined,
-  unnamed150___U4: undefined,
-  unnamed151___U5: undefined,
+  unnamed5358___U4: undefined,
+  unnamed5359___U5: undefined,
   direction___7377: undefined,
   magnitude___7381: undefined,
   arg0: undefined,
@@ -64971,7 +65002,7 @@ function kodu_Vec2_Add__P3778_mk(s) {
 
 
 
-function kodu_Brain_execute__P3754(s) {
+function kodu_Brain_execute__P137179(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -64981,34 +65012,34 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.page___11788 = undefined;
+    s.page___137436 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Brain__C3748_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Brain__C137178_VT)) failedCast(r0);
     r0 = (s.arg0).fields["done"] = (false);
     r0 = s.arg0.fields["pages"];
     s.tmp_0 = r0;
     r0 = s.arg0.fields["currPage"];
     s.tmp_1 = r0;
     r0 = pxsim_Array__getAt(s.tmp_0, s.tmp_1);
-    s.page___11788 = (r0);
-    r0 = pxsim_numops_toBoolDecr(s.page___11788);
+    s.page___137436 = (r0);
+    r0 = pxsim_numops_toBoolDecr(s.page___137436);
     if (!r0) { step = 1; continue; }
-    s.tmp_0 = kodu_Wander_prepare__P11758_mk(s);
+    s.tmp_0 = kodu_Wander_prepare__P137405_mk(s);
     r0 = s.arg0.fields["wander"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 1005; s.pc = 3; return s.tmp_0;
   case 3:
     r0 = s.retval;
-    s.tmp_0 = kodu_Page_execute__P11778_mk(s);
-    s.tmp_0.arg0 = s.page___11788;
+    s.tmp_0 = kodu_Page_execute__P137426_mk(s);
+    s.tmp_0.arg0 = s.page___137436;
     s.callLocIdx = 1006; s.pc = 4; return s.tmp_0;
   case 4:
     r0 = s.retval;
-    s.tmp_0 = kodu_Wander_update__P11759_mk(s);
+    s.tmp_0 = kodu_Wander_update__P137406_mk(s);
     r0 = s.arg0.fields["wander"];
     s.tmp_0.arg0 = r0;
     s.callLocIdx = 1007; s.pc = 5; return s.tmp_0;
@@ -65020,16 +65051,16 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Brain_execute__P3754.info = {"start":474,"length":258,"line":17,"column":8,"endLine":25,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
+kodu_Brain_execute__P137179.info = {"start":474,"length":258,"line":17,"column":8,"endLine":25,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
 
-function kodu_Brain_execute__P3754_mk(s) {
+function kodu_Brain_execute__P137179_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Brain_execute__P3754, depth: s.depth + 1,
+        parent: s, fn: kodu_Brain_execute__P137179, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
-  page___11788: undefined,
+  page___137436: undefined,
   arg0: undefined,
 } }
 
@@ -65037,7 +65068,7 @@ function kodu_Brain_execute__P3754_mk(s) {
 
 
 
-function kodu_Wander_update__P11759(s) {
+function kodu_Wander_update__P137406(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65052,7 +65083,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
     r0 = s.arg0.fields["poked"];
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
@@ -65064,7 +65095,7 @@ switch (step) {
     { step = 7; continue; }
   case 1:
   case 2:
-    s.tmp_2 = kodu_Wander_setTimer__P11761_mk(s);
+    s.tmp_2 = kodu_Wander_setTimer__P137408_mk(s);
     s.tmp_2.arg0 = s.arg0;
     s.callLocIdx = 1030; s.pc = 8; return s.tmp_2;
   case 8:
@@ -65091,12 +65122,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_update__P11759.info = {"start":2983,"length":364,"line":100,"column":8,"endLine":111,"endColumn":9,"fileName":"brain.ts","functionName":"update","argumentNames":["this"]}
+kodu_Wander_update__P137406.info = {"start":3003,"length":364,"line":100,"column":8,"endLine":111,"endColumn":9,"fileName":"brain.ts","functionName":"update","argumentNames":["this"]}
 
-function kodu_Wander_update__P11759_mk(s) {
+function kodu_Wander_update__P137406_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_update__P11759, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_update__P137406, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -65275,7 +65306,7 @@ function control_Interval_cancel__P3835_mk(s) {
 
 
 
-function kodu_Wander_setTimer__P11761(s) {
+function kodu_Wander_setTimer__P137408(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65290,8 +65321,8 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
-    r0 = pxsim_pxtcore_mkAction(1, inline__P12031);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P137690);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_1 = r0 = s.arg0;
@@ -65316,12 +65347,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_setTimer__P11761.info = {"start":3952,"length":137,"line":135,"column":8,"endLine":137,"endColumn":9,"fileName":"brain.ts","functionName":"setTimer","argumentNames":["this"]}
+kodu_Wander_setTimer__P137408.info = {"start":3972,"length":137,"line":135,"column":8,"endLine":137,"endColumn":9,"fileName":"brain.ts","functionName":"setTimer","argumentNames":["this"]}
 
-function kodu_Wander_setTimer__P11761_mk(s) {
+function kodu_Wander_setTimer__P137408_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_setTimer__P11761, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_setTimer__P137408, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -65338,7 +65369,7 @@ function kodu_Wander_setTimer__P11761_mk(s) {
 
 
 
-function inline__P12031(s) {
+function inline__P137690(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65348,7 +65379,7 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.tmp_0 = kodu_Wander_timerCallback__P11760_mk(s);
+    s.tmp_0 = kodu_Wander_timerCallback__P137407_mk(s);
     s.tmp_0.arg0 = s.caps[0];
     s.callLocIdx = 1037; s.pc = 1; return s.tmp_0;
   case 1:
@@ -65357,12 +65388,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P12031.info = {"start":4009,"length":26,"line":136,"column":36,"endLine":136,"endColumn":62,"fileName":"brain.ts","functionName":"inline","argumentNames":[]}
+inline__P137690.info = {"start":4029,"length":26,"line":136,"column":36,"endLine":136,"endColumn":62,"fileName":"brain.ts","functionName":"inline","argumentNames":[]}
 
-function inline__P12031_mk(s) {
+function inline__P137690_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P12031, depth: s.depth + 1,
+        parent: s, fn: inline__P137690, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
 } }
@@ -65371,7 +65402,7 @@ function inline__P12031_mk(s) {
 
 
 
-function kodu_Wander_timerCallback__P11760(s) {
+function kodu_Wander_timerCallback__P137407(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65386,8 +65417,8 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
-    s.tmp_0 = kodu_Wander_pickDest__P11762_mk(s);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
+    s.tmp_0 = kodu_Wander_pickDest__P137409_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 1036; s.pc = 1; return s.tmp_0;
   case 1:
@@ -65397,12 +65428,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_timerCallback__P11760.info = {"start":3847,"length":95,"line":130,"column":8,"endLine":133,"endColumn":9,"fileName":"brain.ts","functionName":"timerCallback","argumentNames":["this"]}
+kodu_Wander_timerCallback__P137407.info = {"start":3867,"length":95,"line":130,"column":8,"endLine":133,"endColumn":9,"fileName":"brain.ts","functionName":"timerCallback","argumentNames":["this"]}
 
-function kodu_Wander_timerCallback__P11760_mk(s) {
+function kodu_Wander_timerCallback__P137407_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_timerCallback__P11760, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_timerCallback__P137407, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -65412,7 +65443,7 @@ function kodu_Wander_timerCallback__P11760_mk(s) {
 
 
 
-function kodu_Page_execute__P11778(s) {
+function kodu_Page_execute__P137426(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65422,29 +65453,29 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.rule___11835 = undefined;
-    s.unnamed162___U1 = undefined;
-    s.unnamed163___U2 = undefined;
+    s.rule___137484 = undefined;
+    s.unnamed5370___U1 = undefined;
+    s.unnamed5371___U2 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Page__C11776_VT)) failedCast(r0);
-    s.rule___11835 = (undefined);
+    if (!checkSubtype(r0, kodu_Page__C137424_VT)) failedCast(r0);
+    s.rule___137484 = (undefined);
     r0 = s.arg0.fields["rules"];
-    s.unnamed162___U1 = (r0);
-    s.unnamed163___U2 = (0);
+    s.unnamed5370___U1 = (r0);
+    s.unnamed5371___U2 = (0);
   case 1:
-    s.tmp_0 = r0 = s.unnamed163___U2;
-    r0 = pxsim_Array__length(s.unnamed162___U1);
+    s.tmp_0 = r0 = s.unnamed5371___U2;
+    r0 = pxsim_Array__length(s.unnamed5370___U1);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 4; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed162___U1, s.unnamed163___U2);
-    s.rule___11835 = (r0);
-    s.tmp_2 = kodu_Rule_execute__P3767_mk(s);
-    s.tmp_2.arg0 = s.rule___11835;
+    r0 = pxsim_Array__getAt(s.unnamed5370___U1, s.unnamed5371___U2);
+    s.rule___137484 = (r0);
+    s.tmp_2 = kodu_Rule_execute__P137380_mk(s);
+    s.tmp_2.arg0 = s.rule___137484;
     s.callLocIdx = 1010; s.pc = 5; return s.tmp_2;
   case 5:
     r0 = s.retval;
@@ -65456,28 +65487,28 @@ switch (step) {
     { step = 4; continue; }
   case 2:
   case 3:
-    r0 = (s.unnamed163___U2 + 1);
-    s.unnamed163___U2 = (r0);
+    r0 = (s.unnamed5371___U2 + 1);
+    s.unnamed5371___U2 = (r0);
     { step = 1; continue; }
   case 4:
-    s.unnamed162___U1 = (undefined);
+    s.unnamed5370___U1 = (undefined);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Page_execute__P11778.info = {"start":1192,"length":167,"line":44,"column":8,"endLine":49,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
+kodu_Page_execute__P137426.info = {"start":1192,"length":167,"line":44,"column":8,"endLine":49,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
 
-function kodu_Page_execute__P11778_mk(s) {
+function kodu_Page_execute__P137426_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Page_execute__P11778, depth: s.depth + 1,
+        parent: s, fn: kodu_Page_execute__P137426, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
-  rule___11835: undefined,
-  unnamed162___U1: undefined,
-  unnamed163___U2: undefined,
+  rule___137484: undefined,
+  unnamed5370___U1: undefined,
+  unnamed5371___U2: undefined,
   arg0: undefined,
 } }
 
@@ -65485,7 +65516,7 @@ function kodu_Page_execute__P11778_mk(s) {
 
 
 
-function kodu_Rule_execute__P3767(s) {
+function kodu_Rule_execute__P137380(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65500,7 +65531,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Rule__C3757_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Rule__C137378_VT)) failedCast(r0);
     r0 = s.arg0.fields["hasInput"];
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
@@ -65544,7 +65575,7 @@ switch (step) {
     }
   case 6:
     r0 = s.retval;
-    r0 = pxsim_pxtcore_mkAction(1, inline__P11929);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P137588);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_1 = helpers_arrayForEach__P107_mk(s);
@@ -65560,7 +65591,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    r0 = pxsim_pxtcore_mkAction(1, inline__P11937);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P137596);
     s.tmp_2 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_2, 0, s.arg0);
     s.tmp_3 = helpers_arrayForEach__P107_mk(s);
@@ -65590,12 +65621,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Rule_execute__P3767.info = {"start":2250,"length":469,"line":73,"column":8,"endLine":85,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
+kodu_Rule_execute__P137380.info = {"start":2270,"length":469,"line":73,"column":8,"endLine":85,"endColumn":9,"fileName":"brain.ts","functionName":"execute","argumentNames":["this"]}
 
-function kodu_Rule_execute__P3767_mk(s) {
+function kodu_Rule_execute__P137380_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Rule_execute__P3767, depth: s.depth + 1,
+        parent: s, fn: kodu_Rule_execute__P137380, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -65608,7 +65639,7 @@ function kodu_Rule_execute__P3767_mk(s) {
 
 
 
-function inline__P11929(s) {
+function inline__P137588(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65633,12 +65664,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11929.info = {"start":2545,"length":14,"line":80,"column":35,"endLine":80,"endColumn":49,"fileName":"brain.ts","functionName":"inline","argumentNames":["fn"]}
+inline__P137588.info = {"start":2565,"length":14,"line":80,"column":35,"endLine":80,"endColumn":49,"fileName":"brain.ts","functionName":"inline","argumentNames":["fn"]}
 
-function inline__P11929_mk(s) {
+function inline__P137588_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11929, depth: s.depth + 1,
+        parent: s, fn: inline__P137588, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -65648,7 +65679,7 @@ function inline__P11929_mk(s) {
 
 
 
-function inline__P11937(s) {
+function inline__P137596(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65673,12 +65704,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11937.info = {"start":2641,"length":14,"line":82,"column":41,"endLine":82,"endColumn":55,"fileName":"brain.ts","functionName":"inline","argumentNames":["fn"]}
+inline__P137596.info = {"start":2661,"length":14,"line":82,"column":41,"endLine":82,"endColumn":55,"fileName":"brain.ts","functionName":"inline","argumentNames":["fn"]}
 
-function inline__P11937_mk(s) {
+function inline__P137596_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11937, depth: s.depth + 1,
+        parent: s, fn: inline__P137596, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -65688,7 +65719,7 @@ function inline__P11937_mk(s) {
 
 
 
-function kodu_Wander_prepare__P11758(s) {
+function kodu_Wander_prepare__P137405(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -65703,7 +65734,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
     r0 = (s.arg0).fields["poked"] = (false);
     r0 = s.arg0.fields["dest"];
     s.tmp_2 = r0;
@@ -65713,7 +65744,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    s.tmp_3 = kodu_Wander_pickDest__P11762_mk(s);
+    s.tmp_3 = kodu_Wander_pickDest__P137409_mk(s);
     s.tmp_3.arg0 = s.arg0;
     s.callLocIdx = 1029; s.pc = 3; return s.tmp_3;
   case 3:
@@ -65724,12 +65755,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_prepare__P11758.info = {"start":2864,"length":109,"line":95,"column":8,"endLine":98,"endColumn":9,"fileName":"brain.ts","functionName":"prepare","argumentNames":["this"]}
+kodu_Wander_prepare__P137405.info = {"start":2884,"length":109,"line":95,"column":8,"endLine":98,"endColumn":9,"fileName":"brain.ts","functionName":"prepare","argumentNames":["this"]}
 
-function kodu_Wander_prepare__P11758_mk(s) {
+function kodu_Wander_prepare__P137405_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_prepare__P11758, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_prepare__P137405, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -65800,8 +65831,8 @@ switch (step) {
     s.j___10806 = undefined;
     s.body2___10816 = undefined;
     s.body___10834 = undefined;
-    s.unnamed160___U5 = undefined;
-    s.unnamed161___U6 = undefined;
+    s.unnamed5368___U5 = undefined;
+    s.unnamed5369___U6 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
@@ -65912,15 +65943,15 @@ switch (step) {
   case 14:
     s.body___10834 = (undefined);
     r0 = s.arg0.fields["bodies"];
-    s.unnamed160___U5 = (r0);
-    s.unnamed161___U6 = (0);
+    s.unnamed5368___U5 = (r0);
+    s.unnamed5369___U6 = (0);
   case 15:
-    s.tmp_0 = r0 = s.unnamed161___U6;
-    r0 = pxsim_Array__length(s.unnamed160___U5);
+    s.tmp_0 = r0 = s.unnamed5369___U6;
+    r0 = pxsim_Array__length(s.unnamed5368___U5);
     s.tmp_1 = r0;
     r0 = (s.tmp_0 < s.tmp_1);
     if (!r0) { step = 16; continue; }
-    r0 = pxsim_Array__getAt(s.unnamed160___U5, s.unnamed161___U6);
+    r0 = pxsim_Array__getAt(s.unnamed5368___U5, s.unnamed5369___U6);
     s.body___10834 = (r0);
     s.tmp_2 = kodu_Body_applyFriction__P3731_mk(s);
     s.tmp_2.arg0 = s.body___10834;
@@ -65932,11 +65963,11 @@ switch (step) {
     s.callLocIdx = 899; s.pc = 21; return s.tmp_0;
   case 21:
     r0 = s.retval;
-    r0 = (s.unnamed161___U6 + 1);
-    s.unnamed161___U6 = (r0);
+    r0 = (s.unnamed5369___U6 + 1);
+    s.unnamed5369___U6 = (r0);
     { step = 15; continue; }
   case 16:
-    s.unnamed160___U5 = (undefined);
+    s.unnamed5368___U5 = (undefined);
   case 17:
     r0 = undefined;
     return leave(s, r0)
@@ -65961,8 +65992,8 @@ function kodu_Physics_simulate__P3739_mk(s) {
   j___10806: undefined,
   body2___10816: undefined,
   body___10834: undefined,
-  unnamed160___U5: undefined,
-  unnamed161___U6: undefined,
+  unnamed5368___U5: undefined,
+  unnamed5369___U6: undefined,
   arg0: undefined,
 } }
 
@@ -67624,7 +67655,7 @@ function kodu_WorldStage_toggleGameMode__P7853_mk(s) {
 
 
 
-function kodu_Wander_constructor__P11763(s) {
+function kodu_Wander_constructor__P137410(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -67640,19 +67671,19 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Wander__C11756_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Wander__C137403_VT)) failedCast(r0);
     r0 = (s.arg0).fields["brain"] = (s.arg1);
     r0 = (s.arg0).fields["margin"] = (30);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Wander_constructor__P11763.info = {"start":2819,"length":35,"line":93,"column":8,"endLine":93,"endColumn":43,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","brain"]}
+kodu_Wander_constructor__P137410.info = {"start":2839,"length":35,"line":93,"column":8,"endLine":93,"endColumn":43,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","brain"]}
 
-function kodu_Wander_constructor__P11763_mk(s) {
+function kodu_Wander_constructor__P137410_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Wander_constructor__P11763, depth: s.depth + 1,
+        parent: s, fn: kodu_Wander_constructor__P137410, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   arg0: undefined,
   arg1: undefined,
@@ -67662,7 +67693,7 @@ function kodu_Wander_constructor__P11763_mk(s) {
 
 
 
-function kodu_Brain_constructor__P3753(s) {
+function kodu_Brain_constructor__P137201(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -67678,12 +67709,12 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Brain__C3748_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Brain__C137178_VT)) failedCast(r0);
     r0 = (s.arg0).fields["char"] = (s.arg1);
     r0 = (s.arg0).fields["currPage"] = (0);
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_Wander__C11756_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_Wander__C137403_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_Wander_constructor__P11763_mk(s);
+    s.tmp_1 = kodu_Wander_constructor__P137410_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.arg0;
     s.callLocIdx = 1002; s.pc = 3; return s.tmp_1;
@@ -67694,7 +67725,7 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    r0 = pxsim_pxtcore_mkAction(1, inline__P11772);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P137420);
     s.tmp_1 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_1, 0, s.arg0);
     s.tmp_2 = r0 = s.arg0;
@@ -67719,12 +67750,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Brain_constructor__P3753.info = {"start":147,"length":317,"line":7,"column":8,"endLine":15,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","char"]}
+kodu_Brain_constructor__P137201.info = {"start":147,"length":317,"line":7,"column":8,"endLine":15,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","char"]}
 
-function kodu_Brain_constructor__P3753_mk(s) {
+function kodu_Brain_constructor__P137201_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Brain_constructor__P3753, depth: s.depth + 1,
+        parent: s, fn: kodu_Brain_constructor__P137201, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67739,7 +67770,7 @@ function kodu_Brain_constructor__P3753_mk(s) {
 
 
 
-function inline__P11772(s) {
+function inline__P137420(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -67754,9 +67785,9 @@ switch (step) {
       s.arg1 = (s.lambdaArgs[1]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_Page__C11776_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_Page__C137424_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_Page_constructor__P11779_mk(s);
+    s.tmp_1 = kodu_Page_constructor__P137427_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.caps[0];
     s.tmp_1.arg2 = s.arg0;
@@ -67768,12 +67799,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11772.info = {"start":340,"length":44,"line":11,"column":50,"endLine":11,"endColumn":94,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem","index"]}
+inline__P137420.info = {"start":340,"length":44,"line":11,"column":50,"endLine":11,"endColumn":94,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem","index"]}
 
-function inline__P11772_mk(s) {
+function inline__P137420_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11772, depth: s.depth + 1,
+        parent: s, fn: inline__P137420, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67785,7 +67816,7 @@ function inline__P11772_mk(s) {
 
 
 
-function kodu_Page_constructor__P11779(s) {
+function kodu_Page_constructor__P137427(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -67803,11 +67834,11 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Page__C11776_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Page__C137424_VT)) failedCast(r0);
     r0 = (s.arg0).fields["brain"] = (s.arg1);
     r0 = (s.arg0).fields["defn"] = (s.arg2);
     r0 = (s.arg0).fields["index"] = (s.arg3);
-    r0 = pxsim_pxtcore_mkAction(1, inline__P11828);
+    r0 = pxsim_pxtcore_mkAction(1, inline__P137476);
     s.tmp_0 = r0;
     r0 = pxsim_pxtrt_stclo(s.tmp_0, 0, s.arg0);
     s.tmp_1 = r0 = s.arg0;
@@ -67825,12 +67856,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Page_constructor__P11779.info = {"start":1017,"length":165,"line":40,"column":8,"endLine":42,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","brain","defn","index"]}
+kodu_Page_constructor__P137427.info = {"start":1017,"length":165,"line":40,"column":8,"endLine":42,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","brain","defn","index"]}
 
-function kodu_Page_constructor__P11779_mk(s) {
+function kodu_Page_constructor__P137427_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Page_constructor__P11779, depth: s.depth + 1,
+        parent: s, fn: kodu_Page_constructor__P137427, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67846,7 +67877,7 @@ function kodu_Page_constructor__P11779_mk(s) {
 
 
 
-function inline__P11828(s) {
+function inline__P137476(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -67860,9 +67891,9 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_Rule__C3757_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_Rule__C137378_VT);
     s.tmp_0 = r0;
-    s.tmp_1 = kodu_Rule_constructor__P3766_mk(s);
+    s.tmp_1 = kodu_Rule_constructor__P137480_mk(s);
     s.tmp_1.arg0 = s.tmp_0;
     s.tmp_1.arg1 = s.caps[0];
     s.tmp_1.arg2 = s.arg0;
@@ -67873,12 +67904,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11828.info = {"start":1142,"length":28,"line":41,"column":45,"endLine":41,"endColumn":73,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P137476.info = {"start":1142,"length":28,"line":41,"column":45,"endLine":41,"endColumn":73,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P11828_mk(s) {
+function inline__P137476_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11828, depth: s.depth + 1,
+        parent: s, fn: inline__P137476, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -67945,7 +67976,7 @@ switch (step) {
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "id", s.tmp_5);
-    s.tmp_8 = kodu_BrainDefn_toObj__P3707_mk(s);
+    s.tmp_8 = kodu_BrainDefn_toObj__P115550_mk(s);
     r0 = s.arg0.fields["bdefn"];
     s.tmp_8.arg0 = r0;
     s.callLocIdx = 308; s.pc = 12; return s.tmp_8;
@@ -67985,9 +68016,9 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 3; continue; }
-    r0 = pxsim_pxtcore_mkClassInstance(kodu_Brain__C3748_VT);
+    r0 = pxsim_pxtcore_mkClassInstance(kodu_Brain__C137178_VT);
     s.tmp_1 = r0;
-    s.tmp_2 = kodu_Brain_constructor__P3753_mk(s);
+    s.tmp_2 = kodu_Brain_constructor__P137201_mk(s);
     s.tmp_2.arg0 = s.tmp_1;
     s.tmp_2.arg1 = s.arg0;
     s.callLocIdx = 310; s.pc = 14; return s.tmp_2;
@@ -68031,7 +68062,7 @@ function kodu_Character_notify__P3579_mk(s) {
 
 
 
-function kodu_BrainDefn_toObj__P3707(s) {
+function kodu_BrainDefn_toObj__P115550(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68046,13 +68077,13 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_BrainDefn__C3702_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_BrainDefn__C115603_VT)) failedCast(r0);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_0 = r0;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["pages"];
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10191;
+    s.tmp_2.arg1 = inline__P115987;
     s.callLocIdx = 793; s.pc = 1; return s.tmp_2;
   case 1:
     r0 = s.retval;
@@ -68062,12 +68093,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-kodu_BrainDefn_toObj__P3707.info = {"start":5069,"length":127,"line":170,"column":8,"endLine":174,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
+kodu_BrainDefn_toObj__P115550.info = {"start":4957,"length":127,"line":171,"column":8,"endLine":175,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
 
-function kodu_BrainDefn_toObj__P3707_mk(s) {
+function kodu_BrainDefn_toObj__P115550_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_BrainDefn_toObj__P3707, depth: s.depth + 1,
+        parent: s, fn: kodu_BrainDefn_toObj__P115550, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -68079,7 +68110,7 @@ function kodu_BrainDefn_toObj__P3707_mk(s) {
 
 
 
-function inline__P10191(s) {
+function inline__P115987(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68093,7 +68124,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_PageDefn_toObj__P3700_mk(s);
+    s.tmp_0 = kodu_PageDefn_toObj__P115636_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 792; s.pc = 1; return s.tmp_0;
   case 1:
@@ -68101,12 +68132,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10191.info = {"start":5150,"length":20,"line":172,"column":38,"endLine":172,"endColumn":58,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115987.info = {"start":5038,"length":20,"line":173,"column":38,"endLine":173,"endColumn":58,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10191_mk(s) {
+function inline__P115987_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10191, depth: s.depth + 1,
+        parent: s, fn: inline__P115987, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -68116,7 +68147,7 @@ function inline__P10191_mk(s) {
 
 
 
-function kodu_PageDefn_toObj__P3700(s) {
+function kodu_PageDefn_toObj__P115636(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68126,27 +68157,27 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.obj___10114 = undefined;
+    s.obj___115910 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_PageDefn__C3695_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_PageDefn__C115633_VT)) failedCast(r0);
     r0 = pxsim_pxtrt.mkMap();
     s.tmp_0 = r0;
     s.tmp_2 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["rules"];
     s.tmp_2.arg0 = r0;
-    s.tmp_2.arg1 = inline__P10119;
+    s.tmp_2.arg1 = inline__P115915;
     s.callLocIdx = 781; s.pc = 3; return s.tmp_2;
   case 3:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_0, "rules", s.tmp_1);
-    s.obj___10114 = (s.tmp_0);
+    s.obj___115910 = (s.tmp_0);
     s.tmp_4 = if_rules_1_mk(s);
-    s.tmp_4.arg0 = s.obj___10114;
+    s.tmp_4.arg0 = s.obj___115910;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "rules");
     } else {
@@ -68166,26 +68197,26 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 1; continue; }
-    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___10114, "rules");
+    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___115910, "rules");
   case 1:
   case 2:
-    r0 = s.obj___10114;
+    r0 = s.obj___115910;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_PageDefn_toObj__P3700.info = {"start":3972,"length":241,"line":130,"column":8,"endLine":138,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
+kodu_PageDefn_toObj__P115636.info = {"start":3860,"length":241,"line":131,"column":8,"endLine":139,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
 
-function kodu_PageDefn_toObj__P3700_mk(s) {
+function kodu_PageDefn_toObj__P115636_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_PageDefn_toObj__P3700, depth: s.depth + 1,
+        parent: s, fn: kodu_PageDefn_toObj__P115636, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
   tmp_2: undefined,
   tmp_3: undefined,
   tmp_4: undefined,
-  obj___10114: undefined,
+  obj___115910: undefined,
   arg0: undefined,
 } }
 
@@ -68193,7 +68224,7 @@ function kodu_PageDefn_toObj__P3700_mk(s) {
 
 
 
-function inline__P10119(s) {
+function inline__P115915(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68207,7 +68238,7 @@ switch (step) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
-    s.tmp_0 = kodu_RuleDefn_toObj__P3693_mk(s);
+    s.tmp_0 = kodu_RuleDefn_toObj__P115651_mk(s);
     s.tmp_0.arg0 = s.arg0;
     s.callLocIdx = 780; s.pc = 1; return s.tmp_0;
   case 1:
@@ -68215,12 +68246,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P10119.info = {"start":4058,"length":20,"line":132,"column":38,"endLine":132,"endColumn":58,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115915.info = {"start":3946,"length":20,"line":133,"column":38,"endLine":133,"endColumn":58,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P10119_mk(s) {
+function inline__P115915_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P10119, depth: s.depth + 1,
+        parent: s, fn: inline__P115915, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -68230,7 +68261,7 @@ function inline__P10119_mk(s) {
 
 
 
-function kodu_RuleDefn_toObj__P3693(s) {
+function kodu_RuleDefn_toObj__P115651(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68240,13 +68271,13 @@ if (yieldSteps-- < 0 && maybeYield(s, step, r0) || runtime !== pxsim.runtime) re
 switch (step) {
   case 0:
 
-    s.obj___9966 = undefined;
+    s.obj___115762 = undefined;
     if (s.lambdaArgs) {
       s.arg0 = (s.lambdaArgs[0]);
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_RuleDefn__C3685_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_RuleDefn__C115648_VT)) failedCast(r0);
     r0 = s.arg0.fields["sensor"];
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
@@ -68300,7 +68331,7 @@ switch (step) {
     s.tmp_8 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["filters"];
     s.tmp_8.arg0 = r0;
-    s.tmp_8.arg1 = inline__P9983;
+    s.tmp_8.arg1 = inline__P115779;
     s.callLocIdx = 762; s.pc = 15; return s.tmp_8;
   case 15:
     r0 = s.retval;
@@ -68309,15 +68340,15 @@ switch (step) {
     s.tmp_10 = helpers_arrayMap__P104_mk(s);
     r0 = s.arg0.fields["modifiers"];
     s.tmp_10.arg0 = r0;
-    s.tmp_10.arg1 = inline__P9990;
+    s.tmp_10.arg1 = inline__P115786;
     s.callLocIdx = 764; s.pc = 16; return s.tmp_10;
   case 16:
     r0 = s.retval;
     s.tmp_9 = r0;
     r0 = pxsim_pxtrt.mapSetByString(s.tmp_3, "modifiers", s.tmp_9);
-    s.obj___9966 = (s.tmp_3);
+    s.obj___115762 = (s.tmp_3);
     s.tmp_3 = if_sensor_1_mk(s);
-    s.tmp_3.arg0 = s.obj___9966;
+    s.tmp_3.arg0 = s.obj___115762;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "sensor");
     } else {
@@ -68335,11 +68366,11 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 5; continue; }
-    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___9966, "sensor");
+    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___115762, "sensor");
   case 5:
   case 6:
     s.tmp_3 = if_actuator_1_mk(s);
-    s.tmp_3.arg0 = s.obj___9966;
+    s.tmp_3.arg0 = s.obj___115762;
     if (!s.tmp_3.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "actuator");
     } else {
@@ -68357,11 +68388,11 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 7; continue; }
-    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___9966, "actuator");
+    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___115762, "actuator");
   case 7:
   case 8:
     s.tmp_4 = if_filters_1_mk(s);
-    s.tmp_4.arg0 = s.obj___9966;
+    s.tmp_4.arg0 = s.obj___115762;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "filters");
     } else {
@@ -68381,11 +68412,11 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 9; continue; }
-    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___9966, "filters");
+    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___115762, "filters");
   case 9:
   case 10:
     s.tmp_4 = if_modifiers_1_mk(s);
-    s.tmp_4.arg0 = s.obj___9966;
+    s.tmp_4.arg0 = s.obj___115762;
     if (!s.tmp_4.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_4.arg0, "modifiers");
     } else {
@@ -68405,19 +68436,19 @@ switch (step) {
     s.tmp_0 = r0;
     r0 = pxsim_numops_toBoolDecr(s.tmp_0);
     if (!r0) { step = 11; continue; }
-    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___9966, "modifiers");
+    r0 = pxsim_pxtrt.mapDeleteByString(s.obj___115762, "modifiers");
   case 11:
   case 12:
-    r0 = s.obj___9966;
+    r0 = s.obj___115762;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_RuleDefn_toObj__P3693.info = {"start":1879,"length":703,"line":66,"column":8,"endLine":86,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
+kodu_RuleDefn_toObj__P115651.info = {"start":1767,"length":703,"line":67,"column":8,"endLine":87,"endColumn":9,"fileName":"language.ts","functionName":"toObj","argumentNames":["this"]}
 
-function kodu_RuleDefn_toObj__P3693_mk(s) {
+function kodu_RuleDefn_toObj__P115651_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_RuleDefn_toObj__P3693, depth: s.depth + 1,
+        parent: s, fn: kodu_RuleDefn_toObj__P115651, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -68430,7 +68461,7 @@ function kodu_RuleDefn_toObj__P3693_mk(s) {
   tmp_8: undefined,
   tmp_9: undefined,
   tmp_10: undefined,
-  obj___9966: undefined,
+  obj___115762: undefined,
   arg0: undefined,
 } }
 
@@ -68438,7 +68469,7 @@ function kodu_RuleDefn_toObj__P3693_mk(s) {
 
 
 
-function inline__P9983(s) {
+function inline__P115779(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68467,12 +68498,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P9983.info = {"start":2107,"length":15,"line":70,"column":42,"endLine":70,"endColumn":57,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115779.info = {"start":1995,"length":15,"line":71,"column":42,"endLine":71,"endColumn":57,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P9983_mk(s) {
+function inline__P115779_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P9983, depth: s.depth + 1,
+        parent: s, fn: inline__P115779, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -68482,7 +68513,7 @@ function inline__P9983_mk(s) {
 
 
 
-function inline__P9990(s) {
+function inline__P115786(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68511,12 +68542,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P9990.info = {"start":2171,"length":15,"line":71,"column":46,"endLine":71,"endColumn":61,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P115786.info = {"start":2059,"length":15,"line":72,"column":46,"endLine":72,"endColumn":61,"fileName":"language.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P9990_mk(s) {
+function inline__P115786_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P9990, depth: s.depth + 1,
+        parent: s, fn: inline__P115786, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   arg0: undefined,
@@ -68781,7 +68812,7 @@ function kodu_Character_x__P3565_mk(s) {
 
 
 
-function kodu_Rule_constructor__P3766(s) {
+function kodu_Rule_constructor__P137480(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -68798,7 +68829,7 @@ switch (step) {
       s.lambdaArgs = null;
     }
     r0 = s.arg0;
-    if (!checkSubtype(r0, kodu_Rule__C3757_VT)) failedCast(r0);
+    if (!checkSubtype(r0, kodu_Rule__C137378_VT)) failedCast(r0);
     r0 = (s.arg0).fields["page"] = (s.arg1);
     r0 = (s.arg0).fields["defn"] = (s.arg2);
     s.tmp_0 = r0 = s.arg0;
@@ -68818,16 +68849,16 @@ switch (step) {
     { step = 2; continue; }
   case 1:
     s.tmp_2 = if_sensors_1_mk(s);
-    s.tmp_2.arg0 = globals.tiles___3715;
+    s.tmp_2.arg0 = globals.tiles___115682;
     if (!s.tmp_2.arg0.vtable.iface) {
       s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "sensors");
     } else {
       s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["sensors"];
       if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["sensors"]; }
       else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
-     else { s.callLocIdx = 1011; s.pc = 9; return s.tmp_2; }
+     else { s.callLocIdx = 1011; s.pc = 11; return s.tmp_2; }
     }
-  case 9:
+  case 11:
     r0 = s.retval;
     s.tmp_1 = r0;
     r0 = pxsim_pxtrt.mapGetGeneric(s.tmp_1, "sensor.always");
@@ -68844,13 +68875,13 @@ switch (step) {
       s.tmp_7.fn = s.tmp_7.arg0.vtable.iface["id"];
       if (s.tmp_7.fn == null) { s.retval = s.tmp_7.arg0.fields["id"]; }
       else if (!s.tmp_7.fn.isGetter) { s.retval = bind(s.tmp_7); }
-     else { s.callLocIdx = 1012; s.pc = 11; return s.tmp_7; }
+     else { s.callLocIdx = 1012; s.pc = 13; return s.tmp_7; }
     }
-  case 11:
+  case 13:
     r0 = s.retval;
     s.tmp_6.arg0 = r0;
-    s.callLocIdx = 1013; s.pc = 10; return s.tmp_6;
-  case 10:
+    s.callLocIdx = 1013; s.pc = 12; return s.tmp_6;
+  case 12:
     r0 = s.retval;
     s.tmp_5 = r0;
     r0 = (s.tmp_4).fields["sensorFn"] = (s.tmp_5);
@@ -68869,9 +68900,9 @@ switch (step) {
     s.tmp_2 = r0 = s.arg0;
     s.tmp_4 = helpers_arrayMap__P104_mk(s);
     s.tmp_4.arg0 = s.tmp_1;
-    s.tmp_4.arg1 = inline__P11872;
-    s.callLocIdx = 1016; s.pc = 12; return s.tmp_4;
-  case 12:
+    s.tmp_4.arg1 = inline__P137524;
+    s.callLocIdx = 1016; s.pc = 14; return s.tmp_4;
+  case 14:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = (s.tmp_2).fields["filterFns"] = (s.tmp_3);
@@ -68897,13 +68928,13 @@ switch (step) {
       s.tmp_5.fn = s.tmp_5.arg0.vtable.iface["id"];
       if (s.tmp_5.fn == null) { s.retval = s.tmp_5.arg0.fields["id"]; }
       else if (!s.tmp_5.fn.isGetter) { s.retval = bind(s.tmp_5); }
-     else { s.callLocIdx = 1017; s.pc = 14; return s.tmp_5; }
+     else { s.callLocIdx = 1017; s.pc = 16; return s.tmp_5; }
     }
-  case 14:
+  case 16:
     r0 = s.retval;
     s.tmp_4.arg0 = r0;
-    s.callLocIdx = 1018; s.pc = 13; return s.tmp_4;
-  case 13:
+    s.callLocIdx = 1018; s.pc = 15; return s.tmp_4;
+  case 15:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = (s.tmp_2).fields["actuatorFn"] = (s.tmp_3);
@@ -68922,41 +68953,50 @@ switch (step) {
     s.tmp_2 = r0 = s.arg0;
     s.tmp_4 = helpers_arrayMap__P104_mk(s);
     s.tmp_4.arg0 = s.tmp_1;
-    s.tmp_4.arg1 = inline__P11894;
-    s.callLocIdx = 1021; s.pc = 15; return s.tmp_4;
-  case 15:
+    s.tmp_4.arg1 = inline__P137548;
+    s.callLocIdx = 1021; s.pc = 17; return s.tmp_4;
+  case 17:
     r0 = s.retval;
     s.tmp_3 = r0;
     r0 = (s.tmp_2).fields["modifierFns"] = (s.tmp_3);
-    s.tmp_0 = r0 = s.arg0;
-    s.tmp_3 = if_category_1_mk(s);
     r0 = s.arg0.fields["defn"];
     r0 = r0.fields["sensor"];
-    s.tmp_3.arg0 = r0;
-    if (!s.tmp_3.arg0.vtable.iface) {
-      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_3.arg0, "category");
+    s.tmp_0 = r0;
+    r0 = pxsim_numops_toBool(s.tmp_0);
+    if (r0) { step = 9; continue; }
+    r0 = s.tmp_0;
+    { step = 10; continue; }
+  case 9:
+    s.tmp_2 = if_category_1_mk(s);
+    r0 = s.arg0.fields["defn"];
+    r0 = r0.fields["sensor"];
+    s.tmp_2.arg0 = r0;
+    if (!s.tmp_2.arg0.vtable.iface) {
+      s.retval = pxsim_pxtrt.mapGetByString(s.tmp_2.arg0, "category");
     } else {
-      s.tmp_3.fn = s.tmp_3.arg0.vtable.iface["category"];
-      if (s.tmp_3.fn == null) { s.retval = s.tmp_3.arg0.fields["category"]; }
-      else if (!s.tmp_3.fn.isGetter) { s.retval = bind(s.tmp_3); }
-     else { s.callLocIdx = 1022; s.pc = 16; return s.tmp_3; }
+      s.tmp_2.fn = s.tmp_2.arg0.vtable.iface["category"];
+      if (s.tmp_2.fn == null) { s.retval = s.tmp_2.arg0.fields["category"]; }
+      else if (!s.tmp_2.fn.isGetter) { s.retval = bind(s.tmp_2); }
+     else { s.callLocIdx = 1022; s.pc = 18; return s.tmp_2; }
     }
-  case 16:
+  case 18:
     r0 = s.retval;
-    s.tmp_2 = r0;
-    r0 = (s.tmp_2 === "input");
     s.tmp_1 = r0;
-    r0 = (s.tmp_0).fields["hasInput"] = (s.tmp_1);
+    r0 = (s.tmp_1 === "input");
+  case 10:
+    // jmp value (already in r0)
+    s.tmp_3 = r0;
+    r0 = (s.arg0).fields["hasInput"] = (s.tmp_3);
     r0 = undefined;
     return leave(s, r0)
   default: oops()
 } } }
-kodu_Rule_constructor__P3766.info = {"start":1653,"length":587,"line":63,"column":8,"endLine":71,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","page","defn"]}
+kodu_Rule_constructor__P137480.info = {"start":1653,"length":607,"line":63,"column":8,"endLine":71,"endColumn":9,"fileName":"brain.ts","functionName":"inline","argumentNames":["this","page","defn"]}
 
-function kodu_Rule_constructor__P3766_mk(s) {
+function kodu_Rule_constructor__P137480_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: kodu_Rule_constructor__P3766, depth: s.depth + 1,
+        parent: s, fn: kodu_Rule_constructor__P137480, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -68975,7 +69015,7 @@ function kodu_Rule_constructor__P3766_mk(s) {
 
 
 
-function inline__P11872(s) {
+function inline__P137524(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -69009,12 +69049,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11872.info = {"start":1936,"length":36,"line":67,"column":59,"endLine":67,"endColumn":95,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P137524.info = {"start":1936,"length":36,"line":67,"column":59,"endLine":67,"endColumn":95,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P11872_mk(s) {
+function inline__P137524_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11872, depth: s.depth + 1,
+        parent: s, fn: inline__P137524, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -69025,7 +69065,7 @@ function inline__P11872_mk(s) {
 
 
 
-function inline__P11894(s) {
+function inline__P137548(s) {
 let r0 = s.r0, step = s.pc;
 s.pc = -1;
 
@@ -69059,12 +69099,12 @@ switch (step) {
     return leave(s, r0)
   default: oops()
 } } }
-inline__P11894.info = {"start":2125,"length":36,"line":69,"column":63,"endLine":69,"endColumn":99,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
+inline__P137548.info = {"start":2125,"length":36,"line":69,"column":63,"endLine":69,"endColumn":99,"fileName":"brain.ts","functionName":"inline","argumentNames":["elem"]}
 
-function inline__P11894_mk(s) {
+function inline__P137548_mk(s) {
     checkStack(s.depth);
     return {
-        parent: s, fn: inline__P11894, depth: s.depth + 1,
+        parent: s, fn: inline__P137548, depth: s.depth + 1,
         pc: 0, retval: undefined, r0: undefined, overwrittenPC: false, lambdaArgs: null,
   tmp_0: undefined,
   tmp_1: undefined,
@@ -72455,7 +72495,7 @@ const texteffects_TextEffect__C2831_VT = mkVTable({
     "set/getState": null,
   },
 });
-const kodu_Rule__C3757_VT = mkVTable({
+const kodu_Rule__C137378_VT = mkVTable({
   name: "Rule",
   numFields: 9,
   classNo: 20,
@@ -72482,8 +72522,8 @@ const kodu_Rule__C3757_VT = mkVTable({
     "set/page": null,
     "defn": null,
     "set/defn": null,
-    "brain": kodu_Rule_brain__P3765,
-    "execute": kodu_Rule_execute__P3767,
+    "brain": kodu_Rule_brain__P137379,
+    "execute": kodu_Rule_execute__P137380,
   },
 });
 const kodu_Component__C3520_VT = mkVTable({
@@ -72559,7 +72599,7 @@ const kodu_Character__C3557_VT = mkVTable({
     "notify": kodu_Character_notify__P3579,
   },
 });
-const kodu_Brain__C3748_VT = mkVTable({
+const kodu_Brain__C137178_VT = mkVTable({
   name: "Brain",
   numFields: 5,
   classNo: 31,
@@ -72578,12 +72618,12 @@ const kodu_Brain__C3748_VT = mkVTable({
     "set/wander": null,
     "char": null,
     "set/char": null,
-    "execute": kodu_Brain_execute__P3754,
-    "switchPage": kodu_Brain_switchPage__P3755,
-    "cameraFollow": kodu_Brain_cameraFollow__P3756,
+    "execute": kodu_Brain_execute__P137179,
+    "switchPage": kodu_Brain_switchPage__P137180,
+    "cameraFollow": kodu_Brain_cameraFollow__P137181,
   },
 });
-const kodu_Wander__C11756_VT = mkVTable({
+const kodu_Wander__C137403_VT = mkVTable({
   name: "Wander",
   numFields: 5,
   classNo: 32,
@@ -72602,12 +72642,12 @@ const kodu_Wander__C11756_VT = mkVTable({
     "set/brain": null,
     "margin": null,
     "set/margin": null,
-    "prepare": kodu_Wander_prepare__P11758,
-    "update": kodu_Wander_update__P11759,
-    "direction": kodu_Wander_direction__P11362,
-    "timerCallback": kodu_Wander_timerCallback__P11760,
-    "setTimer": kodu_Wander_setTimer__P11761,
-    "pickDest": kodu_Wander_pickDest__P11762,
+    "prepare": kodu_Wander_prepare__P137405,
+    "update": kodu_Wander_update__P137406,
+    "direction": kodu_Wander_direction__P137388,
+    "timerCallback": kodu_Wander_timerCallback__P137407,
+    "setTimer": kodu_Wander_setTimer__P137408,
+    "pickDest": kodu_Wander_pickDest__P137409,
   },
 });
 const kodu_App__C3769_VT = mkVTable({
@@ -72945,7 +72985,7 @@ const kodu_BrainUI__C8436_VT = mkVTable({
     "notify": kodu_Component_notify__P3526,
   },
 });
-const kodu_BrainDefn__C3702_VT = mkVTable({
+const kodu_BrainDefn__C115603_VT = mkVTable({
   name: "BrainDefn",
   numFields: 1,
   classNo: 39,
@@ -72956,9 +72996,9 @@ const kodu_BrainDefn__C3702_VT = mkVTable({
   iface: {
     "pages": null,
     "set/pages": null,
-    "clone": kodu_BrainDefn_clone__P3705,
-    "toObj": kodu_BrainDefn_toObj__P3707,
-    "FromObj": kodu_BrainDefn_FromObj__P3708,
+    "clone": kodu_BrainDefn_clone__P115529,
+    "toObj": kodu_BrainDefn_toObj__P115550,
+    "FromObj": kodu_BrainDefn_FromObj__P115597,
   },
 });
 const kodu_PageUI__C8459_VT = mkVTable({
@@ -73003,7 +73043,7 @@ const kodu_PageUI__C8459_VT = mkVTable({
     "notify": kodu_Component_notify__P3526,
   },
 });
-const kodu_PageDefn__C3695_VT = mkVTable({
+const kodu_PageDefn__C115633_VT = mkVTable({
   name: "PageDefn",
   numFields: 1,
   classNo: 40,
@@ -73014,9 +73054,9 @@ const kodu_PageDefn__C3695_VT = mkVTable({
   iface: {
     "rules": null,
     "set/rules": null,
-    "clone": kodu_PageDefn_clone__P3698,
-    "toObj": kodu_PageDefn_toObj__P3700,
-    "FromObj": kodu_PageDefn_FromObj__P3701,
+    "clone": kodu_PageDefn_clone__P115634,
+    "toObj": kodu_PageDefn_toObj__P115636,
+    "FromObj": kodu_PageDefn_FromObj__P115637,
   },
 });
 const kodu_RuleUI__C8533_VT = mkVTable({
@@ -73091,7 +73131,7 @@ const kodu_RuleUI__C8533_VT = mkVTable({
     "notify": kodu_Component_notify__P3526,
   },
 });
-const kodu_RuleDefn__C3685_VT = mkVTable({
+const kodu_RuleDefn__C115648_VT = mkVTable({
   name: "RuleDefn",
   numFields: 4,
   classNo: 41,
@@ -73108,9 +73148,9 @@ const kodu_RuleDefn__C3685_VT = mkVTable({
     "set/actuator": null,
     "modifiers": null,
     "set/modifiers": null,
-    "clone": kodu_RuleDefn_clone__P3691,
-    "toObj": kodu_RuleDefn_toObj__P3693,
-    "FromObj": kodu_RuleDefn_FromObj__P3694,
+    "clone": kodu_RuleDefn_clone__P115649,
+    "toObj": kodu_RuleDefn_toObj__P115651,
+    "FromObj": kodu_RuleDefn_FromObj__P115652,
   },
 });
 const sprites_BaseSprite__C1858_VT = mkVTable({
@@ -74656,7 +74696,7 @@ const sprites_StaticObstacle__C2146_VT = mkVTable({
     "width": sprites_StaticObstacle_width__P2156,
   },
 });
-const kodu_Page__C11776_VT = mkVTable({
+const kodu_Page__C137424_VT = mkVTable({
   name: "Page",
   numFields: 4,
   classNo: 84,
@@ -74673,11 +74713,11 @@ const kodu_Page__C11776_VT = mkVTable({
     "set/defn": null,
     "index": null,
     "set/index": null,
-    "execute": kodu_Page_execute__P11778,
+    "execute": kodu_Page_execute__P137426,
   },
 });
 
-const breakpoints = setupDebugger(1, ["kodu_icons_reg___3529","kodu_WorldStage_ID___3624","STAGE_ID___7850","kodu_KodeStage_ID___3651","STAGE_ID___8214","tiles___3715","chardb___3743","librarydb___11023","app___3467","SAVEGAME___7846"])
+const breakpoints = setupDebugger(1, ["kodu_icons_reg___3529","kodu_WorldStage_ID___3624","STAGE_ID___7850","kodu_KodeStage_ID___3651","STAGE_ID___8214","tiles___115682","chardb___3743","librarydb___11023","app___3467","SAVEGAME___7846"])
 
-return _main___P24554
+return _main___P139040
 })
