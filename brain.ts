@@ -66,11 +66,13 @@ namespace kodu {
             this.state = {};
             this.sensorFn = Library.getFunction((this.defn.sensor || tiles.sensors["sensor.always"]).id);
             this.filterFns = (this.defn.filters || [])
-                .sort((a, b) => a.priority - b.priority)
+                //.slice()
+                //.sort((a, b) => a.priority - b.priority)
                 .map(elem => Library.getFunction(elem.id));
             this.actuatorFn = Library.getFunction((this.defn.actuator || <any>{}).id);
             this.modifierFns = (this.defn.modifiers || [])
-                .sort((a, b) => a.priority - b.priority)
+                //.slice()
+                //.sort((a, b) => a.priority - b.priority)
                 .map(elem => Library.getFunction(elem.id));
             this.hasInput =
                 this.defn.sensor &&

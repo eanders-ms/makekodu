@@ -151,15 +151,11 @@ namespace kodu {
             // TODO: wander if no direction
             const dir = rule.state["direction"] || rule.brain.wander.direction();
             if (!dir) { return; }
-            const speed = rule.state["speed"] || rule.brain.char.defn.defaults.speed;
-            let movee: Character = rule.brain.char;
-            const directTarget: Target = rule.state["direct-target"];
-            if (directTarget) {
-                movee = directTarget.char;
-            }
-            if (movee) {
-                movee.queueImpulse(dir, speed);
-            }
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            const speed = rule.state["speed"] || actor.defn.defaults.speed;
+            actor.queueImpulse(dir, speed);
         },
 
         "actuator.switch-page": (rule: Rule) => {
@@ -213,12 +209,18 @@ namespace kodu {
         },
 
         "modifier.quickly": (rule: Rule) => {
-            const speed = rule.state["speed"] || rule.brain.char.defn.defaults.speed;
-            rule.state["speed"] = speed + rule.brain.char.defn.defaults.speed * 0.5;
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            const speed = rule.state["speed"] || actor.defn.defaults.speed;
+            rule.state["speed"] = speed + actor.defn.defaults.speed * 0.5;
         },
 
         "modifier.slowly": (rule: Rule) => {
-            const speed = rule.state["speed"] || rule.brain.char.defn.defaults.speed;
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed * 0.75;
         },
 
@@ -226,9 +228,12 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            let dx = target.char.x - rule.brain.char.x;
-            let dy = target.char.y - rule.brain.char.y;
-            const dist = util.distBetweenSprites(target.char.sprite, rule.brain.char.sprite);
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            let dx = target.char.x - actor.x;
+            let dy = target.char.y - actor.y;
+            const dist = util.distBetweenSprites(target.char.sprite, actor.sprite);
             if (!dist) { return; }
             dx /= dist;
             dy /= dist;
@@ -239,9 +244,12 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            let dx = target.char.x - rule.brain.char.x;
-            let dy = target.char.y - rule.brain.char.y;
-            const dist = util.distBetweenSprites(target.char.sprite, rule.brain.char.sprite);
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            let dx = target.char.x - actor.x;
+            let dy = target.char.y - actor.y;
+            const dist = util.distBetweenSprites(target.char.sprite, actor.sprite);
             if (!dist) { return; }
             dx /= dist;
             dy /= dist;
@@ -252,13 +260,16 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            let dx = target.char.x - rule.brain.char.x;
-            let dy = target.char.y - rule.brain.char.y;
-            const dist = util.distBetweenSprites(target.char.sprite, rule.brain.char.sprite);
+            // const directTarget: Target = rule.state["direct-target"];
+            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const actor = rule.brain.char;
+            let dx = target.char.x - actor.x;
+            let dy = target.char.y - actor.y;
+            const dist = util.distBetweenSprites(target.char.sprite, actor.sprite);
             if (!dist) { return; }
             dx /= dist;
             dy /= dist;
-            if (dist < target.char.body.radius + rule.brain.char.body.radius * 2) {
+            if (dist < target.char.body.radius + actor.body.radius * 2) {
                 // too close. move away from it
                 dx = -dx;
                 dy = -dy;
