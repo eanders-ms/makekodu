@@ -3,21 +3,17 @@ namespace kodu {
     export type TileType = "sensor" | "filter" | "actuator" | "modifier";
 
     export interface Constraints {
-        provides?: {
-            categories?: string[];
-        },
-        requires?: {
-            categories?: string[];
-        }
+        provides?: string[];
+        requires?: string[];
         allow?: {
             ids?: string[];
             categories?: string[];
-        },
+        };
         disallow?: {
             ids?: string[];
             categories?: string[];
-        },
-        handling?: { [id: string]: string | number | boolean }
+        };
+        handling?: { [id: string]: string | number | boolean };
     }
 
     export interface TileDefn {
@@ -34,11 +30,13 @@ namespace kodu {
     export type FilterDefn = TileDefn & {
         type: "filter";
         category: string;
+        priority: number;  // runtime priority
     };
     export type ActuatorDefn = TileDefn & { type: "actuator"; };
     export type ModifierDefn = TileDefn & {
         type: "modifier";
         category: string;
+        priority: number;  // runtime priority
     };
 
     export class RuleDefn {
@@ -202,7 +200,7 @@ namespace kodu {
         }
 
         public static getFilterSuggestions(rule: RuleDefn, index: number): FilterDefn[] {
-            let filters = Object.keys(tiles.filters)
+            let all = Object.keys(tiles.filters)
                 .map(id => tiles.filters[id])
                 .filter(tile => !tile.hidden)
                 .sort((a, b) => {
@@ -210,7 +208,27 @@ namespace kodu {
                     const wb = b.weight || 100;
                     return wa - wb;
                 });
-            return filters;
+
+            // Collect existing tiles up to index.
+            let existing: TileDefn[] = [];
+            for (let i = 0; i < index; ++i) {
+                existing.push(rule.filters[i]);
+            }
+
+            // Return empty set if the last existing tile is a "terminal".
+            if (existing.length) {
+                const last = existing[existing.length - 1];
+                if (last.constraints && last.constraints.handling && last.constraints.handling["terminal"]) { return []; }
+            }
+
+            // Collect the built-up constraints.
+            const constraints = mkConstraints();
+            mergeConstraints(constraints, rule.sensor ? rule.sensor.constraints : null)
+            for (let i = 0; i < existing.length; ++i) {
+                mergeConstraints(constraints, existing[i].constraints);
+            }
+            const compatible = this.getCompatibleSet(all, constraints);
+            return compatible;
         }
 
         public static getActuatorSuggestions(rule: RuleDefn): ActuatorDefn[] {
@@ -234,29 +252,47 @@ namespace kodu {
                     const wb = b.weight || 100;
                     return wa - wb;
                 });
+
+            // Collect existing tiles up to index.
             let existing: TileDefn[] = [];
             for (let i = 0; i < index; ++i) {
                 existing.push(rule.modifiers[i]);
             }
-            const compatible = this.getCompatibleSet(all, existing, rule && rule.actuator ? rule.actuator.constraints : null);
+
+            // Return empty set if the last existing tile is a "terminal".
+            if (existing.length) {
+                const last = existing[existing.length - 1];
+                if (last.constraints && last.constraints.handling && last.constraints.handling["terminal"]) { return []; }
+            }
+
+            // Collect the built-up constraints.
+            const constraints = mkConstraints();
+            mergeConstraints(constraints, rule.actuator ? rule.actuator.constraints : null);
+            mergeConstraints(constraints, rule.sensor ? rule.sensor.constraints : null)
+            for (let i = 0; i < existing.length; ++i) {
+                mergeConstraints(constraints, existing[i].constraints);
+            }
+            const compatible = this.getCompatibleSet(all, constraints);
             return compatible;
         }
 
-        private static getCompatibleSet<T extends TileDefn>(all: T[], existing: TileDefn[], initial: Constraints): T[] {
-            if (existing.length) {
-                const last = existing[existing.length - 1];
-                if (last.constraints.handling && last.constraints.handling["terminal"]) { return []; }
-            }
-            const c = mkConstraints();
-            mergeConstraints(c, initial);
-            for (let i = 0; i < existing.length; ++i) {
-                mergeConstraints(c, existing[i].constraints);
-            }
+        private static getCompatibleSet<T extends TileDefn>(all: T[], c: Constraints): T[] {
             let compat = all
-                .filter(tile => c.allow.categories.some(cat => cat === tile.category) || c.allow.ids.some(id => id === tile.id));
-            compat = compat
+                // Filter "requires" to matching "provides".
+                .filter(tile => {
+                    if (!tile.constraints) return true;
+                    if (!tile.constraints.requires) return true;
+                    let met = false;
+                    tile.constraints.requires.forEach(req => met = met || c.provides.some(pro => pro === req));
+                    return met;
+                })
+                // Filter "allows".
+                .filter(tile => c.allow.categories.some(cat => cat === tile.category) || c.allow.ids.some(id => id === tile.id))
+                // Filter "disallows".
                 .filter(tile => !c.disallow.categories.some(cat => cat === tile.category) && !c.disallow.ids.some(id => id === tile.id));
+        
             // TODO: c.handling
+
             return compat;
         }
 
@@ -272,12 +308,8 @@ namespace kodu {
 
     function mkConstraints(): Constraints {
         const c: Constraints = {
-            provides: {
-                categories: []
-            },
-            requires: {
-                categories: []
-            },
+            provides: [],
+            requires: [],
             allow: {
                 ids: [],
                 categories: []
@@ -293,6 +325,12 @@ namespace kodu {
 
     function mergeConstraints(dst: Constraints, src?: Constraints) {
         if (!src) { return; }
+        if (src.provides) {
+            src.provides.forEach(item => dst.provides.push(item));
+        }
+        if (src.requires) {
+            src.requires.forEach(item => dst.requires.push(item));
+        }
         if (src.allow) {
             (src.allow.ids || []).forEach(item => dst.allow.ids.push(item));
             (src.allow.categories || []).forEach(item => dst.allow.categories.push(item));
@@ -327,7 +365,7 @@ namespace kodu {
                 type: "sensor",
                 id: "sensor.always",
                 name: "Always",
-                hidden: true,
+                hidden: true
             },
             "sensor.see": {
                 type: "sensor",
@@ -335,8 +373,9 @@ namespace kodu {
                 name: "See",
                 weight: 1,
                 constraints: {
+                    provides: ["target"],
                     allow: {
-                        categories: ["subject", "direct-subject"]
+                        categories: ["subject", "direct-subject", "distance"]
                     },
                     disallow: {
                         ids: ["filter.me"]
@@ -349,6 +388,7 @@ namespace kodu {
                 name: "Bump",
                 weight: 2,
                 constraints: {
+                    provides: ["target"],
                     allow: {
                         categories: ["subject", "direct-subject"]
                     },
@@ -362,6 +402,7 @@ namespace kodu {
                 id: "sensor.dpad",
                 name: "DPad",
                 constraints: {
+                    provides: ["input", "direction"],
                     allow: {
                         categories: ["dpad-direction", "button-event"]
                     }
@@ -372,6 +413,7 @@ namespace kodu {
                 id: "sensor.button.a",
                 name: "A",
                 constraints: {
+                    provides: ["input"],
                     allow: {
                         categories: ["button-event"]
                     }
@@ -382,6 +424,7 @@ namespace kodu {
                 id: "sensor.button.b",
                 name: "B",
                 constraints: {
+                    provides: ["input"],
                     allow: {
                         categories: ["button-event"]
                     }
@@ -394,7 +437,9 @@ namespace kodu {
                 id: "filter.kodu",
                 name: "Kodu",
                 category: "subject",
+                priority: 2,
                 constraints: {
+                    provides: ["target"],
                     disallow: {
                         categories: ["subject", "direct-subject"]
                     }
@@ -405,7 +450,9 @@ namespace kodu {
                 id: "filter.tree",
                 name: "Tree",
                 category: "subject",
+                priority: 2,
                 constraints: {
+                    provides: ["target"],
                     disallow: {
                         categories: ["subject", "direct-subject"]
                     }
@@ -415,7 +462,9 @@ namespace kodu {
                 id: "filter.apple",
                 name: "Apple",
                 category: "subject",
+                priority: 2,
                 constraints: {
+                    provides: ["target"],
                     disallow: {
                         categories: ["subject", "direct-subject"]
                     }
@@ -426,7 +475,9 @@ namespace kodu {
                 id: "filter.nearby",
                 name: "nearby",
                 category: "distance",
+                priority: 2,
                 constraints: {
+                    provides: ["target"],
                     disallow: {
                         categories: ["distance"]
                     }
@@ -437,7 +488,9 @@ namespace kodu {
                 id: "filter.faraway",
                 name: "far away",
                 category: "distance",
+                priority: 2,
                 constraints: {
+                    provides: ["target"],
                     disallow: {
                         categories: ["distance"]
                     }
@@ -512,7 +565,10 @@ namespace kodu {
                 id: "modifier.me",
                 name: "me",
                 category: "direct-object",
+                priority: 1,
                 constraints: {
+                    produces: ["direct-target"],
+                    requires: ["target"],
                     disallow: {
                         categories: ["object", "direct-object"]
                     }
@@ -523,7 +579,10 @@ namespace kodu {
                 id: "modifier.it",
                 name: "it",
                 category: "direct-object",
+                priority: 1,
                 constraints: {
+                    produces: ["direct-target"],
+                    requires: ["target"],
                     disallow: {
                         categories: ["object", "direct-object"]
                     }
@@ -534,6 +593,7 @@ namespace kodu {
                 id: "modifier.kodu",
                 name: "Kodu",
                 category: "object",
+                priority: 2,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -545,6 +605,7 @@ namespace kodu {
                 id: "modifier.tree",
                 name: "Tree",
                 category: "object",
+                priority: 2,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -556,6 +617,7 @@ namespace kodu {
                 id: "modifier.apple",
                 name: "Apple",
                 category: "object",
+                priority: 2,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -567,6 +629,7 @@ namespace kodu {
                 id: "modifier.quickly",
                 name: "quickly",
                 category: "speed",
+                priority: 2,
                 constraints: {
                     disallow: {
                         ids: ["modifier.slowly"]
@@ -581,6 +644,7 @@ namespace kodu {
                 id: "modifier.slowly",
                 name: "slowly",
                 category: "speed",
+                priority: 2,
                 constraints: {
                     disallow: {
                         ids: ["modifier.quickly"]
@@ -595,7 +659,9 @@ namespace kodu {
                 id: "modifier.toward",
                 name: "toward",
                 category: "direction",
+                priority: 2,
                 constraints: {
+                    requires: ["target"],
                     disallow: {
                         ids: ["modifier.me"],
                         categories: ["direction"]
@@ -607,7 +673,9 @@ namespace kodu {
                 id: "modifier.away",
                 name: "away",
                 category: "direction",
+                priority: 2,
                 constraints: {
+                    requires: ["target"],
                     disallow: {
                         ids: ["modifier.me"],
                         categories: ["direction"]
@@ -619,7 +687,9 @@ namespace kodu {
                 id: "modifier.circle",
                 name: "around",
                 category: "direction",
+                priority: 2,
                 constraints: {
+                    requires: ["target"],
                     disallow: {
                         ids: ["modifier.me"],
                         categories: ["direction"]
@@ -631,6 +701,7 @@ namespace kodu {
                 id: "modifier.page-1",
                 name: "page 1",
                 category: "page",
+                priority: 2,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -642,6 +713,7 @@ namespace kodu {
                 id: "modifier.page-2",
                 name: "page 2",
                 category: "page",
+                priority: 2,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -653,6 +725,7 @@ namespace kodu {
                 id: "modifier.page-3",
                 name: "page 3",
                 category: "page",
+                priority: 2,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -664,6 +737,7 @@ namespace kodu {
                 id: "modifier.page-4",
                 name: "page 4",
                 category: "page",
+                priority: 2,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -675,6 +749,7 @@ namespace kodu {
                 id: "modifier.page-5",
                 name: "page 5",
                 category: "page",
+                priority: 2,
                 constraints: {
                     handling: {
                         "terminal": true

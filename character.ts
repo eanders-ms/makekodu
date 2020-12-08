@@ -35,6 +35,7 @@ namespace kodu {
             this.sprite.data["component"] = this;
             this.bdefn = bdefn.clone();
             this.destroyed = false;
+            this.impulseQueue = [];
 
             const physics = this.stage.get<Physics>("physics");
             if (physics) {
@@ -87,7 +88,6 @@ namespace kodu {
 
         think() {
             if (!this.destroyed && this.brain) {
-                this.impulseQueue = [];
                 this.brain.execute();
                 this.applyImpluses();
             }
@@ -108,6 +108,7 @@ namespace kodu {
             finalDir = Vec2.Scale(finalDir, finalMag / impulseCount);
             this.body.vx += finalDir.x;
             this.body.vy += finalDir.y;
+            this.impulseQueue = [];
         }
 
         sleep() {

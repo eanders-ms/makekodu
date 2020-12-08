@@ -152,7 +152,14 @@ namespace kodu {
             const dir = rule.state["direction"] || rule.brain.wander.direction();
             if (!dir) { return; }
             const speed = rule.state["speed"] || rule.brain.char.defn.defaults.speed;
-            rule.brain.char.queueImpulse(dir, speed);
+            let movee: Character = rule.brain.char;
+            const directTarget: Target = rule.state["direct-target"];
+            if (directTarget) {
+                movee = directTarget.char;
+            }
+            if (movee) {
+                movee.queueImpulse(dir, speed);
+            }
         },
 
         "actuator.switch-page": (rule: Rule) => {
@@ -164,12 +171,12 @@ namespace kodu {
 
         "actuator.vanish": (rule: Rule) => {
             const targets: Target[] = rule.state["targets"];
-            let vanisher: Character = rule.brain.char;
+            let vanishee: Character = rule.brain.char;
             if (targets && targets.length) {
-                vanisher = targets[0].char;
+                vanishee = targets[0].char;
             }
-            if (vanisher) {
-                vanisher.destroy();
+            if (vanishee) {
+                vanishee.destroy();
             }
         },
 
@@ -193,6 +200,7 @@ namespace kodu {
                 distSq: 0
             }];
             rule.state["targets"] = targets;
+            rule.state["direct-target"] = targets[0];
         },
 
         "modifier.it": (rule: Rule) => {
@@ -201,6 +209,7 @@ namespace kodu {
             if (!targets || !targets.length) { return; }
             targets = targets.slice(0, 1);
             rule.state["targets"] = targets;
+            rule.state["direct-target"] = targets[0];
         },
 
         "modifier.quickly": (rule: Rule) => {
