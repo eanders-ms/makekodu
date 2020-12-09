@@ -225,8 +225,8 @@ namespace kodu {
             for (let i = 0; i < existing.length; ++i) {
                 mergeConstraints(constraints, existing[i].constraints);
             }
-            const compatible = this.getCompatibleSet(all, constraints);
-            return compatible;
+
+            return this.getCompatibleSet(all, constraints);
         }
 
         public static getActuatorSuggestions(rule: RuleDefn): ActuatorDefn[] {
@@ -270,8 +270,8 @@ namespace kodu {
             for (let i = 0; i < existing.length; ++i) {
                 mergeConstraints(constraints, existing[i].constraints);
             }
-            const compatible = this.getCompatibleSet(all, constraints);
-            return compatible;
+
+            return this.getCompatibleSet(all, constraints);
         }
 
         private static getCompatibleSet<T extends TileDefn>(all: T[], c: Constraints): T[] {

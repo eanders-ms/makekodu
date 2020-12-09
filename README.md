@@ -20,7 +20,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 ### Top TODOs
 
 - [ ] Tile art (ongoing... keep up on it).
-- [ ] Tile compatibility filtering.
+- [x] Tile compatibility filtering.
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 
@@ -33,10 +33,10 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Add "Duplicate" to character menu.
 - [ ] Add rule menu: move up/down, delete.
 - [x] Improve tile selection menu layout.
-- [ ] Implement tile compatibility filtering.
+- [x] Implement tile compatibility filtering.
 - [ ] Create character from gallery sprite.
 - [ ] Actuator arbitration? Maybe.
-- [x] Movement blending (done, not sure we want it though).
+- [x] Movement blending? Maybe. (done, not sure we want it though).
 - [ ] Exclusive movement types? Maybe.
 - [ ] Clicking "play": Delay entering play mode until A button is released. Otherwise brains can sense the button down from the click.
 - [ ] When a brain has dpad input, change "stop" button to show you have to push the "menu" button to get back to edit mode.
@@ -45,8 +45,11 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Implement child rules - inherit targets from parent rule.
 - [ ] Networked multiplayer using pxt-socket. Matchmaking through host site.
 - [ ] World settings: Background color. Behavior on glass wall collide (destroy? bounce?)
+- [ ] Character settings: Friction, default speed, default health, etc.
 - [ ] Brain editor: Don't show when or do insertion point if there are no valid tiles to add.
-- [ ] Tile compat: Only make "it" modifier available if WHEN side produces character-sensory output.
+- [x] Tile compat: Only make "it" modifier available if WHEN side produces character-sensory output.
+- [ ] Tile compat: Handle "constraints.handling" config property when filtering tiles.
+- [ ] Implement compact save format.
 
 ### TODO (Language - not prioritized)
 
