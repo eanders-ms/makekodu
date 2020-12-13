@@ -30,11 +30,13 @@ namespace kodu {
     export type FilterDefn = TileDefn & {
         type: "filter";
         category: string;
+        priority: number;   // for runtime reordering. 10 is default.
     };
     export type ActuatorDefn = TileDefn & { type: "actuator"; };
     export type ModifierDefn = TileDefn & {
         type: "modifier";
         category: string;
+        priority: number;   // for runtime reordering. 10 is default.
     };
 
     export class RuleDefn {
@@ -435,7 +437,7 @@ namespace kodu {
                 id: "filter.kodu",
                 name: "Kodu",
                 category: "subject",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
@@ -448,7 +450,7 @@ namespace kodu {
                 id: "filter.tree",
                 name: "Tree",
                 category: "subject",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
@@ -460,7 +462,7 @@ namespace kodu {
                 id: "filter.apple",
                 name: "Apple",
                 category: "subject",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
@@ -473,7 +475,7 @@ namespace kodu {
                 id: "filter.nearby",
                 name: "nearby",
                 category: "distance",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
@@ -486,7 +488,7 @@ namespace kodu {
                 id: "filter.faraway",
                 name: "far away",
                 category: "distance",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
@@ -563,7 +565,7 @@ namespace kodu {
                 id: "modifier.me",
                 name: "me",
                 category: "direct-object",
-                //priority: 1,
+                priority: 10,
                 constraints: {
                     produces: ["direct-target"],
                     requires: ["target"],
@@ -577,7 +579,7 @@ namespace kodu {
                 id: "modifier.it",
                 name: "it",
                 category: "direct-object",
-                //priority: 1,
+                priority: 10,
                 constraints: {
                     produces: ["direct-target"],
                     requires: ["target"],
@@ -591,7 +593,7 @@ namespace kodu {
                 id: "modifier.kodu",
                 name: "Kodu",
                 category: "object",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -603,7 +605,7 @@ namespace kodu {
                 id: "modifier.tree",
                 name: "Tree",
                 category: "object",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -615,7 +617,7 @@ namespace kodu {
                 id: "modifier.apple",
                 name: "Apple",
                 category: "object",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     disallow: {
                         categories: ["object", "direct-object"]
@@ -627,7 +629,7 @@ namespace kodu {
                 id: "modifier.quickly",
                 name: "quickly",
                 category: "speed",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     disallow: {
                         ids: ["modifier.slowly"]
@@ -642,7 +644,7 @@ namespace kodu {
                 id: "modifier.slowly",
                 name: "slowly",
                 category: "speed",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     disallow: {
                         ids: ["modifier.quickly"]
@@ -657,7 +659,7 @@ namespace kodu {
                 id: "modifier.toward",
                 name: "toward",
                 category: "direction",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     requires: ["target"],
                     disallow: {
@@ -671,7 +673,7 @@ namespace kodu {
                 id: "modifier.away",
                 name: "away",
                 category: "direction",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     requires: ["target"],
                     disallow: {
@@ -680,12 +682,12 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.circle" : {
+            "modifier.avoid" : {
                 type: "modifier",
-                id: "modifier.circle",
+                id: "modifier.avoid",
                 name: "around",
                 category: "direction",
-                //priority: 2,
+                priority: 20,   // greater priority, appear after other modifiers
                 constraints: {
                     requires: ["target"],
                     disallow: {
@@ -699,7 +701,7 @@ namespace kodu {
                 id: "modifier.page-1",
                 name: "page 1",
                 category: "page",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -711,7 +713,7 @@ namespace kodu {
                 id: "modifier.page-2",
                 name: "page 2",
                 category: "page",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -723,7 +725,7 @@ namespace kodu {
                 id: "modifier.page-3",
                 name: "page 3",
                 category: "page",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -735,7 +737,7 @@ namespace kodu {
                 id: "modifier.page-4",
                 name: "page 4",
                 category: "page",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     handling: {
                         "terminal": true
@@ -747,7 +749,7 @@ namespace kodu {
                 id: "modifier.page-5",
                 name: "page 5",
                 category: "page",
-                //priority: 2,
+                priority: 10,
                 constraints: {
                     handling: {
                         "terminal": true

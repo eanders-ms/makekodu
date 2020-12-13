@@ -256,30 +256,20 @@ namespace kodu {
             rule.state["direction"] = mkVec2(-dx, -dy);
         },
 
-        "modifier.circle": (rule: Rule) => {
+        "modifier.avoid": (rule: Rule) => {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
+            const direction: Vec2 = rule.state["direction"];
+            if (!direction) { return; }
             const actor = rule.brain.char;
-            let dx = target.char.x - actor.x;
-            let dy = target.char.y - actor.y;
-            const dist = util.distBetweenSprites(target.char.sprite, actor.sprite);
-            if (!dist) { return; }
-            dx /= dist;
-            dy /= dist;
-            if (dist < target.char.body.radius + actor.body.radius * 2) {
-                // too close. move away from it
-                dx = -dx;
-                dy = -dy;
-            } else {
-                // move around it
-                const tmp = dx;
-                dx = -dy;
-                dy = tmp;
-            }
-            rule.state["direction"] = mkVec2(dx, dy);
+
+            const vToTarget = Vec2.Normal(Vec2.Sub(target.char.pos, actor.pos));
+            const dot = Vec2.Dot(direction, vToTarget);
+            // Moving away from it already?
+            if (dot < 0) { return; }
+            // Move tangential to target.
+            rule.state["direction"] = mkVec2(vToTarget.y, vToTarget.x);
         },
 
         "modifier.page-1": (rule: Rule) => {

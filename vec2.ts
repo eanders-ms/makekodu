@@ -43,6 +43,10 @@ namespace kodu {
         public static MagnitudeSq(v: Vec2): number {
             return (v.x * v.x + v.y * v.y);
         }
+
+        public static Dot(a: Vec2, b: Vec2): number {
+            return a.x * b.x + a.y * b.y;
+        }
     }
 
     export function mkVec2(x = 0, y = 0): Vec2 {
