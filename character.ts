@@ -6,9 +6,16 @@ namespace kodu {
         bdefn: string;
     };
 
+    export type ImpulseType
+        = "exclusive"   // Doesn't blend with any other movement.
+        | "ambient"     // Can be blended with other movement.
+        | "default"     // Default movement if no other impulses present.
+        ;
+
     interface Impulse {
         direction: Vec2;
         magnitude: number;
+        type: ImpulseType;
     }
 
     export class Character extends Component {
@@ -71,10 +78,11 @@ namespace kodu {
             this.y += y;
         }
 
-        public queueImpulse(direction: Vec2, magnitude: number) {
+        public queueImpulse(direction: Vec2, magnitude: number, type: ImpulseType) {
             this.impulseQueue.push({
                 direction,
-                magnitude
+                magnitude,
+                type
             });
         }
 
@@ -98,18 +106,26 @@ namespace kodu {
         applyImpluses() {
             let finalDir = mkVec2();
             let finalMag = 0;
-            const impulseCount = this.impulseQueue.length;
-            if (!impulseCount) { return; }
+            if (!this.impulseQueue.length) { return; }
+            const exclusiveOnly = this.impulseQueue.some(elem => elem.type === "exclusive");
+            const allowDefault = this.impulseQueue.length === 1;
+            let impulseCount = 0;
             for (const impulse of this.impulseQueue) {
-                const direction: Vec2 = impulse.direction;
+                if (exclusiveOnly && impulse.type !== "exclusive") { continue; }
+                if (!allowDefault && impulse.type === "default") { continue; }
+                const direction = impulse.direction;
                 const magnitude = impulse.magnitude;
                 finalDir = Vec2.Add(finalDir, direction);
                 finalMag += magnitude;
+                impulseCount += 1;
+                if (exclusiveOnly) { break; }
             }
-            finalMag /= impulseCount;
-            finalDir = Vec2.Scale(finalDir, finalMag / impulseCount);
-            this.body.vx += finalDir.x;
-            this.body.vy += finalDir.y;
+            if (impulseCount) {
+                finalMag /= impulseCount;
+                finalDir = Vec2.Scale(finalDir, finalMag / impulseCount);
+                this.body.vx += finalDir.x;
+                this.body.vy += finalDir.y;
+            }
             this.impulseQueue = [];
         }
 

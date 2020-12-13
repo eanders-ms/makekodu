@@ -58,6 +58,7 @@ namespace kodu {
         actuatorFn: LibraryFn;
         modifierFns: LibraryFn[];
         hasInput: boolean;
+        hasMovement: boolean;
 
         get brain(): Brain { return this.page.brain; }
 
@@ -78,6 +79,10 @@ namespace kodu {
                 this.defn.sensor &&
                 this.defn.sensor.constraints &&
                 (this.defn.sensor.constraints.provides || []).some(item => item === "input");
+            this.hasMovement =
+                this.defn.actuator &&
+                this.defn.actuator.category &&
+                this.defn.actuator.category === "movement";
         }
 
         public execute() {
@@ -89,9 +94,22 @@ namespace kodu {
             this.sensorFn(this);
             this.filterFns.forEach(fn => fn(this));
             if (this.state["exec"]) {
+                if (this.hasMovement) {
+                    this.queueDefaultMovement();
+                }
                 this.modifierFns.forEach(fn => fn(this));
                 this.actuatorFn(this);
            }
+        }
+
+        private queueDefaultMovement() {
+            // Don't enqueue a movement if one is already present.
+            if (!this.state["direction"]) {
+                const dir = this.brain.wander.direction();
+                const speed = this.brain.char.defn.defaults.speed;
+                this.brain.char.queueImpulse(dir, speed, "default");
+                this.state["direction"] = dir;
+            }
         }
     }
 

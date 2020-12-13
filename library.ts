@@ -148,14 +148,12 @@ namespace kodu {
         /// ACTUATORS
         ///
         "actuator.move": (rule: Rule) => {
-            // TODO: wander if no direction
-            const dir = rule.state["direction"] || rule.brain.wander.direction();
+            const dir = rule.state["direction"];
             if (!dir) { return; }
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
-            actor.queueImpulse(dir, speed);
+            const impulseType: ImpulseType = rule.state["exclusive-move"] ? "exclusive" : "ambient";
+            actor.queueImpulse(dir, speed, impulseType);
         },
 
         "actuator.switch-page": (rule: Rule) => {
@@ -209,16 +207,12 @@ namespace kodu {
         },
 
         "modifier.quickly": (rule: Rule) => {
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed + actor.defn.defaults.speed * 0.5;
         },
 
         "modifier.slowly": (rule: Rule) => {
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed * 0.75;
@@ -228,8 +222,6 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
             const actor = rule.brain.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
@@ -244,8 +236,6 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            // const directTarget: Target = rule.state["direct-target"];
-            // const actor: Character = directTarget ? directTarget.char : rule.brain.char;
             const actor = rule.brain.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
@@ -260,16 +250,17 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            const direction: Vec2 = rule.state["direction"];
-            if (!direction) { return; }
+            //const direction: Vec2 = rule.state["direction"];
+            //if (!direction) { return; }
             const actor = rule.brain.char;
-
             const vToTarget = Vec2.Normal(Vec2.Sub(target.char.pos, actor.pos));
-            const dot = Vec2.Dot(direction, vToTarget);
             // Moving away from it already?
-            if (dot < 0) { return; }
+            //const dot = Vec2.Dot(vToTarget, direction);
+            //if (dot < 0) { return; }
             // Move tangential to target.
-            rule.state["direction"] = mkVec2(vToTarget.y, vToTarget.x);
+            rule.state["direction"] = mkVec2(-vToTarget.y, vToTarget.x);
+            // Don't blend this with other movement.
+            rule.state["exclusive-move"] = true;
         },
 
         "modifier.page-1": (rule: Rule) => {

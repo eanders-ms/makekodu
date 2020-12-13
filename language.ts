@@ -479,7 +479,10 @@ namespace kodu {
                 constraints: {
                     provides: ["target"],
                     disallow: {
-                        categories: ["distance"]
+                        ids: ["filter.faraway"]
+                    },
+                    handling: {
+                        "max-count": 3
                     }
                 }
             },
@@ -492,7 +495,10 @@ namespace kodu {
                 constraints: {
                     provides: ["target"],
                     disallow: {
-                        categories: ["distance"]
+                        ids: ["filter.nearby"]
+                    },
+                    handling: {
+                        "max-count": 3
                     }
                 }
             }
@@ -502,6 +508,7 @@ namespace kodu {
                 type: "actuator",
                 id: "actuator.move",
                 name: "Move",
+                category: "movement",
                 constraints: {
                     allow: {
                         categories: ["speed", "direction", "direct-object"]
