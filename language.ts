@@ -692,7 +692,7 @@ namespace kodu {
             "modifier.avoid" : {
                 type: "modifier",
                 id: "modifier.avoid",
-                name: "around",
+                name: "avoid",
                 category: "direction",
                 priority: 20,   // greater priority, appear after other modifiers
                 constraints: {

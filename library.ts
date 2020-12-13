@@ -258,7 +258,8 @@ namespace kodu {
             //const dot = Vec2.Dot(vToTarget, direction);
             //if (dot < 0) { return; }
             // Move tangential to target.
-            rule.state["direction"] = mkVec2(-vToTarget.y, vToTarget.x);
+            const r = Math.percentChance(0.8);
+            rule.state["direction"] = mkVec2(-vToTarget.y, vToTarget.x * (r ? 1 : -1));
             // Don't blend this with other movement.
             rule.state["exclusive-move"] = true;
         },
