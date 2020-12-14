@@ -103,8 +103,8 @@ namespace kodu {
         }
 
         private queueDefaultMovement() {
-            // Don't enqueue a movement if one is already present.
-            if (!this.state["direction"]) {
+            // Don't enqueue a movement if moves are already queued.
+            if (!this.state["direction"] && !this.brain.char.impulseQueue.length) {
                 const dir = this.brain.wander.direction();
                 const speed = this.brain.char.defn.defaults.speed;
                 this.brain.char.queueImpulse(dir, speed, "default");

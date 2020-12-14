@@ -250,17 +250,26 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            //const direction: Vec2 = rule.state["direction"];
-            //if (!direction) { return; }
             const actor = rule.brain.char;
-            const vToTarget = Vec2.Normal(Vec2.Sub(target.char.pos, actor.pos));
-            // Moving away from it already?
-            //const dot = Vec2.Dot(vToTarget, direction);
-            //if (dot < 0) { return; }
-            // Move tangential to target.
-            const r = Math.percentChance(0.8);
-            rule.state["direction"] = mkVec2(-vToTarget.y, vToTarget.x * (r ? 1 : -1));
-            // Don't blend this with other movement.
+            const vToTarget = Vec2.Sub(target.char.pos, actor.pos);
+            const vToTargetN = Vec2.Normal(vToTarget);
+            // Evaluate's the actor's queued impulses and returns a normalized direction.
+            const direction = actor.nextDirection();
+            const dot = Vec2.Dot(direction, vToTargetN);
+            // Already moving away?
+            if (dot < 0) { return; }
+            let vSignDir = mkVec2(-1, 1);
+            const vTranspose = Vec2.Transpose(vToTargetN);
+            if (direction) {
+                if (Math.abs(direction.x) > Math.abs(direction.y)) {
+                    vSignDir.y = (actor.y > target.char.y) ? 1 : -1;
+                    vTranspose.y = Math.abs(vTranspose.y);
+                } else {
+                    vSignDir.x = (actor.x > target.char.x) ? 1 : -1;
+                    vTranspose.x = Math.abs(vTranspose.x);
+                }
+            }
+            rule.state["direction"] = Vec2.Mul(vTranspose, vSignDir);
             rule.state["exclusive-move"] = true;
         },
 

@@ -86,6 +86,12 @@ namespace kodu {
             });
         }
 
+        public nextDirection(): Vec2 | null {
+            const v = this.computeImpulses();
+            if (!v) { return null; }
+            return Vec2.Normal(v);
+        }
+
         private handleCollision(other: Sprite) {
 
         }
@@ -99,14 +105,13 @@ namespace kodu {
         think() {
             if (!this.destroyed && this.brain) {
                 this.brain.execute();
-                this.applyImpluses();
+                this.applyImpulses();
             }
         }
 
-        applyImpluses() {
+        computeImpulses(): Vec2 | null {
+            if (!this.impulseQueue.length) { return null; }
             let finalDir = mkVec2();
-            let finalMag = 0;
-            if (!this.impulseQueue.length) { return; }
             const exclusiveOnly = this.impulseQueue.some(elem => elem.type === "exclusive");
             const allowDefault = this.impulseQueue.length === 1;
             let impulseCount = 0;
@@ -115,16 +120,21 @@ namespace kodu {
                 if (!allowDefault && impulse.type === "default") { continue; }
                 const direction = impulse.direction;
                 const magnitude = impulse.magnitude;
-                finalDir = Vec2.Add(finalDir, direction);
-                finalMag += magnitude;
+                finalDir = Vec2.Add(finalDir, Vec2.Scale(direction, magnitude));
                 impulseCount += 1;
                 if (exclusiveOnly) { break; }
             }
             if (impulseCount) {
-                finalMag /= impulseCount;
-                finalDir = Vec2.Scale(finalDir, finalMag / impulseCount);
-                this.body.vx += finalDir.x;
-                this.body.vy += finalDir.y;
+                return Vec2.Scale(finalDir, 1 / impulseCount);
+            }
+            return null;
+        }
+
+        applyImpulses() {
+            const v = this.computeImpulses();
+            if (v) {
+                this.body.vx += v.x;
+                this.body.vy += v.y;
             }
             this.impulseQueue = [];
         }
