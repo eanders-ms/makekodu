@@ -281,7 +281,7 @@ namespace kodu {
                 }
             }
             rule.state["direction"] = Vec2.Mul(vTranspose, vSignDir);
-            rule.state["exclusive-move"] = true;
+            //rule.state["exclusive-move"] = true;
         },
 
         "modifier.page-1": (rule: Rule) => {
