@@ -558,7 +558,7 @@ namespace kodu {
             "actuator.camera.follow": {
                 type: "actuator",
                 id: "actuator.camera.follow",
-                name: "Follow",
+                name: "Keep in view",
                 constraints: {
                     allow: {
                         categories: ["direct-object"]
