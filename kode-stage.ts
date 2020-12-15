@@ -95,7 +95,7 @@ namespace kodu {
         filters: Button[];
         actuator: Button;
         modifiers: Button[];
-        menuBtn: Button;
+        handleBtn: Button;
         whenBtn: Button;
         doBtn: Button;
         whenInsertBtn: Button;
@@ -109,14 +109,14 @@ namespace kodu {
             super(kstage, "ruleui");
             this.filters = [];
             this.modifiers = [];
-            this.menuBtn = new Button(
+            this.handleBtn = new Button(
                 kstage,
                 null,
-                "rule-handle",
+                "rule.condition.high",
                 null,
                 0, 0, false,
                 (button) => this.handleMenuClick(button));
-            this.menuBtn.z = 800;
+            this.handleBtn.z = 800;
             this.whenBtn = new Button(
                 kstage,
                 null,
@@ -154,8 +154,8 @@ namespace kodu {
         public layout(left: number, top: number) {
             this.top = top;
             this.left = left;
-            this.menuBtn.moveTo(left, top);
-            left += (this.menuBtn.width >> 1) + (this.whenBtn.width >> 1);
+            this.handleBtn.moveTo(left, top);
+            left += (this.handleBtn.width >> 1) + (this.whenBtn.width >> 1);
             this.whenBtn.moveTo(left, top);
             left += (this.whenBtn.width >> 1) + (this.whenInsertBtn.width >> 1);
             if (this.sensor) {
@@ -184,12 +184,12 @@ namespace kodu {
 
         public destroy() {
             this.destroyTiles();
-            this.menuBtn.destroy();
+            this.handleBtn.destroy();
             this.whenBtn.destroy();
             this.whenInsertBtn.destroy();
             this.doBtn.destroy();
             this.doInsertBtn.destroy();
-            this.menuBtn = undefined;
+            this.handleBtn = undefined;
             this.whenBtn = undefined;
             this.whenInsertBtn = undefined;
             this.doBtn = undefined;
