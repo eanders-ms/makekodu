@@ -31,7 +31,7 @@ namespace kodu {
 
         "sensor.see": (rule: Rule) => {
             // Select characters except the one executing this.
-            let chars = rule.brain.char.stage.components
+            const chars = rule.brain.char.stage.components
                 .filter(comp => comp.kind === "character" && comp !== rule.brain.char) as Character[];
             // Sort by distance, near to far.
             const targets = chars
@@ -47,6 +47,17 @@ namespace kodu {
         },
 
         "sensor.bump": (rule: Rule) => {
+            const chars: Character[] = rule.brain.char.bumps || [];
+            // Map to targets.
+            const targets = chars
+                .map(char => {
+                    return <Target>{
+                        char: char,
+                        distSq: 0
+                    }
+                });
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
         },
 
         "sensor.dpad": (rule: Rule) => {

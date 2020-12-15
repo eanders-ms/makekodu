@@ -295,6 +295,8 @@ namespace kodu {
                     const { body1, body2 } = parm;
                     const char1 = body1.sprite.data["component"] as Character;
                     const char2 = body2.sprite.data["component"] as Character;
+                    char1.addBump(char2);
+                    char2.addBump(char1);
                     break;
                 }
                 case "camera:follow": {
@@ -304,6 +306,13 @@ namespace kodu {
                 }
                 case "char:has-input": {
                     this.cursor.disable();
+                    break;
+                }
+                case "character:destroying": {
+                    const char: Character = parm;
+                    if (this.camera.following === char) {
+                        this.camera.follow(null);
+                    }
                     break;
                 }
                 default: {

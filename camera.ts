@@ -43,7 +43,7 @@ namespace kodu {
             if (this.following) {
                 this.keepInFrame(this.following.x, this.following.y);
             } else {
-                this.keepInFrame(this.stage.cursor.x, this.stage.cursor.y)
+                this.keepInFrame(this.stage.cursor.x, this.stage.cursor.y);
             }
         }
 

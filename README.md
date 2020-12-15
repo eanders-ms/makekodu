@@ -77,6 +77,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "pressed", "released" button filters.
 - [ ] "done" final modifier to indicate brain should stop executing this frame.
 - [ ] "not" final filter to negate the when clause.
+- [ ] "started to" and "no longer" final filter for edge-triggered when clause. Combines with "not". Or make these options on the rule handle.
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 

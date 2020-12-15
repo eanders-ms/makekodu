@@ -25,6 +25,7 @@ namespace kodu {
         brain: Brain;
         destroyed: boolean;
         impulseQueue: Impulse[];
+        bumps: Character[];
 
         public get x() { return this.sprite.x; }
         public set x(v: number) { this.sprite.x = v; }
@@ -45,6 +46,7 @@ namespace kodu {
             this.bdefn = bdefn.clone();
             this.destroyed = false;
             this.impulseQueue = [];
+            this.bumps = [];
 
             const physics = this.stage.get<Physics>("physics");
             if (physics) {
@@ -86,6 +88,10 @@ namespace kodu {
             });
         }
 
+        public addBump(char: Character) {
+            this.bumps.push(char);
+        }
+
         public nextDirection(): Vec2 | null {
             const v = this.computeImpulses();
             if (!v) { return null; }
@@ -105,7 +111,10 @@ namespace kodu {
         think() {
             if (!this.destroyed && this.brain) {
                 this.brain.execute();
+            }
+            if (!this.destroyed) {
                 this.applyImpulses();
+                this.bumps = [];
             }
         }
 
