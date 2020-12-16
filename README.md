@@ -20,7 +20,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 ### Top TODOs
 
 - [ ] Tile art (ongoing... keep up on it).
-- [x] Tile compatibility filtering.
+- [x] Tile compatibility filtering (pretty good is fine. will never be perfect).
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 
@@ -36,10 +36,10 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Implement tile compatibility filtering.
 - [ ] Create character from gallery sprite.
 - [ ] Actuator arbitration? Maybe.
-- [x] Movement blending? Maybe. (done, not sure we want it though).
-- [ ] Exclusive movement types? Maybe.
+- [x] Movement blending.
+- [x] Exclusive movement support.
 - [ ] Clicking "play": Delay entering play mode until A button is released. Otherwise brains can sense the button down from the click.
-- [ ] When a brain has dpad input, change "stop" button to show you have to push the "menu" button to get back to edit mode.
+- [ ] When any brain has input, change "stop" button to show you have to push the "menu" button to get back to edit mode.
 - [ ] Implement world boundaries. 500x500?
 - [ ] Implement help for all modes.
 - [ ] Implement child rules - inherit targets from parent rule.
@@ -76,8 +76,8 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "on terrain" move modifier. Loosely paths on matching terrain.
 - [ ] "pressed", "released" button filters.
 - [ ] "done" final modifier to indicate brain should stop executing this frame.
-- [ ] "not" final filter to negate the when clause.
-- [ ] "started to" and "no longer" final filter for edge-triggered when clause. Combines with "not". Or make these options on the rule handle.
+- [x] Rule conditions: "when", "when not", "started to", "no longer", accessible from the rule handle.
+- [ ] Number tiles (0-9). Unlike Kodu, multiple tiles don't add, but specify a number.
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 

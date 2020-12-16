@@ -27,6 +27,10 @@ namespace kodu {
 
         public switchPage(n: number) {
             this.currPage = n;
+            const page = this.pages[this.currPage];
+            if (page) {
+                page.reset();
+            }
             this.done = true;
         }
 
@@ -46,6 +50,12 @@ namespace kodu {
             for (const rule of this.rules) {
                 rule.execute();
                 if (this.brain.done) { break; }
+            }
+        }
+
+        public reset() {
+            for (const rule of this.rules) {
+                rule.reset();
             }
         }
     }
@@ -102,6 +112,11 @@ namespace kodu {
            }
         }
 
+        public reset() {
+            this.prevState = {};
+            this.state = {};
+        }
+
         private evalRuleCondition(): boolean {
             switch (this.defn.condition) {
                 case "default":
@@ -110,7 +125,8 @@ namespace kodu {
                 case "low":
                     return !this.state["exec"];
                 case "low-to-high":
-                    return !this.prevState["exec"] && this.state["exec"];
+                    // Strong false check against prev state to ensure it was evaluated, and resulted in "no exec".
+                    return this.prevState["exec"] === false && this.state["exec"];
                 case "high-to-low":
                     return this.prevState["exec"] && !this.state["exec"];
             }
