@@ -50,11 +50,12 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Tile compat: Only make "it" modifier available if WHEN side produces character-sensory output.
 - [ ] Tile compat: Handle "constraints.handling" config property when filtering tiles.
 - [ ] Implement compact save format.
+- [ ] Dynamic number of pages. Add/delete pages.
 
 ### TODO (Language - not prioritized)
 
 - [ ] "player 1-4" filters (input and sensory).
-- [ ] "express" actuator, filters, modidfiers. "none", "happy", "sad", "angry", "crazy", "hearts", "flowers", "stars", "swears"
+- [ ] "express" actuator. For filters and modifiers: a selection of common emojis.
 - [x] "near by", "far away" filters
 - [ ] "bump" sensor
 - [x] "wander" (as default move behavior)
@@ -78,6 +79,10 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "done" final modifier to indicate brain should stop executing this frame.
 - [x] Rule conditions: "when", "when not", "started to", "no longer", accessible from the rule handle.
 - [ ] Number tiles (0-9). Unlike Kodu, multiple tiles don't add, but specify a number.
+- [ ] "next page", "prev page", "current page" tiles.
+- [ ] Math operators: +, -, *, /, (, ).
+- [ ] Comparision operators: =, <>, >, >=, <, <=.
+- [ ] Memory slots. Sensor, actuator, filters, modifiers. Save characters or numeric values.
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 
