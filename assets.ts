@@ -18,7 +18,7 @@ namespace kodu {
                 . . f 5 f . .
                 . . f f f . .
             `
-            this.reg["kodu"] = this.reg["filter.kodu"] = this.reg["modifier.kodu"] = img`
+            this.reg["kodu"] = this.reg[tid.filter.kodu] = this.reg[tid.modifier.kodu] = img`
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 . . . . . f f f f f f . . . . . 
@@ -36,7 +36,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . . 
                 . . . . . . . . . . . . . . . . 
                 `
-            this.reg["apple"] = this.reg["filter.apple"] = this.reg["modifier.apple"] = img`
+            this.reg["apple"] = this.reg[tid.filter.apple] = this.reg[tid.modifier.apple] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . f f . . . . . . .
@@ -54,7 +54,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["tree"] = this.reg["filter.tree"] = this.reg["modifier.tree"] = img`
+            this.reg["tree"] = this.reg[tid.filter.tree] = this.reg[tid.modifier.tree] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -469,7 +469,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["sensor.see"] = img`
+            this.reg[tid.sensor.see] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . f f f f f f f . . . . .
                 . . . f 9 9 9 9 9 9 9 f . . . .
@@ -487,7 +487,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["sensor.dpad"] = img`
+            this.reg[tid.sensor.dpad] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . f f f f f f f . . . . .
                 . . . f 6 6 1 1 1 6 6 f . . . .
@@ -505,7 +505,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["sensor.button.a"] = img`
+            this.reg[tid.sensor.button_a] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . f f f f f f f . . . . .
@@ -523,7 +523,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["sensor.button.b"] = img`
+            this.reg[tid.sensor.button_b] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . f f f f f f f . . . . .
@@ -541,7 +541,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["sensor.bump"] = img`
+            this.reg[tid.sensor.bump] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -559,7 +559,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.page-1"] = this.reg["modifier.page-1"] = img`
+            this.reg[tid.modifier.page_1] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -577,7 +577,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.page-2"] = this.reg["modifier.page-2"] = img`
+            this.reg[tid.modifier.page_2] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -595,7 +595,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.page-3"] = this.reg["modifier.page-3"] = img`
+            this.reg[tid.modifier.page_3] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -613,7 +613,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.page-4"] = this.reg["modifier.page-4"] = img`
+            this.reg[tid.modifier.page_4] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -631,7 +631,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.page-5"] = this.reg["modifier.page-5"] = img`
+            this.reg[tid.modifier.page_5] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . f f f f f f f . . .
@@ -649,7 +649,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["filter.me"] = this.reg["modifier.me"] = img`
+            this.reg[tid.filter.me] = this.reg[tid.modifier.me] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -667,7 +667,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["filter.it"] = this.reg["modifier.it"] = img`
+            this.reg[tid.filter.it] = this.reg[tid.modifier.it] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -685,7 +685,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["filter.faraway"] = img`
+            this.reg[tid.filter.faraway] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -703,7 +703,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["filter.nearby"] = img`
+            this.reg[tid.filter.nearby] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . f f f . . . . . . . . . .
@@ -721,7 +721,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["actuator.move"] = img`
+            this.reg[tid.actuator.move] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -739,7 +739,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["actuator.switch-page"] = img`
+            this.reg[tid.actuator.switch_page] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . f f f f . . . . . . .
@@ -757,7 +757,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["actuator.camera.follow"] = img`
+            this.reg[tid.actuator.camera_follow] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . f f f f f . f f . . . . . . .
@@ -775,7 +775,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["actuator.vanish"] = img`
+            this.reg[tid.actuator.vanish] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . 1 . . 1 . . 9 . . . . .
                 . . . . . 9 . 9 . 1 . . . . . .
@@ -793,7 +793,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["modifier.toward"] = img`
+            this.reg[tid.modifier.toward] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -811,7 +811,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["modifier.away"] = img`
+            this.reg[tid.modifier.away] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -829,7 +829,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["modifier.avoid"] = img`
+            this.reg[tid.modifier.avoid] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . f f f f f . . . .
@@ -847,7 +847,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["modifier.quickly"] = img`
+            this.reg[tid.modifier.quickly] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -865,7 +865,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["modifier.slowly"] = img`
+            this.reg[tid.modifier.slowly] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -883,7 +883,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["rule.condition.default"] = img`
+            this.reg[RuleCondition.DEFAULT] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -901,7 +901,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `
-            this.reg["rule.condition.high"] = img`
+            this.reg[RuleCondition.HIGH] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -919,7 +919,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["rule.condition.low"] = img`
+            this.reg[RuleCondition.LOW] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -937,7 +937,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["rule.condition.low-to-high"] = img`
+            this.reg[RuleCondition.LOW_TO_HIGH] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -955,7 +955,7 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
-            this.reg["rule.condition.high-to-low"] = img`
+            this.reg[RuleCondition.HIGH_TO_LOW] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -975,5 +975,4 @@ namespace kodu {
             `;
         }
     }
-    icons.init();
 }

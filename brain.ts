@@ -75,16 +75,16 @@ namespace kodu {
         constructor(public page: Page, public defn: RuleDefn) {
             this.prevState = {};
             this.state = {};
-            this.sensorFn = Library.getFunction((this.defn.sensor || tiles.sensors["sensor.always"]).id);
+            this.sensorFn = Library.getFunction((this.defn.sensor || tiles.sensors[tid.sensor.always]).tid);
             this.filterFns = (this.defn.filters || [])
                 .slice()
                 .sort((a, b) => a.priority - b.priority)
-                .map(elem => Library.getFunction(elem.id));
-            this.actuatorFn = Library.getFunction((this.defn.actuator || <any>{}).id);
+                .map(elem => Library.getFunction(elem.tid));
+            this.actuatorFn = Library.getFunction((this.defn.actuator || <any>{}).tid);
             this.modifierFns = (this.defn.modifiers || [])
                 .slice()
                 .sort((a, b) => a.priority - b.priority)
-                .map(elem => Library.getFunction(elem.id));
+                .map(elem => Library.getFunction(elem.tid));
             this.hasInput =
                 this.defn.sensor &&
                 this.defn.sensor.constraints &&
@@ -119,16 +119,15 @@ namespace kodu {
 
         private evalRuleCondition(): boolean {
             switch (this.defn.condition) {
-                case "default":
-                case "high":
-                    return this.state["exec"];
-                case "low":
+                case RuleCondition.LOW:
                     return !this.state["exec"];
-                case "low-to-high":
+                case RuleCondition.LOW_TO_HIGH:
                     // Strong false check against prev state to ensure it was evaluated, and resulted in "no exec".
                     return this.prevState["exec"] === false && this.state["exec"];
-                case "high-to-low":
+                case RuleCondition.HIGH_TO_LOW:
                     return this.prevState["exec"] && !this.state["exec"];
+                default:
+                    return this.state["exec"];
             }
         }
 

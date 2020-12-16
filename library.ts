@@ -25,11 +25,11 @@ namespace kodu {
         ///
         /// SENSORS
         ///
-        "sensor.always": (rule: Rule) => {
+        [tid.sensor.always]: (rule: Rule) => {
             rule.state["exec"] = true;
         },
 
-        "sensor.see": (rule: Rule) => {
+        [tid.sensor.see]: (rule: Rule) => {
             // Select characters except the one executing this.
             const chars = rule.brain.char.stage.components
                 .filter(comp => comp.kind === "character" && comp !== rule.brain.char) as Character[];
@@ -46,7 +46,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "sensor.bump": (rule: Rule) => {
+        [tid.sensor.bump]: (rule: Rule) => {
             const chars: Character[] = rule.brain.char.bumps || [];
             // Map to targets.
             const targets = chars
@@ -60,7 +60,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "sensor.dpad": (rule: Rule) => {
+        [tid.sensor.dpad]: (rule: Rule) => {
             const direction = mkVec2();
             if (controller.up.isPressed()) { direction.y -= 1; }
             if (controller.down.isPressed()) { direction.y += 1; }
@@ -72,13 +72,13 @@ namespace kodu {
             }
         },
 
-        "sensor.button.a": (rule: Rule) => {
+        [tid.sensor.button_a]: (rule: Rule) => {
             if (controller.A.isPressed()) {
                 rule.state["exec"] = true;
             }
         },
 
-        "sensor.button.b": (rule: Rule) => {
+        [tid.sensor.button_b]: (rule: Rule) => {
             if (controller.B.isPressed()) {
                 rule.state["exec"] = true;
             }
@@ -87,7 +87,7 @@ namespace kodu {
         ///
         /// FILTERS
         ///
-        "filter.me": (rule: Rule) => {
+        [tid.filter.me]: (rule: Rule) => {
             rule.state["targets"] = [{
                 char: rule.brain.char,
                 distSq: 0
@@ -95,7 +95,7 @@ namespace kodu {
             rule.state["exec"] = true;
         },
 
-        "filter.it": (rule: Rule) => {
+        [tid.filter.it]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets || !targets.length) { return; }
             targets = targets.slice(0, 1);
@@ -103,7 +103,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "filter.nearby": (rule: Rule) => {
+        [tid.filter.nearby]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
             if (!rule.state["dist_cutoff_sq"]) {
@@ -117,7 +117,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "filter.faraway": (rule: Rule) => {
+        [tid.filter.faraway]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
             if (!rule.state["dist_cutoff_sq"]) {
@@ -131,7 +131,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "filter.kodu":  (rule: Rule) => {
+        [tid.filter.kodu]:  (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
             targets = targets.filter(targ => targ.char.defn.id === "kodu");
@@ -139,7 +139,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "filter.apple":  (rule: Rule) => {
+        [tid.filter.apple]:  (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
             targets = targets.filter(targ => targ.char.defn.id === "apple");
@@ -147,7 +147,7 @@ namespace kodu {
             rule.state["exec"] = targets.length > 0;
         },
 
-        "filter.tree":  (rule: Rule) => {
+        [tid.filter.tree]:  (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
             targets = targets.filter(targ => targ.char.defn.id === "tree");
@@ -158,7 +158,7 @@ namespace kodu {
         ///
         /// ACTUATORS
         ///
-        "actuator.move": (rule: Rule) => {
+        [tid.actuator.move]: (rule: Rule) => {
             const dir = rule.state["direction"];
             if (!dir) { return; }
             const actor = rule.brain.char;
@@ -167,14 +167,14 @@ namespace kodu {
             actor.queueImpulse(dir, speed, impulseType);
         },
 
-        "actuator.switch-page": (rule: Rule) => {
+        [tid.actuator.switch_page]: (rule: Rule) => {
             const page: number = rule.state["page"];
             if (page !== undefined) {
                 rule.brain.switchPage(page);
             }
         },
 
-        "actuator.vanish": (rule: Rule) => {
+        [tid.actuator.vanish]: (rule: Rule) => {
             const targets: Target[] = rule.state["targets"];
             let vanishee: Character = rule.brain.char;
             if (targets && targets.length) {
@@ -185,7 +185,7 @@ namespace kodu {
             }
         },
 
-        "actuator.camera.follow": (rule: Rule) => {
+        [tid.actuator.camera_follow]: (rule: Rule) => {
             const targets: Target[] = rule.state["targets"];
             let target: Character = rule.brain.char;
             if (targets && targets.length) {
@@ -199,7 +199,7 @@ namespace kodu {
         ///
         /// MODIFIERS
         ///
-        "modifier.me": (rule: Rule) => {
+        [tid.modifier.me]: (rule: Rule) => {
             const targets: Target[] = [{
                 char: rule.brain.char,
                 distSq: 0
@@ -208,7 +208,7 @@ namespace kodu {
             rule.state["direct-target"] = targets[0];
         },
 
-        "modifier.it": (rule: Rule) => {
+        [tid.modifier.it]: (rule: Rule) => {
             let targets = rule.state["targets"] as Target[];
             rule.state["targets"] = undefined;
             if (!targets || !targets.length) { return; }
@@ -217,19 +217,19 @@ namespace kodu {
             rule.state["direct-target"] = targets[0];
         },
 
-        "modifier.quickly": (rule: Rule) => {
+        [tid.modifier.quickly]: (rule: Rule) => {
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed + actor.defn.defaults.speed * 0.5;
         },
 
-        "modifier.slowly": (rule: Rule) => {
+        [tid.modifier.slowly]: (rule: Rule) => {
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed * 0.75;
         },
 
-        "modifier.toward": (rule: Rule) => {
+        [tid.modifier.toward]: (rule: Rule) => {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
@@ -243,7 +243,7 @@ namespace kodu {
             rule.state["direction"] = mkVec2(dx, dy);
         },
 
-        "modifier.away": (rule: Rule) => {
+        [tid.modifier.away]: (rule: Rule) => {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
@@ -257,7 +257,7 @@ namespace kodu {
             rule.state["direction"] = mkVec2(-dx, -dy);
         },
 
-        "modifier.avoid": (rule: Rule) => {
+        [tid.modifier.avoid]: (rule: Rule) => {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
@@ -284,23 +284,23 @@ namespace kodu {
             //rule.state["exclusive-move"] = true;
         },
 
-        "modifier.page-1": (rule: Rule) => {
+        [tid.modifier.page_1]: (rule: Rule) => {
             rule.state["page"] = 0;
         },
 
-        "modifier.page-2": (rule: Rule) => {
+        [tid.modifier.page_2]: (rule: Rule) => {
             rule.state["page"] = 1;
         },
         
-        "modifier.page-3": (rule: Rule) => {
+        [tid.modifier.page_3]: (rule: Rule) => {
             rule.state["page"] = 2;
         },
         
-        "modifier.page-4": (rule: Rule) => {
+        [tid.modifier.page_4]: (rule: Rule) => {
             rule.state["page"] = 3;
         },
         
-        "modifier.page-5": (rule: Rule) => {
+        [tid.modifier.page_5]: (rule: Rule) => {
             rule.state["page"] = 4;
         },
         

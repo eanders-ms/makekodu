@@ -43,7 +43,7 @@ namespace kodu {
             this.pageBtn = new Button(
                 kstage,
                 "clear",
-                `filter.page-${index + 1}`,
+                tid.modifier[`page_${index + 1}`],
                 null,
                 0, 0, false);
             this.pageBtn.z = 800;
@@ -125,7 +125,7 @@ namespace kodu {
             this.handleBtn = new Button(
                 kstage,
                 null,
-                `rule.condition.${defn.condition}`,
+                defn.condition,
                 null,
                 0, 0, false,
                 (button) => this.handleRuleHandleClick(button));
@@ -235,16 +235,16 @@ namespace kodu {
         instantiateTiles(defn: RuleDefn) {
             this.destroyTiles();
             if (defn.sensor) {
-                this.sensor = this.createSensorBtn(defn.sensor.id);
+                this.sensor = this.createSensorBtn(defn.sensor.tid);
             }
             this.filters = defn.filters.map((elem, index) => {
-                return this.createFilterBtn(elem.id, index);
+                return this.createFilterBtn(elem.tid, index);
             });
             if (defn.actuator) {
-                this.actuator = this.createActuatorBtn(defn.actuator.id);
+                this.actuator = this.createActuatorBtn(defn.actuator.tid);
             }
             this.modifiers = defn.modifiers.map((elem, index) => {
-                return this.createModifierBtn(elem.id, index);
+                return this.createModifierBtn(elem.tid, index);
             });
         }
 
@@ -252,7 +252,7 @@ namespace kodu {
             const suggestions = Language.getSensorSuggestions(this.defn);
             const items = suggestions.map(elem => {
                 return <MenuItemDefn>{
-                    icon: elem.id,
+                    icon: elem.tid,
                     label: elem.name
                 };
             });
@@ -279,7 +279,7 @@ namespace kodu {
             const suggestions = Language.getActuatorSuggestions(this.defn);
             const items = suggestions.map(elem => {
                 return <MenuItemDefn>{
-                    icon: elem.id,
+                    icon: elem.tid,
                     label: elem.name
                 };
             });
@@ -307,7 +307,7 @@ namespace kodu {
             const suggestions = Language.getFilterSuggestions(this.defn, index);
             const items = suggestions.map(elem => {
                 return <MenuItemDefn>{
-                    icon: elem.id,
+                    icon: elem.tid,
                     label: elem.name
                 };
             });
@@ -317,7 +317,7 @@ namespace kodu {
                 style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                if (this.defn.filters[index].id !== selection.id) {
+                if (this.defn.filters[index].tid !== selection.id) {
                     if (selection.id === "delete") {
                         this.defn.filters.splice(index, 1);
                     } else {
@@ -335,7 +335,7 @@ namespace kodu {
             const suggestions = Language.getModifierSuggestions(this.defn, index);
             const items = suggestions.map(elem => {
                 return <MenuItemDefn>{
-                    icon: elem.id,
+                    icon: elem.tid,
                     label: elem.name
                 };
             });
@@ -345,7 +345,7 @@ namespace kodu {
                 style: "danger"
             });
             this.kstage.showMenu(button.x + 16, button.y, items, "down", (selection: Button) => {
-                if (this.defn.modifiers[index].id !== selection.id) {
+                if (this.defn.modifiers[index].tid !== selection.id) {
                     if (selection.id === "delete") {
                         this.defn.modifiers.splice(index, 1);
                     } else {
@@ -364,7 +364,7 @@ namespace kodu {
                 const suggestions = Language.getFilterSuggestions(this.defn, index);
                 const items = suggestions.map(elem => {
                     return {
-                        icon: elem.id,
+                        icon: elem.tid,
                         label: elem.name
                     };
                 });
@@ -378,7 +378,7 @@ namespace kodu {
                 const suggestions = Language.getSensorSuggestions(this.defn);
                 const items = suggestions.map(elem => {
                     return {
-                        icon: elem.id,
+                        icon: elem.tid,
                         label: elem.name
                     };
                 });
@@ -397,7 +397,7 @@ namespace kodu {
                 const suggestions = Language.getModifierSuggestions(this.defn, index);
                 const items = suggestions.map(elem => {
                     return {
-                        icon: elem.id,
+                        icon: elem.tid,
                         label: elem.name
                     };
                 });
@@ -411,7 +411,7 @@ namespace kodu {
                 const suggestions = Language.getActuatorSuggestions(this.defn);
                 const items = suggestions.map(elem => {
                     return <MenuItemDefn>{
-                        icon: elem.id,
+                        icon: elem.tid,
                         label: elem.name
                     };
                 });
@@ -427,19 +427,19 @@ namespace kodu {
         handleRuleHandleClick(button: Button) {
             const items: MenuItemDefn[] = [
                 {
-                    icon: "rule.condition.high",
+                    icon: RuleCondition.HIGH,
                     label: "\"Is true\"",
                     style: "white"
                 }, {
-                    icon: "rule.condition.low",
+                    icon: RuleCondition.LOW,
                     label: "\"Is false\"",
                     style: "white"
                 }, {
-                    icon: "rule.condition.low-to-high",
+                    icon: RuleCondition.LOW_TO_HIGH,
                     label: "\"Becomes true\"",
                     style: "white"
                 }, {
-                    icon: "rule.condition.high-to-low",
+                    icon: RuleCondition.HIGH_TO_LOW,
                     label: "\"Becomes false\"",
                     style: "white"
                 }, {
@@ -449,9 +449,8 @@ namespace kodu {
                 }
             ];
             this.kstage.showMenu(button.x + 16, button.y, items, "right", (selection: Button) => {
-                if (selection.id.includes("rule.condition")) {
-                    const parts = selection.id.split('.');
-                    this.defn.condition = parts[2] as RuleCondition;
+                if (selection.id.indexOf("RC") === 0) {
+                    this.defn.condition = selection.id;
                     this.handleBtn.icon.setImage(icons.get(selection.id));
                 } else if (selection.id === "delete") {
                     this.pageui.deleteRuleAt(this.index);
@@ -465,7 +464,7 @@ namespace kodu {
                 const button = new Button(
                     this.stage,
                     "beige",
-                    defn.id,
+                    defn.tid,
                     defn.name,
                     0, 0, false,
                     (button) => this.handleSensorClick(button));
@@ -482,7 +481,7 @@ namespace kodu {
                 const button = new Button(
                     this.stage,
                     "beige",
-                    defn.id,
+                    defn.tid,
                     defn.name,
                     0, 0, false,
                     (button) => this.handleActuatorClick(button));
@@ -499,7 +498,7 @@ namespace kodu {
                 const button = new Button(
                     this.stage,
                     "beige",
-                    defn.id,
+                    defn.tid,
                     defn.name,
                     0, 0, false,
                     (button) => this.handleFilterClick(button));
@@ -517,7 +516,7 @@ namespace kodu {
                 const button = new Button(
                     this.stage,
                     "beige",
-                    defn.id,
+                    defn.tid,
                     defn.name,
                     0, 0, false,
                     (button) => this.handleModifierClick(button));

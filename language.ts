@@ -1,16 +1,21 @@
 namespace kodu {
 
-    export type TileType = "sensor" | "filter" | "actuator" | "modifier";
+    export enum TileType {
+        SENSOR = 1,
+        FILTER = 2,
+        ACTUATOR = 3,
+        MODIFIER = 4
+    };
 
     export interface Constraints {
         provides?: string[];
         requires?: string[];
         allow?: {
-            ids?: string[];
+            tiles?: string[];
             categories?: string[];
         };
         disallow?: {
-            ids?: string[];
+            tiles?: string[];
             categories?: string[];
         };
         handling?: { [id: string]: string | number | boolean };
@@ -18,7 +23,7 @@ namespace kodu {
 
     export interface TileDefn {
         type: TileType;
-        id: string;
+        tid: string;
         name: string;
         weight?: number; // Influences sort order
         hidden?: boolean;   // Hide from UI?
@@ -26,36 +31,36 @@ namespace kodu {
         constraints?: Constraints;
     }
 
-    export type SensorDefn = TileDefn & { type: "sensor"; };
+    export type SensorDefn = TileDefn & { type: TileType.SENSOR; };
     export type FilterDefn = TileDefn & {
-        type: "filter";
+        type: TileType.FILTER;
         category: string;
         priority: number;   // for runtime reordering. 10 is default.
     };
-    export type ActuatorDefn = TileDefn & { type: "actuator"; };
+    export type ActuatorDefn = TileDefn & { type: TileType.ACTUATOR; };
     export type ModifierDefn = TileDefn & {
-        type: "modifier";
+        type: TileType.MODIFIER;
         category: string;
         priority: number;   // for runtime reordering. 10 is default.
     };
 
-    export type RuleCondition
-        = "default"
-        | "high"
-        | "low"
-        | "high-to-low"
-        | "low-to-high"
-        ;
+    export const RuleCondition = {
+        DEFAULT: "RC0",
+        HIGH: "RC1",
+        LOW: "RC2",
+        HIGH_TO_LOW: "RC3",
+        LOW_TO_HIGH: "RC4"
+    }
 
     export class RuleDefn {
-        condition: RuleCondition;
+        condition: string;
         sensor: SensorDefn;
         filters: FilterDefn[];
         actuator: ActuatorDefn;
         modifiers: ModifierDefn[];
 
         constructor() {
-            this.condition = "default";
+            this.condition = RuleCondition.DEFAULT;
             this.filters = [];
             this.modifiers = [];
         }
@@ -76,24 +81,17 @@ namespace kodu {
 
         public toObj(): any {
             const obj = {
-                condition: this.condition,
-                sensor: this.sensor ? this.sensor.id : undefined,
-                actuator: this.actuator ? this.actuator.id : undefined,
-                filters: this.filters.map(elem => elem.id),
-                modifiers: this.modifiers.map(elem => elem.id)
+                C: this.condition,
+                S: this.sensor ? this.sensor.tid : undefined,
+                A: this.actuator ? this.actuator.tid : undefined,
+                F: this.filters.map(elem => elem.tid),
+                M: this.modifiers.map(elem => elem.tid)
             };
-            if (!obj.sensor) {
-                delete obj.sensor;
-            }
-            if (!obj.actuator) {
-                delete obj.actuator;
-            }
-            if (!obj.filters.length) {
-                delete obj.filters;
-            }
-            if (!obj.modifiers.length) {
-                delete obj.modifiers;
-            }
+            if (!obj.C) { delete obj.C; }
+            if (!obj.S) { delete obj.S; }
+            if (!obj.A) { delete obj.A; }
+            if (!obj.F.length) { delete obj.F; }
+            if (!obj.M.length) { delete obj.M; }
             return obj;
         }
 
@@ -101,23 +99,25 @@ namespace kodu {
             if (typeof obj === 'string') {
                 obj = JSON.parse(obj);
             }
-            const rdefn = new RuleDefn;
-            rdefn.condition = obj["condition"] || "default";
-            if (typeof obj["sensor"] === 'string') {
-                rdefn.sensor = tiles.sensors[obj["sensor"]];
+            const defn = new RuleDefn;
+            if (typeof obj["C"] === 'string') {
+                defn.condition = obj["C"];
             }
-            if (typeof obj["actuator"] === 'string') {
-                rdefn.actuator = tiles.actuators[obj["actuator"]];
+            if (typeof obj["S"] === 'string') {
+                defn.sensor = tiles.sensors[obj["S"]];
             }
-            if (Array.isArray(obj["filters"])) {
-                const filters: any[] = obj["filters"];
-                rdefn.filters = filters.map((elem: string) => tiles.filters[elem]);
+            if (typeof obj["A"] === 'string') {
+                defn.actuator = tiles.actuators[obj["A"]];
             }
-            if (Array.isArray(obj["modifiers"])) {
-                const modifiers: any[] = obj["modifiers"];
-                rdefn.modifiers = modifiers.map((elem: string) => tiles.modifiers[elem]);
+            if (Array.isArray(obj["F"])) {
+                const filters: any[] = obj["F"];
+                defn.filters = filters.map((elem: string) => tiles.filters[elem]);
             }
-            return rdefn;
+            if (Array.isArray(obj["M"])) {
+                const modifiers: any[] = obj["M"];
+                defn.modifiers = modifiers.map((elem: string) => tiles.modifiers[elem]);
+            }
+            return defn;
         }
     }
     
@@ -148,10 +148,10 @@ namespace kodu {
 
         public toObj(): any {
             const obj = {
-                rules: this.rules.map(elem => elem.toObj())
+                R: this.rules.map(elem => elem.toObj())
             };
-            if (!obj.rules.length) {
-                delete obj.rules;
+            if (!obj.R.length) {
+                delete obj.R;
             }
             return obj;
         }
@@ -160,12 +160,12 @@ namespace kodu {
             if (typeof obj === 'string') {
                 obj = JSON.parse(obj);
             }
-            const pdefn = new PageDefn;
-            if (Array.isArray(obj["rules"])) {
-                const rules: any[] = obj["rules"];
-                pdefn.rules = rules.map((elem: any) => RuleDefn.FromObj(elem));
+            const defn = new PageDefn;
+            if (Array.isArray(obj["R"])) {
+                const rules: any[] = obj["R"];
+                defn.rules = rules.map((elem: any) => RuleDefn.FromObj(elem));
             }
-            return pdefn;
+            return defn;
         }
     }
 
@@ -188,7 +188,7 @@ namespace kodu {
 
         public toObj(): any {
             return {
-                pages: this.pages.map(elem => elem.toObj())
+                P: this.pages.map(elem => elem.toObj())
             };
         }
 
@@ -196,12 +196,12 @@ namespace kodu {
             if (typeof obj === 'string') {
                 obj = JSON.parse(obj);
             }
-            const bdefn = new BrainDefn();
-            if (obj && obj["pages"] && Array.isArray(obj["pages"])) {
-                const pages: any[] = obj["pages"];
-                bdefn.pages = pages.map((elem: any) => PageDefn.FromObj(elem));
+            const defn = new BrainDefn();
+            if (obj && obj["P"] && Array.isArray(obj["P"])) {
+                const pages: any[] = obj["P"];
+                defn.pages = pages.map((elem: any) => PageDefn.FromObj(elem));
             }
-            return bdefn;
+            return defn;
         }
     }
 
@@ -306,9 +306,9 @@ namespace kodu {
                     return met;
                 })
                 // Filter "allows".
-                .filter(tile => c.allow.categories.some(cat => cat === tile.category) || c.allow.ids.some(id => id === tile.id))
+                .filter(tile => c.allow.categories.some(cat => cat === tile.category) || c.allow.tiles.some(tid => tid === tile.tid))
                 // Filter "disallows".
-                .filter(tile => !c.disallow.categories.some(cat => cat === tile.category) && !c.disallow.ids.some(id => id === tile.id));
+                .filter(tile => !c.disallow.categories.some(cat => cat === tile.category) && !c.disallow.tiles.some(tid => tid === tile.tid));
         
             // TODO: c.handling
 
@@ -330,11 +330,11 @@ namespace kodu {
             provides: [],
             requires: [],
             allow: {
-                ids: [],
+                tiles: [],
                 categories: []
             },
             disallow: {
-                ids: [],
+                tiles: [],
                 categories: []
             },
             handling: { }
@@ -351,11 +351,11 @@ namespace kodu {
             src.requires.forEach(item => dst.requires.push(item));
         }
         if (src.allow) {
-            (src.allow.ids || []).forEach(item => dst.allow.ids.push(item));
+            (src.allow.tiles || []).forEach(item => dst.allow.tiles.push(item));
             (src.allow.categories || []).forEach(item => dst.allow.categories.push(item));
         }
         if (src.disallow) {
-            (src.disallow.ids || []).forEach(item => dst.disallow.ids.push(item));
+            (src.disallow.tiles || []).forEach(item => dst.disallow.tiles.push(item));
             (src.disallow.categories || []).forEach(item => dst.disallow.categories.push(item));
         }
         if (src.handling) {
@@ -378,17 +378,64 @@ namespace kodu {
         modifiers: ModifierMap;
     };
 
+    // Once a tid is assigned, it can NEVER BE CHANGED OR REPURPOSED.
+    // Every tid must be unique in the set of tids.
+    export const tid = {
+        sensor: <any>{
+            always: "S1",
+            see: "S2",
+            bump: "S3",
+            dpad: "S4",
+            button_a: "S5",
+            button_b: "S6",
+        },
+        filter: <any>{
+            kodu: "F1",
+            tree: "F2",
+            apple: "F3",
+            nearby: "F4",
+            faraway: "F5",
+            me: "F6",
+            it: "F7",
+        },
+        actuator: <any>{
+            move: "A1",
+            switch_page: "A2",
+            express: "A3",
+            boom: "A4",
+            vanish: "A5",
+            camera_follow: "A6",
+        },
+        modifier: <any>{
+            me: "M1",
+            it: "M2",
+            kodu: "M3",
+            tree: "M4",
+            apple: "M5",
+            quickly: "M6",
+            slowly: "M7",
+            toward: "M8",
+            away: "M9",
+            avoid: "M10",
+            page_1: "M11",
+            page_2: "M12",
+            page_3: "M13",
+            page_4: "M14",
+            page_5: "M15",
+        }
+    }
+
     export const tiles: TileDatabase = {
         sensors: {
-		    "sensor.always": {
-                type: "sensor",
-                id: "sensor.always",
+		    [tid.sensor.always]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.always,
                 name: "Always",
                 hidden: true
             },
-            "sensor.see": {
-                type: "sensor",
-                id: "sensor.see",
+            [tid.sensor.see]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.see,
                 name: "See",
                 weight: 1,
                 constraints: {
@@ -397,13 +444,13 @@ namespace kodu {
                         categories: ["subject", "direct-subject", "distance"]
                     },
                     disallow: {
-                        ids: ["filter.me"]
+                        tiles: [tid.filter.me]
                     }
                 }
             },
-            "sensor.bump": {
-                type: "sensor",
-                id: "sensor.bump",
+            [tid.sensor.bump]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.bump,
                 name: "Bump",
                 weight: 2,
                 constraints: {
@@ -412,13 +459,13 @@ namespace kodu {
                         categories: ["subject", "direct-subject"]
                     },
                     disallow: {
-                        ids: ["filter.me"]
+                        tiles: [tid.filter.me]
                     }
                 }
             },
-            "sensor.dpad": {
-                type: "sensor",
-                id: "sensor.dpad",
+            [tid.sensor.dpad]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.dpad,
                 name: "DPad",
                 constraints: {
                     provides: ["input", "direction"],
@@ -427,9 +474,9 @@ namespace kodu {
                     }
                 }
             },
-            "sensor.button.a": {
-                type: "sensor",
-                id: "sensor.button.a",
+            [tid.sensor.button_a]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.button_a,
                 name: "A",
                 constraints: {
                     provides: ["input"],
@@ -438,9 +485,9 @@ namespace kodu {
                     }
                 }
             },
-            "sensor.button.b": {
-                type: "sensor",
-                id: "sensor.button.b",
+            [tid.sensor.button_b]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.button_b,
                 name: "B",
                 constraints: {
                     provides: ["input"],
@@ -451,9 +498,9 @@ namespace kodu {
             }
         },
         filters: {
-            "filter.kodu": {
-                type: "filter",
-                id: "filter.kodu",
+            [tid.filter.kodu]: {
+                type: TileType.FILTER,
+                tid: tid.filter.kodu,
                 name: "Kodu",
                 category: "subject",
                 priority: 10,
@@ -464,9 +511,9 @@ namespace kodu {
                     }
                 }
             },
-            "filter.tree": {
-                type: "filter",
-                id: "filter.tree",
+            [tid.filter.tree]: {
+                type: TileType.FILTER,
+                tid: tid.filter.tree,
                 name: "Tree",
                 category: "subject",
                 priority: 10,
@@ -476,9 +523,9 @@ namespace kodu {
                         categories: ["subject", "direct-subject"]
                     }
                 }            },
-            "filter.apple": {
-                type: "filter",
-                id: "filter.apple",
+            [tid.filter.apple]: {
+                type: TileType.FILTER,
+                tid: tid.filter.apple,
                 name: "Apple",
                 category: "subject",
                 priority: 10,
@@ -489,32 +536,32 @@ namespace kodu {
                     }
                 }
             },
-            "filter.nearby": {
-                type: "filter",
-                id: "filter.nearby",
+            [tid.filter.nearby]: {
+                type: TileType.FILTER,
+                tid: tid.filter.nearby,
                 name: "nearby",
                 category: "distance",
                 priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
-                        ids: ["filter.faraway"]
+                        tiles: [tid.filter.faraway]
                     },
                     handling: {
                         "max-count": 3
                     }
                 }
             },
-            "filter.faraway": {
-                type: "filter",
-                id: "filter.faraway",
+            [tid.filter.faraway]: {
+                type: TileType.FILTER,
+                tid: tid.filter.faraway,
                 name: "far away",
                 category: "distance",
                 priority: 10,
                 constraints: {
                     provides: ["target"],
                     disallow: {
-                        ids: ["filter.nearby"]
+                        tiles: [tid.filter.nearby]
                     },
                     handling: {
                         "max-count": 3
@@ -523,9 +570,9 @@ namespace kodu {
             }
         },
         actuators: {
-            "actuator.move": {
-                type: "actuator",
-                id: "actuator.move",
+            [tid.actuator.move]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.move,
                 name: "Move",
                 category: "movement",
                 constraints: {
@@ -534,9 +581,9 @@ namespace kodu {
                     }
                 }
             },
-            "actuator.switch-page": {
-                type: "actuator",
-                id: "actuator.switch-page",
+            [tid.actuator.switch_page]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.switch_page,
                 name: "Switch page",
                 constraints: {
                     allow: {
@@ -544,9 +591,9 @@ namespace kodu {
                     }
                 }
             },
-            "actuator.express": {
-                type: "actuator",
-                id: "actuator.express",
+            [tid.actuator.express]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.express,
                 name: "Express",
                 constraints: {
                     allow: {
@@ -554,9 +601,9 @@ namespace kodu {
                     }
                 }
             },
-            "actuator.boom": {
-                type: "actuator",
-                id: "actuator.boom",
+            [tid.actuator.boom]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.boom,
                 name: "Boom",
                 constraints: {
                     allow: {
@@ -564,9 +611,9 @@ namespace kodu {
                     }
                 }
             },
-            "actuator.vanish": {
-                type: "actuator",
-                id: "actuator.vanish",
+            [tid.actuator.vanish]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.vanish,
                 name: "Vanish",
                 constraints: {
                     allow: {
@@ -574,9 +621,9 @@ namespace kodu {
                     }
                 }
             },
-            "actuator.camera.follow": {
-                type: "actuator",
-                id: "actuator.camera.follow",
+            [tid.actuator.camera_follow]: {
+                type: TileType.ACTUATOR,
+                tid: tid.actuator.camera_follow,
                 name: "Keep in view",
                 constraints: {
                     allow: {
@@ -586,9 +633,9 @@ namespace kodu {
             }
         },
         modifiers: {
-            "modifier.me": {
-                type: "modifier",
-                id: "modifier.me",
+            [tid.modifier.me]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.me,
                 name: "me",
                 category: "direct-object",
                 priority: 10,
@@ -600,9 +647,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.it": {
-                type: "modifier",
-                id: "modifier.it",
+            [tid.modifier.it]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.it,
                 name: "it",
                 category: "direct-object",
                 priority: 10,
@@ -614,9 +661,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.kodu": {
-                type: "modifier",
-                id: "modifier.kodu",
+            [tid.modifier.kodu]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.kodu,
                 name: "Kodu",
                 category: "object",
                 priority: 10,
@@ -626,9 +673,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.tree": {
-                type: "modifier",
-                id: "modifier.tree",
+            [tid.modifier.tree]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.tree,
                 name: "Tree",
                 category: "object",
                 priority: 10,
@@ -638,9 +685,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.apple": {
-                type: "modifier",
-                id: "modifier.apple",
+            [tid.modifier.apple]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.apple,
                 name: "Apple",
                 category: "object",
                 priority: 10,
@@ -650,81 +697,81 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.quickly": {
-                type: "modifier",
-                id: "modifier.quickly",
+            [tid.modifier.quickly]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.quickly,
                 name: "quickly",
                 category: "speed",
                 priority: 10,
                 constraints: {
                     disallow: {
-                        ids: ["modifier.slowly"]
+                        tiles: [tid.modifier.slowly]
                     },
                     handling: {
                         "max-count": 3
                     }
                 }
             },
-            "modifier.slowly": {
-                type: "modifier",
-                id: "modifier.slowly",
+            [tid.modifier.slowly]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.slowly,
                 name: "slowly",
                 category: "speed",
                 priority: 10,
                 constraints: {
                     disallow: {
-                        ids: ["modifier.quickly"]
+                        tiles: [tid.modifier.quickly]
                     },
                     handling: {
                         "max-count": 3
                     }
                 }
             },
-            "modifier.toward": {
-                type: "modifier",
-                id: "modifier.toward",
+            [tid.modifier.toward]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.toward,
                 name: "toward",
                 category: "direction",
                 priority: 10,
                 constraints: {
                     requires: ["target"],
                     disallow: {
-                        ids: ["modifier.me"],
+                        tiles: [tid.modifier.me],
                         categories: ["direction"]
                     }
                 }
             },
-            "modifier.away": {
-                type: "modifier",
-                id: "modifier.away",
+            [tid.modifier.away]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.away,
                 name: "away",
                 category: "direction",
                 priority: 10,
                 constraints: {
                     requires: ["target"],
                     disallow: {
-                        ids: ["modifier.me"],
+                        tiles: [tid.modifier.me],
                         categories: ["direction"]
                     }
                 }
             },
-            "modifier.avoid" : {
-                type: "modifier",
-                id: "modifier.avoid",
+            [tid.modifier.avoid]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.avoid,
                 name: "avoid",
                 category: "direction",
                 priority: 20,   // greater priority, appear after other modifiers
                 constraints: {
                     requires: ["target"],
                     disallow: {
-                        ids: ["modifier.me"],
+                        tiles: [tid.modifier.me],
                         categories: ["direction"]
                     }
                 }
             },
-            "modifier.page-1": {
-                type: "modifier",
-                id: "modifier.page-1",
+            [tid.modifier.page_1]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.page_1,
                 name: "page 1",
                 category: "page",
                 priority: 10,
@@ -734,9 +781,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.page-2": {
-                type: "modifier",
-                id: "modifier.page-2",
+            [tid.modifier.page_2]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.page_2,
                 name: "page 2",
                 category: "page",
                 priority: 10,
@@ -746,9 +793,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.page-3": {
-                type: "modifier",
-                id: "modifier.page-3",
+            [tid.modifier.page_3]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.page_3,
                 name: "page 3",
                 category: "page",
                 priority: 10,
@@ -758,9 +805,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.page-4": {
-                type: "modifier",
-                id: "modifier.page-4",
+            [tid.modifier.page_4]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.page_4,
                 name: "page 4",
                 category: "page",
                 priority: 10,
@@ -770,9 +817,9 @@ namespace kodu {
                     }
                 }
             },
-            "modifier.page-5": {
-                type: "modifier",
-                id: "modifier.page-5",
+            [tid.modifier.page_5]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.page_5,
                 name: "page 5",
                 category: "page",
                 priority: 10,

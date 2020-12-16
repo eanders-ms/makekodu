@@ -7,6 +7,8 @@ namespace kodu {
         constructor() {
             // One interval delay to ensure all static constructors have executed.
             setTimeout(() => {
+                icons.init();
+
                 this.stageManager = new StageManager();
                 this.stageManager.add(new WorldStage(this));
                 this.stageManager.add(new KodeStage(this));

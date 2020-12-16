@@ -49,7 +49,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Brain editor: Don't show when or do insertion point if there are no valid tiles to add.
 - [x] Tile compat: Only make "it" modifier available if WHEN side produces character-sensory output.
 - [ ] Tile compat: Handle "constraints.handling" config property when filtering tiles.
-- [ ] Implement compact save format.
+- [x] Implement compact save format. (Sort of done -- it's still JSON, but ids are very short)
 - [ ] Dynamic number of pages. Add/delete pages.
 - [ ] Move brain tile left/right.
 
