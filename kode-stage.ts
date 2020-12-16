@@ -36,9 +36,9 @@ namespace kodu {
         left = 0;
         top = 0;
 
-        constructor(public kstage: KodeStage, brainui: BrainUI, defn: PageDefn, index: number) {
+        constructor(public kstage: KodeStage, brainui: BrainUI, public defn: PageDefn, index: number) {
             super(kstage, "pageui");
-            this.rules = defn.rules.map(elem => new RuleUI(kstage, this, elem));
+            this.rules = defn.rules.map((elem, index) => new RuleUI(kstage, this, elem, index));
             this.ensureFinalEmptyRule();
             this.pageBtn = new Button(
                 kstage,
@@ -79,7 +79,20 @@ namespace kodu {
         public ensureFinalEmptyRule() {
             this.trim();
             if (!this.rules.length || !this.rules[this.rules.length - 1].isEmpty()) {
-                this.rules.push(new RuleUI(this.kstage, this, new RuleDefn()));
+                this.rules.push(new RuleUI(this.kstage, this, new RuleDefn(), this.rules.length));
+            }
+        }
+
+        public deleteRuleAt(index: number) {
+            if (index >= 0 && index < this.rules.length) {
+                this.defn.deleteRuleAt(index);
+                const rule = this.rules[index];
+                this.rules.splice(index, 1);
+                rule.destroy();
+            }
+            // Renumber the rules
+            for (let i = 0; i < this.rules.length; ++i) {
+                this.rules[i].index = i;
             }
         }
 
@@ -105,7 +118,7 @@ namespace kodu {
         left = 0;
         height = 0;
 
-        constructor(public kstage: KodeStage, public pageui: PageUI, public defn: RuleDefn) {
+        constructor(public kstage: KodeStage, public pageui: PageUI, public defn: RuleDefn, public index: number) {
             super(kstage, "ruleui");
             this.filters = [];
             this.modifiers = [];
@@ -441,7 +454,7 @@ namespace kodu {
                     this.defn.condition = parts[2] as RuleCondition;
                     this.handleBtn.icon.setImage(icons.get(selection.id));
                 } else if (selection.id === "delete") {
-                    
+                    this.pageui.deleteRuleAt(this.index);
                 }
             });
         }

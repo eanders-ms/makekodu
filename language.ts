@@ -140,6 +140,12 @@ namespace kodu {
             }
         }
 
+        public deleteRuleAt(index: number) {
+            if (index >= 0 && index < this.rules.length) {
+                this.rules.splice(index, 1);
+            }
+        }
+
         public toObj(): any {
             const obj = {
                 rules: this.rules.map(elem => elem.toObj())
