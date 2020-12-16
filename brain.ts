@@ -93,13 +93,27 @@ namespace kodu {
             this.state = {};
             this.sensorFn(this);
             this.filterFns.forEach(fn => fn(this));
-            if (this.state["exec"]) {
+            if (this.evalRuleCondition()) {
                 if (this.hasMovement) {
                     this.queueDefaultMovement();
                 }
                 this.modifierFns.forEach(fn => fn(this));
                 this.actuatorFn(this);
            }
+        }
+
+        private evalRuleCondition(): boolean {
+            switch (this.defn.condition) {
+                case "default":
+                case "high":
+                    return this.state["exec"];
+                case "low":
+                    return !this.state["exec"];
+                case "low-to-high":
+                    return !this.prevState["exec"] && this.state["exec"];
+                case "high-to-low":
+                    return this.prevState["exec"] && !this.state["exec"];
+            }
         }
 
         private queueDefaultMovement() {

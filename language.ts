@@ -39,19 +39,30 @@ namespace kodu {
         priority: number;   // for runtime reordering. 10 is default.
     };
 
+    export type RuleCondition
+        = "default"
+        | "high"
+        | "low"
+        | "high-to-low"
+        | "low-to-high"
+        ;
+
     export class RuleDefn {
+        condition: RuleCondition;
         sensor: SensorDefn;
         filters: FilterDefn[];
         actuator: ActuatorDefn;
         modifiers: ModifierDefn[];
 
         constructor() {
+            this.condition = "default";
             this.filters = [];
             this.modifiers = [];
         }
 
         public clone(): RuleDefn {
             const rule = new RuleDefn();
+            rule.condition = this.condition;
             rule.sensor = this.sensor;
             rule.actuator = this.actuator;
             rule.filters = this.filters.slice(0);
@@ -65,6 +76,7 @@ namespace kodu {
 
         public toObj(): any {
             const obj = {
+                condition: this.condition,
                 sensor: this.sensor ? this.sensor.id : undefined,
                 actuator: this.actuator ? this.actuator.id : undefined,
                 filters: this.filters.map(elem => elem.id),
@@ -90,6 +102,7 @@ namespace kodu {
                 obj = JSON.parse(obj);
             }
             const rdefn = new RuleDefn;
+            rdefn.condition = obj["condition"] || "default";
             if (typeof obj["sensor"] === 'string') {
                 rdefn.sensor = tiles.sensors[obj["sensor"]];
             }

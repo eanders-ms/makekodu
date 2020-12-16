@@ -112,10 +112,10 @@ namespace kodu {
             this.handleBtn = new Button(
                 kstage,
                 null,
-                "rule.condition.high",
+                `rule.condition.${defn.condition}`,
                 null,
                 0, 0, false,
-                (button) => this.handleMenuClick(button));
+                (button) => this.handleRuleHandleClick(button));
             this.handleBtn.z = 800;
             this.whenBtn = new Button(
                 kstage,
@@ -397,7 +397,7 @@ namespace kodu {
             } else {
                 const suggestions = Language.getActuatorSuggestions(this.defn);
                 const items = suggestions.map(elem => {
-                    return {
+                    return <MenuItemDefn>{
                         icon: elem.id,
                         label: elem.name
                     };
@@ -411,8 +411,31 @@ namespace kodu {
             }
         }
 
-        handleMenuClick(button: Button) {
-    
+        handleRuleHandleClick(button: Button) {
+            const items: MenuItemDefn[] = [
+                {
+                    icon: "rule.condition.high",
+                    label: "\"Is true\"",
+                    style: "white"
+                }, {
+                    icon: "rule.condition.low",
+                    label: "\"Is false\"",
+                    style: "white"
+                }, {
+                    icon: "rule.condition.low-to-high",
+                    label: "\"Becomes true\"",
+                    style: "white"
+                }, {
+                    icon: "rule.condition.high-to-low",
+                    label: "\"Becomes false\"",
+                    style: "white"
+                }
+            ];
+            this.kstage.showMenu(button.x + 16, button.y, items, "right", (selection: Button) => {
+                const parts = selection.id.split('.');
+                this.defn.condition = parts[2] as RuleCondition;
+                this.handleBtn.icon.setImage(icons.get(selection.id));
+            });
         }
 
         createSensorBtn(id: string): Button {
