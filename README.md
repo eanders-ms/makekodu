@@ -51,6 +51,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Tile compat: Handle "constraints.handling" config property when filtering tiles.
 - [ ] Implement compact save format.
 - [ ] Dynamic number of pages. Add/delete pages.
+- [ ] Move brain tile left/right.
 
 ### TODO (Language - not prioritized)
 

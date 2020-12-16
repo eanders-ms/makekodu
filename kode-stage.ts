@@ -429,12 +429,20 @@ namespace kodu {
                     icon: "rule.condition.high-to-low",
                     label: "\"Becomes false\"",
                     style: "white"
+                }, {
+                    icon: "delete",
+                    label: "Delete",
+                    style: "danger"
                 }
             ];
             this.kstage.showMenu(button.x + 16, button.y, items, "right", (selection: Button) => {
-                const parts = selection.id.split('.');
-                this.defn.condition = parts[2] as RuleCondition;
-                this.handleBtn.icon.setImage(icons.get(selection.id));
+                if (selection.id.includes("rule.condition")) {
+                    const parts = selection.id.split('.');
+                    this.defn.condition = parts[2] as RuleCondition;
+                    this.handleBtn.icon.setImage(icons.get(selection.id));
+                } else if (selection.id === "delete") {
+                    
+                }
             });
         }
 
