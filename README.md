@@ -20,7 +20,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 ### Top TODOs
 
 - [ ] Tile art (ongoing... keep up on it).
-- [x] Tile compatibility filtering (pretty good is fine. will never be perfect).
+- [x] Tile compatibility filtering (pretty good is good enough. it doesn't have to be perfect).
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 
@@ -37,7 +37,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Create character from gallery sprite.
 - [ ] Actuator arbitration? Maybe.
 - [x] Movement blending.
-- [x] Exclusive movement support.
+- [x] Exclusive movement support (in, but not used currently).
 - [ ] Clicking "play": Delay entering play mode until A button is released. Otherwise brains can sense the button down from the click.
 - [ ] When any brain has input, change "stop" button to show you have to push the "menu" button to get back to edit mode.
 - [ ] Implement world boundaries. 500x500?
@@ -52,6 +52,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Implement compact save format. (Sort of done -- it's still JSON, but ids are very short)
 - [ ] Dynamic number of pages. Add/delete pages.
 - [ ] Move brain tile left/right.
+- [ ] Better brain editor perf on devices. Maybe rule tiles should be tilemap tiles and not sprites?
 
 ### TODO (Language - not prioritized)
 
@@ -70,7 +71,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "score" sensor, actuator. filters: team, comparisons
 - [ ] "win", "lose" actuators
 - [ ] "timer" sensor
-- [ ] "camera" actuator, "center on" and "keep in view" modifiers
+- [x] "camera - keep in view" actuator.
 - [x] "switch page" actuator
 - [ ] "call page" actuator
 - [ ] "say" actuator? Maybe.
