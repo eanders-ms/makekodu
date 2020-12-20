@@ -66,8 +66,6 @@ namespace kodu {
         }
 
         public simulate() {
-            if (this.asleep) { return; }
-
             if (this.deadBodies.length) {
                 this.bodies = this.bodies.filter(elem => !this.deadBodies.find(dead => elem === dead));
                 this.deadBodies = [];

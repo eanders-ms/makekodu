@@ -1,6 +1,7 @@
 namespace kodu {
     export class App {
         stageManager: StageManager;
+        worldStage: WorldStage;
 
         public cursorSpeed = 3;
 
@@ -8,23 +9,22 @@ namespace kodu {
             // One interval delay to ensure all static constructors have executed.
             setTimeout(() => {
                 icons.init();
-
                 this.stageManager = new StageManager();
-                this.stageManager.add(new WorldStage(this));
-                this.stageManager.add(new KodeStage(this));
-
-                this.switchTo(WorldStage.ID);
-
-                forever(() => this.update());
+                this.worldStage = new WorldStage(this);
+                this.pushStage(this.worldStage);
             }, 1);
         }
 
-        public switchTo(name: string, args?: any) {
-            this.stageManager.activate(name, args);
+        public saveProject() {
+            this.worldStage.save();
         }
 
-        update() {
-            this.stageManager.update();
+        public pushStage(stage: Stage) {
+            this.stageManager.push(stage);
+        }
+
+        public popStage() {
+            this.stageManager.pop();
         }
     }
 }

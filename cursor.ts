@@ -6,8 +6,6 @@ namespace kodu {
         sprite0: Sprite;
         sprite1: Sprite;
         disabled: boolean;
-        sleepX: number;
-        sleepY: number;
 
         public get x() { return this.sprite0.x; }
         public get y() { return this.sprite0.y; }
@@ -40,7 +38,7 @@ namespace kodu {
         }
 
         public moveTo(x: number, y: number) {
-            if (this.asleep || this.disabled) { return; }
+            if (this.disabled) { return; }
             this.x = x;
             this.y = y;
         }
@@ -63,7 +61,7 @@ namespace kodu {
         }
 
         handleAPressed() {
-            if (this.asleep || this.disabled) { return; }
+            if (this.disabled) { return; }
             const overlaps = this.getAllOverlapping();
             if (!overlaps.length) {
                 // Click the canvas.
@@ -95,12 +93,12 @@ namespace kodu {
         }
 
         handleBPressed() {
-            if (this.asleep || this.disabled) { return; }
+            if (this.disabled) { return; }
             this.stage.notify("cursor:cancel", { x: this.x, y: this.y });
         }
 
         update() {
-            if (this.asleep || this.disabled) { return; }
+            if (this.disabled) { return; }
             let moved = false;
             const cursorSpeed = this.stage.app.cursorSpeed;
             if (controller.up.isPressed()) {
@@ -122,22 +120,6 @@ namespace kodu {
             if (moved) {
                 this.stage.notify("cursor:moved", { x: this.x, y: this.y });
             }
-        }
-
-        sleep() {
-            this.sprite0.setFlag(SpriteFlag.Invisible, true);
-            this.sprite1.setFlag(SpriteFlag.Invisible, true);
-            this.sleepX = this.x;
-            this.sleepY = this.y;
-            super.sleep();
-        }
-
-        wake() {
-            this.disabled = false;
-            this.x = this.sleepX;
-            this.y = this.sleepY;
-            this.setCursorMode(this.cursorMode);
-            super.wake();
         }
 
         notify(event: string, parm: any) {

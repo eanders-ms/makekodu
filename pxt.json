@@ -18,15 +18,15 @@
         "character.ts",
         "menu.ts",
         "stage.ts",
-        "world-stage.ts",
-        "kode-stage.ts",
         "language.ts",
         "physics.ts",
         "characters.ts",
         "library.ts",
         "brain.ts",
         "app.ts",
-        "vec2.ts"
+        "vec2.ts",
+        "worldStage.ts",
+        "kodeStage.ts"
     ],
     "testFiles": [],
     "targetVersions": {

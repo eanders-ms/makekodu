@@ -49,7 +49,7 @@ namespace kodu {
             }
         }
 
-        public destroy() {
+        destroy() {
             if (this.icon) { this.icon.destroy(); }
             if (this.background) { this.background.destroy(); }
             if (this.text) { this.text.destroy(); }
@@ -57,7 +57,7 @@ namespace kodu {
             this.background = null;
             this.text = null;
             this.data = null;
-            this.stage.remove(this);
+            super.destroy();
         }
 
         public setVisible(visible: boolean) {
@@ -135,6 +135,7 @@ namespace kodu {
             }
         }
 
+        /*
         sleep() {
             const visible = !(this.icon.flags & SpriteFlag.Invisible);
             this.icon.data["sleep:was_visible"] = visible;
@@ -146,5 +147,6 @@ namespace kodu {
             this.setVisible(this.icon.data["sleep:was_visible"]);
             super.wake();
         }
+        */
     }
 }

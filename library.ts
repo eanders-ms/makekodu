@@ -264,7 +264,7 @@ namespace kodu {
             const actor = rule.brain.char;
             const vToTarget = Vec2.Sub(target.char.pos, actor.pos);
             const vToTargetN = Vec2.Normal(vToTarget);
-            // Evaluate's the actor's queued impulses and returns a normalized direction.
+            // Evaluates the actor's queued impulses and returns a normalized direction.
             const direction = actor.nextDirection();
             const dot = Vec2.Dot(direction, vToTargetN);
             // Already moving away?

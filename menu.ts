@@ -58,15 +58,5 @@ namespace kodu {
         update() {
             this.buttons.forEach(button => button.update());
         }
-
-        sleep() {
-            this.buttons.forEach(button => button.sleep());
-            super.sleep();
-        }
-
-        wake() {
-            this.buttons.forEach(button => button.wake());
-            super.wake();
-        }
     }
 }

@@ -5,21 +5,10 @@ namespace kodu {
         cursor: Cursor;
 
         constructor(public app: App, public name: string) {
-            this.components = [];
-            this.camera = new Camera(this);
-            this.cursor = new Cursor(this);
         }
 
         public get<T>(field: string): T { return undefined; }
         public set<T>(field: string, value: T) { }
-
-        public sleep() {
-            this.components.forEach(comp => comp.sleep());
-        }
-
-        public wake(args?: any) {
-            this.components.forEach(comp => comp.wake());
-        }
 
         public update() {
             this.components.forEach(comp => comp.update());
@@ -31,6 +20,9 @@ namespace kodu {
         }
 
         public add(comp: Component) {
+            if (this.components.some(item => item === comp)) {
+                let fd = 0;
+            }
             this.remove(comp);
             this.components.push(comp);
             comp.stage = this;
@@ -50,6 +42,27 @@ namespace kodu {
         handleCursorButtonClick(button: Button) {}
         handleCursorCharacterClick(char: Character, x: number, y: number) {}
         handleCursorCancel() {}
+
+        initScene() {
+            this.components = [];
+            this.camera = new Camera(this);
+            this.cursor = new Cursor(this);
+            controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
+                this.handleAPressed();
+            });
+            controller.B.onEvent(ControllerButtonEvent.Pressed, () => {
+                this.handleBPressed();
+            });
+            controller.menu.onEvent(ControllerButtonEvent.Pressed, () => {
+                this.handleMenuPressed();
+            });
+        }
+
+        shutdownScene() {
+            const components = this.components;
+            components.forEach(comp => comp.destroy());
+            this.components = null;
+        }
 
         notify(event: string, parm?: any) {
             switch (event) {
@@ -77,53 +90,22 @@ namespace kodu {
     }
 
     export class StageManager {
-        stages: {[name: string]: Stage};
-        curr: Stage;
+        stack: Stage[];
 
         constructor() {
-            this.stages = {};
-            controller.A.onEvent(ControllerButtonEvent.Pressed, () => this.handleAPressed());
-            controller.B.onEvent(ControllerButtonEvent.Pressed, () => this.handleBPressed());
-            controller.menu.onEvent(ControllerButtonEvent.Pressed, () => this.handleMenuPressed());
+            this.stack = [];
         }
 
-        public add(stage: Stage) {
-            this.stages[stage.name] = stage;
-            stage.sleep();
+        public push(stage: Stage) {
+            game.pushScene();
+            this.stack.push(stage);
+            stage.initScene();
         }
 
-        public activate(name: string, args?: any) {
-            if (this.curr) {
-                this.curr.sleep();
-            }
-            this.curr = this.stages[name];
-            if (this.curr) {
-                this.curr.wake(args)
-            }
-        }
-
-        public update() {
-            if (this.curr) {
-                this.curr.update();
-            }
-        }
-
-        handleAPressed() {
-            if (this.curr) {
-                this.curr.handleAPressed();
-            }
-        }
-
-        handleBPressed() {
-            if (this.curr) {
-                this.curr.handleBPressed();
-            }
-        }
-
-        handleMenuPressed() {
-            if (this.curr) {
-                this.curr.handleMenuPressed();
-            }
+        public pop() {
+            const stage = this.stack.pop();
+            stage.shutdownScene();
+            game.popScene();
         }
     }
 }

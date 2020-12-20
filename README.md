@@ -53,6 +53,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Dynamic number of pages. Add/delete pages.
 - [ ] Move brain tile left/right.
 - [ ] Better brain editor perf on devices. Maybe rule tiles should be tilemap tiles and not sprites?
+- [ ] In "play" mode, worldStage cursor should be in HUD layer.
 
 ### TODO (Language - not prioritized)
 

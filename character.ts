@@ -18,7 +18,7 @@ namespace kodu {
         type: ImpulseType;
     }
 
-    export class Character extends Component {
+    export class Character extends ActorComponent {
         sprite: Sprite;
         body: Body;
         bdefn: BrainDefn;
@@ -146,18 +146,6 @@ namespace kodu {
                 this.body.vy += v.y;
             }
             this.impulseQueue = [];
-        }
-
-        sleep() {
-            const visible = !(this.sprite.flags & SpriteFlag.Invisible);
-            this.sprite.data["sleep:was_visible"] = visible;
-            this.sprite.setFlag(SpriteFlag.Invisible, true);
-            super.sleep();
-        }
-
-        wake() {
-            this.sprite.setFlag(SpriteFlag.Invisible, !this.sprite.data["sleep:was_visible"]);
-            super.wake();
         }
 
         notify(event: string, parm: any) {

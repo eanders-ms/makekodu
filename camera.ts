@@ -1,7 +1,5 @@
 namespace kodu {
     export class Camera extends Component {
-        private sleepX: number = 0;
-        private sleepY: number = 0;
         camera_movement_x: number;
         camera_movement_y: number;
         x: number;
@@ -71,20 +69,6 @@ namespace kodu {
             this.camera_movement_x = this.x - camX;
             this.camera_movement_y = this.y - camY;
             scene.centerCameraAt(this.x, this.y);
-        }
-
-        sleep() {
-            this.following = null;
-            this.sleepX = this.x;
-            this.sleepY = this.y;
-        }
-
-        wake() {
-            this.following = null;
-            this.x = this.sleepX;
-            this.y = this.sleepY;
-            scene.centerCameraAt(this.x, this.y);
-            super.wake();
         }
 
         notify(event: string, parm: any) {
