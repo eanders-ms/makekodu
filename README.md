@@ -4,7 +4,7 @@
 
 [Kodu Game Lab](https://www.kodugamelab.com) is a 3D game development environment designed to make game programming simple and accessible to anyone.
 The Kodu programming model is novel and rigorously streamlined. It dispenses with the majority of traditional programming concepts, including
-symbolic variables, branching, loops, string manipulation, polymorphism, and so on. The user programs characters in the world, and 
+symbolic variables, branching, loops, mathematical expressions, string manipulation, polymorphism, and so on. The user programs characters in the world, and 
 programs are expressed in a high-level, sensory paradigm. The typical "hello world" of Kodu is:
 
 ![Kodu-Hello-World](content/kodu-hello-world.png)
@@ -72,7 +72,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "shoot" actuator, "shot hit" sensor, blips
 - [ ] "score" sensor, actuator. filters: team, comparisons
 - [ ] "win", "lose" actuators
-- [ ] "timer" sensor. start with "short" and "long" stackable filters.
+- [x] "timer" sensor. start with "short" and "long" stackable filters.
 - [x] "camera - keep in view" actuator.
 - [x] "switch page" actuator
 - [ ] "call page" actuator
