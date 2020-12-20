@@ -23,6 +23,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Tile compatibility filtering (pretty good is good enough. it doesn't have to be perfect).
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
+- [ ] Make brain editor performant on Meowbit.
 
 ### TODO (General - not prioritized)
 
@@ -85,7 +86,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "next page", "prev page", "current page" tiles.
 - [ ] Math operators: +, -, *, /, (, ).
 - [ ] Comparision operators: =, <>, >, >=, <, <=.
-- [ ] Memory slots. Sensor, actuator, filters, modifiers. Save characters or numeric values.
+- [ ] Memory slots. Sensor, actuator, filters, modifiers. Save characters, coordinates, or various values (scores, numbers, emojis).
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 
