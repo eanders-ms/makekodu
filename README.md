@@ -20,7 +20,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 ### Top TODOs
 
 - [ ] Tile art (ongoing... keep up on it).
-- [x] Tile compatibility filtering (pretty good is good enough. it doesn't have to be perfect).
+- [x] Tile compatibility filtering (pretty good is good enough. it doesn't have to be perfect). TODO: Add conditional compatibility clauses.
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 - [ ] Make brain editor performant on Meowbit.
@@ -61,7 +61,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "player 1-4" filters (input and sensory).
 - [ ] "express" actuator. For filters and modifiers: a selection of common emojis.
 - [x] "near by", "far away" filters
-- [ ] "bump" sensor
+- [x] "bump" sensor
 - [x] "wander" (as default move behavior)
 - [ ] "up", "down", "left", "right" (move modifiers)
 - [ ] "above", "below", "left", "right" (position relative filters)
@@ -72,21 +72,18 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "shoot" actuator, "shot hit" sensor, blips
 - [ ] "score" sensor, actuator. filters: team, comparisons
 - [ ] "win", "lose" actuators
-- [ ] "timer" sensor
+- [ ] "timer" sensor. start with "short" and "long" stackable filters.
 - [x] "camera - keep in view" actuator.
 - [x] "switch page" actuator
 - [ ] "call page" actuator
 - [ ] "say" actuator? Maybe.
 - [ ] Terrain sensor, filters. Terrain paint actuator, modifiers.
-- [ ] "on terrain" move modifier. Loosely paths on matching terrain.
-- [ ] "pressed", "released" button filters.
+- [ ] "on terrain" move modifier. Loosely paths on matching terrain. clockwise or counter-clockwise modifiers.
 - [ ] "done" final modifier to indicate brain should stop executing this frame.
 - [x] Rule conditions: "when", "when not", "started to", "no longer", accessible from the rule handle.
-- [ ] Number tiles (0-9). Unlike Kodu, multiple tiles don't add, but specify a number.
-- [ ] "next page", "prev page", "current page" tiles.
-- [ ] Math operators: +, -, *, /, (, ).
-- [ ] Comparision operators: =, <>, >, >=, <, <=.
-- [ ] Memory slots. Sensor, actuator, filters, modifiers. Save characters, coordinates, or various values (scores, numbers, emojis).
+- [ ] "next page", "prev page" tiles.
+- [ ] Memory slots - remember targets.
+- [ ] Play musical note with duration (long, short - stackable, but maps to musical timing scalars)
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 

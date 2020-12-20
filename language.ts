@@ -31,7 +31,10 @@ namespace kodu {
         constraints?: Constraints;
     }
 
-    export type SensorDefn = TileDefn & { type: TileType.SENSOR; };
+    export type SensorDefn = TileDefn & {
+        type: TileType.SENSOR;
+        phase: "pre" | "post";  // whether to execute before or after filters evaluate.
+    };
     export type FilterDefn = TileDefn & {
         type: TileType.FILTER;
         category: string;
@@ -379,7 +382,7 @@ namespace kodu {
     };
 
     // Once a tid is assigned, it can NEVER BE CHANGED OR REPURPOSED.
-    // Every tid must be unique in the set of tids.
+    // Every tid must be unique in the set of all tids.
     export const tid = {
         sensor: <any>{
             always: "S1",
@@ -388,6 +391,7 @@ namespace kodu {
             dpad: "S4",
             button_a: "S5",
             button_b: "S6",
+            timer: "S7",
         },
         filter: <any>{
             kodu: "F1",
@@ -397,6 +401,8 @@ namespace kodu {
             faraway: "F5",
             me: "F6",
             it: "F7",
+            timespan_short: "F8",
+            timespan_long: "F9",
         },
         actuator: <any>{
             move: "A1",
@@ -431,12 +437,14 @@ namespace kodu {
                 type: TileType.SENSOR,
                 tid: tid.sensor.always,
                 name: "Always",
+                phase: "pre",
                 hidden: true
             },
             [tid.sensor.see]: {
                 type: TileType.SENSOR,
                 tid: tid.sensor.see,
                 name: "See",
+                phase: "pre",
                 weight: 1,
                 constraints: {
                     provides: ["target"],
@@ -452,6 +460,7 @@ namespace kodu {
                 type: TileType.SENSOR,
                 tid: tid.sensor.bump,
                 name: "Bump",
+                phase: "pre",
                 weight: 2,
                 constraints: {
                     provides: ["target"],
@@ -467,6 +476,7 @@ namespace kodu {
                 type: TileType.SENSOR,
                 tid: tid.sensor.dpad,
                 name: "DPad",
+                phase: "pre",
                 constraints: {
                     provides: ["input", "direction"],
                     allow: {
@@ -478,6 +488,7 @@ namespace kodu {
                 type: TileType.SENSOR,
                 tid: tid.sensor.button_a,
                 name: "A",
+                phase: "pre",
                 constraints: {
                     provides: ["input"],
                     allow: {
@@ -489,10 +500,22 @@ namespace kodu {
                 type: TileType.SENSOR,
                 tid: tid.sensor.button_b,
                 name: "B",
+                phase: "pre",
                 constraints: {
                     provides: ["input"],
                     allow: {
                         categories: ["button-event"]
+                    }
+                }
+            },
+            [tid.sensor.timer]: {
+                type: TileType.SENSOR,
+                tid: tid.sensor.timer,
+                name: "Timer",
+                phase: "post",
+                constraints: {
+                    allow: {
+                        categories: ["timespan"]
                     }
                 }
             }
@@ -567,7 +590,25 @@ namespace kodu {
                         "max-count": 3
                     }
                 }
-            }
+            },
+            [tid.filter.timespan_short]: {
+                type: TileType.FILTER,
+                tid: tid.filter.timespan_short,
+                name: "short",
+                category: "timespan",
+                priority: 10,
+                constraints: {
+                }
+            },
+            [tid.filter.timespan_long]: {
+                type: TileType.FILTER,
+                tid: tid.filter.timespan_long,
+                name: "long",
+                category: "timespan",
+                priority: 10,
+                constraints: {
+                }
+            },
         },
         actuators: {
             [tid.actuator.move]: {

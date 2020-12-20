@@ -101,8 +101,13 @@ namespace kodu {
             }
             this.prevState = this.state;
             this.state = {};
-            this.sensorFn(this);
+            if (!this.defn.sensor || this.defn.sensor.phase === "pre") {
+                this.sensorFn(this);
+            }
             this.filterFns.forEach(fn => fn(this));
+            if (this.defn.sensor && this.defn.sensor.phase === "post") {
+                this.sensorFn(this);
+            }
             if (this.evalRuleCondition()) {
                 if (this.hasMovement) {
                     this.queueDefaultMovement();

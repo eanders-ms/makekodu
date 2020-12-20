@@ -84,6 +84,18 @@ namespace kodu {
             }
         },
 
+        [tid.sensor.timer]: (rule: Rule) => {
+            const timerStart = rule.prevState["timerStart"] || control.millis();
+            rule.state["timerStart"] = timerStart;
+            const now = control.millis();
+            const timespan = rule.state["timespan"] || 1000;
+            const elapsed = now - timerStart;
+            if (elapsed >= timespan) {
+                rule.state["exec"] = true;
+                rule.state["timerStart"] = now;
+            }
+        },
+
         ///
         /// FILTERS
         ///
@@ -153,6 +165,18 @@ namespace kodu {
             targets = targets.filter(targ => targ.char.defn.id === "tree");
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
+        },
+
+        [tid.filter.timespan_short]: (rule: Rule) => {
+            let timespan: number = rule.state["timespan"] || 1000;
+            timespan /= 2.0;
+            rule.state["timespan"] = timespan;
+        },
+
+        [tid.filter.timespan_long]: (rule: Rule) => {
+            let timespan: number = rule.state["timespan"] || 1000;
+            timespan += 1000;
+            rule.state["timespan"] = timespan;
         },
 
         ///
