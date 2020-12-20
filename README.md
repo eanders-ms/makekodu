@@ -53,7 +53,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Implement compact save format. (Sort of done -- it's still JSON, but ids are very short)
 - [ ] Dynamic number of pages. Add/delete pages.
 - [ ] Move brain tile left/right.
-- [ ] Better brain editor perf on devices. Maybe rule tiles should be tilemap tiles and not sprites?
+- [ ] Better brain editor perf on devices. Maybe should be tilemap not sprites?
 - [ ] In "play" mode, worldStage cursor should be in HUD layer.
 
 ### TODO (Language - not prioritized)

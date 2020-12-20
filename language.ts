@@ -403,6 +403,11 @@ namespace kodu {
             it: "F7",
             timespan_short: "F8",
             timespan_long: "F9",
+            express_none: "F10",
+            express_happy: "F11",
+            express_angry: "F12",
+            express_heart: "F13",
+            express_sad: "F14",
         },
         actuator: <any>{
             move: "A1",
@@ -428,6 +433,11 @@ namespace kodu {
             page_3: "M13",
             page_4: "M14",
             page_5: "M15",
+            express_none: "M16",
+            express_happy: "M17",
+            express_angry: "M18",
+            express_heart: "M19",
+            express_sad: "M20",
         }
     }
 
@@ -449,7 +459,7 @@ namespace kodu {
                 constraints: {
                     provides: ["target"],
                     allow: {
-                        categories: ["subject", "direct-subject", "distance"]
+                        categories: ["subject", "direct-subject", "distance", "expression"]
                     },
                     disallow: {
                         tiles: [tid.filter.me]
@@ -465,7 +475,7 @@ namespace kodu {
                 constraints: {
                     provides: ["target"],
                     allow: {
-                        categories: ["subject", "direct-subject"]
+                        categories: ["subject", "direct-subject", "expression"]
                     },
                     disallow: {
                         tiles: [tid.filter.me]
@@ -609,6 +619,78 @@ namespace kodu {
                 constraints: {
                 }
             },
+            [tid.filter.express_none]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_none,
+                name: "none",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
+            [tid.filter.express_none]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_none,
+                name: "none",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
+            [tid.filter.express_happy]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_happy,
+                name: "happy",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
+            [tid.filter.express_angry]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_angry,
+                name: "angry",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
+            [tid.filter.express_heart]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_heart,
+                name: "heart",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
+            [tid.filter.express_sad]: {
+                type: TileType.FILTER,
+                tid: tid.filter.express_sad,
+                name: "sad",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: ["expression"]
+                    }
+                }
+            },
         },
         actuators: {
             [tid.actuator.move]: {
@@ -638,7 +720,7 @@ namespace kodu {
                 name: "Express",
                 constraints: {
                     allow: {
-                        categories: ["express", "direct-object"]
+                        categories: ["expression"]
                     }
                 }
             },
@@ -646,6 +728,7 @@ namespace kodu {
                 type: TileType.ACTUATOR,
                 tid: tid.actuator.boom,
                 name: "Boom",
+                hidden: true,   // Not implemented yet
                 constraints: {
                     allow: {
                         categories: ["direct-object"]
@@ -869,7 +952,67 @@ namespace kodu {
                         "terminal": true
                     }
                 }
-            }
+            },
+            [tid.modifier.express_none]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.express_none,
+                name: "none",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: [ "expression" ]
+                    }
+                }
+            },
+            [tid.modifier.express_happy]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.express_happy,
+                name: "happy",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: [ "expression" ]
+                    }
+                }
+            },
+            [tid.modifier.express_angry]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.express_angry,
+                name: "angry",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: [ "expression" ]
+                    }
+                }
+            },
+            [tid.modifier.express_heart]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.express_heart,
+                name: "heart",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: [ "expression" ]
+                    }
+                }
+            },
+            [tid.modifier.express_sad]: {
+                type: TileType.MODIFIER,
+                tid: tid.modifier.express_sad,
+                name: "sad",
+                category: "expression",
+                priority: 10,
+                constraints: {
+                    disallow: {
+                        categories: [ "expression" ]
+                    }
+                }
+            },
         }
     }
 }

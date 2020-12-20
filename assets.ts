@@ -667,6 +667,96 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
+            this.reg[tid.filter.express_none] = this.reg[tid.modifier.express_none] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f . . . .
+                . . . . . . f d d d d d f . . .
+                . . . . . f d d d d d d d f . .
+                . . . . f b d d 1 d d 1 d d f .
+                . . . . f b d 1 f d 1 f d d f .
+                . . . . f b d d d d d d d d f .
+                . . . . f b d d d d d d d d f .
+                . . . . f b b d d f f d d d f .
+                . . f f f f b b d d d d d f . .
+                . f 1 1 1 1 f b b b b b f . . .
+                . f 1 f 1 f 1 f f f f f . . . .
+                . f 1 1 1 1 1 f . . . . . . . .
+                . f f f f f f . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
+            this.reg[tid.filter.express_happy] = this.reg[tid.modifier.express_happy] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f . . . .
+                . . . . . . f 9 9 9 9 9 f . . .
+                . . . . . f 9 9 9 9 9 9 9 f . .
+                . . . . f 6 9 1 1 9 1 1 9 9 f .
+                . . . . f 6 9 1 f 9 f 1 9 9 f .
+                . . . . f 6 9 9 9 9 9 9 9 9 f .
+                . . . . f 6 f 9 9 9 9 9 f 9 f .
+                . . . . f 6 6 f f f f f 9 9 f .
+                . . f f f f 6 6 9 9 9 9 9 f . .
+                . f 1 1 1 1 f 6 6 6 6 6 f . . .
+                . f 1 f 1 f 1 f f f f f . . . .
+                . f 1 1 1 1 1 f . . . . . . . .
+                . f f f f f f . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
+            this.reg[tid.filter.express_angry] = this.reg[tid.modifier.express_angry] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f . . . .
+                . . . . . . f 4 4 4 4 4 f . . .
+                . . . . . f 2 2 2 2 2 2 4 f . .
+                . . . . f 2 2 2 2 2 2 2 2 4 f .
+                . . . . f 2 f f 2 2 2 f f 4 f .
+                . . . . f 2 2 d f 2 f d 2 4 f .
+                . . . . f 2 2 2 2 2 2 2 2 4 f .
+                . . . . f 2 2 f f f f f 2 4 f .
+                . . f f f f 2 2 2 2 2 2 2 f . .
+                . f 1 1 1 1 f 2 2 2 2 2 f . . .
+                . f 1 f 1 f 1 f f f f f . . . .
+                . f 1 1 1 1 1 f . . . . . . . .
+                . f f f f f f . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
+            this.reg[tid.filter.express_sad] = this.reg[tid.modifier.express_sad] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . f f f f f . . . .
+                . . . . . . f b b b b b f . . .
+                . . . . . f b b b b b b b f . .
+                . . . . f c b b 1 b 1 b b b f .
+                . . . . f c b 1 f b f 1 b b f .
+                . . . . f c b 9 9 b 9 9 b b f .
+                . . . . f c b b b b b b b b f .
+                . . . . f c c b f f f b b b f .
+                . . f f f f c c c c b b c f . .
+                . f 1 1 1 1 f c c c c c f . . .
+                . f 1 f 1 f 1 f f f f f . . . .
+                . f 1 1 1 1 1 f . . . . . . . .
+                . f f f f f f . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
+            this.reg[tid.filter.express_heart] = this.reg[tid.modifier.express_heart] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . f f . . . f f . . .
+                . . . . . f 4 4 f . f 4 4 f . .
+                . . . . f 2 2 2 4 f 2 2 2 4 f .
+                . . . . f 2 2 2 2 2 2 2 2 4 f .
+                . . . . f 2 2 2 2 2 2 2 2 4 f .
+                . . . . f 2 2 2 2 2 2 2 2 4 f .
+                . . . . . f 2 2 2 2 2 2 2 f . .
+                . . . . . . f 2 2 2 2 2 f . . .
+                . . f f f f f f 2 2 2 f . . . .
+                . f 1 1 1 1 1 f f 2 f . . . . .
+                . f 1 f 1 f 1 f . f . . . . . .
+                . f 1 1 1 1 1 f . . . . . . . .
+                . f f f f f f . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
             this.reg[tid.filter.me] = this.reg[tid.modifier.me] = img`
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
@@ -844,6 +934,24 @@ namespace kodu {
                 . . 9 . . . . . . . . . 1 . . .
                 . . . . . 9 . 9 . 1 . . . . . .
                 . . . . 1 . . 1 . . 9 . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+            `;
+            this.reg[tid.actuator.express] = img`
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . f f f f f . . .
+                . . . . . . . f 1 1 1 1 1 f . .
+                . . . . . . . f 1 f 1 f 1 f . .
+                . . . . . . . f 1 1 1 1 1 f . .
+                . . . f f f f f f 1 1 f f . . .
+                . . f 9 9 9 9 9 f 1 f . . . . .
+                . f 9 1 f 9 f 1 f f . . . . . .
+                . f 6 1 f 9 f 1 9 f . . . . . .
+                . f 6 1 1 9 1 1 9 f . . . . . .
+                . f 6 9 9 9 9 9 9 f . . . . . .
+                . f 6 6 9 9 9 9 9 f . . . . . .
+                . . f 6 6 6 6 6 f . . . . . . .
+                . . . f f f f f . . . . . . . .
                 . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
