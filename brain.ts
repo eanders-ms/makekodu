@@ -12,10 +12,12 @@ namespace kodu {
         pages: Page[];
         done: boolean;
         wander: Wander;
+        prevFeeling: Feeling;
         feeling: Feeling;
+        executing: boolean;
 
         constructor(public char: Character) {
-            this.feeling = Feeling.None;
+            this.prevFeeling = this.feeling = Feeling.None;
             this.currPage = 0;
             this.wander = new Wander(this);
             if (char.bdefn) {
@@ -26,13 +28,18 @@ namespace kodu {
         }
 
         public execute() {
+            if (this.executing) { return; } // Disallow recursion from [call page] actuator.
+            this.executing = true;
             this.done = false;
+            this.prevFeeling = this.feeling;
             const page = this.pages[this.currPage];
             if (page) {
                 this.wander.prepare();
                 page.execute();
                 this.wander.update();
             }
+            this.executing = false;
+            this.updateExpression();
         }
 
         public switchPage(n: number) {
@@ -50,6 +57,12 @@ namespace kodu {
 
         public feel(feeling: Feeling) {
             this.feeling = feeling;
+        }
+
+        private updateExpression() {
+            if (this.feeling !== this.prevFeeling) {
+                this.char.showFeeling(this.feeling);
+            }
         }
     }
 
@@ -155,7 +168,7 @@ namespace kodu {
             if (!this.state["direction"] && !this.brain.char.impulseQueue.length) {
                 const dir = this.brain.wander.direction();
                 const speed = this.brain.char.defn.defaults.speed;
-                this.brain.char.queueImpulse(dir, speed, "default");
+                this.brain.char.queueImpulse(dir, speed, ImpulseType.Default);
                 this.state["direction"] = dir;
             }
         }

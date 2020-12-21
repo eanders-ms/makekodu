@@ -193,15 +193,18 @@ namespace kodu {
         }
 
         public destroy() {
+            this.destroyTiles();
+            this.handleBtn.destroy();
+            this.whenBtn.destroy();
+            this.whenInsertBtn.destroy();
+            this.doBtn.destroy();
+            this.doInsertBtn.destroy();
             this.handleBtn = undefined;
             this.whenBtn = undefined;
             this.whenInsertBtn = undefined;
             this.doBtn = undefined;
             this.doInsertBtn = undefined;
-            this.sensor = undefined;
-            this.actuator = undefined;
-            this.filters = undefined;
-            this.modifiers = undefined;
+            super.destroy();
         }
 
         destroyTiles() {

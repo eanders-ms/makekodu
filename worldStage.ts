@@ -16,7 +16,10 @@ namespace kodu {
         }
     }
 
-    export type GameMode = "edit" | "play";
+    export enum GameMode {
+        Edit,
+        Play
+    }
 
     const STAGE_ID = "world";
 
@@ -60,7 +63,7 @@ namespace kodu {
                 { icon: "delete", label: "Delete", style: "danger" }
             ];
             this.charMenu = new Menu(this, charMenuItems, false);
-            this.setGameMode("edit");
+            this.setGameMode(GameMode.Edit);
 
             game.onUpdate(() => this.update());
 
@@ -79,19 +82,19 @@ namespace kodu {
         }
 
         private toggleGameMode() {
-            if (this.gameMode === "play") {
-                this.setGameMode("edit");
+            if (this.gameMode === GameMode.Play) {
+                this.setGameMode(GameMode.Edit);
             } else {
-                this.setGameMode("play");
+                this.setGameMode(GameMode.Play);
             }
         }
 
         private handlePlayClicked() {
-            this.setGameMode("play");
+            this.setGameMode(GameMode.Play);
         }
 
         private handleStopClicked() {
-            this.setGameMode("edit");
+            this.setGameMode(GameMode.Edit);
         }
 
         private handleNewFileClicked() {
@@ -105,21 +108,21 @@ namespace kodu {
 
         private setGameMode(mode: GameMode) {
             if (this.gameMode === mode) { return; }
-            if (mode === "play") { this.save(); }
+            if (mode === GameMode.Play) { this.save(); }
             this.gameMode = mode;
-            if (mode === "edit") { this.load(); }
-            this.playBtn.setVisible(mode === "edit");
-            this.newBtn.setVisible(mode === "edit");
-            this.stopBtn.setVisible(mode === "play");
-            this.objectModeBtn.setVisible(mode === "edit");
-            this.terrainModeBtn.setVisible(mode === "edit");
+            if (mode === GameMode.Edit) { this.load(); }
+            this.playBtn.setVisible(mode === GameMode.Edit);
+            this.newBtn.setVisible(mode === GameMode.Edit);
+            this.stopBtn.setVisible(mode === GameMode.Play);
+            this.objectModeBtn.setVisible(mode === GameMode.Edit);
+            this.terrainModeBtn.setVisible(mode === GameMode.Edit);
             this.createMenu.hide();
             this.charMenu.hide();
             this.components.forEach(comp => comp.notify("gameModeChanged", mode));
         }
 
         save() {
-            if (this.gameMode === "play") {
+            if (this.gameMode === GameMode.Play) {
                 throw "aah!";
             }
             const savedGame = mkSavedGame();
@@ -161,7 +164,7 @@ namespace kodu {
         }
 
         public handleCursorCanvasClick(x: number, y: number) {
-            if (this.gameMode === "edit") {
+            if (this.gameMode === GameMode.Edit) {
                 this.editModeHandleCanvasClick(x, y);
             }
         }
@@ -193,7 +196,7 @@ namespace kodu {
         }
 
         public handleCursorCharacterClick(char: Character, x: number, y: number) {
-            if (this.gameMode === "edit") {
+            if (this.gameMode === GameMode.Edit) {
                 if (this.carryTarget) {
                     this.cursorDrop();
                 } else {
@@ -266,7 +269,7 @@ namespace kodu {
 
         update() {
             super.update();
-            if (this.gameMode === "play") {
+            if (this.gameMode === GameMode.Play) {
                 this.physics.simulate();
                 this.cursor.enable();
                 const chars = this.components.filter(comp => comp.kind === "character") as Character[];

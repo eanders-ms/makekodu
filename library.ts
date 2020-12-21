@@ -227,7 +227,7 @@ namespace kodu {
             if (!dir) { return; }
             const actor = rule.brain.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
-            const impulseType: ImpulseType = rule.state["exclusive-move"] ? "exclusive" : "ambient";
+            const impulseType: ImpulseType = rule.state["exclusive-move"] ? ImpulseType.Exclusive : ImpulseType.Ambient;
             actor.queueImpulse(dir, speed, impulseType);
         },
 
@@ -270,7 +270,7 @@ namespace kodu {
                 expressee.brain.feel(feeling);
             }
         },
-        
+
         ///
         /// MODIFIERS
         ///

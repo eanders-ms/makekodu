@@ -6,16 +6,16 @@ namespace kodu {
         bdefn: string;
     };
 
-    export type ImpulseType
-        = "exclusive"   // Doesn't blend with any other movement.
-        | "ambient"     // Can be blended with other movement.
-        | "default"     // Default movement if no other impulses present.
-        ;
+    export enum ImpulseType {
+        Exclusive,      // Doesn't blend with any other movement.
+        Ambient,        // Can be blended with other movement.
+        Default         // Default movement if no other impulses present.
+    }
 
     interface Impulse {
+        type: ImpulseType;
         direction: Vec2;
         magnitude: number;
-        type: ImpulseType;
     }
 
     export class Character extends ActorComponent {
@@ -75,6 +75,24 @@ namespace kodu {
             this.stage.remove(this);
         }
 
+        public showFeeling(feeling: Feeling) {
+            effects.clearParticles(this.sprite);
+            switch (feeling) {
+                case Feeling.Happy:
+                    this.sprite.startEffect(effects.smiles);
+                    break;
+                case Feeling.Angry:
+                    this.sprite.startEffect(effects.fire);
+                    break;
+                case Feeling.Heart:
+                    this.sprite.startEffect(effects.ashes);
+                    break;
+                case Feeling.Sad:
+                    this.sprite.startEffect(effects.spray);
+                    break;
+            }
+        }
+
         public moveBy(x: number, y: number) {
             this.x += x;
             this.y += y;
@@ -98,10 +116,6 @@ namespace kodu {
             return Vec2.Normal(v);
         }
 
-        private handleCollision(other: Sprite) {
-
-        }
-
         getGameMode(): GameMode { return this.stage.get<GameMode>("gameMode"); }
         getPhysics(): Physics { return this.stage.get<Physics>("physics"); }
 
@@ -121,12 +135,12 @@ namespace kodu {
         computeImpulses(): Vec2 | null {
             if (!this.impulseQueue.length) { return null; }
             let finalDir = mkVec2();
-            const exclusiveOnly = this.impulseQueue.some(elem => elem.type === "exclusive");
+            const exclusiveOnly = this.impulseQueue.some(elem => elem.type === ImpulseType.Exclusive);
             const allowDefault = this.impulseQueue.length === 1;
             let impulseCount = 0;
             for (const impulse of this.impulseQueue) {
-                if (exclusiveOnly && impulse.type !== "exclusive") { continue; }
-                if (!allowDefault && impulse.type === "default") { continue; }
+                if (exclusiveOnly && impulse.type !== ImpulseType.Exclusive) { continue; }
+                if (!allowDefault && impulse.type === ImpulseType.Default) { continue; }
                 const direction = impulse.direction;
                 const magnitude = impulse.magnitude;
                 finalDir = Vec2.Add(finalDir, Vec2.Scale(direction, magnitude));

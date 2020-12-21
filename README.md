@@ -36,7 +36,6 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [x] Improve tile selection menu layout.
 - [x] Implement tile compatibility filtering.
 - [ ] Create character from gallery sprite.
-- [ ] Actuator arbitration? Maybe.
 - [x] Movement blending.
 - [x] Exclusive movement support (in, but not used currently).
 - [ ] Clicking "play": Delay entering play mode until A button is released. Otherwise brains can sense the button down from the click.
