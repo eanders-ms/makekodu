@@ -1,11 +1,21 @@
 namespace kodu {
+    export enum Feeling {
+        None,
+        Happy,
+        Angry,
+        Heart,
+        Sad
+    }
+
     export class Brain {
         currPage: number;
         pages: Page[];
         done: boolean;
         wander: Wander;
+        feeling: Feeling;
 
         constructor(public char: Character) {
+            this.feeling = Feeling.None;
             this.currPage = 0;
             this.wander = new Wander(this);
             if (char.bdefn) {
@@ -36,6 +46,10 @@ namespace kodu {
 
         public cameraFollow(char: Character) {
             this.char.stage.notify("camera:follow", char);
+        }
+
+        public feel(feeling: Feeling) {
+            this.feeling = feeling;
         }
     }
 

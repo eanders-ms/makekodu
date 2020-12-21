@@ -179,6 +179,46 @@ namespace kodu {
             rule.state["timespan"] = timespan;
         },
 
+        [tid.filter.express_none]: (rule: Rule) => {
+            let targets: Target[] = rule.state["targets"];
+            if (!targets) { return; }
+            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.None);
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
+        },
+
+        [tid.filter.express_happy]: (rule: Rule) => {
+            let targets: Target[] = rule.state["targets"];
+            if (!targets) { return; }
+            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Happy);
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
+        },
+
+        [tid.filter.express_angry]: (rule: Rule) => {
+            let targets: Target[] = rule.state["targets"];
+            if (!targets) { return; }
+            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Angry);
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
+        },
+
+        [tid.filter.express_heart]: (rule: Rule) => {
+            let targets: Target[] = rule.state["targets"];
+            if (!targets) { return; }
+            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Heart);
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
+        },
+
+        [tid.filter.express_sad]: (rule: Rule) => {
+            let targets: Target[] = rule.state["targets"];
+            if (!targets) { return; }
+            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Sad);
+            rule.state["targets"] = targets;
+            rule.state["exec"] = targets.length > 0;
+        },
+
         ///
         /// ACTUATORS
         ///
@@ -217,6 +257,17 @@ namespace kodu {
             }
             if (target) {
                 rule.brain.cameraFollow(target);
+            }
+        },
+
+        [tid.actuator.express]: (rule: Rule) => {
+            let expressee: Character = rule.brain.char;
+            if (rule.state["direct-target"]) {
+                expressee = rule.state["direct-target"].char;
+            }
+            let feeling = rule.state["feeling"];
+            if (expressee && feeling !== undefined) {
+                expressee.brain.feel(feeling);
             }
         },
         
@@ -326,6 +377,26 @@ namespace kodu {
         
         [tid.modifier.page_5]: (rule: Rule) => {
             rule.state["page"] = 4;
+        },
+
+        [tid.modifier.express_none]: (rule: Rule) => {
+            rule.state["feeling"] = Feeling.None;
+        },
+
+        [tid.modifier.express_happy]: (rule: Rule) => {
+            rule.state["feeling"] = Feeling.Happy;
+        },
+        
+        [tid.modifier.express_angry]: (rule: Rule) => {
+            rule.state["feeling"] = Feeling.Angry;
+        },
+        
+        [tid.modifier.express_heart]: (rule: Rule) => {
+            rule.state["feeling"] = Feeling.Heart;
+        },
+        
+        [tid.modifier.express_sad]: (rule: Rule) => {
+            rule.state["feeling"] = Feeling.Sad;
         },
         
     }

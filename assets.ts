@@ -113,22 +113,22 @@ namespace kodu {
                 . . . . . . . . . . . . . . . .
                 . . . f f f f . . . . . . . . .
                 . . f 9 9 9 9 f . . . . . . . .
-                . . f 9 3 3 3 f . . . . . . . .
-                . f 9 3 1 3 1 3 f . . . . . . .
-                . f 9 3 f 3 f 3 f f f f f f . .
+                . . f 9 3 3 3 f f f f f f f . .
+                . f 9 3 1 3 1 f 7 7 7 7 7 7 f .
+                . f 9 3 f 3 f f 7 7 7 7 7 7 f .
                 . f 9 3 3 3 3 f 7 7 7 7 7 7 f .
-                . f 9 9 9 9 f 7 7 7 7 7 7 7 f .
-                . . f f f f f 7 7 7 7 7 7 7 f .
-                . . . . . . . f f 7 e e 7 7 f .
-                . . . . . . . . . f e e f f . .
+                . f 9 9 9 9 9 f f 7 e e 7 7 f .
+                . . f f f f f f . f e e f f . .
                 . . . . . . . . . f e e f . . .
                 . . . . . . . . f e e e f . . .
                 . . . . . . . . f f f f f . . .
                 . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
             `;
             this.reg["terrain_mode"] = img`
                 . . . . . . . . . . . . . . . .
-                . . . . . . . . . . 6 6 6 6 . .
+                . . . . . . . . . . . . . . . .
                 . . . . f f . . . . 6 6 6 6 . .
                 . . . f e e f . . . 6 6 6 6 . .
                 . . . f e e f . . . 6 6 6 6 . .
@@ -136,12 +136,12 @@ namespace kodu {
                 . . f f e e f f . . 4 4 4 4 . .
                 . f e e e e e e f . 4 4 4 4 . .
                 . f f f f f f f f . 4 4 4 4 . .
-                . f d d d d d d f . 4 4 4 4 . .
                 . f d d d d d d f . . . . . . .
                 . f d d d d d d f . a a a a . .
+                . f d d d d d d f . a a a a . .
                 . f f f f f f f f . a a a a . .
-                . . . . . . . . . . a a a a . .
-                . . . . . . . . . . a a a a . .
+                . . . . . . . . . . . . . . . .
+                . . . . . . . . . . . . . . . .
                 . . . . . . . . . . . . . . . .
             `;
             this.reg["focus"] = img`
@@ -672,11 +672,11 @@ namespace kodu {
                 . . . . . . . f f f f f . . . .
                 . . . . . . f d d d d d f . . .
                 . . . . . f d d d d d d d f . .
-                . . . . f b d d 1 d d 1 d d f .
-                . . . . f b d 1 f d 1 f d d f .
+                . . . . f b d 1 1 d 1 1 d d f .
+                . . . . f b d 1 f d f 1 d d f .
                 . . . . f b d d d d d d d d f .
                 . . . . f b d d d d d d d d f .
-                . . . . f b b d d f f d d d f .
+                . . . . f b b d f f f d d d f .
                 . . f f f f b b d d d d d f . .
                 . f 1 1 1 1 f b b b b b f . . .
                 . f 1 f 1 f 1 f f f f f . . . .

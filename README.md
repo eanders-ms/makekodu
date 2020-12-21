@@ -84,6 +84,7 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] "next page", "prev page" tiles.
 - [ ] Memory slots - remember targets.
 - [ ] Play musical note with duration (long, short - stackable, but maps to musical timing scalars)
+- [ ] "Me" sensor, to query own properties like "feeling".
 
 ## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
 
