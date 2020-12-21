@@ -149,6 +149,22 @@ namespace kodu {
             }
         }
 
+        public insertRuleAt(index: number) {
+            if (index >= 0 && index < this.rules.length) {
+                // STS Array.splice doesn't support insert :(
+                // this.rules.splice(index, 0, new RuleDefn());
+                const rules: RuleDefn[] = [];
+                for (let i = 0; i < index; ++i) {
+                    rules.push(this.rules[i]);
+                }
+                rules.push(new RuleDefn());
+                for (let i = index; i < this.rules.length; ++i) {
+                    rules.push(this.rules[i]);
+                }
+                this.rules = rules;
+            }
+        }
+
         public toObj(): any {
             const obj = {
                 R: this.rules.map(elem => elem.toObj())

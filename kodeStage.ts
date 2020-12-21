@@ -91,6 +91,29 @@ namespace kodu {
             for (let i = 0; i < this.rules.length; ++i) {
                 this.rules[i].index = i;
             }
+            this.ensureFinalEmptyRule();
+        }
+
+        public insertRuleAt(index: number) {
+            if (index >= 0 && index < this.rules.length) {
+                this.defn.insertRuleAt(index);
+                // STS Array.splice doesn't support insert :(
+                //this.rules.splice(index, 0, new RuleUI(this.kstage, this, new RuleDefn(), index));
+                const rules: RuleUI[] = [];
+                for (let i = 0; i < index; ++i) {
+                    rules.push(this.rules[i]);
+                }
+                rules.push(new RuleUI(this.kstage, this, new RuleDefn(), index));
+                for (let i = index; i < this.rules.length; ++i) {
+                    rules.push(this.rules[i]);
+                }
+                this.rules = rules;
+            }
+            // Renumber the rules
+            for (let i = 0; i < this.rules.length; ++i) {
+                this.rules[i].index = i;
+            }
+            this.ensureFinalEmptyRule();
         }
 
         public toDefn(): PageDefn {
@@ -441,8 +464,12 @@ namespace kodu {
                     label: "\"Becomes false\"",
                     style: "white"
                 }, {
+                    icon: "plus",
+                    label: "Insert Rule",
+                    style: "white"
+                }, {
                     icon: "delete",
-                    label: "Delete",
+                    label: "Delete Rule",
                     style: "danger"
                 }
             ];
@@ -452,6 +479,8 @@ namespace kodu {
                     this.handleBtn.icon.setImage(icons.get(selection.id));
                 } else if (selection.id === "delete") {
                     this.pageui.deleteRuleAt(this.index);
+                } else if (selection.id === "plus") {
+                    this.pageui.insertRuleAt(this.index);
                 }
             });
         }

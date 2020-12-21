@@ -27,6 +27,14 @@ namespace kodu {
             }
         }
 
+        public destroy() {
+            for (const page of this.pages) {
+                page.destroy();
+            }
+            this.pages = undefined;
+            this.char = undefined;
+        }
+
         public execute() {
             if (this.executing) { return; } // Disallow recursion from [call page] actuator.
             this.executing = true;
@@ -71,6 +79,15 @@ namespace kodu {
 
         constructor(public brain: Brain, public defn: PageDefn, public index: number) {
             this.rules = this.defn.rules.map(elem => new Rule(this, elem));
+        }
+
+        public destroy() {
+            for (const rule of this.rules) {
+                rule.destroy();
+            }
+            this.rules = undefined;
+            this.defn = undefined;
+            this.brain = undefined;
         }
 
         public execute() {
@@ -120,6 +137,16 @@ namespace kodu {
                 this.defn.actuator &&
                 this.defn.actuator.category &&
                 this.defn.actuator.category === "movement";
+        }
+
+        public destroy() {
+            this.state = this.prevState = undefined;
+            this.sensorFn = undefined;
+            this.filterFns = undefined;
+            this.actuatorFn = undefined;
+            this.modifierFns = undefined;
+            this.page = undefined;
+            this.defn = undefined;
         }
 
         public execute() {

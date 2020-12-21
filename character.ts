@@ -132,7 +132,7 @@ namespace kodu {
             }
         }
 
-        computeImpulses(): Vec2 | null {
+        computeImpulses(): Vec2 {
             if (!this.impulseQueue.length) { return null; }
             let finalDir = mkVec2();
             const exclusiveOnly = this.impulseQueue.some(elem => elem.type === ImpulseType.Exclusive);
@@ -173,9 +173,12 @@ namespace kodu {
                 };
                 savedGame.chars.push(state);
             } else if (event === "gameModeChanged") {
-                if (parm === "edit") {
-                    this.brain = null;
-                } else if (parm === "play") {
+                if (parm === GameMode.Edit) {
+                    if (this.brain) {
+                        this.brain.destroy();
+                        this.brain = undefined;
+                    }
+                } else if (parm === GameMode.Play) {
                     this.brain = new Brain(this);
                 }
             }
