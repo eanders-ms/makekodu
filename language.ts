@@ -735,6 +735,7 @@ namespace kodu {
                 tid: tid.actuator.express,
                 name: "Express",
                 constraints: {
+                    provides: ["expression-consumer"], 
                     allow: {
                         categories: ["expression"]
                     }
@@ -976,6 +977,7 @@ namespace kodu {
                 category: "expression",
                 priority: 10,
                 constraints: {
+                    requires: ["expression-consumer"],
                     disallow: {
                         categories: [ "expression" ]
                     }
@@ -988,6 +990,7 @@ namespace kodu {
                 category: "expression",
                 priority: 10,
                 constraints: {
+                    requires: ["expression-consumer"],
                     disallow: {
                         categories: [ "expression" ]
                     }
@@ -1000,6 +1003,7 @@ namespace kodu {
                 category: "expression",
                 priority: 10,
                 constraints: {
+                    requires: ["expression-consumer"],
                     disallow: {
                         categories: [ "expression" ]
                     }
@@ -1012,6 +1016,7 @@ namespace kodu {
                 category: "expression",
                 priority: 10,
                 constraints: {
+                    requires: ["expression-consumer"],
                     disallow: {
                         categories: [ "expression" ]
                     }
@@ -1024,6 +1029,7 @@ namespace kodu {
                 category: "expression",
                 priority: 10,
                 constraints: {
+                    requires: ["expression-consumer"],
                     disallow: {
                         categories: [ "expression" ]
                     }

@@ -28,8 +28,8 @@ namespace kodu {
         gameMode: GameMode;
         playBtn: Button;
         stopBtn: Button;
-        objectModeBtn: Button;
-        terrainModeBtn: Button;
+        //objectModeBtn: Button;
+        //terrainModeBtn: Button;
         newBtn: Button;
         createMenu: Menu;
         charMenu: Menu;
@@ -46,8 +46,8 @@ namespace kodu {
             scene.setBackgroundColor(13);
             this.playBtn = new Button(this, "white", "play", "Play", 8, 112, true, () => this.handlePlayClicked());
             this.stopBtn = new Button(this, "white", "stop", "Stop", 8, 112, true, () => this.handleStopClicked());
-            this.objectModeBtn = new Button(this, "white", "object_mode", "Objects", 25, 112, true, () => {});
-            this.terrainModeBtn = new Button(this, "white", "terrain_mode", "Terrain", 42, 112, true, () => {});
+            //this.objectModeBtn = new Button(this, "white", "object_mode", "Objects", 25, 112, true, () => {});
+            //this.terrainModeBtn = new Button(this, "white", "terrain_mode", "Terrain", 42, 112, true, () => {});
             this.newBtn = new Button(this, "danger", "new_file", "New", 8, 8, true, () => this.handleNewFileClicked());
             const createMenuItems = Characters.getCharacters().map(char => {
                 return {
@@ -114,8 +114,8 @@ namespace kodu {
             this.playBtn.setVisible(mode === GameMode.Edit);
             this.newBtn.setVisible(mode === GameMode.Edit);
             this.stopBtn.setVisible(mode === GameMode.Play);
-            this.objectModeBtn.setVisible(mode === GameMode.Edit);
-            this.terrainModeBtn.setVisible(mode === GameMode.Edit);
+            //this.objectModeBtn.setVisible(mode === GameMode.Edit);
+            //this.terrainModeBtn.setVisible(mode === GameMode.Edit);
             this.createMenu.hide();
             this.charMenu.hide();
             this.components.forEach(comp => comp.notify("gameModeChanged", mode));

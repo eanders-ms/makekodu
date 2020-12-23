@@ -17,13 +17,14 @@ environment would feel like in MakeCode Arcade and on supported handhelds like [
 Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
 
 
-### Top TODOs
+### Top TODOs and bugfixes
 
 - [ ] Tile art (ongoing... keep up on it).
 - [x] Tile compatibility filtering (pretty good is good enough. it doesn't have to be perfect). TODO: Add conditional compatibility clauses.
 - [ ] In-world terrain editor. Use tilemap as terrain & walls.
 - [ ] Default world size 500x500, with glass walls.
 - [ ] Make brain editor performant on Meowbit.
+- [ ] Better tracking of primary move target, to allow for smarter avoidance behavior.
 
 ### TODO (General - not prioritized)
 
