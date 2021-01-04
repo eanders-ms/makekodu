@@ -26,7 +26,8 @@
         "app.ts",
         "vec2.ts",
         "worldStage.ts",
-        "kodeStage.ts"
+        "kodeStage.ts",
+        "effects.ts"
     ],
     "testFiles": [],
     "targetVersions": {

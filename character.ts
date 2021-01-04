@@ -77,19 +77,9 @@ namespace kodu {
 
         public showFeeling(feeling: Feeling) {
             effects.clearParticles(this.sprite);
-            switch (feeling) {
-                case Feeling.Happy:
-                    this.sprite.startEffect(effects.smiles);
-                    break;
-                case Feeling.Angry:
-                    this.sprite.startEffect(effects.fire);
-                    break;
-                case Feeling.Heart:
-                    this.sprite.startEffect(effects.ashes);
-                    break;
-                case Feeling.Sad:
-                    this.sprite.startEffect(effects.spray);
-                    break;
+            const effect = getEffect(feeling);
+            if (effect) {
+                this.sprite.startEffect(effect);
             }
         }
 

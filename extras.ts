@@ -7,8 +7,11 @@ namespace util {
         return (x >= spr.x - wOver2) && (x <= spr.x + wOver2) && (y >= spr.y - hOver2) && (y <= spr.y + hOver2);
     }
     export function getAllOverlapping(src: Sprite): Sprite[] {
-        return (game.currentScene().allSprites as Sprite[])
-            .filter(value => value !== src)
+        const scene = game.currentScene();
+        return (game.currentScene().allSprites)
+            .filter(value => (value as any)["_kind"] !== undefined) // hack: filter to Sprite type
+            .map(value => value as Sprite)
+            .filter(value => value && value !== src)
             .filter(value => !(value.flags & SpriteFlag.Invisible))
             .filter(value => value.overlapsWith(src))
             .sort((a, b) => (a.x - b.x) + (a.y - b.y));
