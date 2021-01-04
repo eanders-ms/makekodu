@@ -12,7 +12,9 @@ programs are expressed in a high-level, sensory paradigm. The typical "hello wor
 ## What is MakeKodu?
 
 This project is an experiment - inspired by Kodu and [Microsoft TileCode](https://microsoft.github.io/tilecode/) - to see what a Kodu-like
-environment would feel like in MakeCode Arcade and on supported handhelds like [Meowbit](https://www.kittenbot.cc/products/meowbit-codable-console-for-microsoft-makecode-arcade).
+environment would feel like in [MakeCode Arcade](https://arcade.makecode.com) and on supported handhelds like [Meowbit](https://www.kittenbot.cc/products/meowbit-codable-console-for-microsoft-makecode-arcade).
+
+![MakeKodu-Hello-World](content/makekodu-hello-world.png)
 
 Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
 
