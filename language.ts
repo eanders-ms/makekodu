@@ -638,19 +638,7 @@ namespace kodu {
             [tid.filter.express_none]: {
                 type: TileType.FILTER,
                 tid: tid.filter.express_none,
-                name: "none",
-                category: "expression",
-                priority: 10,
-                constraints: {
-                    disallow: {
-                        categories: ["expression"]
-                    }
-                }
-            },
-            [tid.filter.express_none]: {
-                type: TileType.FILTER,
-                tid: tid.filter.express_none,
-                name: "none",
+                name: "neutral",
                 category: "expression",
                 priority: 10,
                 constraints: {
