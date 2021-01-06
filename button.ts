@@ -34,6 +34,7 @@ namespace kodu {
             super(stage, "button");
             this.data = {};
             this.icon = sprites.create(icons.get(iconId), 0);
+            this.icon.setFlag(SpriteFlag.Ghost, true);
             this.icon.x = x;
             this.icon.y = y;
             this.icon.z = 900;
@@ -41,6 +42,7 @@ namespace kodu {
             this.icon.data["component"] = this;
             if (style) {
                 this.background = sprites.create(icons.get(`button_${style}`), 0);
+                this.background.setFlag(SpriteFlag.Ghost, true);
                 this.background.x = x;
                 this.background.y = y;
                 this.background.z = this.icon.z - 1;
@@ -134,19 +136,5 @@ namespace kodu {
                 camera.setScreenRelativePosition(this.text, this.x, this.y - this.height);
             }
         }
-
-        /*
-        sleep() {
-            const visible = !(this.icon.flags & SpriteFlag.Invisible);
-            this.icon.data["sleep:was_visible"] = visible;
-            this.setVisible(false);
-            super.sleep();
-        }
-
-        wake() {
-            this.setVisible(this.icon.data["sleep:was_visible"]);
-            super.wake();
-        }
-        */
     }
 }

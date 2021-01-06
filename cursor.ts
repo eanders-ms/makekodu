@@ -21,7 +21,9 @@ namespace kodu {
         constructor(stage: Stage) {
             super(stage, "cursor");
             this.sprite0 = sprites.create(icons.get("cursor"), 0);
+            this.sprite0.setFlag(SpriteFlag.Ghost, true);
             this.sprite1 = sprites.create(icons.get("carry"), 0);
+            this.sprite1.setFlag(SpriteFlag.Ghost, true);
             this.sprite0.setFlag(SpriteFlag.Invisible, true);
             this.sprite1.setFlag(SpriteFlag.Invisible, true);
             this.sprite0.z = 1000;

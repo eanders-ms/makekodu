@@ -38,6 +38,7 @@ namespace kodu {
             super(stage, "character");
             let icon = icons.get(defn.id);
             this.sprite = sprites.create(icon, 0);
+            this.sprite.setFlag(SpriteFlag.Ghost, true);
             this.sprite.x = x;
             this.sprite.y = y;
             this.sprite.z = 0;
