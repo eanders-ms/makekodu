@@ -1,20 +1,16 @@
 namespace kodu {
     export class Button extends Component {
-        icon: Sprite;
-        background: Sprite;
+        spr: Sprite;
         text: TextSprite;
         data: any;
 
         get id() { return this.iconId; }
 
-        get width() { return Math.max(this.icon.width, this.background ? this.background.width : 0); }
-        get height() { return Math.max(this.icon.height, this.background ? this.background.height : 0); }
-        get z() { return this.icon.z; }
+        get width() { return this.spr.width; }
+        get height() { return this.spr.height; }
+        get z() { return this.spr.z; }
         set z(n: number) {
-            this.icon.z = n;
-            if (this.background) {
-                this.background.z = n - 1;
-            }
+            this.spr.z = n;
             if (this.text) {
                 this.text.z = n;
             }
@@ -22,10 +18,9 @@ namespace kodu {
 
         constructor(
             stage: Stage,
-            style: ButtonStyle,
+            private style: ButtonStyle,
             private iconId: string,
-            private label:
-            string,
+            private label: string,
             public x: number,
             public y: number,
             private hud: boolean,
@@ -33,40 +28,45 @@ namespace kodu {
         ) {
             super(stage, "button");
             this.data = {};
-            this.icon = sprites.create(icons.get(iconId), 0);
-            this.icon.setFlag(SpriteFlag.Ghost, true);
-            this.icon.x = x;
-            this.icon.y = y;
-            this.icon.z = 900;
-            this.icon.data["kind"] = "button";
-            this.icon.data["component"] = this;
-            if (style) {
-                this.background = sprites.create(icons.get(`button_${style}`), 0);
-                this.background.setFlag(SpriteFlag.Ghost, true);
-                this.background.x = x;
-                this.background.y = y;
-                this.background.z = this.icon.z - 1;
-                this.background.data["kind"] = "button";
-                this.background.data["component"] = this;
-            }
+            this.buildSprite(900);
         }
 
         destroy() {
-            if (this.icon) { this.icon.destroy(); }
-            if (this.background) { this.background.destroy(); }
+            if (this.spr) { this.spr.destroy(); }
             if (this.text) { this.text.destroy(); }
-            this.icon = null;
-            this.background = null;
+            this.spr = null;
             this.text = null;
             this.data = null;
             super.destroy();
         }
 
-        public setVisible(visible: boolean) {
-            this.icon.setFlag(SpriteFlag.Invisible, !visible);
-            if (this.background) {
-                this.background.setFlag(SpriteFlag.Invisible, !visible);
+        public setIcon(iconId: string) {
+            this.iconId = iconId;
+            this.buildSprite(this.z);
+        }
+
+        private buildSprite(z_: number) {
+            if (this.spr) {
+                this.spr.destroy();
             }
+            let img: Image;
+            if (this.style) {
+                img = icons.get(`button_${this.style}`).clone();
+                img.drawTransparentImage(icons.get(this.iconId), 0, 0);
+            } else {
+                img = icons.get(this.iconId).clone();
+            }
+            this.spr = sprites.create(img, 0);
+            this.spr.setFlag(SpriteFlag.Ghost, true);
+            this.spr.x = this.x;
+            this.spr.y = this.y;
+            this.spr.z = z_;
+            this.spr.data["kind"] = "button";
+            this.spr.data["component"] = this;
+        }
+
+        public setVisible(visible: boolean) {
+            this.spr.setFlag(SpriteFlag.Invisible, !visible);
             if (this.text) {
                 this.text.setFlag(SpriteFlag.Invisible, !visible);
             }
@@ -78,7 +78,7 @@ namespace kodu {
         public clickable() { return this.onClick != null; }
 
         public click() {
-            if (this.icon.flags & SpriteFlag.Invisible) { return; }
+            if (this.spr.flags & SpriteFlag.Invisible) { return; }
             if (this.onClick) {
                 this.onClick(this);
             }
@@ -98,7 +98,7 @@ namespace kodu {
                 this.text.setBorder(1, 15);
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
-                this.text.z = this.icon.z;
+                this.text.z = this.spr.z;
             } else {
                 this.text.destroy();
                 this.text = null;
@@ -114,12 +114,8 @@ namespace kodu {
         }
 
         updateAbsolute() {
-            this.icon.x = this.x;
-            this.icon.y = this.y;
-            if (this.background) {
-                this.background.x = this.x;
-                this.background.y = this.y;
-            }
+            this.spr.x = this.x;
+            this.spr.y = this.y;
             if (this.text) {
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
@@ -128,10 +124,7 @@ namespace kodu {
 
         updateScreenRelative() {
             const camera = this.stage.camera;
-            camera.setScreenRelativePosition(this.icon, this.x, this.y);
-            if (this.background) {
-                camera.setScreenRelativePosition(this.background, this.x, this.y);
-            }
+            camera.setScreenRelativePosition(this.spr, this.x, this.y);
             if (this.text) {
                 camera.setScreenRelativePosition(this.text, this.x, this.y - this.height);
             }

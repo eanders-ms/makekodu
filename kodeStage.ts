@@ -476,7 +476,7 @@ namespace kodu {
             this.kstage.showMenu(button.x + 16, button.y, items, "right", (selection: Button) => {
                 if (selection.id.indexOf("RC") === 0) {
                     this.defn.condition = selection.id;
-                    this.handleBtn.icon.setImage(icons.get(selection.id));
+                    this.handleBtn.setIcon(selection.id);
                 } else if (selection.id === "delete") {
                     this.pageui.deleteRuleAt(this.index);
                 } else if (selection.id === "plus") {
