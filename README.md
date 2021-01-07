@@ -16,7 +16,7 @@ environment would feel like in [MakeCode Arcade](https://arcade.makecode.com) an
 
 ![MakeKodu-Hello-World](content/makekodu-hello-world.png)
 
-Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/makekodu/)
+Try it out at [https://eanders-ms.github.io/makekodu/](https://eanders-ms.github.io/makekodu/)
 
 
 ### Top TODOs and bugfixes
@@ -88,13 +88,13 @@ Try it out at [https://humanapp.github.io/makekodu/](https://humanapp.github.io/
 - [ ] Play musical note with duration (long, short - stackable, but maps to musical timing scalars)
 - [ ] "Me" sensor, to query own properties like "feeling".
 
-## Edit this project ![Build status badge](https://github.com/humanapp/makekodu/workflows/MakeCode/badge.svg)
+## Edit this project ![Build status badge](https://github.com/eanders-ms/makekodu/workflows/MakeCode/badge.svg)
 
 To edit this repository in MakeCode.
 
 * open [https://arcade.makecode.com/](https://arcade.makecode.com/)
 * click on **Import** then click on **Import URL**
-* paste **https://github.com/humanapp/makekodu** and click import
+* paste **https://github.com/eanders-ms/makekodu** and click import
 
 #### Metadata (used for search, rendering)
 
