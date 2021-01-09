@@ -1,10 +1,10 @@
 namespace kodu {
-    export enum Feeling {
-        None,
-        Happy,
-        Angry,
-        Heart,
-        Sad
+    export const Feeling = {
+        None: "feel.0",
+        Happy: "feel.1",
+        Angry: "feel.2",
+        Heart: "feel.3",
+        Sad: "feel.4"
     }
 
     export class Brain {
@@ -12,8 +12,8 @@ namespace kodu {
         pages: Page[];
         done: boolean;
         wander: Wander;
-        prevFeeling: Feeling;
-        feeling: Feeling;
+        prevFeeling: string;
+        feeling: string;
         executing: boolean;
 
         constructor(public char: Character) {
@@ -63,7 +63,7 @@ namespace kodu {
             this.char.stage.notify("camera:follow", char);
         }
 
-        public feel(feeling: Feeling) {
+        public feel(feeling: string) {
             this.feeling = feeling;
         }
 

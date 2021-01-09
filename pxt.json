@@ -27,7 +27,6 @@
         "vec2.ts",
         "worldStage.ts",
         "kodeStage.ts",
-        "effects.ts",
         "kelpie.ts"
     ],
     "testFiles": [],

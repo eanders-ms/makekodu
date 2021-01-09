@@ -11,6 +11,8 @@ namespace kodu {
         private _data: any;
         private _flags: number;
 
+        onUpdate: (dt: number) => void;
+
         //% blockCombine block="x" callInDebugger
         get x(): number {
             return Fx.toFloat(this._x);
@@ -121,6 +123,10 @@ namespace kodu {
             const t = this.top - oy;
 
             screen.drawTransparentImage(this._image, l, t);
+        }
+
+        __update(camera: scene.Camera, dt: number) {
+            if (this.onUpdate) { this.onUpdate(dt); }
         }
     }
 }

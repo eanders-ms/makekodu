@@ -20,6 +20,7 @@ namespace kodu {
 
     export class Character extends ActorComponent {
         kelpie: Kelpie;
+        feeling: Kelpie;
         body: Body;
         bdefn: BrainDefn;
         brain: Brain;
@@ -33,7 +34,7 @@ namespace kodu {
         public set y(v: number) { this.kelpie.y = v; }
         public get pos(): Vec2 { return mkVec2(this.x, this.y); }
         public set pos(v: Vec2) { this.x = v.x; this.y = v.y; }
-        
+
         constructor(stage: Stage, x: number, y: number, public defn: CharacterDefn, bdefn: BrainDefn) {
             super(stage, "character");
             let icon = icons.get(defn.id);
@@ -43,6 +44,7 @@ namespace kodu {
             this.kelpie.z = 0;
             this.kelpie.data["kind"] = "character";
             this.kelpie.data["component"] = this;
+            this.kelpie.onUpdate = (dt) => this.kelpieUpdate(dt);
             this.bdefn = bdefn.clone();
             this.destroyed = false;
             this.impulseQueue = [];
@@ -72,14 +74,22 @@ namespace kodu {
             }
             this.kelpie.destroy();
             this.kelpie = null;
+            if (this.feeling) {
+                this.feeling.destroy();
+                this.feeling = null;
+            }
             this.stage.remove(this);
         }
 
-        public showFeeling(feeling: Feeling) {
-            effects.clearParticles(this.kelpie);
-            const effect = getEffect(feeling);
-            if (effect) {
-                //this.kelpie.startEffect(effect);
+        public showFeeling(feeling: string) {
+            if (this.feeling) {
+                this.feeling.destroy();
+                this.feeling = null;
+            }
+            const icon = icons.get(feeling, true);
+            if (icon) {
+                this.feeling = new Kelpie(icon);
+                this.feeling.z = this.kelpie.z;
             }
         }
 
@@ -150,6 +160,14 @@ namespace kodu {
                 this.body.vy += v.y;
             }
             this.impulseQueue = [];
+        }
+
+        kelpieUpdate(dt: number) {
+            const t = control.millis() / 100;
+            if (this.feeling) {
+                this.feeling.y = this.kelpie.top - Math.abs(Math.sin(t)) * 3;
+                this.feeling.x = this.kelpie.right;
+           }
         }
 
         notify(event: string, parm: any) {

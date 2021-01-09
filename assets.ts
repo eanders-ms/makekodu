@@ -4,8 +4,12 @@ namespace kodu {
     export class icons {
         static reg: {[name: string]: Image } = {};
 
-        public static get(name: string): Image {
-            return this.reg[name] || this.reg["MISSING"];
+        public static get(name: string, nullIfMissing = false): Image {
+            let icon = this.reg[name];
+            if (!icon && !nullIfMissing) {
+                icon = this.reg["MISSING"];
+            }
+            return icon;
         }
 
         public static init() {
@@ -73,6 +77,10 @@ namespace kodu {
             this.reg[RuleCondition.LOW] = icondb.rc_low;
             this.reg[RuleCondition.LOW_TO_HIGH] = icondb.rc_low_to_high;
             this.reg[RuleCondition.HIGH_TO_LOW] = icondb.rc_high_to_low;
+            this.reg[Feeling.Happy] = icondb.emo_happy;
+            this.reg[Feeling.Angry] = icondb.emo_angry;
+            this.reg[Feeling.Heart] = icondb.emo_heart;
+            this.reg[Feeling.Sad] = icondb.emo_sad;
         }
     }
 }
@@ -1237,4 +1245,51 @@ namespace icondb {
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
     `;
+    ///
+    /// FEELINGS
+    ///
+    export const emo_happy = img`
+        . . f f f f f . .
+        . f 9 9 9 9 9 f .
+        f 6 1 1 9 1 1 9 f
+        f 6 1 f 9 f 1 9 f
+        f 6 9 9 9 9 9 9 f
+        f 6 f 9 9 9 f 9 f
+        f 6 6 f f f 9 9 f
+        . f 6 6 6 9 9 f .
+        . . f f f f f . .
+    `
+    export const emo_angry = img`
+        . . f f f f f . .
+        . f 4 4 4 4 4 f .
+        f 2 1 4 4 4 1 4 f
+        f 2 1 f 4 f 1 4 f
+        f 2 4 4 4 4 4 4 f
+        f 2 4 4 4 4 4 4 f
+        f 2 f f f f f 4 f
+        . f 2 2 2 4 4 f .
+        . . f f f f f . .
+    `
+    export const emo_heart = img`
+        . . f f . f f . .
+        . f 4 4 f 4 4 f .
+        f 2 2 2 4 2 2 4 f
+        f 2 2 2 2 2 2 4 f
+        f 2 2 2 2 2 2 4 f
+        . f 2 2 2 2 4 f .
+        . . f 2 2 2 f . .
+        . . . f 2 f . . .
+        . . . . f . . . .
+    `
+    export const emo_sad= img`
+        . . f f f f f . .
+        . f b b b b b f .
+        f c 1 1 b 1 1 b f
+        f c 1 f b f 1 b f
+        f c 9 9 b 9 9 b f
+        f c b b b b b b f
+        f c c f f f b b f
+        . f c c c b b f .
+        . . f f f f f . .
+    `
 }
