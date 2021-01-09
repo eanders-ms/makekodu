@@ -106,7 +106,6 @@ namespace kodu {
                 (vRelVelocityX * vNormCollisionX) +
                 (vRelVelocityY * vNormCollisionY));
             speed *= Math.min(body1.restitution, body2.restitution);
-            //speed = Math.min(speed, 100);
             const impulse = ((2 * speed) / (body1.mass + body2.mass));
             if (body1.bumpCanMove) {
                 body1.vx -= (impulse * body2.mass * vNormCollisionX);

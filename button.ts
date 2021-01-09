@@ -1,19 +1,24 @@
 namespace kodu {
     export class Button extends Component {
-        kel: Kelpie;
+        icon: Kelpie;
+        back: Kelpie;
         text: TextSprite;
 
+        //% blockCombine block="id" callInDebugger
         get id() { return this.iconId; }
-        get width() { return this.kel.width; }
-        get height() { return this.kel.height; }
-        get z() { return this.kel.z; }
+        get width() { return this.icon.width; }
+        get height() { return this.icon.height; }
+        get z() { return this.icon.z; }
         set z(n: number) {
-            this.kel.z = n;
+            this.icon.z = n;
+            if (this.back) {
+                this.back.z = n - 1;
+            }
             if (this.text) {
                 this.text.z = n;
             }
         }
-        get data() { return this.kel.data; }
+        get data() { return this.icon.data; }
 
         constructor(
             stage: Stage,
@@ -30,10 +35,12 @@ namespace kodu {
         }
 
         destroy() {
-            if (this.kel) { this.kel.destroy(); }
+            if (this.icon) { this.icon.destroy(); }
+            if (this.back) { this.back.destroy(); }
             if (this.text) { this.text.destroy(); }
-            this.kel = null;
-            this.text = null;
+            this.icon = undefined;
+            this.back = undefined;
+            this.text = undefined;
             super.destroy();
         }
 
@@ -43,26 +50,35 @@ namespace kodu {
         }
 
         private buildSprite(z_: number) {
-            if (this.kel) {
-                this.kel.destroy();
+            if (this.icon) { this.icon.destroy(); }
+            if (this.back) { this.back.destroy(); }
+            if (this.text) { this.text.destroy(); }
+                        if (this.icon) {
+                this.icon.destroy();
             }
-            let img: Image;
+            this.icon = new Kelpie(icons.get(this.iconId));
             if (this.style) {
-                img = icons.get(`button_${this.style}`).clone();
-                img.drawTransparentImage(icons.get(this.iconId), 0, 0);
-            } else {
-                img = icons.get(this.iconId).clone();
+                this.back = new Kelpie(icons.get(`button_${this.style}`));
             }
-            this.kel = new Kelpie(img);
-            this.kel.x = this.x;
-            this.kel.y = this.y;
-            this.kel.z = z_;
-            this.kel.data["kind"] = "button";
-            this.kel.data["component"] = this;
+            this.icon.x = this.x;
+            this.icon.y = this.y;
+            this.icon.z = z_;
+            this.icon.data["kind"] = "button";
+            this.icon.data["component"] = this;
+            if (this.back) {
+                this.back.x = this.x;
+                this.back.y = this.y;
+                this.back.z = this.z - 1;
+                this.back.data["kind"] = "button";
+                this.back.data["component"] = this;
+            }
         }
 
         public setVisible(visible: boolean) {
-            this.kel.invisible = !visible;
+            this.icon.invisible = !visible;
+            if (this.back) {
+                this.back.invisible = !visible;
+            }
             if (this.text) {
                 this.text.setFlag(SpriteFlag.Invisible, !visible);
             }
@@ -74,7 +90,7 @@ namespace kodu {
         public clickable() { return this.onClick != null; }
 
         public click() {
-            if (this.kel.invisible) { return; }
+            if (this.icon.invisible) { return; }
             if (this.onClick) {
                 this.onClick(this);
             }
@@ -94,7 +110,7 @@ namespace kodu {
                 this.text.setBorder(1, 15);
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
-                this.text.z = this.kel.z;
+                this.text.z = this.icon.z;
             } else {
                 this.text.destroy();
                 this.text = null;
@@ -110,8 +126,12 @@ namespace kodu {
         }
 
         updateAbsolute() {
-            this.kel.x = this.x;
-            this.kel.y = this.y;
+            this.icon.x = this.x;
+            this.icon.y = this.y;
+            if (this.back) {
+                this.back.x = this.x;
+                this.back.y = this.y;
+            }
             if (this.text) {
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
@@ -120,7 +140,10 @@ namespace kodu {
 
         updateScreenRelative() {
             const camera = this.stage.camera;
-            camera.setScreenRelativePosition(this.kel, this.x, this.y);
+            camera.setScreenRelativePosition(this.icon, this.x, this.y);
+            if (this.back) {
+                camera.setScreenRelativePosition(this.back, this.x, this.y);
+            }
             if (this.text) {
                 camera.setScreenRelativePosition(this.text, this.x, this.y - this.height);
             }
