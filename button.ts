@@ -1,20 +1,19 @@
 namespace kodu {
     export class Button extends Component {
-        spr: Sprite;
+        kel: Kelpie;
         text: TextSprite;
-        data: any;
 
         get id() { return this.iconId; }
-
-        get width() { return this.spr.width; }
-        get height() { return this.spr.height; }
-        get z() { return this.spr.z; }
+        get width() { return this.kel.width; }
+        get height() { return this.kel.height; }
+        get z() { return this.kel.z; }
         set z(n: number) {
-            this.spr.z = n;
+            this.kel.z = n;
             if (this.text) {
                 this.text.z = n;
             }
         }
+        get data() { return this.kel.data; }
 
         constructor(
             stage: Stage,
@@ -27,16 +26,14 @@ namespace kodu {
             private onClick?: (button: Button) => void
         ) {
             super(stage, "button");
-            this.data = {};
             this.buildSprite(900);
         }
 
         destroy() {
-            if (this.spr) { this.spr.destroy(); }
+            if (this.kel) { this.kel.destroy(); }
             if (this.text) { this.text.destroy(); }
-            this.spr = null;
+            this.kel = null;
             this.text = null;
-            this.data = null;
             super.destroy();
         }
 
@@ -46,8 +43,8 @@ namespace kodu {
         }
 
         private buildSprite(z_: number) {
-            if (this.spr) {
-                this.spr.destroy();
+            if (this.kel) {
+                this.kel.destroy();
             }
             let img: Image;
             if (this.style) {
@@ -56,17 +53,16 @@ namespace kodu {
             } else {
                 img = icons.get(this.iconId).clone();
             }
-            this.spr = sprites.create(img, 0);
-            this.spr.setFlag(SpriteFlag.Ghost, true);
-            this.spr.x = this.x;
-            this.spr.y = this.y;
-            this.spr.z = z_;
-            this.spr.data["kind"] = "button";
-            this.spr.data["component"] = this;
+            this.kel = new Kelpie(img);
+            this.kel.x = this.x;
+            this.kel.y = this.y;
+            this.kel.z = z_;
+            this.kel.data["kind"] = "button";
+            this.kel.data["component"] = this;
         }
 
         public setVisible(visible: boolean) {
-            this.spr.setFlag(SpriteFlag.Invisible, !visible);
+            this.kel.invisible = !visible;
             if (this.text) {
                 this.text.setFlag(SpriteFlag.Invisible, !visible);
             }
@@ -78,7 +74,7 @@ namespace kodu {
         public clickable() { return this.onClick != null; }
 
         public click() {
-            if (this.spr.flags & SpriteFlag.Invisible) { return; }
+            if (this.kel.invisible) { return; }
             if (this.onClick) {
                 this.onClick(this);
             }
@@ -98,7 +94,7 @@ namespace kodu {
                 this.text.setBorder(1, 15);
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
-                this.text.z = this.spr.z;
+                this.text.z = this.kel.z;
             } else {
                 this.text.destroy();
                 this.text = null;
@@ -114,8 +110,8 @@ namespace kodu {
         }
 
         updateAbsolute() {
-            this.spr.x = this.x;
-            this.spr.y = this.y;
+            this.kel.x = this.x;
+            this.kel.y = this.y;
             if (this.text) {
                 this.text.x = this.x;
                 this.text.y = this.y - this.height;
@@ -124,7 +120,7 @@ namespace kodu {
 
         updateScreenRelative() {
             const camera = this.stage.camera;
-            camera.setScreenRelativePosition(this.spr, this.x, this.y);
+            camera.setScreenRelativePosition(this.kel, this.x, this.y);
             if (this.text) {
                 camera.setScreenRelativePosition(this.text, this.x, this.y - this.height);
             }

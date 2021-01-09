@@ -5,10 +5,10 @@ namespace util {
         return (x >= bounds.left) && (x <= bounds.right) && (y >= bounds.top) && (y <= bounds.bottom);
     }
 
-    export function pointInSprite(spr: Sprite, x: number, y: number): boolean {
-        const wOver2 = spr.width / 2;
-        const hOver2 = spr.height / 2;
-        return (x >= spr.x - wOver2) && (x <= spr.x + wOver2) && (y >= spr.y - hOver2) && (y <= spr.y + hOver2);
+    export function pointInSprite(kel: kodu.Kelpie, x: number, y: number): boolean {
+        const wOver2 = kel.width / 2;
+        const hOver2 = kel.height / 2;
+        return (x >= kel.x - wOver2) && (x <= kel.x + wOver2) && (y >= kel.y - hOver2) && (y <= kel.y + hOver2);
     }
 
     export function hitboxBoundsOverlap(a: HitboxBounds, b: HitboxBounds): boolean {
@@ -21,23 +21,25 @@ namespace util {
         return HitboxBounds.Intersects(a, b);
     }
 
-    export function getAllOverlapping(src: Sprite): Sprite[] {
+    export function getAllOverlapping(src: kodu.Kelpie): kodu.Kelpie[] {
         const srcHitbox = src.data["_hitbox"] || (src.data["_hitbox"] = calculateHitbox(src));
         const srcHitboxBounds = new HitboxBounds(src);
         const scene = game.currentScene();
-        return (game.currentScene().allSprites)
-            .filter(value => (value as any)["_kind"] !== undefined) // hack: filter to Sprite type
-            .map(value => value as Sprite)
-            .filter(value => value && value !== src)
-            .filter(value => !(value.flags & SpriteFlag.Invisible))
+        let kelpies = scene.allSprites as kodu.Kelpie[];
+        kelpies = kelpies
+            .filter(value => value["_data"] && value["_data"]["kelpie"] !== undefined) // hack: filter to kodu.Kelpie type
+            .filter(value => value && value !== src);
+        kelpies = kelpies
+            .filter(value => !value.invisible)
             .filter(value => {
                 const valHitboxBounds = new HitboxBounds(value);
                 return hitboxBoundsOverlap(valHitboxBounds, srcHitboxBounds);
             })
             .sort((a, b) => (a.x - b.x) + (a.y - b.y));
+        return kelpies;
     }
 
-    export function centerSpriteOnSprite(src: Sprite, dst: Sprite) {
+    export function centerSpriteOnSprite(src: kodu.Kelpie, dst: kodu.Kelpie) {
         src.x = dst.x;
         src.y = dst.y;
     }
@@ -60,7 +62,7 @@ namespace util {
         get height(): number { return this.bottom - this.top; }
         get center(): kodu.Vec2 { return kodu.mkVec2((this.left + this.right) >> 1, (this.top + this.bottom) >> 1); }
         
-        constructor(s: Sprite) {
+        constructor(s: kodu.Kelpie) {
             const box = s.data["_hitbox"] || (s.data["_hitbox"] = calculateHitbox(s));
             this.left = s.x + box.minX;
             this.top = s.y + box.minY;
@@ -81,7 +83,7 @@ namespace util {
         }
     }
 
-    export function calculateHitbox(s: Sprite): Hitbox {
+    export function calculateHitbox(s: kodu.Kelpie): Hitbox {
         const i = s.image;
         let minX = i.width;
         let minY = i.height;
@@ -105,13 +107,13 @@ namespace util {
         return new Hitbox(width, height, minX, minY);
     }
 
-    export function distSqBetweenSprites(a: Sprite, b: Sprite): number {
+    export function distSqBetweenSprites(a: kodu.Kelpie, b: kodu.Kelpie): number {
         const dx = a.x - b.x;
         const dy = a.y - b.y;
         return (dx * dx) + (dy * dy);
     }
 
-    export function distBetweenSprites(a: Sprite, b: Sprite): number {
+    export function distBetweenSprites(a: kodu.Kelpie, b: kodu.Kelpie): number {
         return Math.sqrt(distSqBetweenSprites(a, b));
     }
 

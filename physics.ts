@@ -9,19 +9,19 @@ namespace kodu {
         restitution: number;
         bumpCanMove: boolean;
 
-        get x() { return this.sprite.x; }
-        get y() { return this.sprite.y; }
-        set x(n: number) { this.sprite.x = n; }
-        set y(n: number) { this.sprite.y = n; }
+        get x() { return this.kelpie.x; }
+        get y() { return this.kelpie.y; }
+        set x(n: number) { this.kelpie.x = n; }
+        set y(n: number) { this.kelpie.y = n; }
 
-        constructor(public sprite: Sprite) {
+        constructor(public kelpie: Kelpie) {
             this.vx = 0;
             this.vy = 0;
             this.mass = 1;
             this.friction = 0;
             this.restitution = 1;
             this.bumpCanMove = true;
-            const hitbox = util.calculateHitbox(this.sprite);
+            const hitbox = util.calculateHitbox(this.kelpie);
             this.radius = Math.max(hitbox.width, hitbox.height) >> 1;
         }
 
@@ -61,7 +61,7 @@ namespace kodu {
 
         public removeBody(body: Body) {
             body.enabled = false;
-            body.sprite = null;
+            body.kelpie = null;
             this.deadBodies.push(body);
         }
 

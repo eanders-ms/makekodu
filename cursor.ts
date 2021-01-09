@@ -3,40 +3,38 @@ namespace kodu {
 
     export class Cursor extends Component {
         cursorMode: CursorMode;
-        sprite0: Sprite;
-        sprite1: Sprite;
+        kel0: Kelpie;
+        kel1: Kelpie;
         disabled: boolean;
 
-        public get x() { return this.sprite0.x; }
-        public get y() { return this.sprite0.y; }
+        public get x() { return this.kel0.x; }
+        public get y() { return this.kel0.y; }
         public set x(v: number) {
-            this.sprite0.x = v;
-            this.sprite1.x = v;
+            this.kel0.x = v;
+            this.kel1.x = v;
         }
         public set y(v: number) {
-            this.sprite0.y = v;
-            this.sprite1.y = v;
+            this.kel0.y = v;
+            this.kel1.y = v;
         }
 
         constructor(stage: Stage) {
             super(stage, "cursor");
-            this.sprite0 = sprites.create(icons.get("cursor"), 0);
-            this.sprite0.setFlag(SpriteFlag.Ghost, true);
-            this.sprite1 = sprites.create(icons.get("carry"), 0);
-            this.sprite1.setFlag(SpriteFlag.Ghost, true);
-            this.sprite0.setFlag(SpriteFlag.Invisible, true);
-            this.sprite1.setFlag(SpriteFlag.Invisible, true);
-            this.sprite0.z = 1000;
-            this.sprite1.z = 1000;
-            this.sprite0.data["kind"] = "cursor";
-            this.sprite0.data["component"] = this;
+            this.kel0 = new Kelpie(icons.get("cursor"));
+            this.kel1 = new Kelpie(icons.get("carry"));
+            this.kel0.invisible = true;
+            this.kel1.invisible = true;
+            this.kel0.z = 1000;
+            this.kel1.z = 1000;
+            this.kel0.data["kind"] = "cursor";
+            this.kel0.data["component"] = this;
             this.setCursorMode("free");
         }
 
         public setCursorMode(mode: CursorMode) {
             this.cursorMode = mode;
-            this.sprite0.setFlag(SpriteFlag.Invisible, mode !== "free");
-            this.sprite1.setFlag(SpriteFlag.Invisible, mode !== "burdened");
+            this.kel0.invisible = mode !== "free";
+            this.kel1.invisible = mode !== "burdened";
         }
 
         public moveTo(x: number, y: number) {
@@ -47,8 +45,8 @@ namespace kodu {
 
         public disable() {
             this.disabled = true;
-            this.sprite0.setFlag(SpriteFlag.Invisible, true);
-            this.sprite1.setFlag(SpriteFlag.Invisible, true);
+            this.kel0.invisible = true;
+            this.kel1.invisible = true;
         }
 
         public enable() {
@@ -57,7 +55,7 @@ namespace kodu {
         }
 
         getAllOverlapping() {
-            return util.getAllOverlapping(this.sprite0)
+            return util.getAllOverlapping(this.kel0)
                 .filter(spr => util.pointInSprite(spr, this.x, this.y))
                 .sort((a, b) => b.z - a.z);
         }

@@ -15,10 +15,10 @@ namespace kodu {
             this.y = scene.cameraProperty(CameraProperty.Y);
         }
 
-        public setScreenRelativePosition(s: Sprite, x: number, y: number) {
-            s.setPosition(
-                scene.cameraProperty(CameraProperty.X) - scene.screenWidth() / 2 + x + this.camera_movement_x,
-                scene.cameraProperty(CameraProperty.Y) - scene.screenHeight() / 2 + y + this.camera_movement_y);          
+        public setScreenRelativePosition(k: SpriteLike, x: number, y: number) {
+            const s = k as any;
+            s.x = scene.cameraProperty(CameraProperty.X) - scene.screenWidth() / 2 + x + this.camera_movement_x;
+            s.y = scene.cameraProperty(CameraProperty.Y) - scene.screenHeight() / 2 + y + this.camera_movement_y;
         }
 
         public moveTo(x: number, y: number) {

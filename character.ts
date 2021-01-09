@@ -19,7 +19,7 @@ namespace kodu {
     }
 
     export class Character extends ActorComponent {
-        sprite: Sprite;
+        kelpie: Kelpie;
         body: Body;
         bdefn: BrainDefn;
         brain: Brain;
@@ -27,23 +27,22 @@ namespace kodu {
         impulseQueue: Impulse[];
         bumps: Character[];
 
-        public get x() { return this.sprite.x; }
-        public set x(v: number) { this.sprite.x = v; }
-        public get y() { return this.sprite.y; }
-        public set y(v: number) { this.sprite.y = v; }
+        public get x() { return this.kelpie.x; }
+        public set x(v: number) { this.kelpie.x = v; }
+        public get y() { return this.kelpie.y; }
+        public set y(v: number) { this.kelpie.y = v; }
         public get pos(): Vec2 { return mkVec2(this.x, this.y); }
         public set pos(v: Vec2) { this.x = v.x; this.y = v.y; }
         
         constructor(stage: Stage, x: number, y: number, public defn: CharacterDefn, bdefn: BrainDefn) {
             super(stage, "character");
             let icon = icons.get(defn.id);
-            this.sprite = sprites.create(icon, 0);
-            this.sprite.setFlag(SpriteFlag.Ghost, true);
-            this.sprite.x = x;
-            this.sprite.y = y;
-            this.sprite.z = 0;
-            this.sprite.data["kind"] = "character";
-            this.sprite.data["component"] = this;
+            this.kelpie = new Kelpie(icon);
+            this.kelpie.x = x;
+            this.kelpie.y = y;
+            this.kelpie.z = 0;
+            this.kelpie.data["kind"] = "character";
+            this.kelpie.data["component"] = this;
             this.bdefn = bdefn.clone();
             this.destroyed = false;
             this.impulseQueue = [];
@@ -51,7 +50,7 @@ namespace kodu {
 
             const physics = this.stage.get<Physics>("physics");
             if (physics) {
-                this.body = new Body(this.sprite);
+                this.body = new Body(this.kelpie);
                 this.body.mass = this.defn.defaults.mass;
                 this.body.friction = this.defn.defaults.friction;
                 this.body.restitution = this.defn.defaults.restitution;
@@ -71,16 +70,16 @@ namespace kodu {
                 physics.removeBody(this.body);
                 this.body = null;
             }
-            this.sprite.destroy();
-            this.sprite = null;
+            this.kelpie.destroy();
+            this.kelpie = null;
             this.stage.remove(this);
         }
 
         public showFeeling(feeling: Feeling) {
-            effects.clearParticles(this.sprite);
+            effects.clearParticles(this.kelpie);
             const effect = getEffect(feeling);
             if (effect) {
-                this.sprite.startEffect(effect);
+                //this.kelpie.startEffect(effect);
             }
         }
 

@@ -255,7 +255,7 @@ namespace kodu {
         margin = 30;
 
         private pickDest() {
-            if (!this.brain.char.sprite) { return; }
+            if (!this.brain.char.kelpie) { return; }
             const camx = this.brain.char.stage.camera.x;
             const camy = this.brain.char.stage.camera.y;
             const x = -(80 + this.margin) + camx + Math.random() * (160 + this.margin * 2);

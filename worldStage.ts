@@ -309,8 +309,8 @@ namespace kodu {
                 }
                 case "physics:collision": {
                     const { body1, body2 } = parm;
-                    const char1 = body1.sprite.data["component"] as Character;
-                    const char2 = body2.sprite.data["component"] as Character;
+                    const char1 = body1.kelpie.data["component"] as Character;
+                    const char2 = body2.kelpie.data["component"] as Character;
                     char1.addBump(char2);
                     char2.addBump(char1);
                     break;
