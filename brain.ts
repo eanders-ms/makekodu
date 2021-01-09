@@ -252,7 +252,7 @@ namespace kodu {
             this.timer = setTimeout(() => this.timerCallback(), 1000 * Math.floor(2 + Math.random() * 3));
         }
 
-        margin = 30;
+        margin = 10;
 
         private pickDest() {
             if (!this.brain.char.kelpie) { return; }
