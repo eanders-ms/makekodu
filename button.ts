@@ -4,10 +4,9 @@ namespace kodu {
         back: Kelpie;
         text: TextSprite;
 
-        //% blockCombine block="id" callInDebugger
         get id() { return this.iconId; }
-        get width() { return this.icon.width; }
-        get height() { return this.icon.height; }
+        get width() { return this.back ? this.back.width : this.icon.width; }
+        get height() { return this.back ? this.back.height : this.icon.height; }
         get z() { return this.icon.z; }
         set z(n: number) {
             this.icon.z = n;
