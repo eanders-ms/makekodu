@@ -11,7 +11,7 @@ namespace kodu {
         private _data: any;
         private _flags: number;
 
-        //% callInDebugger
+        //% blockCombine block="x" callInDebugger
         get x(): number {
             return Fx.toFloat(this._x);
         }
@@ -19,7 +19,7 @@ namespace kodu {
             this._x = Fx8(v);
         }
 
-        //% callInDebugger
+        //% blockCombine block="y" callInDebugger
         get y(): number {
             return Fx.toFloat(this._y);
         }
@@ -27,36 +27,37 @@ namespace kodu {
             this._y = Fx8(v);
         }
 
-        //% callInDebugger
+        //% blockCombine block="width" callInDebugger
         get width() {
             return this._image.width;
         }
+        //% blockCombine block="height" callInDebugger
         get height() {
             return this._image.height;
         }
 
-        //% callInDebugger
+        //% blockCombine block="left" callInDebugger
         get left() {
-            return Fx.toFloat(this._x) - (this.width >> 1);
+            return this.x - (this.width >> 1);
         }
         set left(value: number) {
-            this._x = Fx8(value - (this.width >> 1));
+            this.x = value - (this.width >> 1);
         }
 
-        //% callInDebugger
+        //% blockCombine block="right" callInDebugger
         get right() {
             return this.left + this.width;
         }
 
-        //% callInDebugger
+        //% blockCombine block="top" callInDebugger
         get top() {
-            return Fx.toFloat(this._y) - (this.height >> 1);
+            return this.y - (this.height >> 1);
         }
         set top(value: number) {
-            this._y = Fx8(value + (this.width >> 1));
+            this.y = value + (this.width >> 1);
         }
 
-        //% callInDebugger
+        //% blockCombine block="bottom" callInDebugger
         get bottom() {
             return this.top + this.height;
         }
@@ -69,7 +70,7 @@ namespace kodu {
             this._data = value;
         }
 
-        //% callInDebugger
+        //% blockCombine block="image" callInDebugger
         get image(): Image {
             return this._image;
         }
@@ -78,11 +79,11 @@ namespace kodu {
             this._image = img;
         }
 
-        //% callInDebugger
+        //% blockCombine block="hud" callInDebugger
         get hud() { return !!(this._flags & KelpieFlags.HUD); }
         set hud(b: boolean) { b ? this._flags |= KelpieFlags.HUD : this._flags &= ~KelpieFlags.HUD; }
 
-        //% callInDebugger
+        //% blockCombine block="invisible" callInDebugger
         get invisible() { return !!(this._flags & KelpieFlags.Invisible); }
         set invisible(b: boolean) { b ? this._flags |= KelpieFlags.Invisible : this._flags &= ~KelpieFlags.Invisible; }
 
