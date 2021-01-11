@@ -22,7 +22,7 @@
         "physics.ts",
         "characters.ts",
         "library.ts",
-        "brain.ts",
+        "program.ts",
         "app.ts",
         "vec2.ts",
         "worldStage.ts",
