@@ -1,8 +1,8 @@
 namespace kodu {
     export type CursorMode = "free" | "burdened";
 
-    const maxCursorSpeed = 8;
-    const shiftGearsAt = 2;
+    const maxCursorSpeed = 5;
+    const shiftGearsAt = 3;
 
     export class Cursor extends Component {
         cursorMode: CursorMode;
@@ -124,9 +124,9 @@ namespace kodu {
                 if (!(this.moveCount % shiftGearsAt)) {
                     this.cursorSpeed += 1;
                     this.cursorSpeed = Math.min(this.cursorSpeed, maxCursorSpeed);
-                    this.x += x * this.cursorSpeed;
-                    this.y += y * this.cursorSpeed;
                 }
+                this.x += x * this.cursorSpeed;
+                this.y += y * this.cursorSpeed;
                 this.moveCount += 1;
                 this.stage.notify("cursor:moved", { x: this.x, y: this.y });
             } else {
