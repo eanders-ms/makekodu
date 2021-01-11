@@ -23,7 +23,7 @@ namespace kodu {
         feeling: Kelpie;
         body: Body;
         bdefn: BrainDefn;
-        brain: Brain;
+        prog: Program;
         destroyed: boolean;
         impulseQueue: Impulse[];
         bumps: Character[];
@@ -63,8 +63,8 @@ namespace kodu {
 
         public destroy() {
             this.destroyed = true;
-            if (this.brain) {
-                this.brain.done = true;
+            if (this.prog) {
+                this.prog.done = true;
             }
             this.stage.notify("character:destroying", this);
             const physics = this.getPhysics();
@@ -123,8 +123,8 @@ namespace kodu {
         }
 
         think() {
-            if (!this.destroyed && this.brain) {
-                this.brain.execute();
+            if (!this.destroyed && this.prog) {
+                this.prog.execute();
             }
             if (!this.destroyed) {
                 this.applyImpulses();
@@ -182,12 +182,12 @@ namespace kodu {
                 savedGame.chars.push(state);
             } else if (event === "gameModeChanged") {
                 if (parm === GameMode.Edit) {
-                    if (this.brain) {
-                        this.brain.destroy();
-                        this.brain = undefined;
+                    if (this.prog) {
+                        this.prog.destroy();
+                        this.prog = undefined;
                     }
                 } else if (parm === GameMode.Play) {
-                    this.brain = new Brain(this);
+                    this.prog = new Program(this);
                 }
             }
         }

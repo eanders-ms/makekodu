@@ -4,6 +4,9 @@ namespace kodu {
         HUD = 1 >> 1,
     }
 
+    /**
+     * A Kelpie is a sprite-like entity.
+     */
     export class Kelpie extends sprites.BaseSprite {
         private _x: Fx8
         private _y: Fx8
@@ -106,10 +109,11 @@ namespace kodu {
         isOutOfScreen(camera: scene.Camera): boolean {
             const ox = (this.hud) ? 0 : camera.drawOffsetX;
             const oy = (this.hud) ? 0 : camera.drawOffsetY;
-            return this.right - ox < 0 || this.bottom - oy < 0 || this.left - ox > screen.width || this.top - oy > screen.height;
+            return this.left - ox > screen.width || this.top - oy > screen.height || this.right - ox < 0 || this.bottom - oy < 0;
         }
 
         __visible(): boolean {
+            // Would be nice if the camera was passed in, for clip check.
             return !this.invisible;
         }
 
@@ -126,6 +130,7 @@ namespace kodu {
         }
 
         __update(camera: scene.Camera, dt: number) {
+            // Hm, dt is always 0.
             if (this.onUpdate) { this.onUpdate(dt); }
         }
     }

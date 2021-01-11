@@ -7,7 +7,7 @@ namespace kodu {
         Sad: "feel.4"
     }
 
-    export class Brain {
+    export class Program {
         currPage: number;
         pages: Page[];
         done: boolean;
@@ -77,7 +77,7 @@ namespace kodu {
     class Page {
         rules: Rule[];
 
-        constructor(public brain: Brain, public defn: PageDefn, public index: number) {
+        constructor(public prog: Program, public defn: PageDefn, public index: number) {
             this.rules = this.defn.rules.map(elem => new Rule(this, elem));
         }
 
@@ -87,13 +87,13 @@ namespace kodu {
             }
             this.rules = undefined;
             this.defn = undefined;
-            this.brain = undefined;
+            this.prog = undefined;
         }
 
         public execute() {
             for (const rule of this.rules) {
                 rule.execute();
-                if (this.brain.done) { break; }
+                if (this.prog.done) { break; }
             }
         }
 
@@ -114,7 +114,7 @@ namespace kodu {
         hasInput: boolean;
         hasMovement: boolean;
 
-        get brain(): Brain { return this.page.brain; }
+        get prog(): Program { return this.page.prog; }
 
         constructor(public page: Page, public defn: RuleDefn) {
             this.prevState = {};
@@ -151,7 +151,7 @@ namespace kodu {
 
         public execute() {
             if (this.hasInput) {
-                this.page.brain.char.stage.notify("char:has-input", this.page.brain.char);
+                this.page.prog.char.stage.notify("char:has-input", this.page.prog.char);
             }
             this.prevState = this.state;
             this.state = {};
@@ -192,10 +192,10 @@ namespace kodu {
 
         private queueDefaultMovement() {
             // Don't enqueue a movement if moves are already queued.
-            if (!this.state["direction"] && !this.brain.char.impulseQueue.length) {
-                const dir = this.brain.wander.direction();
-                const speed = this.brain.char.defn.defaults.speed;
-                this.brain.char.queueImpulse(dir, speed, ImpulseType.Default);
+            if (!this.state["direction"] && !this.prog.char.impulseQueue.length) {
+                const dir = this.prog.wander.direction();
+                const speed = this.prog.char.defn.defaults.speed;
+                this.prog.char.queueImpulse(dir, speed, ImpulseType.Default);
                 this.state["direction"] = dir;
             }
         }
@@ -206,7 +206,7 @@ namespace kodu {
         poked: boolean;
         timer: any;
 
-        constructor(public brain: Brain) {}
+        constructor(public prog: Program) {}
 
         public prepare() {
             this.poked = false;
@@ -231,8 +231,8 @@ namespace kodu {
             if (!this.dest) {
                 this.pickDest();
             }
-            const dx = (this.dest.x - this.brain.char.x);
-            const dy = (this.dest.y - this.brain.char.y);
+            const dx = (this.dest.x - this.prog.char.x);
+            const dy = (this.dest.y - this.prog.char.y);
             const distSq = (dx * dx) + (dy * dy);
 
             if (!distSq) {
@@ -255,9 +255,9 @@ namespace kodu {
         margin = 10;
 
         private pickDest() {
-            if (!this.brain.char.kelpie) { return; }
-            const camx = this.brain.char.stage.camera.x;
-            const camy = this.brain.char.stage.camera.y;
+            if (!this.prog.char.kelpie) { return; }
+            const camx = this.prog.char.stage.camera.x;
+            const camy = this.prog.char.stage.camera.y;
             const x = -(80 + this.margin) + camx + Math.random() * (160 + this.margin * 2);
             const y = -(60 + this.margin) + camy + Math.random() * (120 + this.margin * 2);
             this.dest = mkVec2(x, y);

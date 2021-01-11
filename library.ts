@@ -31,14 +31,14 @@ namespace kodu {
 
         [tid.sensor.see]: (rule: Rule) => {
             // Select characters except the one executing this.
-            const chars = rule.brain.char.stage.components
-                .filter(comp => comp.kind === "character" && comp !== rule.brain.char) as Character[];
+            const chars = rule.prog.char.stage.components
+                .filter(comp => comp.kind === "character" && comp !== rule.prog.char) as Character[];
             // Sort by distance, near to far.
             const targets = chars
                 .map(char => {
                     return <Target>{
                         char: char,
-                        distSq: util.distSqBetweenSprites(char.kelpie, rule.brain.char.kelpie)
+                        distSq: util.distSqBetweenSprites(char.kelpie, rule.prog.char.kelpie)
                     }
                 })
                 .sort((a, b) => a.distSq - b.distSq);
@@ -47,7 +47,7 @@ namespace kodu {
         },
 
         [tid.sensor.bump]: (rule: Rule) => {
-            const chars: Character[] = rule.brain.char.bumps || [];
+            const chars: Character[] = rule.prog.char.bumps || [];
             // Map to targets.
             const targets = chars
                 .map(char => {
@@ -101,7 +101,7 @@ namespace kodu {
         ///
         [tid.filter.me]: (rule: Rule) => {
             rule.state["targets"] = [{
-                char: rule.brain.char,
+                char: rule.prog.char,
                 distSq: 0
             }] as Target[];
             rule.state["exec"] = true;
@@ -182,7 +182,7 @@ namespace kodu {
         [tid.filter.express_none]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
-            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.None);
+            targets = targets.filter(targ => targ.char.prog.feeling === Feeling.None);
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
         },
@@ -190,7 +190,7 @@ namespace kodu {
         [tid.filter.express_happy]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
-            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Happy);
+            targets = targets.filter(targ => targ.char.prog.feeling === Feeling.Happy);
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
         },
@@ -198,7 +198,7 @@ namespace kodu {
         [tid.filter.express_angry]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
-            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Angry);
+            targets = targets.filter(targ => targ.char.prog.feeling === Feeling.Angry);
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
         },
@@ -206,7 +206,7 @@ namespace kodu {
         [tid.filter.express_heart]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
-            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Heart);
+            targets = targets.filter(targ => targ.char.prog.feeling === Feeling.Heart);
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
         },
@@ -214,7 +214,7 @@ namespace kodu {
         [tid.filter.express_sad]: (rule: Rule) => {
             let targets: Target[] = rule.state["targets"];
             if (!targets) { return; }
-            targets = targets.filter(targ => targ.char.brain.feeling === Feeling.Sad);
+            targets = targets.filter(targ => targ.char.prog.feeling === Feeling.Sad);
             rule.state["targets"] = targets;
             rule.state["exec"] = targets.length > 0;
         },
@@ -225,7 +225,7 @@ namespace kodu {
         [tid.actuator.move]: (rule: Rule) => {
             const dir = rule.state["direction"];
             if (!dir) { return; }
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             const impulseType: ImpulseType = rule.state["exclusive-move"] ? ImpulseType.Exclusive : ImpulseType.Ambient;
             actor.queueImpulse(dir, speed, impulseType);
@@ -234,13 +234,13 @@ namespace kodu {
         [tid.actuator.switch_page]: (rule: Rule) => {
             const page: number = rule.state["page"];
             if (page !== undefined) {
-                rule.brain.switchPage(page);
+                rule.prog.switchPage(page);
             }
         },
 
         [tid.actuator.vanish]: (rule: Rule) => {
             const targets: Target[] = rule.state["targets"];
-            let vanishee: Character = rule.brain.char;
+            let vanishee: Character = rule.prog.char;
             if (targets && targets.length) {
                 vanishee = targets[0].char;
             }
@@ -251,23 +251,23 @@ namespace kodu {
 
         [tid.actuator.camera_follow]: (rule: Rule) => {
             const targets: Target[] = rule.state["targets"];
-            let target: Character = rule.brain.char;
+            let target: Character = rule.prog.char;
             if (targets && targets.length) {
                 target = targets[0].char;
             }
             if (target) {
-                rule.brain.cameraFollow(target);
+                rule.prog.cameraFollow(target);
             }
         },
 
         [tid.actuator.express]: (rule: Rule) => {
-            let expressee: Character = rule.brain.char;
+            let expressee: Character = rule.prog.char;
             if (rule.state["direct-target"]) {
                 expressee = rule.state["direct-target"].char;
             }
             let feeling = rule.state["feeling"];
             if (expressee && feeling !== undefined) {
-                expressee.brain.feel(feeling);
+                expressee.prog.feel(feeling);
             }
         },
 
@@ -276,7 +276,7 @@ namespace kodu {
         ///
         [tid.modifier.me]: (rule: Rule) => {
             const targets: Target[] = [{
-                char: rule.brain.char,
+                char: rule.prog.char,
                 distSq: 0
             }];
             rule.state["targets"] = targets;
@@ -293,13 +293,13 @@ namespace kodu {
         },
 
         [tid.modifier.quickly]: (rule: Rule) => {
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed + actor.defn.defaults.speed * 0.5;
         },
 
         [tid.modifier.slowly]: (rule: Rule) => {
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             const speed = rule.state["speed"] || actor.defn.defaults.speed;
             rule.state["speed"] = speed * 0.75;
         },
@@ -308,7 +308,7 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
             const dist = util.distBetweenSprites(target.char.kelpie, actor.kelpie);
@@ -322,7 +322,7 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
             const dist = util.distBetweenSprites(target.char.kelpie, actor.kelpie);
@@ -336,7 +336,7 @@ namespace kodu {
             const targets = rule.state["targets"] as Target[];
             if (!targets || !targets.length) { return; }
             const target = targets[0];
-            const actor = rule.brain.char;
+            const actor = rule.prog.char;
             const vToTarget = Vec2.Sub(target.char.pos, actor.pos);
             const vToTargetN = Vec2.Normal(vToTarget);
             // Evaluates the actor's queued impulses and returns a normalized direction.
