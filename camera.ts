@@ -35,7 +35,7 @@ namespace kodu {
             this.following = null;
         }
 
-        update() {
+        update(dt: number) {
             this.camera_movement_x = 0;
             this.camera_movement_y = 0;
             if (this.following) {

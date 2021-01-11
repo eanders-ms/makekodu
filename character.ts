@@ -119,7 +119,7 @@ namespace kodu {
         getGameMode(): GameMode { return this.stage.get<GameMode>("gameMode"); }
         getPhysics(): Physics { return this.stage.get<Physics>("physics"); }
 
-        update() {
+        update(dt: number) {
         }
 
         think() {

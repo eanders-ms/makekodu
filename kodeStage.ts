@@ -673,9 +673,8 @@ namespace kodu {
             this.brain = new BrainUI(this, this.char.bdefn.clone(), -72, -32);
             this.brain.layout();
 
-            game.onUpdate(() => {
-                this.update();
-            });
+            this.start();
+
             /*
             game.onUpdateInterval(5000, function () {
                 // Watch for sprite leaks.

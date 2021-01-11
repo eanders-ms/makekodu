@@ -116,7 +116,7 @@ namespace kodu {
             }
         }
 
-        update() {
+        update(dt: number) {
             if (this.hud) {
                 this.updateScreenRelative();
             } else {

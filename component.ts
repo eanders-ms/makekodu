@@ -10,7 +10,7 @@ namespace kodu {
                 let fff = 0;
             }
         }
-        update() {}
+        update(dt: number) {}
         notify(event: string, parm: any) {}
     }
 

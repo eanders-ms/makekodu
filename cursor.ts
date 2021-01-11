@@ -1,16 +1,18 @@
 namespace kodu {
     export type CursorMode = "free" | "burdened";
 
-    const maxCursorSpeed = 5;
-    const shiftGearsAt = 3;
+    const maxCursorSpeed = 200 / 1000;       // pixels/milli
+    const startCursorSpeed = 10 / 1000;      //
+    const cursorSpeedInc = 10 / 1000;        // 
+    const shiftGearsAt = 1000;              // millis
 
     export class Cursor extends Component {
         cursorMode: CursorMode;
         kel0: Kelpie;
         kel1: Kelpie;
         disabled: boolean;
-        moveCount: number;
-        cursorSpeed: number;
+        moveStartMs: number;    // millis at move start
+        cursorSpeed: number;    // pixels/milli
 
         public get x() { return this.kel0.x; }
         public get y() { return this.kel0.y; }
@@ -34,7 +36,7 @@ namespace kodu {
             this.kel0.data["kind"] = "cursor";
             this.kel0.data["component"] = this;
             this.setCursorMode("free");
-            this.moveCount = 0;
+            this.moveStartMs = 0;
             this.cursorSpeed = 0;
         }
 
@@ -104,7 +106,7 @@ namespace kodu {
             this.stage.notify("cursor:cancel", { x: this.x, y: this.y });
         }
 
-        update() {
+        update(dt: number) {
             if (this.disabled) { return; }
             let x = 0;
             let y = 0;
@@ -121,17 +123,18 @@ namespace kodu {
                 x += 1;
             }
             if (x || y) {
-                if (!(this.moveCount % shiftGearsAt)) {
-                    this.cursorSpeed += 1;
+                const t = control.millis();
+                if (t + shiftGearsAt > this.moveStartMs) {
+                    this.moveStartMs = t;
+                    this.cursorSpeed += cursorSpeedInc;
                     this.cursorSpeed = Math.min(this.cursorSpeed, maxCursorSpeed);
                 }
-                this.x += x * this.cursorSpeed;
-                this.y += y * this.cursorSpeed;
-                this.moveCount += 1;
+                this.x += x * this.cursorSpeed * dt;
+                this.y += y * this.cursorSpeed * dt;
                 this.stage.notify("cursor:moved", { x: this.x, y: this.y });
             } else {
-                this.moveCount = 0;
-                this.cursorSpeed = 0;
+                this.moveStartMs = control.millis();
+                this.cursorSpeed = startCursorSpeed;
             }
         }
 

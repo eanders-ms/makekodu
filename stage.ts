@@ -3,6 +3,7 @@ namespace kodu {
         components: Component[];
         camera: Camera;
         cursor: Cursor;
+        prevMs: number;
 
         constructor(public app: App, public name: string) {
         }
@@ -10,8 +11,8 @@ namespace kodu {
         public get<T>(field: string): T { return undefined; }
         public set<T>(field: string, value: T) { }
 
-        public update() {
-            this.components.forEach(comp => comp.update());
+        public update(dt: number) {
+            this.components.forEach(comp => comp.update(dt));
         }
 
         public remove(comp: Component) {
@@ -55,6 +56,17 @@ namespace kodu {
             });
             controller.menu.onEvent(ControllerButtonEvent.Pressed, () => {
                 this.handleMenuPressed();
+            });
+        }
+
+        protected start() {
+            this.prevMs = control.millis();
+
+            game.onUpdate(() => {
+                const t = control.millis();
+                const dt = t - this.prevMs;
+                this.update(dt);
+                this.prevMs = t;
             });
         }
 

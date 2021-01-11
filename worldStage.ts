@@ -65,7 +65,9 @@ namespace kodu {
             this.charMenu = new Menu(this, charMenuItems, false);
             this.setGameMode(GameMode.Edit);
 
-            game.onUpdate(() => this.update());
+            this.start();
+
+
 
             /*
             game.onUpdateInterval(5000, function () {
@@ -267,8 +269,8 @@ namespace kodu {
             this.spawnCharacter(char.x + 8, char.y + 8, char.defn, char.bdefn);
         }
 
-        update() {
-            super.update();
+        update(dt: number) {
+            super.update(dt);
             if (this.gameMode === GameMode.Play) {
                 this.physics.simulate();
                 this.cursor.enable();

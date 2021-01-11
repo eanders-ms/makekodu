@@ -55,8 +55,8 @@ namespace kodu {
             return this.buttons.length > 0;
         }
 
-        update() {
-            this.buttons.forEach(button => button.update());
+        update(dt: number) {
+            this.buttons.forEach(button => button.update(dt));
         }
     }
 }
