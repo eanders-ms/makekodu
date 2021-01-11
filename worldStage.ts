@@ -1,6 +1,6 @@
 namespace kodu {
 
-    const SAVEGAME = "saveGame4";
+    const SAVEGAME = "saveGame5";
 
     export type SavedGame = {
         chars: CharacterState[];
