@@ -1,11 +1,16 @@
 namespace kodu {
     export type CursorMode = "free" | "burdened";
 
+    const maxCursorSpeed = 8;
+    const shiftGearsAt = 2;
+
     export class Cursor extends Component {
         cursorMode: CursorMode;
         kel0: Kelpie;
         kel1: Kelpie;
         disabled: boolean;
+        moveCount: number;
+        cursorSpeed: number;
 
         public get x() { return this.kel0.x; }
         public get y() { return this.kel0.y; }
@@ -29,6 +34,8 @@ namespace kodu {
             this.kel0.data["kind"] = "cursor";
             this.kel0.data["component"] = this;
             this.setCursorMode("free");
+            this.moveCount = 0;
+            this.cursorSpeed = 0;
         }
 
         public setCursorMode(mode: CursorMode) {
@@ -99,26 +106,32 @@ namespace kodu {
 
         update() {
             if (this.disabled) { return; }
-            let moved = false;
-            const cursorSpeed = this.stage.app.cursorSpeed;
+            let x = 0;
+            let y = 0;
             if (controller.up.isPressed()) {
-                this.y -= cursorSpeed;
-                moved = true;
+                y -= 1;
             }
             if (controller.down.isPressed()) {
-                this.y += cursorSpeed;
-                moved = true;
+                y += 1;
             }
             if (controller.left.isPressed()) {
-                this.x -= cursorSpeed;
-                moved = true;
+                x -= 1;
             }
             if (controller.right.isPressed()) {
-                this.x += cursorSpeed;
-                moved = true;
+                x += 1;
             }
-            if (moved) {
+            if (x || y) {
+                if (!(this.moveCount % shiftGearsAt)) {
+                    this.cursorSpeed += 1;
+                    this.cursorSpeed = Math.min(this.cursorSpeed, maxCursorSpeed);
+                    this.x += x * this.cursorSpeed;
+                    this.y += y * this.cursorSpeed;
+                }
+                this.moveCount += 1;
                 this.stage.notify("cursor:moved", { x: this.x, y: this.y });
+            } else {
+                this.moveCount = 0;
+                this.cursorSpeed = 0;
             }
         }
 

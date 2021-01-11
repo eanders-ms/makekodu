@@ -3,8 +3,6 @@ namespace kodu {
         stageManager: StageManager;
         worldStage: WorldStage;
 
-        public cursorSpeed = 3;
-
         constructor() {
             // One interval delay to ensure all static constructors have executed.
             setTimeout(() => {
