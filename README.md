@@ -56,7 +56,7 @@ Try it out at [https://eanders-ms.github.io/makekodu/](https://eanders-ms.github
 - [ ] Dynamic number of pages. Add/delete pages.
 - [ ] Move brain tile left/right.
 - [ ] Better brain editor perf on devices. Maybe should be tilemap not sprites?
-- [ ] In "play" mode, worldStage cursor should be in HUD layer.
+- [ ] In "play" mode, worldStage cursor should be in HUD layer (maybe).
 
 ### TODO (Language - not prioritized)
 

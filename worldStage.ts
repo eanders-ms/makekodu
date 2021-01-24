@@ -92,6 +92,7 @@ namespace kodu {
         }
 
         private handlePlayClicked() {
+            while (controller.A.isPressed()) { pause(10); }
             this.setGameMode(GameMode.Play);
         }
 
