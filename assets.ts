@@ -13,7 +13,10 @@ namespace kodu {
         }
 
         public static init() {
-            this.reg["cursor"] = icondb.ui_cursor;
+            this.reg["cursor_free_reticle"] = icondb.ui_cursor_free_reticle;
+            this.reg["cursor_burdened_reticle"] = icondb.ui_cursor_burdened_reticle;
+            this.reg["cursor_free_stylus"] = icondb.ui_cursor_free_stylus;
+            this.reg["cursor_burdened_stylus"] = icondb.ui_cursor_burdened_stylus;
             this.reg["kodu"] = this.reg[tid.filter.kodu] = this.reg[tid.modifier.kodu] = icondb.char_kodu;
             this.reg["apple"] = this.reg[tid.filter.apple] = this.reg[tid.modifier.apple] = icondb.char_apple;
             this.reg["tree"] = this.reg[tid.filter.tree] = this.reg[tid.modifier.tree] = icondb.char_tree;
@@ -31,7 +34,6 @@ namespace kodu {
             this.reg["move"] = icondb.btn_move;
             this.reg["duplicate"] = icondb.btn_duplicate;
             this.reg["delete"] = icondb.btn_delete;
-            this.reg["carry"] = icondb.btn_carry;
             this.reg["cancel"] = icondb.btn_cancel;
             this.reg["ok"] = icondb.btn_ok;
             this.reg["plus"] = icondb.btn_plus;
@@ -104,7 +106,10 @@ namespace icondb {
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
     `;
-    export const ui_cursor = img`
+    ///
+    /// CURSORS
+    ///
+    export const ui_cursor_free_reticle = img`
         . . f f f . .
         . . f 5 f . .
         f f f 5 f f f
@@ -113,6 +118,60 @@ namespace icondb {
         . . f 5 f . .
         . . f f f . .
     `;
+    export const ui_cursor_burdened_reticle = img`
+        . . f f f . .
+        . . f 9 f . .
+        f f f 9 f f f
+        f 9 9 9 9 9 f
+        f f f 9 f f f
+        . . f 9 f . .
+        . . f f f . .
+    `;
+    export const ui_cursor_free_stylus = img`
+        ...............ff..
+        ..............faaf.
+        .............fa33af
+        ............f4533af
+        ...........f4555af.
+        ..........f45554f..
+        .........f45554f...
+        ........fe5554f....
+        ........fee54f.....
+        ........ffeef......
+        ........ffff.......
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+    `;
+    export const ui_cursor_burdened_stylus = img`
+        ...............ff..
+        ..............faaf.
+        .............fa33af
+        ............f4533af
+        ...........f4555af.
+        ..........f45554f..
+        .........f45554f...
+        ........fe5554f....
+        ........fee54f.....
+        ........ffeef......
+        ........ffff.......
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+        ...................
+    `;
+    ///
+    /// MISC
+    ///
     export const ui_when = img`
         . 7 7 7 7 7 7 7 .
         . 7 7 7 1 1 1 7 .
@@ -341,15 +400,6 @@ namespace icondb {
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
         . . . . . . . . . . . . . . . .
-    `;
-    export const btn_carry = img`
-        . . f f f . .
-        . . f 9 f . .
-        f f f 9 f f f
-        f 9 9 9 9 9 f
-        f f f 9 f f f
-        . . f 9 f . .
-        . . f f f . .
     `;
     export const btn_cancel = img`
         . . . . . . . . . . . . . . . .
@@ -1267,7 +1317,7 @@ namespace icondb {
         f 2 4 4 4 4 4 4 f
         f 2 4 4 4 4 4 4 f
         f 2 2 f f f 4 4 f
-        . f 2 2 2 4 4 f .
+        . f 2 2 2 2 4 f .
         . . f f f f f . .
     `
     export const emo_heart = img`
@@ -1281,7 +1331,7 @@ namespace icondb {
         . . . f 2 f . . .
         . . . . f . . . .
     `
-    export const emo_sad= img`
+    export const emo_sad = img`
         . . f f f f f . .
         . f b b b b b f .
         f c 1 1 b 1 1 b f

@@ -38,7 +38,7 @@ namespace kodu {
                 .map(char => {
                     return <Target>{
                         char: char,
-                        distSq: util.distSqBetweenSprites(char.kelpie, rule.prog.char.kelpie)
+                        distSq: util.distSqBetweenSprites(char.kel, rule.prog.char.kel)
                     }
                 })
                 .sort((a, b) => a.distSq - b.distSq);
@@ -311,7 +311,7 @@ namespace kodu {
             const actor = rule.prog.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
-            const dist = util.distBetweenSprites(target.char.kelpie, actor.kelpie);
+            const dist = util.distBetweenSprites(target.char.kel, actor.kel);
             if (!dist) { return; }
             dx /= dist;
             dy /= dist;
@@ -325,7 +325,7 @@ namespace kodu {
             const actor = rule.prog.char;
             let dx = target.char.x - actor.x;
             let dy = target.char.y - actor.y;
-            const dist = util.distBetweenSprites(target.char.kelpie, actor.kelpie);
+            const dist = util.distBetweenSprites(target.char.kel, actor.kel);
             if (!dist) { return; }
             dx /= dist;
             dy /= dist;

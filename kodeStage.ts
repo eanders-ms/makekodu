@@ -560,6 +560,7 @@ namespace kodu {
 
     export class KodeStage extends Stage {
         static ID = STAGE_ID;
+        cursor: StickyCursor;
         okBtn: Button;
         cancelBtn: Button;
         charBtn: Button;
@@ -568,6 +569,42 @@ namespace kodu {
 
         constructor(app: App, public char: Character) {
             super(app, STAGE_ID);
+        }
+
+        initScene() {
+            super.initScene();
+            this.cursor = new StickyCursor(this, "stylus");
+            scene.setBackgroundColor(11);
+            this.cancelBtn = new Button(
+                this,
+                "white",
+                "cancel",
+                "Cancel",
+                136, 8, true,
+                () => this.handleCancelBtnClicked());
+            this.okBtn = new Button(
+                this,
+                "white",
+                "ok",
+                "OK",
+                152, 8, true,
+                () => this.handleOkBtnClicked());
+            this.cursor.moveTo(0, 0);
+            this.camera.moveTo(0, 0);
+            this.charBtn = new Button(this, "clear", this.char.defn.id, "", 8, 8, true, () => this.handleCharBtnClick());
+            this.brain = new BrainUI(this, this.char.bdefn.clone(), -72, -32);
+            this.brain.layout();
+
+            this.start();
+
+            /*
+            game.onUpdateInterval(5000, function () {
+                // Watch for sprite leaks.
+                console.log("# sprites: " + game.currentScene().allSprites.length);
+                // Watch for memory leaks.
+                // control.heapSnapshot()
+            });
+            */
         }
 
         public showMenu(x: number, y: number, items: MenuItemDefn[], direction: MenuDirection, onSelect: (selection: Button) => void) {
@@ -650,51 +687,16 @@ namespace kodu {
             buttons.forEach(elem => elem.hover(elem === button));
         }
 
-        initScene() {
-            super.initScene();
-            scene.setBackgroundColor(11);
-            this.cancelBtn = new Button(
-                this,
-                "white",
-                "cancel",
-                "Cancel",
-                136, 8, true,
-                () => this.handleCancelBtnClicked());
-            this.okBtn = new Button(
-                this,
-                "white",
-                "ok",
-                "OK",
-                152, 8, true,
-                () => this.handleOkBtnClicked());
-            this.cursor.moveTo(0, 0);
-            this.camera.moveTo(0, 0);
-            this.charBtn = new Button(this, "clear", this.char.defn.id, "", 8, 8, true, () => this.handleCharBtnClick());
-            this.brain = new BrainUI(this, this.char.bdefn.clone(), -72, -32);
-            this.brain.layout();
-
-            this.start();
-
-            /*
-            game.onUpdateInterval(5000, function () {
-                // Watch for sprite leaks.
-                console.log("# sprites: " + game.currentScene().allSprites.length);
-                // Watch for memory leaks.
-                // control.heapSnapshot()
-            });
-            */
-            game.onUpdateInterval(5000, () => {
-                this.components.forEach((item: any) => {
-                    if (item.x === 0 && item.y === 0) {
-                        let f = 0;
-                    }
-                }); 
-            });
-        }
-
         shutdownScene() {
             this.char = null;
             super.shutdownScene();
+        }
+
+        get<T>(field: string): T {
+            switch (field) {
+                case "camera-step": return 8 as any as T;
+            }
+            return null;
         }
 
         notify(event: string, parm?: any) {

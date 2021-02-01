@@ -19,7 +19,7 @@ namespace kodu {
     }
 
     export class Character extends ActorComponent {
-        kelpie: Kelpie;
+        kel: Kelpie;
         feeling: Kelpie;
         body: Body;
         bdefn: BrainDefn;
@@ -28,23 +28,23 @@ namespace kodu {
         impulseQueue: Impulse[];
         bumps: Character[];
 
-        public get x() { return this.kelpie.x; }
-        public set x(v: number) { this.kelpie.x = v; }
-        public get y() { return this.kelpie.y; }
-        public set y(v: number) { this.kelpie.y = v; }
+        public get x() { return this.kel.x; }
+        public set x(v: number) { this.kel.x = v; }
+        public get y() { return this.kel.y; }
+        public set y(v: number) { this.kel.y = v; }
         public get pos(): Vec2 { return mkVec2(this.x, this.y); }
         public set pos(v: Vec2) { this.x = v.x; this.y = v.y; }
 
         constructor(stage: Stage, x: number, y: number, public defn: CharacterDefn, bdefn: BrainDefn) {
             super(stage, "character");
             let icon = icons.get(defn.id);
-            this.kelpie = new Kelpie(icon);
-            this.kelpie.x = x;
-            this.kelpie.y = y;
-            this.kelpie.z = 0;
-            this.kelpie.data["kind"] = "character";
-            this.kelpie.data["component"] = this;
-            this.kelpie.onUpdate = (dt) => this.kelpieUpdate(dt);
+            this.kel = new Kelpie(icon);
+            this.kel.x = x;
+            this.kel.y = y;
+            this.kel.z = 0;
+            this.kel.data["kind"] = "character";
+            this.kel.data["component"] = this;
+            this.kel.onUpdate = (dt) => this.kelUpdate(dt);
             this.bdefn = bdefn.clone();
             this.destroyed = false;
             this.impulseQueue = [];
@@ -52,13 +52,15 @@ namespace kodu {
 
             const physics = this.stage.get<Physics>("physics");
             if (physics) {
-                this.body = new Body(this.kelpie);
+                this.body = new Body(this.kel);
                 this.body.mass = this.defn.defaults.mass;
                 this.body.friction = this.defn.defaults.friction;
                 this.body.restitution = this.defn.defaults.restitution;
                 this.body.bumpCanMove = this.defn.defaults.bumpCanMove;
                 physics.addBody(this.body);
             }
+
+            stage.radar.add(this.kel);
         }
 
         public destroy() {
@@ -72,8 +74,8 @@ namespace kodu {
                 physics.removeBody(this.body);
                 this.body = null;
             }
-            this.kelpie.destroy();
-            this.kelpie = null;
+            this.kel.destroy();
+            this.kel = null;
             if (this.feeling) {
                 this.feeling.destroy();
                 this.feeling = null;
@@ -89,7 +91,7 @@ namespace kodu {
             const icon = icons.get(feeling, true);
             if (icon) {
                 this.feeling = new Kelpie(icon);
-                this.feeling.z = this.kelpie.z;
+                this.feeling.z = this.kel.z;
             }
         }
 
@@ -162,11 +164,11 @@ namespace kodu {
             this.impulseQueue = [];
         }
 
-        kelpieUpdate(dt: number) {
+        kelUpdate(dt: number) {
             const t = control.millis() / 100;
             if (this.feeling) {
-                this.feeling.y = this.kelpie.top - Math.abs(Math.sin(t)) * 3;
-                this.feeling.x = this.kelpie.right;
+                this.feeling.y = this.kel.top - Math.abs(Math.sin(t)) * 3;
+                this.feeling.x = this.kel.right;
            }
         }
 

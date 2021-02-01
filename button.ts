@@ -31,6 +31,8 @@ namespace kodu {
         ) {
             super(stage, "button");
             this.buildSprite(900);
+            stage.radar.add(this.icon);
+            stage.radar.add(this.back);
         }
 
         destroy() {
@@ -52,9 +54,6 @@ namespace kodu {
             if (this.icon) { this.icon.destroy(); }
             if (this.back) { this.back.destroy(); }
             if (this.text) { this.text.destroy(); }
-                        if (this.icon) {
-                this.icon.destroy();
-            }
             this.icon = new Kelpie(icons.get(this.iconId));
             if (this.style) {
                 this.back = new Kelpie(icons.get(`button_${this.style}`));

@@ -1,8 +1,8 @@
 namespace kodu {
     export class Stage {
         components: Component[];
+        radar: KelpieGrid;
         camera: Camera;
-        cursor: Cursor;
         prevMs: number;
 
         constructor(public app: App, public name: string) {
@@ -29,14 +29,8 @@ namespace kodu {
             comp.stage = this;
         }
 
-        handleAPressed() {
-            this.cursor.handleAPressed();
-        }
-
-        handleBPressed() {
-            this.cursor.handleBPressed();
-        }
-
+        handleAPressed() {}
+        handleBPressed() {}
         handleMenuPressed() {}
 
         handleCursorCanvasClick(x: number, y: number) {}
@@ -45,9 +39,9 @@ namespace kodu {
         handleCursorCancel() {}
 
         initScene() {
+            this.radar = new KelpieGrid();
             this.components = [];
             this.camera = new Camera(this);
-            this.cursor = new Cursor(this);
             controller.A.onEvent(ControllerButtonEvent.Pressed, () => {
                 this.handleAPressed();
             });

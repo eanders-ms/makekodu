@@ -9,7 +9,6 @@
     "files": [
         "main.ts",
         "README.md",
-        "extras.ts",
         "button.ts",
         "camera.ts",
         "component.ts",
@@ -27,7 +26,8 @@
         "vec2.ts",
         "worldStage.ts",
         "kodeStage.ts",
-        "kelpie.ts"
+        "kelpie.ts",
+        "util.ts"
     ],
     "testFiles": [],
     "targetVersions": {

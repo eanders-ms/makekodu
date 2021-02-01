@@ -1,49 +1,24 @@
 namespace kodu {
-    export type CursorMode = "free" | "burdened";
-
-    const maxCursorSpeed = 200 / 1000;       // pixels/milli
-    const startCursorSpeed = 10 / 1000;      //
-    const cursorSpeedInc = 10 / 1000;        // 
-    const shiftGearsAt = 1000;              // millis
+    export type VisualState = "free" | "burdened";
 
     export class Cursor extends Component {
-        cursorMode: CursorMode;
-        kel0: Kelpie;
-        kel1: Kelpie;
+        kel: Kelpie;
         disabled: boolean;
-        moveStartMs: number;    // millis at move start
-        cursorSpeed: number;    // pixels/milli
+        visualState: VisualState;
 
-        public get x() { return this.kel0.x; }
-        public get y() { return this.kel0.y; }
-        public set x(v: number) {
-            this.kel0.x = v;
-            this.kel1.x = v;
-        }
-        public set y(v: number) {
-            this.kel0.y = v;
-            this.kel1.y = v;
-        }
+        public get x() { return this.kel.x; }
+        public get y() { return this.kel.y; }
+        public set x(v: number) { this.kel.x = v; }
+        public set y(v: number) { this.kel.y = v; }
+        public get pos(): Vec2 { return this.kel.pos; }
 
-        constructor(stage: Stage) {
+        constructor(stage: Stage, private baseCursor: string) {
             super(stage, "cursor");
-            this.kel0 = new Kelpie(icons.get("cursor"));
-            this.kel1 = new Kelpie(icons.get("carry"));
-            this.kel0.invisible = true;
-            this.kel1.invisible = true;
-            this.kel0.z = 1000;
-            this.kel1.z = 1000;
-            this.kel0.data["kind"] = "cursor";
-            this.kel0.data["component"] = this;
-            this.setCursorMode("free");
-            this.moveStartMs = 0;
-            this.cursorSpeed = 0;
-        }
-
-        public setCursorMode(mode: CursorMode) {
-            this.cursorMode = mode;
-            this.kel0.invisible = mode !== "free";
-            this.kel1.invisible = mode !== "burdened";
+            this.kel = new Kelpie(icons.get(`cursor_free_${baseCursor}`));
+            this.kel.z = 1000;
+            this.kel.data["kind"] = "cursor";
+            this.kel.data["component"] = this;
+            this.setVisualState("free");
         }
 
         public moveTo(x: number, y: number) {
@@ -54,19 +29,22 @@ namespace kodu {
 
         public disable() {
             this.disabled = true;
-            this.kel0.invisible = true;
-            this.kel1.invisible = true;
+            this.kel.invisible = true;
         }
 
         public enable() {
             this.disabled = false;
-            this.setCursorMode(this.cursorMode);
+            this.kel.invisible = false;
+            this.setVisualState(this.visualState);
         }
 
-        getAllOverlapping() {
-            return util.getAllOverlapping(this.kel0)
-                .filter(spr => util.pointInSprite(spr, this.x, this.y))
-                .sort((a, b) => b.z - a.z);
+        public setVisualState(state: VisualState) {
+            this.visualState = state;
+            this.kel.image = icons.get(`cursor_${state}_${this.baseCursor}`);
+        }
+
+        getAllOverlapping(): Kelpie[] {
+            return this.stage.radar.getOverlapping(this.kel);
         }
 
         handleAPressed() {
@@ -106,25 +84,44 @@ namespace kodu {
             this.stage.notify("cursor:cancel", { x: this.x, y: this.y });
         }
 
+        notify(event: string, parm: any) {
+            if (event === "save") {
+                const savedGame = parm as SavedGame;
+                savedGame.cursor = { x: this.x, y: this.y };
+            } else if (event === "load") {
+                const savedGame = parm as SavedGame;
+                if (savedGame.cursor) {
+                    this.x = savedGame.cursor.x;
+                    this.y = savedGame.cursor.y;
+                }
+                this.disabled = false;
+                this.setVisualState(this.visualState);
+            }
+        }
+    }
+
+    const maxCursorSpeed = 140 / 1000;      // pixels/milli
+    const startCursorSpeed = 40 / 1000;     //
+    const cursorSpeedInc = 20 / 1000;       // 
+    const shiftGearsAt = 50;                // millis
+
+    export class WorldCursor extends Cursor {
+        moveStartMs: number;    // millis at move start
+        cursorSpeed: number;    // pixels/milli
+
+        constructor(stage: Stage, baseCursor: string) {
+            super(stage, baseCursor);
+            this.moveStartMs = 0;
+            this.cursorSpeed = 0;
+        }
+
         update(dt: number) {
             if (this.disabled) { return; }
-            let x = 0;
-            let y = 0;
-            if (controller.up.isPressed()) {
-                y -= 1;
-            }
-            if (controller.down.isPressed()) {
-                y += 1;
-            }
-            if (controller.left.isPressed()) {
-                x -= 1;
-            }
-            if (controller.right.isPressed()) {
-                x += 1;
-            }
+            let x = (controller.right.isPressed() ? 1 : 0) - (controller.left.isPressed() ? 1 : 0);
+            let y = (controller.down.isPressed() ? 1 : 0) - (controller.up.isPressed() ? 1 : 0);
             if (x || y) {
                 const t = control.millis();
-                if (t + shiftGearsAt > this.moveStartMs) {
+                if (t > this.moveStartMs + shiftGearsAt) {
                     this.moveStartMs = t;
                     this.cursorSpeed += cursorSpeedInc;
                     this.cursorSpeed = Math.min(this.cursorSpeed, maxCursorSpeed);
@@ -137,19 +134,28 @@ namespace kodu {
                 this.cursorSpeed = startCursorSpeed;
             }
         }
+    }
 
-        notify(event: string, parm: any) {
-            if (event === "save") {
-                const savedGame = parm as SavedGame;
-                savedGame.cursor = { x: this.x, y: this.y };
-            } else if (event === "load") {
-                const savedGame = parm as SavedGame;
-                if (savedGame.cursor) {
-                    this.x = savedGame.cursor.x;
-                    this.y = savedGame.cursor.y;
+    export class StickyCursor extends Cursor {
+
+        constructor(stage: Stage, baseCursor: string) {
+            super(stage, baseCursor);
+        }
+
+        update(dt: number) {
+            if (this.disabled) { return; }
+            let x = (controller.right.isPressed() ? 1 : 0) - (controller.left.isPressed() ? 1 : 0);
+            let y = (controller.down.isPressed() ? 1 : 0) - (controller.up.isPressed() ? 1 : 0);
+            let dir: CardinalDirection = 0;
+            if (x > 0) dir |= CardinalDirection.East;
+            if (x < 0) dir |= CardinalDirection.West;
+            if (y > 0) dir |= CardinalDirection.South;
+            if (y < 0) dir |= CardinalDirection.North;
+            if (dir) {
+                const kel = this.stage.radar.getNearestInDirection(this.kel, dir, 0, 200);
+                if (true) {
+                    const x = 0;
                 }
-                this.disabled = false;
-                this.setCursorMode(this.cursorMode);
             }
         }
     }

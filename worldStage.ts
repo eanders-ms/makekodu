@@ -26,6 +26,7 @@ namespace kodu {
     export class WorldStage extends Stage {
         static ID = STAGE_ID;
         gameMode: GameMode;
+        cursor: WorldCursor;
         playBtn: Button;
         stopBtn: Button;
         //objectModeBtn: Button;
@@ -42,6 +43,7 @@ namespace kodu {
 
         initScene() {
             super.initScene();
+            this.cursor = new WorldCursor(this, "reticle");
             this.physics = new Physics(this);
             scene.setBackgroundColor(13);
             this.playBtn = new Button(this, "white", "play", "Play", 8, 112, true, () => this.handlePlayClicked());
@@ -79,6 +81,14 @@ namespace kodu {
             */
         }
 
+        handleAPressed() {
+            this.cursor.handleAPressed();
+        }
+
+        handleBPressed() {
+            this.cursor.handleBPressed();
+        }
+
         handleMenuPressed() {
             this.toggleGameMode();
         }
@@ -111,9 +121,14 @@ namespace kodu {
 
         private setGameMode(mode: GameMode) {
             if (this.gameMode === mode) { return; }
-            if (mode === GameMode.Play) { this.save(); }
+            if (mode === GameMode.Play) {
+                this.cursorDrop();
+                this.save();
+            }
             this.gameMode = mode;
-            if (mode === GameMode.Edit) { this.load(); }
+            if (mode === GameMode.Edit) {
+                this.load();
+            }
             this.playBtn.setVisible(mode === GameMode.Edit);
             this.newBtn.setVisible(mode === GameMode.Edit);
             this.stopBtn.setVisible(mode === GameMode.Play);
@@ -136,6 +151,7 @@ namespace kodu {
         }
 
         private load() {
+            this.cursor.enable();
             const chars = this.components
                 .filter(comp => comp.kind === "character")
                 .map(comp => comp as Character);
@@ -257,12 +273,12 @@ namespace kodu {
             this.carryTarget = char;
             this.carryTarget.x = this.cursor.x;
             this.carryTarget.y = this.cursor.y;
-            this.cursor.setCursorMode("burdened");
+            this.cursor.setVisualState("burdened");
         }
 
         public cursorDrop() {
             this.carryTarget = null;
-            this.cursor.setCursorMode("free");
+            this.cursor.setVisualState("free");
             this.save();
         }
 
@@ -295,6 +311,7 @@ namespace kodu {
             switch (field) {
                 case "gameMode": return this.gameMode as any as T;
                 case "physics": return this.physics as any as T;
+                case "point-of-interest": return this.cursor.pos as any as T;
                 default: return super.get(field);
             }
         }

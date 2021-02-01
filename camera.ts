@@ -41,11 +41,15 @@ namespace kodu {
             if (this.following) {
                 this.keepInFrame(this.following.x, this.following.y);
             } else {
-                this.keepInFrame(this.stage.cursor.x, this.stage.cursor.y);
+                const interest = this.stage.get<Vec2>("point-of-interest");
+                if (interest) {
+                    this.keepInFrame(interest.x, interest.y);
+                }
             }
         }
 
         keepInFrame(x: number, y: number) {
+            const cameraStep = this.stage.get<number>("camera-step") || 1;
             const camX = this.x;
             const camY = this.y;
             let nxtX = camX;
@@ -53,16 +57,16 @@ namespace kodu {
             const dx = x - camX;
             const dy = y - camY;
             if (dx < -80) {
-                nxtX = x + 80;
+                nxtX = x + 80 + cameraStep;
             }
             if (dx >= 80) {
-                nxtX = x - 80;
+                nxtX = x - 80 + cameraStep;
             }
             if (dy < -60) {
-                nxtY = y + 60;
+                nxtY = y + 60 + cameraStep;
             }
             if (dy >= 60) {
-                nxtY = y - 60;
+                nxtY = y - 60 + cameraStep;
             } 
             this.x = nxtX;
             this.y = nxtY;

@@ -255,13 +255,11 @@ namespace kodu {
         margin = 10;
 
         private pickDest() {
-            if (!this.prog.char.kelpie) { return; }
-            const camx = this.prog.char.stage.camera.x;
-            const camy = this.prog.char.stage.camera.y;
-            const x = -(80 + this.margin) + camx + Math.random() * (160 + this.margin * 2);
-            const y = -(60 + this.margin) + camy + Math.random() * (120 + this.margin * 2);
+            if (!this.prog.char.kel) { return; }
+            const cam = this.prog.char.stage.camera.pos;
+            const x = -(80 + this.margin) + cam.x + Math.random() * (160 + this.margin * 2);
+            const y = -(60 + this.margin) + cam.y + Math.random() * (120 + this.margin * 2);
             this.dest = mkVec2(x, y);
         }
-
     }
 }
