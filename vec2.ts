@@ -78,7 +78,16 @@ namespace kodu {
         }
 
         public static Determinant(a: Vec2, b: Vec2): number {
-            return a.x * b.y - a.y - b.x;
+            return a.x * b.y - a.y * b.x;
+        }
+
+        public static DistanceSq(a: Vec2, b: Vec2): number {
+            const d = Vec2.Sub(a, b);
+            return (d.x * d.x) + (d.y * d.y);  
+        }
+
+        public static Distance(a: Vec2, b: Vec2): number {
+            return Math.sqrt(Vec2.DistanceSq(a, b));
         }
     }
 

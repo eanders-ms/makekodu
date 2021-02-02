@@ -299,7 +299,7 @@ namespace kodu {
     // As implemented, GRID_DIM must be at least as large as the largest interactible kelpie,
     // otherwise the interior grid tiles won't be included. It will be straight forward to
     // include interior tiles as soon as we want it.
-    const GRID_DIM = 24;
+    const GRID_DIM = 16;
     const GRID_BOUNDS = ".sys-grid-bounds";
     const DBG_RENDER_GRIDTILES = true;
 
@@ -370,29 +370,35 @@ namespace kodu {
                         const kb = HitboxBounds.FromKelpie(k);
                         return !util.hitboxBoundsOverlap(kb, bounds)
                     })
-                    .sort((a, b) => b.z - a.z);
+                    .filter(k => {
+                        if (dir & CardinalDirection.North) { return k.y < src.y; }
+                        if (dir & CardinalDirection.South) { return k.y > src.y; }
+                        if (dir & CardinalDirection.East) { return k.x > src.x; }
+                        if (dir & CardinalDirection.West) { return k.x < src.x; }
+                        return false;
+                    })
+                    .sort((a, b) => -Vec2.DistanceSq(a, b))
+                    //.sort((a, b) => b.z - a.z);
                 const kel = kels.shift();
                 if (kel) { return kel; }
                 gridbounds.expand(dir);
             }
-
-
             return null;
         }
 
         private collectEdgeKels(gridbounds: HitboxBounds): Kelpie[] {
             let kels: Kelpie[] = [];
-            for (let col = gridbounds.left; col <= gridbounds.right; ++col) {
+            for (let col = gridbounds.left; col < gridbounds.right; ++col) {
                 const topTile = this.getTile(gridbounds.top, col);
                 if (topTile) { topTile.collectInto(kels); }
                 const bottomTile = this.getTile(gridbounds.bottom, col);
                 if (bottomTile && bottomTile !== topTile) { bottomTile.collectInto(kels); }
             }
-            for (let row = gridbounds.top + 1; row <= gridbounds.bottom - 1; ++row) {
-                const leftTile = this.getTile(gridbounds.left, row);
+            for (let row = gridbounds.top + 1; row < gridbounds.bottom - 1; ++row) {
+                const leftTile = this.getTile(row, gridbounds.left);
                 if (leftTile) { leftTile.collectInto(kels); }
-                const rightTile = this.getTile(gridbounds.right, row);
-                if (rightTile && rightTile !== rightTile) { rightTile.collectInto(kels); }
+                const rightTile = this.getTile(row, gridbounds.right);
+                if (rightTile && rightTile !== leftTile) { rightTile.collectInto(kels); }
             }
             return kels;
         }

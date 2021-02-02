@@ -153,8 +153,9 @@ namespace kodu {
             if (y < 0) dir |= CardinalDirection.North;
             if (dir) {
                 const kel = this.stage.radar.getNearestInDirection(this.kel, dir, 0, 200);
-                if (true) {
-                    const x = 0;
+                if (kel) {
+                    this.x = kel.x;
+                    this.y = kel.y;
                 }
             }
         }

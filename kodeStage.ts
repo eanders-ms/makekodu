@@ -632,6 +632,10 @@ namespace kodu {
             }
         }
 
+        handleAPressed() {
+            this.cursor.handleAPressed();
+        }
+
         handleBPressed() {
             this.hideMenu();
         }
