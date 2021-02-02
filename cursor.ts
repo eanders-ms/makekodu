@@ -137,6 +137,8 @@ namespace kodu {
     }
 
     export class StickyCursor extends Cursor {
+        pressed: boolean;
+        nextMs: number;
 
         constructor(stage: Stage, baseCursor: string) {
             super(stage, baseCursor);
@@ -144,6 +146,7 @@ namespace kodu {
 
         update(dt: number) {
             if (this.disabled) { return; }
+            const wasPressed = this.pressed;
             let x = (controller.right.isPressed() ? 1 : 0) - (controller.left.isPressed() ? 1 : 0);
             let y = (controller.down.isPressed() ? 1 : 0) - (controller.up.isPressed() ? 1 : 0);
             let dir: CardinalDirection = 0;
@@ -151,11 +154,25 @@ namespace kodu {
             if (x < 0) dir |= CardinalDirection.West;
             if (y > 0) dir |= CardinalDirection.South;
             if (y < 0) dir |= CardinalDirection.North;
-            if (dir) {
+            this.pressed = !!dir;
+            if (!this.pressed) { return; }
+            // TODO make a debouncer for this
+            const t = control.millis();
+            let exec = false;
+            if (!wasPressed) {
+                this.nextMs = t + INPUT_INITIAL_DELAY;
+                exec = true;
+            } else if (t >= this.nextMs) {
+                this.nextMs = t + INPUT_REPEAT_DELAY;
+                exec = true;
+            }
+            if (exec) {
                 const kel = this.stage.radar.getNearestInDirection(this.kel, dir, 0, 200);
                 if (kel) {
                     this.x = kel.x;
                     this.y = kel.y;
+                } else {
+                    this.pressed = false;
                 }
             }
         }

@@ -55,8 +55,12 @@ namespace kodu {
             if (this.back) { this.back.destroy(); }
             if (this.text) { this.text.destroy(); }
             this.icon = new Kelpie(icons.get(this.iconId));
+            this.icon.hud = this.hud;
+            this.icon.interactible = !!this.onClick;
             if (this.style) {
                 this.back = new Kelpie(icons.get(`button_${this.style}`));
+                this.back.hud = this.hud;
+                this.back.interactible = !!this.onClick;
             }
             this.icon.x = this.x;
             this.icon.y = this.y;

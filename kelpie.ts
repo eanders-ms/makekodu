@@ -2,6 +2,7 @@ namespace kodu {
     export enum KelpieFlags {
         Invisible = 1 >> 0,
         HUD = 1 >> 1,
+        NonInteractible = 1 >> 2
     }
 
     export type KelpieHandler = (kelpie: Kelpie) => void;
@@ -113,6 +114,10 @@ namespace kodu {
         //% blockCombine block="invisible" callInDebugger
         get invisible() { return !!(this._flags & KelpieFlags.Invisible); }
         set invisible(b: boolean) { b ? this._flags |= KelpieFlags.Invisible : this._flags &= ~KelpieFlags.Invisible; }
+
+        //% blockCombine block="interactible" callInDebugger
+        get interactible() { return !(this._flags & KelpieFlags.NonInteractible); }
+        set interactible(b: boolean) { (!b) ? this._flags |= KelpieFlags.NonInteractible : this._flags &= ~KelpieFlags.NonInteractible; }
 
         constructor(img: Image) {
             super(scene.SPRITE_Z);
@@ -349,7 +354,7 @@ namespace kodu {
                 tileSet.collectInto(kels);
             }
             return kels
-                .filter(k => k && !k.invisible)
+                .filter(k => k && !k.invisible && k.interactible)
                 .filter(k => {
                     const kbounds = HitboxBounds.FromKelpie(k);
                     return util.hitboxBoundsOverlap(kbounds, bounds);
@@ -364,20 +369,20 @@ namespace kodu {
             const gridbounds = this.toGridCoords(bounds);
             gridbounds.occupy(dir);
             for (let dist = minDist; dist <= maxDist; ++dist) {
-                const kels = this.collectEdgeKels(gridbounds)
-                    .filter(k => k && !k.invisible)
-                    .filter(k => {
+                let kels = this.collectEdgeKels(gridbounds)
+                kels = kels.filter(k => k && k !== src && !k.invisible && k.interactible)
+                kels = kels.filter(k => {
                         const kb = HitboxBounds.FromKelpie(k);
                         return !util.hitboxBoundsOverlap(kb, bounds)
                     })
-                    .filter(k => {
+                kels = kels.filter(k => {
                         if (dir & CardinalDirection.North) { return k.y < src.y; }
                         if (dir & CardinalDirection.South) { return k.y > src.y; }
-                        if (dir & CardinalDirection.East) { return k.x > src.x; }
-                        if (dir & CardinalDirection.West) { return k.x < src.x; }
+                        if (dir & CardinalDirection.East ) { return k.x > src.x; }
+                        if (dir & CardinalDirection.West ) { return k.x < src.x; }
                         return false;
                     })
-                    .sort((a, b) => -Vec2.DistanceSq(a, b))
+                kels = kels.sort((a, b) => Vec2.DistanceSq(a, b))
                     //.sort((a, b) => b.z - a.z);
                 const kel = kels.shift();
                 if (kel) { return kel; }
@@ -388,13 +393,13 @@ namespace kodu {
 
         private collectEdgeKels(gridbounds: HitboxBounds): Kelpie[] {
             let kels: Kelpie[] = [];
-            for (let col = gridbounds.left; col < gridbounds.right; ++col) {
+            for (let col = gridbounds.left; col <= gridbounds.right; ++col) {
                 const topTile = this.getTile(gridbounds.top, col);
                 if (topTile) { topTile.collectInto(kels); }
                 const bottomTile = this.getTile(gridbounds.bottom, col);
                 if (bottomTile && bottomTile !== topTile) { bottomTile.collectInto(kels); }
             }
-            for (let row = gridbounds.top + 1; row < gridbounds.bottom - 1; ++row) {
+            for (let row = gridbounds.top + 1; row <= gridbounds.bottom - 1; ++row) {
                 const leftTile = this.getTile(row, gridbounds.left);
                 if (leftTile) { leftTile.collectInto(kels); }
                 const rightTile = this.getTile(row, gridbounds.right);

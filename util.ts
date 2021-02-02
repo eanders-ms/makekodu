@@ -1,11 +1,13 @@
 namespace kodu {
     export const TWO_PI = 2 * Math.PI;
+    export const INPUT_INITIAL_DELAY = 200;
+    export const INPUT_REPEAT_DELAY = 80;
 
     export enum CardinalDirection {
         North = 1 << 0, // screen up
         South = 1 << 1, // screen down
-        East = 1 << 2,  // screen right
-        West = 1 << 3,  // screen left
+        East  = 1 << 2, // screen right
+        West  = 1 << 3, // screen left
         NorthWest = North | West,
         NorthEast = North | East,
         SouthWest = South | West,
