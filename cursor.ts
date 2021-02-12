@@ -142,6 +142,7 @@ namespace kodu {
 
         constructor(stage: Stage, baseCursor: string) {
             super(stage, baseCursor);
+            this.kel.hitbox = new Hitbox(1, 1, 8, 10);
         }
 
         update(dt: number) {

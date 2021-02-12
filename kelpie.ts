@@ -106,6 +106,7 @@ namespace kodu {
 
         //% blockCombine block="image" callInDebugger
         get hitbox(): Hitbox { return this._hitbox; }
+        set hitbox(v: Hitbox) { this._hitbox = v; }
 
         //% blockCombine block="hud" callInDebugger
         get hud() { return !!(this._flags & KelpieFlags.HUD); }
